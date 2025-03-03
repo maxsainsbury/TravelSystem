@@ -62,8 +62,6 @@ public class Flight {
         this.destinationCity = destinationCity;
         //take the year, month, day, hour, and minute parameters and turn them into a LocalDateTime
         this.departureDate = LocalDateTime.of(year, month, day, hour, minute);
-        //random flight id, must be change to first not used id when adding to the database
-        this.flightId = 0;
     }
 
     public String getAirLine() {

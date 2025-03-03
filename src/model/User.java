@@ -18,8 +18,7 @@ public class User {
      * @param lastName last name of the user
      */
     public User(String firstName, String lastName, int id) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this(firstName, lastName);
         this.id = id;
     }
     
@@ -33,7 +32,8 @@ public class User {
     public User(String firstName, String lastName) {
         //call the 3 param constructor
         //must change id to next available when adding to the database
-        this(firstName, lastName, 0);
+        this.firstName = firstName;
+        this.lastName = lastName;
         
     }
 

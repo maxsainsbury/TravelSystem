@@ -37,8 +37,22 @@ public class Client extends User{
         this.dob = LocalDate.parse(dob);
     }
     
+    
+    /**
+     * Constructor for Client object for when making a new client in the GUI
+     * 
+     * @param firstName
+     * @param lastName
+     * @param phoneNumber
+     * @param email
+     * @param address
+     * @param billingAddress
+     * @param year
+     * @param month
+     * @param day 
+     */
     public Client(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, int year, int month, int day) {
-        super(firstName, lastName, 0);
+        super(firstName, lastName);
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
