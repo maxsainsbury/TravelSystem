@@ -26,6 +26,8 @@ public class Employee extends User{
      * @param lastName last name of the employee
      */
     public Employee(String firstName, String lastName) {
-        super(firstName, lastName);
+        super(firstName, lastName, 0);
     }
+    
+    
 }
