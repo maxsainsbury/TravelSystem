@@ -26,7 +26,9 @@ public class Promotion {
         this.promoName = promoName;
         this.discountPercent = discountPercent;
         this.promoId = promoId;
+        //Set up a formatter to tell the program how to interpret the value given by the date column in the Promotion database
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //turn the value from the database into a LocalDate object
         this.promoMonth = LocalDate.parse(promoMonth, formatter);
     }
     
@@ -40,6 +42,7 @@ public class Promotion {
     public Promotion(String promoName, int discountPercent, int year, int month) {
         this.promoName = promoName;
         this.discountPercent = discountPercent;
+        //take the inputed year and month values, and set a Localdate object to the first of that month
         this.promoMonth = LocalDate.of(year, month, 1);
     }
 
