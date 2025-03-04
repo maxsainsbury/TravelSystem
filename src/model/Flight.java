@@ -60,6 +60,7 @@ public class Flight {
         this.duration = duration;
         this.departureCity = departureCity;
         this.destinationCity = destinationCity;
+        this.price = price;
         //take the year, month, day, hour, and minute parameters and turn them into a LocalDateTime
         this.departureDate = LocalDateTime.of(year, month, day, hour, minute);
     }

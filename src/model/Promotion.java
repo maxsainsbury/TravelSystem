@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -25,7 +26,8 @@ public class Promotion {
         this.promoName = promoName;
         this.discountPercent = discountPercent;
         this.promoId = promoId;
-        this.promoMonth = LocalDate.parse(promoMonth);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.promoMonth = LocalDate.parse(promoMonth, formatter);
     }
     
     /**
