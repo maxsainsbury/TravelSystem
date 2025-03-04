@@ -1,4 +1,4 @@
-package testing;
+package test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -28,7 +28,6 @@ public class ModelTest {
     
     @Test
     public void UserTest() {
-        System.out.println("Starting User Model Tests");
         User databaseUser = new User("Jim", "Frank", 34);
         User createUser = new User("Elsa", "Panda");
         
@@ -44,12 +43,10 @@ public class ModelTest {
         assertEquals("Sophia", createUser.getFirstName());
         assertEquals("Sleep", createUser.getLastName());
         assertEquals(88, createUser.getId());
-        System.out.println("User Model Tests completed with no errors");
     }
     
     @Test
     public void EmployeeTest() {
-        System.out.println("Starting employee model tests");
         Employee databaseEmployee = new Employee("Eric", "Kevin", 23);
         Employee createEmployee = new Employee("Sage", "Tyme");
         
@@ -58,11 +55,10 @@ public class ModelTest {
         assertEquals(23, databaseEmployee.getId());
         assertEquals("Sage", createEmployee.getFirstName());
         assertEquals("Tyme", createEmployee.getLastName());
-        System.out.println("employee model test completed with no errors");
     }
     
+    @Test
     public void ClientTest() {
-        System.out.println("Sterting client model tests");
         Client databaseClient = new Client("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", "1989-02-23", 32);
         Client createClient = new Client("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", 1989, 02, 23);
         
@@ -105,11 +101,10 @@ public class ModelTest {
         assertEquals(1111, createClient.getDob().getYear());
         assertEquals(3, createClient.getDob().getMonthValue());
         assertEquals(12, createClient.getDob().getDayOfMonth());
-        System.out.println("Client model tests completed with no errors");
     }
     
+    @Test
     public void promotionTest() {
-        System.out.println("Starting promotion model tests");
         Promotion databasePromotion = new Promotion("Canada Promo", 40, "1989-02-01", 123);
         Promotion createPromotion = new Promotion("Canada Promo", 40, 1989, 02);
         
@@ -134,11 +129,10 @@ public class ModelTest {
         assertEquals(1111, createPromotion.getPromoMonth().getYear());
         assertEquals(5, createPromotion.getPromoMonth().getMonthValue());
         assertEquals(987, createPromotion.getPromoId());
-        System.out.println("Promotion model tests completed with no errors");
     }
     
+    @Test
     public void flightTest() {
-        System.out.println("Starting flight model tests");
         Flight databaseFlight = new Flight("AirCanada", 120, "Victoria", "Vancouver", 200.21, 123, "1989-02-21 12:32:00");
         Flight createFlight = new Flight("AirCanada", 120, "Victoria", "Vancouver", 200.21, 1989, 02, 21, 12, 32);
         
@@ -184,11 +178,10 @@ public class ModelTest {
         assertEquals(10, createFlight.getDepartureDate().getHour());
         assertEquals(29, createFlight.getDepartureDate().getMinute());
         assertEquals(123, createFlight.getFlightId());
-        System.out.println("Flight model tests completed with no errors");
     }
     
+    @Test
     public void tripTest() {
-        System.out.println("Starting trip model tests");
         Trip databaseTrip = new Trip(123, 321, 1);
         Trip createTrip = new Trip(123, 321);
         
@@ -206,6 +199,5 @@ public class ModelTest {
         assertEquals(198, createTrip.getFlightId());
         assertEquals(789, createTrip.getPromoId());
         assertEquals(123, createTrip.getTripId());
-        System.out.println("Trip model tests completed with no errors");
     }
 }
