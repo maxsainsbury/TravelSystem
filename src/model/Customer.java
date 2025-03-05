@@ -14,6 +14,7 @@ public class Customer extends User{
     private String address;
     private String billingAddress;
     private LocalDate dob;
+    private Trip[] bookedTrips;
     
     /**
      * Constructor for Customer object when getting the information from the database
@@ -27,12 +28,13 @@ public class Customer extends User{
      * @param dob
      * @param id 
      */
-    public Customer(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, String dob, int id) {
+    public Customer(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, String dob, Trip[] bookedTrips, int id) {
         super(firstName, lastName, id);
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
         this.billingAddress = billingAddress;
+        this.bookedTrips = bookedTrips;
         //parse the string from the database into a LocalDate variable type
         this.dob = LocalDate.parse(dob);
     }
@@ -40,6 +42,7 @@ public class Customer extends User{
     
     /**
      * Constructor for Customer object for when making a new client in the GUI
+     * missing bookedTrips and id because a new customer will have none
      * 
      * @param firstName
      * @param lastName
