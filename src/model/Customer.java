@@ -103,6 +103,14 @@ public class Customer extends User{
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
+
+    public Trip[] getBookedTrips() {
+        return bookedTrips;
+    }
+
+    public void setBookedTrips(Trip[] bookedTrips) {
+        this.bookedTrips = bookedTrips;
+    }
     
     
 }
