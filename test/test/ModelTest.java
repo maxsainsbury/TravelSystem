@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import junit.framework.Assert;
-import model.Client;
+import model.Customer;
 import model.Employee;
 import model.Flight;
 import model.Promotion;
@@ -59,8 +59,8 @@ public class ModelTest {
     
     @Test
     public void ClientTest() {
-        Client databaseClient = new Client("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", "1989-02-23", 32);
-        Client createClient = new Client("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", 1989, 02, 23);
+        Customer databaseClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", "1989-02-23", 32);
+        Customer createClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", 1989, 02, 23);
         
         assertEquals("Eric", databaseClient.getFirstName());
         assertEquals("Kevin", databaseClient.getLastName());

@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Max Sainsbury
  */
-public class Client extends User{
+public class Customer extends User{
     private String phoneNumber;
     private String email;
     private String address;
@@ -16,7 +16,7 @@ public class Client extends User{
     private LocalDate dob;
     
     /**
-     * Constructor for Client object when getting the information from the database
+     * Constructor for Customer object when getting the information from the database
      * 
      * @param firstName first name of Client
      * @param lastName last name of Client
@@ -27,7 +27,7 @@ public class Client extends User{
      * @param dob
      * @param id 
      */
-    public Client(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, String dob, int id) {
+    public Customer(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, String dob, int id) {
         super(firstName, lastName, id);
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -39,7 +39,7 @@ public class Client extends User{
     
     
     /**
-     * Constructor for Client object for when making a new client in the GUI
+     * Constructor for Customer object for when making a new client in the GUI
      * 
      * @param firstName
      * @param lastName
@@ -51,7 +51,7 @@ public class Client extends User{
      * @param month
      * @param day 
      */
-    public Client(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, int year, int month, int day) {
+    public Customer(String firstName, String lastName, String phoneNumber, String email, String address, String billingAddress, int year, int month, int day) {
         super(firstName, lastName);
         this.phoneNumber = phoneNumber;
         this.email = email;
