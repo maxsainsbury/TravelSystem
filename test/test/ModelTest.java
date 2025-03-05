@@ -2,9 +2,6 @@ package test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import junit.framework.Assert;
 import model.Customer;
 import model.Employee;
 import model.Flight;
@@ -47,19 +44,33 @@ public class ModelTest {
     
     @Test
     public void EmployeeTest() {
-        Employee databaseEmployee = new Employee("Eric", "Kevin", 23);
-        Employee createEmployee = new Employee("Sage", "Tyme");
+        Employee databaseEmployee = new Employee("Eric", "Kevin", "12345", 23);
+        Employee createEmployee = new Employee("Sage", "Tyme", "12345");
         
         assertEquals("Eric", databaseEmployee.getFirstName());
         assertEquals("Kevin", databaseEmployee.getLastName());
+        assertEquals("12345", databaseEmployee.getPassword());
         assertEquals(23, databaseEmployee.getId());
         assertEquals("Sage", createEmployee.getFirstName());
         assertEquals("Tyme", createEmployee.getLastName());
+        assertEquals("12345", createEmployee.getPassword());
+        
+        createEmployee.setFirstName("Eric");
+        createEmployee.setLastName("Kevin");
+        createEmployee.setId(23);
+        createEmployee.setPassword("54321");
+        
+        assertEquals("Eric", createEmployee.getFirstName());
+        assertEquals("Kevin", createEmployee.getLastName());
+        assertEquals("54321", createEmployee.getPassword());
+        assertEquals(23, databaseEmployee.getId());
     }
     
     @Test
     public void ClientTest() {
-        Customer databaseClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", "1989-02-23", 32);
+        Trip[] tripArr = {new Trip(200, 0, 100.32, 123, 321), new Trip(200, 0, 100.32, 123, 321, 1)};
+        
+        Customer databaseClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", "1989-02-23", tripArr, 32);
         Customer createClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", 1989, 02, 23);
         
         assertEquals("Eric", databaseClient.getFirstName());
@@ -71,6 +82,8 @@ public class ModelTest {
         assertEquals(1989, databaseClient.getDob().getYear());
         assertEquals(2, databaseClient.getDob().getMonthValue());
         assertEquals(23, databaseClient.getDob().getDayOfMonth());
+        assertEquals(tripArr[0], databaseClient.getBookedTrips()[0]);
+        assertEquals(tripArr[1], databaseClient.getBookedTrips()[1]);
         assertEquals(32, databaseClient.getId());
         
         assertEquals("Eric", createClient.getFirstName());
@@ -90,6 +103,7 @@ public class ModelTest {
         createClient.setDob(LocalDate.of(1111, 03, 12));
         createClient.setAddress("321 Road ave");
         createClient.setBillingAddress("543 Avenue road");
+        createClient.setBookedTrips(tripArr);
         createClient.setId(22);
         
         assertEquals("Elsa", createClient.getFirstName());
@@ -101,6 +115,9 @@ public class ModelTest {
         assertEquals(1111, createClient.getDob().getYear());
         assertEquals(3, createClient.getDob().getMonthValue());
         assertEquals(12, createClient.getDob().getDayOfMonth());
+        assertEquals(tripArr[0], createClient.getBookedTrips()[0]);
+        assertEquals(tripArr[1], createClient.getBookedTrips()[1]);
+        assertEquals(22, createClient.getId());
     }
     
     @Test
@@ -182,20 +199,32 @@ public class ModelTest {
     
     @Test
     public void tripTest() {
-        Trip databaseTrip = new Trip(123, 321, 1);
-        Trip createTrip = new Trip(123, 321);
+        Trip databaseTrip = new Trip(200, 0, 100.32, 123, 321, 1);
+        Trip createTrip = new Trip(200, 0, 100.32, 123, 321);
         
+        assertEquals(200, databaseTrip.getTotalTime());
+        assertEquals(0, databaseTrip.getLayoverDuration());
+        assertEquals(100.32, databaseTrip.getTotalPrice(), 0.00);
         assertEquals(123, databaseTrip.getFlightId());
         assertEquals(321, databaseTrip.getPromoId());
         assertEquals(1, databaseTrip.getTripId());
         
+        assertEquals(200, createTrip.getTotalTime());
+        assertEquals(0, createTrip.getLayoverDuration());
+        assertEquals(100.32, createTrip.getTotalPrice(), 0.00);
         assertEquals(123, createTrip.getFlightId());
         assertEquals(321, createTrip.getPromoId());
         
+        createTrip.setTotalTime(100);
+        createTrip.setLayoverDuration(10);
+        createTrip.setTotalPrice(10.10);
         createTrip.setFlightId(198);
         createTrip.setPromoId(789);
         createTrip.setTripId(123);
         
+        assertEquals(100, createTrip.getTotalTime());
+        assertEquals(10, createTrip.getLayoverDuration());
+        assertEquals(10.10, createTrip.getTotalPrice(), 0.00);
         assertEquals(198, createTrip.getFlightId());
         assertEquals(789, createTrip.getPromoId());
         assertEquals(123, createTrip.getTripId());
