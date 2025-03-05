@@ -5,6 +5,7 @@ package model;
  * @author Max Sainsbury
  */
 public class Employee extends User{
+    private String password;
     
     /**
      * Constructor for Employee class for when id is known
@@ -14,8 +15,9 @@ public class Employee extends User{
      * @param lastName last name of the employee
      * @param id id of the employee
      */
-    public Employee(String firstName, String lastName, int id) {
+    public Employee(String firstName, String lastName, String password, int id) {
         super(firstName, lastName, id);
+        this.password = password;
     }
     
     /**
@@ -25,8 +27,17 @@ public class Employee extends User{
      * @param firstName first name of the employee
      * @param lastName last name of the employee
      */
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, String password) {
         super(firstName, lastName);
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     
