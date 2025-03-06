@@ -1,0 +1,232 @@
+package test;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import model.Customer;
+import model.Employee;
+import model.Flight;
+import model.Promotion;
+import model.Trip;
+import org.junit.Test;
+import org.junit.Assert.*;
+import model.User;
+import static org.junit.Assert.assertEquals;
+
+
+/**
+ *
+ * @author Max Sainsbury
+ */
+public class ModelTest {
+    
+    public ModelTest() {
+        
+    }
+    
+    @Test
+    public void UserTest() {
+        User databaseUser = new User("Jim", "Frank", 34);
+        User createUser = new User("Elsa", "Panda");
+        
+        assertEquals("Jim", databaseUser.getFirstName());
+        assertEquals("Frank", databaseUser.getLastName());
+        assertEquals(34, databaseUser.getId());
+        assertEquals("Elsa", createUser.getFirstName());
+        assertEquals("Panda", createUser.getLastName());
+        
+        createUser.setFirstName("Sophia");
+        createUser.setLastName("Sleep");
+        createUser.setId(88);
+        assertEquals("Sophia", createUser.getFirstName());
+        assertEquals("Sleep", createUser.getLastName());
+        assertEquals(88, createUser.getId());
+    }
+    
+    @Test
+    public void EmployeeTest() {
+        Employee databaseEmployee = new Employee("Eric", "Kevin", "12345", 23);
+        Employee createEmployee = new Employee("Sage", "Tyme", "12345");
+        
+        assertEquals("Eric", databaseEmployee.getFirstName());
+        assertEquals("Kevin", databaseEmployee.getLastName());
+        assertEquals("12345", databaseEmployee.getPassword());
+        assertEquals(23, databaseEmployee.getId());
+        assertEquals("Sage", createEmployee.getFirstName());
+        assertEquals("Tyme", createEmployee.getLastName());
+        assertEquals("12345", createEmployee.getPassword());
+        
+        createEmployee.setFirstName("Eric");
+        createEmployee.setLastName("Kevin");
+        createEmployee.setId(23);
+        createEmployee.setPassword("54321");
+        
+        assertEquals("Eric", createEmployee.getFirstName());
+        assertEquals("Kevin", createEmployee.getLastName());
+        assertEquals("54321", createEmployee.getPassword());
+        assertEquals(23, databaseEmployee.getId());
+    }
+    
+    @Test
+    public void ClientTest() {
+        Trip[] tripArr = {new Trip(200, 0, 100.32, 123, 321), new Trip(200, 0, 100.32, 123, 321, 1)};
+        
+        Customer databaseClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", "1989-02-23", tripArr, 32);
+        Customer createClient = new Customer("Eric", "Kevin", "250-738-3219", "erickevin@gmail.com", "123 Street st", "124 Street st", 1989, 02, 23);
+        
+        assertEquals("Eric", databaseClient.getFirstName());
+        assertEquals("Kevin", databaseClient.getLastName());
+        assertEquals("250-738-3219", databaseClient.getPhoneNumber());
+        assertEquals("erickevin@gmail.com", databaseClient.getEmail());
+        assertEquals("123 Street st", databaseClient.getAddress());
+        assertEquals("124 Street st", databaseClient.getBillingAddress());
+        assertEquals(1989, databaseClient.getDob().getYear());
+        assertEquals(2, databaseClient.getDob().getMonthValue());
+        assertEquals(23, databaseClient.getDob().getDayOfMonth());
+        assertEquals(tripArr[0], databaseClient.getBookedTrips()[0]);
+        assertEquals(tripArr[1], databaseClient.getBookedTrips()[1]);
+        assertEquals(32, databaseClient.getId());
+        
+        assertEquals("Eric", createClient.getFirstName());
+        assertEquals("Kevin", createClient.getLastName());
+        assertEquals("250-738-3219", createClient.getPhoneNumber());
+        assertEquals("erickevin@gmail.com", createClient.getEmail());
+        assertEquals("123 Street st", createClient.getAddress());
+        assertEquals("124 Street st", createClient.getBillingAddress());
+        assertEquals(1989, createClient.getDob().getYear());
+        assertEquals(2, createClient.getDob().getMonthValue());
+        assertEquals(23, createClient.getDob().getDayOfMonth());
+        
+        createClient.setFirstName("Elsa");
+        createClient.setLastName("Snow");
+        createClient.setPhoneNumber("111-111-1111");
+        createClient.setEmail("elsasnow@gmail.com");
+        createClient.setDob(LocalDate.of(1111, 03, 12));
+        createClient.setAddress("321 Road ave");
+        createClient.setBillingAddress("543 Avenue road");
+        createClient.setBookedTrips(tripArr);
+        createClient.setId(22);
+        
+        assertEquals("Elsa", createClient.getFirstName());
+        assertEquals("Snow", createClient.getLastName());
+        assertEquals("111-111-1111", createClient.getPhoneNumber());
+        assertEquals("elsasnow@gmail.com", createClient.getEmail());
+        assertEquals("321 Road ave", createClient.getAddress());
+        assertEquals("543 Avenue road", createClient.getBillingAddress());
+        assertEquals(1111, createClient.getDob().getYear());
+        assertEquals(3, createClient.getDob().getMonthValue());
+        assertEquals(12, createClient.getDob().getDayOfMonth());
+        assertEquals(tripArr[0], createClient.getBookedTrips()[0]);
+        assertEquals(tripArr[1], createClient.getBookedTrips()[1]);
+        assertEquals(22, createClient.getId());
+    }
+    
+    @Test
+    public void promotionTest() {
+        Promotion databasePromotion = new Promotion("Canada Promo", 40, "1989-02-01", 123);
+        Promotion createPromotion = new Promotion("Canada Promo", 40, 1989, 02);
+        
+        assertEquals("Canada Promo", databasePromotion.getPromoName());
+        assertEquals(40, databasePromotion.getDiscountPercent());
+        assertEquals(1989, databasePromotion.getPromoMonth().getYear());
+        assertEquals(2, databasePromotion.getPromoMonth().getMonthValue());
+        assertEquals(123, databasePromotion.getPromoId());
+        
+        assertEquals("Canada Promo", createPromotion.getPromoName());
+        assertEquals(40, createPromotion.getDiscountPercent());
+        assertEquals(1989, createPromotion.getPromoMonth().getYear());
+        assertEquals(2, createPromotion.getPromoMonth().getMonthValue());
+        
+        createPromotion.setPromoName("France Promo");
+        createPromotion.setDiscountPercent(10);
+        createPromotion.setPromoMonth(LocalDate.of(1111, 05, 01));
+        createPromotion.setPromoId(987);
+        
+        assertEquals("France Promo", createPromotion.getPromoName());
+        assertEquals(10, createPromotion.getDiscountPercent());
+        assertEquals(1111, createPromotion.getPromoMonth().getYear());
+        assertEquals(5, createPromotion.getPromoMonth().getMonthValue());
+        assertEquals(987, createPromotion.getPromoId());
+    }
+    
+    @Test
+    public void flightTest() {
+        Flight databaseFlight = new Flight("AirCanada", 120, "Victoria", "Vancouver", 200.21, 123, "1989-02-21 12:32:00");
+        Flight createFlight = new Flight("AirCanada", 120, "Victoria", "Vancouver", 200.21, 1989, 02, 21, 12, 32);
+        
+        assertEquals("AirCanada", databaseFlight.getAirLine());
+        assertEquals(120, databaseFlight.getDuration());
+        assertEquals("Victoria", databaseFlight.getDepartureCity());
+        assertEquals("Vancouver", databaseFlight.getDestinationCity());
+        assertEquals(200.21, databaseFlight.getPrice(), 0.0);
+        assertEquals(1989, databaseFlight.getDepartureDate().getYear());
+        assertEquals(02, databaseFlight.getDepartureDate().getMonthValue());
+        assertEquals(21, databaseFlight.getDepartureDate().getDayOfMonth());
+        assertEquals(12, databaseFlight.getDepartureDate().getHour());
+        assertEquals(32, databaseFlight.getDepartureDate().getMinute());
+        assertEquals(123, databaseFlight.getFlightId());
+        
+        assertEquals("AirCanada", createFlight.getAirLine());
+        assertEquals(120, createFlight.getDuration());
+        assertEquals("Victoria", createFlight.getDepartureCity());
+        assertEquals("Vancouver", createFlight.getDestinationCity());
+        assertEquals(200.21, createFlight.getPrice(), 0.0);
+        assertEquals(1989, createFlight.getDepartureDate().getYear());
+        assertEquals(02, createFlight.getDepartureDate().getMonthValue());
+        assertEquals(21, createFlight.getDepartureDate().getDayOfMonth());
+        assertEquals(12, createFlight.getDepartureDate().getHour());
+        assertEquals(32, createFlight.getDepartureDate().getMinute());
+        
+        createFlight.setAirLine("West Jet");
+        createFlight.setDuration(200);
+        createFlight.setDepartureCity("Calgary");
+        createFlight.setDestinationCity("Victoria");
+        createFlight.setPrice(432.12);
+        createFlight.setDepartureDate(LocalDateTime.of(2001, 03, 24, 10, 29));
+        createFlight.setFlightId(123);
+        
+        assertEquals("West Jet", createFlight.getAirLine());
+        assertEquals(200, createFlight.getDuration());
+        assertEquals("Calgary", createFlight.getDepartureCity());
+        assertEquals("Victoria", createFlight.getDestinationCity());
+        assertEquals(432.12, createFlight.getPrice(), 0.0);
+        assertEquals(2001, createFlight.getDepartureDate().getYear());
+        assertEquals(03, createFlight.getDepartureDate().getMonthValue());
+        assertEquals(24, createFlight.getDepartureDate().getDayOfMonth());
+        assertEquals(10, createFlight.getDepartureDate().getHour());
+        assertEquals(29, createFlight.getDepartureDate().getMinute());
+        assertEquals(123, createFlight.getFlightId());
+    }
+    
+    @Test
+    public void tripTest() {
+        Trip databaseTrip = new Trip(200, 0, 100.32, 123, 321, 1);
+        Trip createTrip = new Trip(200, 0, 100.32, 123, 321);
+        
+        assertEquals(200, databaseTrip.getTotalTime());
+        assertEquals(0, databaseTrip.getLayoverDuration());
+        assertEquals(100.32, databaseTrip.getTotalPrice(), 0.00);
+        assertEquals(123, databaseTrip.getFlightId());
+        assertEquals(321, databaseTrip.getPromoId());
+        assertEquals(1, databaseTrip.getTripId());
+        
+        assertEquals(200, createTrip.getTotalTime());
+        assertEquals(0, createTrip.getLayoverDuration());
+        assertEquals(100.32, createTrip.getTotalPrice(), 0.00);
+        assertEquals(123, createTrip.getFlightId());
+        assertEquals(321, createTrip.getPromoId());
+        
+        createTrip.setTotalTime(100);
+        createTrip.setLayoverDuration(10);
+        createTrip.setTotalPrice(10.10);
+        createTrip.setFlightId(198);
+        createTrip.setPromoId(789);
+        createTrip.setTripId(123);
+        
+        assertEquals(100, createTrip.getTotalTime());
+        assertEquals(10, createTrip.getLayoverDuration());
+        assertEquals(10.10, createTrip.getTotalPrice(), 0.00);
+        assertEquals(198, createTrip.getFlightId());
+        assertEquals(789, createTrip.getPromoId());
+        assertEquals(123, createTrip.getTripId());
+    }
+}
