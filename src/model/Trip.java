@@ -1,15 +1,20 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author Max Sainsbury
  */
 public class Trip {
-    private int totalTime;
-    private int layoverDuration;
-    private double totalPrice;
-    private int flightId;
-    private int promoId;
+    private int customerId;
+    private String origin;
+    private String destination;
+    private LocalDate departureDate;
+    private LocalDate returnDate;
+    private int promotionId;
     private int tripId;
     
     /**
@@ -19,8 +24,14 @@ public class Trip {
      * @param promoId
      * @param tripId 
      */
-    public Trip (int totalTime, int layoverDuration, double totalPrice, int flightId, int promoId, int tripId) {
-        this(totalTime, layoverDuration, totalPrice, flightId, promoId);
+    public Trip (int customerId, String origin, String destination, String departureDate, String returnDate, int promotionId, int tripId) {
+        this.customerId = customerId;
+        this.origin = origin;
+        this.destination = destination;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.departureDate = LocalDate.parse(departureDate, formatter);
+        this.returnDate = LocalDate.parse(returnDate, formatter);
+        this.promotionId = promotionId;
         this.tripId = tripId;
     }
     
@@ -30,54 +41,60 @@ public class Trip {
      * @param flightId
      * @param promoId 
      */
-    public Trip(int totalTime, int layoverDuration, double totalPrice, int flightId, int promoId) {
-        this.totalTime = totalTime;
-        this.layoverDuration = layoverDuration;
-        this.totalPrice = totalPrice;
-        this.flightId = flightId;
-        this.promoId = promoId;
+    public Trip(int customerId, String origin, String destination, int departureYear, int departureMonth, int departureDay, int returnYear, int returnMonth, int returnDay) {
+        this.customerId = customerId;
+        this.origin = origin;
+        this.destination = destination;
+        this.departureDate = LocalDate.of(departureYear, departureMonth, departureDay);
+        this.returnDate = LocalDate.of(returnYear, returnMonth, returnDay);
     }
 
-    public int getTotalTime() {
-        return totalTime;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setTotalTime(int totalTime) {
-        this.totalTime = totalTime;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public int getLayoverDuration() {
-        return layoverDuration;
+    public String getOrigin() {
+        return origin;
     }
 
-    public void setLayoverDuration(int layoverDuration) {
-        this.layoverDuration = layoverDuration;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-    
-    
-
-    public int getFlightId() {
-        return flightId;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
-    public void setFlightId(int flightId) {
-        this.flightId = flightId;
+    public LocalDate getDepartureDate() {
+        return departureDate;
     }
 
-    public int getPromoId() {
-        return promoId;
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
     }
 
-    public void setPromoId(int promoId) {
-        this.promoId = promoId;
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public int getPromotionId() {
+        return promotionId;
+    }
+
+    public void setPromotionId(int promotionId) {
+        this.promotionId = promotionId;
     }
 
     public int getTripId() {
@@ -87,6 +104,8 @@ public class Trip {
     public void setTripId(int tripId) {
         this.tripId = tripId;
     }
+
+    
     
     
 }
