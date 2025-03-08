@@ -17,6 +17,17 @@ public class Payment {
     private String paymentMethod;
     private String status;
     
+    
+    /**
+     * Constructor for Payment class for when getting from the database
+     * @param bookingId
+     * @param employeeId
+     * @param amount
+     * @param paymentMethod
+     * @param status
+     * @param paymentDate
+     * @param paymentId 
+     */
     public Payment(int bookingId, int employeeId, double amount, String paymentMethod, String status, String paymentDate, int paymentId) {
         this.paymentId = paymentId;
         this.bookingId = bookingId;
@@ -28,6 +39,17 @@ public class Payment {
         this.status = status;
     }
     
+    /**
+     * Constructor for Payment class for when creating a new payment
+     * @param bookingId
+     * @param employeeId
+     * @param amount
+     * @param paymentMethod
+     * @param status
+     * @param paymentYear
+     * @param paymentMonth
+     * @param paymentDay 
+     */
     public Payment(int bookingId, int employeeId, double amount, String paymentMethod, String status, int paymentYear, int paymentMonth, int paymentDay) {
         this.bookingId = bookingId;
         this.employeeId = employeeId;
