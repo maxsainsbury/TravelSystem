@@ -10,26 +10,34 @@ import java.time.format.DateTimeFormatter;
  */
 public class Promotion {
     private int promoId;
-    private LocalDate promoMonth;
+    private String description;
     private String promoName;
-    private int discountPercent;
+    private double discountPercent;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private String status;
     
     /**
      * Constructor for a Promotion object for when getting the information from the database
-     * 
      * @param promoName
      * @param discountPercent
-     * @param promoMonth
+     * @param description
+     * @param status
+     * @param startDate
+     * @param endDate
      * @param promoId 
      */
-    public Promotion(String promoName, int discountPercent, String promoMonth, int promoId) {
+    public Promotion(String promoName, double discountPercent, String description, String status, String startDate, String endDate, int promoId) {
         this.promoName = promoName;
         this.discountPercent = discountPercent;
+        this.description = description;
+        this.status = status;
         this.promoId = promoId;
         //Set up a formatter to tell the program how to interpret the value given by the date column in the Promotion database
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         //turn the value from the database into a LocalDate object
-        this.promoMonth = LocalDate.parse(promoMonth, formatter);
+        this.startDate = LocalDate.parse(startDate, formatter);
+        this.endDate = LocalDate.parse(endDate, formatter);
     }
     
     /**
@@ -39,11 +47,14 @@ public class Promotion {
      * @param year
      * @param month 
      */
-    public Promotion(String promoName, int discountPercent, int year, int month) {
+    public Promotion(String promoName, double discountPercent, String description, String status, int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay) {
         this.promoName = promoName;
         this.discountPercent = discountPercent;
+        this.description = description;
+        this.status = status;
         //take the inputed year and month values, and set a Localdate object to the first of that month
-        this.promoMonth = LocalDate.of(year, month, 1);
+        this.startDate = LocalDate.of(startYear, startMonth, startDay);
+        this.endDate = LocalDate.of(endYear, endMonth, endDay);
     }
 
     public int getPromoId() {
@@ -54,12 +65,12 @@ public class Promotion {
         this.promoId = promoId;
     }
 
-    public LocalDate getPromoMonth() {
-        return promoMonth;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPromoMonth(LocalDate promoMonth) {
-        this.promoMonth = promoMonth;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPromoName() {
@@ -70,13 +81,39 @@ public class Promotion {
         this.promoName = promoName;
     }
 
-    public int getDiscountPercent() {
+    public double getDiscountPercent() {
         return discountPercent;
     }
 
-    public void setDiscountPercent(int discountPercent) {
+    public void setDiscountPercent(double discountPercent) {
         this.discountPercent = discountPercent;
     }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
     
     
 }
