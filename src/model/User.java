@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -37,7 +38,7 @@ public class User {
      * @param country
      * @param postalCode 
      */
-    private User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob) {
+    private User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,10 +49,7 @@ public class User {
         this.city = city;
         this.country = country;
         this.postalCode = postalCode;
-        //Set up a formatter to tell the program how to interpret the value given by the date column in the Promotion database
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //turn the value from the database into a LocalDate object
-        this.dob = LocalDate.parse(dob, formatter);
+        
     }
     
     /**
@@ -71,7 +69,11 @@ public class User {
      * @param userId 
      */
     public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, int userId) {
-        this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob);
+        this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
+        //Set up a formatter to tell the program how to interpret the value given by the date column in the Promotion database
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //turn the value from the database into a LocalDate object
+        this.dob = LocalDate.parse(dob, formatter);
         this.userId = userId;
     }
     
@@ -90,8 +92,9 @@ public class User {
      * @param postalCode
      * @param password 
      */
-    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String password, String userType) {
-        this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob);
+    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, int year, int month, int day, String password, String userType) {
+        this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
+        this.dob = LocalDate.of(year, month, day);
         this.password = password;
         this.userType = userType;
         
