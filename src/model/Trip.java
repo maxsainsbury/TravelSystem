@@ -19,9 +19,12 @@ public class Trip {
     
     /**
      * Constructor for a Trip object for when getting information from the database
-     * 
-     * @param flightId
-     * @param promoId
+     * @param customerId
+     * @param origin
+     * @param destination
+     * @param departureDate
+     * @param returnDate
+     * @param promotionId
      * @param tripId 
      */
     public Trip (int customerId, String origin, String destination, String departureDate, String returnDate, int promotionId, int tripId) {
@@ -37,9 +40,15 @@ public class Trip {
     
     /**
      * Constructor for a Trip object for when making one in the GUI
-     * 
-     * @param flightId
-     * @param promoId 
+     * @param customerId
+     * @param origin
+     * @param destination
+     * @param departureYear
+     * @param departureMonth
+     * @param departureDay
+     * @param returnYear
+     * @param returnMonth
+     * @param returnDay 
      */
     public Trip(int customerId, String origin, String destination, int departureYear, int departureMonth, int departureDay, int returnYear, int returnMonth, int returnDay) {
         this.customerId = customerId;
