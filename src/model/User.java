@@ -20,6 +20,7 @@ public class User {
     private String city;
     private String country;
     private String postalCode;
+    private String userType;
     private int userId;
     
     /**
@@ -89,10 +90,10 @@ public class User {
      * @param postalCode
      * @param password 
      */
-    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String password) {
+    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String password, String userType) {
         this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob);
         this.password = password;
-        
+        this.userType = userType;
         
     }
 
@@ -200,6 +201,15 @@ public class User {
         this.userId = userId;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    
     
     
     
