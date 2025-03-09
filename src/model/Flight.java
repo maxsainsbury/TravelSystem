@@ -1,5 +1,6 @@
 package model;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -8,37 +9,42 @@ import java.time.format.DateTimeFormatter;
  */
 public class Flight {
     
-    private String airLine;
-    private int duration;
-    private String departureCity;
-    private String destinationCity;
+    private String airline;
+    private String flightNumber;
+    private LocalDateTime departureTime;
+    private LocalDateTime arrivalTime;
     private double price;
+    private String seatClass;
+    private String status;
+    private int tripId;
     private int flightId;
-    private LocalDateTime departureDate;
     
     
     /**
-     * Constructor for a Flight object for when a flight is grabbed from the database
-     * 
-     * @param airLine the air lines name
-     * @param duration total time of flight in minutes
-     * @param departureCity city the flight is leaving from
-     * @param destinationCity city the flight will land in
-     * @param price price of the flight
-     * @param flightId id of the flight in the database
-     * @param departureDate the departure date of the flight (formatted in YYYY-MM-dd HH-mm-ss format)
+     * Constructor for a flight class when getting the information from the database
+     * @param airLine
+     * @param flightNumber
+     * @param departureTime
+     * @param arrivalTime
+     * @param price
+     * @param seatClass
+     * @param status
+     * @param tripId
+     * @param flightId 
      */
-    public Flight(String airLine, int duration, String departureCity, String destinationCity, double price, int flightId, String departureDate) {
-        this.airLine = airLine;
-        this.duration = duration;
-        this.departureCity = departureCity;
-        this.destinationCity = destinationCity;
+    public Flight(String airLine, String flightNumber, String departureTime, String arrivalTime, double price, String seatClass, String status, int tripId, int flightId) {
+        this.airline = airline;
+        this.flightNumber = flightNumber;
         this.price = price;
+        this.seatClass = seatClass;
+        this.status = status;
+        this.tripId = tripId;
         this.flightId = flightId;
         //set up a DateTimeFormatter to tell the program how to parse the value passed by the datetime column in the database
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         //parse the value in the departure_date column and store it as a LocalDateTime
-        this.departureDate = LocalDateTime.parse(departureDate , formatter);
+        this.departureTime = LocalDateTime.parse(departureTime , formatter);
+        this.arrivalTime = LocalDateTime.parse(arrivalTime, formatter);
     }
     
     /**
@@ -55,46 +61,48 @@ public class Flight {
      * @param hour hour the flight departs
      * @param minute minute the flight departs
      */
-    public Flight(String airLine, int duration, String departureCity, String destinationCity, double price, int year, int month, int day, int hour, int minute) {
-        this.airLine = airLine;
-        this.duration = duration;
-        this.departureCity = departureCity;
-        this.destinationCity = destinationCity;
+    public Flight(String airLine, int duration, String departureCity, String destinationCity, double price, int tripId, int departureYear, int departureMonth, int departureDay, int departureHour, int departureMinute, int arrivalYear, int arrivalMonth, int arrivalDay, int arrivalHour, int arrivalMinute) {
+        this.airline = airline;
+        this.flightNumber = flightNumber;
         this.price = price;
+        this.seatClass = seatClass;
+        this.status = status;
+        this.tripId = tripId;
         //take the year, month, day, hour, and minute parameters and turn them into a LocalDateTime
-        this.departureDate = LocalDateTime.of(year, month, day, hour, minute);
+        this.departureTime = LocalDateTime.of(departureYear, departureMonth, departureDay, departureHour, departureMinute);
+        this.arrivalTime = LocalDateTime.of(arrivalYear, arrivalMonth, arrivalDay, arrivalHour, arrivalMinute);
     }
 
-    public String getAirLine() {
-        return airLine;
+    public String getAirline() {
+        return airline;
     }
 
-    public void setAirLine(String airLine) {
-        this.airLine = airLine;
+    public void setAirline(String airline) {
+        this.airline = airline;
     }
 
-    public int getDuration() {
-        return duration;
+    public String getFlightNumber() {
+        return flightNumber;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
     }
 
-    public String getDepartureCity() {
-        return departureCity;
+    public LocalDateTime getDepartureTime() {
+        return departureTime;
     }
 
-    public void setDepartureCity(String departureCity) {
-        this.departureCity = departureCity;
+    public void setDepartureTime(LocalDateTime departureTime) {
+        this.departureTime = departureTime;
     }
 
-    public String getDestinationCity() {
-        return destinationCity;
+    public LocalDateTime getArrivalTime() {
+        return arrivalTime;
     }
 
-    public void setDestinationCity(String destinationCity) {
-        this.destinationCity = destinationCity;
+    public void setArrivalTime(LocalDateTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
     public double getPrice() {
@@ -105,6 +113,30 @@ public class Flight {
         this.price = price;
     }
 
+    public String getSeatClass() {
+        return seatClass;
+    }
+
+    public void setSeatClass(String seatClass) {
+        this.seatClass = seatClass;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getTripId() {
+        return tripId;
+    }
+
+    public void setTripId(int tripId) {
+        this.tripId = tripId;
+    }
+
     public int getFlightId() {
         return flightId;
     }
@@ -113,16 +145,6 @@ public class Flight {
         this.flightId = flightId;
     }
 
-    public LocalDateTime getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(LocalDateTime departureDate) {
-        this.departureDate = departureDate;
-    }
-    
-    
-    
     
     
 }
