@@ -32,20 +32,25 @@ public class EditCustomerView extends javax.swing.JFrame {
         lNameLbl = new javax.swing.JLabel();
         emailLbl = new javax.swing.JLabel();
         phoneLbl = new javax.swing.JLabel();
-        addressLbl = new javax.swing.JLabel();
-        billingLbl = new javax.swing.JLabel();
         dobLbl = new javax.swing.JLabel();
         fNameTxt = new javax.swing.JTextField();
         lNameTxt = new javax.swing.JTextField();
         emailTxt = new javax.swing.JTextField();
         phoneTxt = new javax.swing.JTextField();
-        addressTxt = new javax.swing.JTextField();
-        billingTxt = new javax.swing.JTextField();
         dobTxt = new javax.swing.JTextField();
         editBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        deleteCustomerBtn = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
+        unitLbl = new javax.swing.JLabel();
+        unitTxt = new javax.swing.JTextField();
+        streetLbl = new javax.swing.JLabel();
+        streetTxt = new javax.swing.JTextField();
+        cityLbl = new javax.swing.JLabel();
+        cityTxt = new javax.swing.JTextField();
+        postalLbl = new javax.swing.JLabel();
+        postalTxt = new javax.swing.JTextField();
+        countryLbl = new javax.swing.JLabel();
+        countryTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edit Customer");
@@ -60,11 +65,7 @@ public class EditCustomerView extends javax.swing.JFrame {
 
         phoneLbl.setText("Phone:");
 
-        addressLbl.setText("Address:");
-
-        billingLbl.setText("Billing Address:");
-
-        dobLbl.setText("Date of Birth:");
+        dobLbl.setText("DOB (YYYY-MM-DD):");
 
         editBtn.setText("Edit");
 
@@ -75,9 +76,17 @@ public class EditCustomerView extends javax.swing.JFrame {
             }
         });
 
-        deleteCustomerBtn.setText("Delete Customer");
-
         searchBtn.setText("Search");
+
+        unitLbl.setText("Unit Number:");
+
+        streetLbl.setText("Street Address:");
+
+        cityLbl.setText("City:");
+
+        postalLbl.setText("Postal Code:");
+
+        countryLbl.setText("Country:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,49 +95,52 @@ public class EditCustomerView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(76, Short.MAX_VALUE)
-                        .addComponent(editBtn)
+                        .addGap(38, 38, 38)
+                        .addComponent(customerIdLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearAllBtn)
+                        .addComponent(customerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteCustomerBtn))
+                        .addComponent(searchBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(countryLbl)
+                            .addComponent(postalLbl)
+                            .addComponent(cityLbl)
+                            .addComponent(streetLbl)
+                            .addComponent(unitLbl)
                             .addComponent(dobLbl)
-                            .addComponent(billingLbl)
-                            .addComponent(addressLbl)
                             .addComponent(phoneLbl)
                             .addComponent(emailLbl)
                             .addComponent(lNameLbl)
-                            .addComponent(fNameLbl)
-                            .addComponent(customerIdLbl))
+                            .addComponent(fNameLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(fNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                                .addComponent(lNameTxt)
-                                .addComponent(emailTxt)
-                                .addComponent(phoneTxt)
-                                .addComponent(addressTxt)
-                                .addComponent(billingTxt)
-                                .addComponent(dobTxt))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(customerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(editBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchBtn)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(49, 49, 49))
+                                .addComponent(clearAllBtn))
+                            .addComponent(phoneTxt)
+                            .addComponent(emailTxt)
+                            .addComponent(lNameTxt)
+                            .addComponent(fNameTxt)
+                            .addComponent(dobTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(unitTxt)
+                            .addComponent(streetTxt)
+                            .addComponent(cityTxt)
+                            .addComponent(postalTxt)
+                            .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerIdLbl)
                     .addComponent(customerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn))
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fNameLbl))
@@ -146,22 +158,33 @@ public class EditCustomerView extends javax.swing.JFrame {
                     .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(billingLbl)
-                    .addComponent(billingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dobLbl)
                     .addComponent(dobTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(unitLbl)
+                    .addComponent(unitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(streetLbl)
+                    .addComponent(streetTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cityLbl)
+                    .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(postalLbl)
+                    .addComponent(postalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(countryLbl)
+                    .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editBtn)
-                    .addComponent(clearAllBtn)
-                    .addComponent(deleteCustomerBtn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(clearAllBtn))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,14 +230,13 @@ public class EditCustomerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressLbl;
-    private javax.swing.JTextField addressTxt;
-    private javax.swing.JLabel billingLbl;
-    private javax.swing.JTextField billingTxt;
+    private javax.swing.JLabel cityLbl;
+    private javax.swing.JTextField cityTxt;
     private javax.swing.JButton clearAllBtn;
+    private javax.swing.JLabel countryLbl;
+    private javax.swing.JTextField countryTxt;
     private javax.swing.JLabel customerIdLbl;
     private javax.swing.JTextField customerIdTxt;
-    private javax.swing.JButton deleteCustomerBtn;
     private javax.swing.JLabel dobLbl;
     private javax.swing.JTextField dobTxt;
     private javax.swing.JButton editBtn;
@@ -226,6 +248,12 @@ public class EditCustomerView extends javax.swing.JFrame {
     private javax.swing.JTextField lNameTxt;
     private javax.swing.JLabel phoneLbl;
     private javax.swing.JTextField phoneTxt;
+    private javax.swing.JLabel postalLbl;
+    private javax.swing.JTextField postalTxt;
     private javax.swing.JButton searchBtn;
+    private javax.swing.JLabel streetLbl;
+    private javax.swing.JTextField streetTxt;
+    private javax.swing.JLabel unitLbl;
+    private javax.swing.JTextField unitTxt;
     // End of variables declaration//GEN-END:variables
 }

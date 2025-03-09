@@ -27,59 +27,61 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="76" max="32767" attributes="0"/>
-                      <Component id="editBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="customerIdLbl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="customerIdTxt" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="deleteCustomerBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="countryLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="postalLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="unitLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="dobLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="billingLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="addressLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="phoneLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="lNameLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="fNameLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="customerIdLbl" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fNameTxt" alignment="0" pref="207" max="32767" attributes="0"/>
-                              <Component id="lNameTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="phoneTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="addressTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="billingTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="dobTxt" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="customerIdTxt" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="editBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+                              <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="phoneTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lNameTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="fNameTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="dobTxt" alignment="1" max="32767" attributes="0"/>
+                          <Component id="unitTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="streetTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cityTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="postalTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="countryTxt" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="customerIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="customerIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -101,26 +103,40 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addressLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="billingLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="billingTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dobLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dobTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="unitLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="unitTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="streetLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="streetTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="postalLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="postalTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="countryLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="countryTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="editBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="deleteCustomerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -153,19 +169,9 @@
         <Property name="text" type="java.lang.String" value="Phone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="addressLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Address:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="billingLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Billing Address:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="dobLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+        <Property name="text" type="java.lang.String" value="DOB (YYYY-MM-DD):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fNameTxt">
@@ -175,10 +181,6 @@
     <Component class="javax.swing.JTextField" name="emailTxt">
     </Component>
     <Component class="javax.swing.JTextField" name="phoneTxt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="addressTxt">
-    </Component>
-    <Component class="javax.swing.JTextField" name="billingTxt">
     </Component>
     <Component class="javax.swing.JTextField" name="dobTxt">
     </Component>
@@ -195,15 +197,45 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearAllBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="deleteCustomerBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Customer"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="searchBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="unitLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Unit Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="unitTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="streetLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Street Address:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="streetTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="cityLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="City:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cityTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="postalLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Postal Code:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="postalTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="countryLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Country:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="countryTxt">
     </Component>
   </SubComponents>
 </Form>

@@ -32,14 +32,17 @@ public class EditPromoView extends javax.swing.JFrame {
         promoNameTxt = new javax.swing.JTextField();
         percentLbl = new javax.swing.JLabel();
         percentTxt = new javax.swing.JTextField();
-        monthLbl = new javax.swing.JLabel();
-        monthTxt = new javax.swing.JTextField();
-        yearLbl = new javax.swing.JLabel();
-        yearTxt = new javax.swing.JTextField();
+        startLbl = new javax.swing.JLabel();
+        startTxt = new javax.swing.JTextField();
+        endLbl = new javax.swing.JLabel();
+        endTxt = new javax.swing.JTextField();
         editBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        deletePromoBtn = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
+        statusLbl = new javax.swing.JLabel();
+        statusTxt = new javax.swing.JTextField();
+        descLbl = new javax.swing.JLabel();
+        descTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edit Promotion");
@@ -50,57 +53,66 @@ public class EditPromoView extends javax.swing.JFrame {
 
         percentLbl.setText("Percent:");
 
-        monthLbl.setText("Month:");
+        startLbl.setText("Start (YYYY-MM-DD):");
 
-        yearLbl.setText("Year:");
+        endLbl.setText("End (YYYY-MM-DD):");
 
         editBtn.setText("Edit");
 
         clearAllBtn.setText("Clear All");
 
-        deletePromoBtn.setText("Delete Promotion");
-
         searchBtn.setText("Search");
+
+        statusLbl.setText("Status:");
+
+        descLbl.setText("Description:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(promoIdLbl)
-                    .addComponent(percentLbl)
-                    .addComponent(promoNameLbl)
-                    .addComponent(monthLbl)
-                    .addComponent(yearLbl))
+                .addGap(44, 44, 44)
+                .addComponent(promoNameLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(editBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn)
-                        .addContainerGap(103, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(monthTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(yearTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(promoNameTxt)
-                            .addComponent(percentTxt))
-                        .addGap(67, 67, 67))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deletePromoBtn)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchBtn)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(promoNameTxt)
+                        .addGap(87, 87, 87))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(promoIdLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchBtn)
+                .addGap(0, 53, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(descLbl)
+                    .addComponent(statusLbl)
+                    .addComponent(percentLbl)
+                    .addComponent(startLbl)
+                    .addComponent(endLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(endTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(startTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(percentTxt)
+                    .addComponent(statusTxt)
+                    .addComponent(descTxt))
+                .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(promoIdLbl)
                     .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,23 +123,29 @@ public class EditPromoView extends javax.swing.JFrame {
                     .addComponent(promoNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(percentLbl)
-                    .addComponent(percentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(descLbl)
+                    .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(percentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(monthLbl)
-                    .addComponent(monthTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(startTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(startLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yearTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearLbl))
+                    .addComponent(endTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(endLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(statusLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editBtn)
                     .addComponent(clearAllBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deletePromoBtn)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -170,10 +188,11 @@ public class EditPromoView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JButton deletePromoBtn;
+    private javax.swing.JLabel descLbl;
+    private javax.swing.JTextField descTxt;
     private javax.swing.JButton editBtn;
-    private javax.swing.JLabel monthLbl;
-    private javax.swing.JTextField monthTxt;
+    private javax.swing.JLabel endLbl;
+    private javax.swing.JTextField endTxt;
     private javax.swing.JLabel percentLbl;
     private javax.swing.JTextField percentTxt;
     private javax.swing.JLabel promoIdLbl;
@@ -181,7 +200,9 @@ public class EditPromoView extends javax.swing.JFrame {
     private javax.swing.JLabel promoNameLbl;
     private javax.swing.JTextField promoNameTxt;
     private javax.swing.JButton searchBtn;
-    private javax.swing.JLabel yearLbl;
-    private javax.swing.JTextField yearTxt;
+    private javax.swing.JLabel startLbl;
+    private javax.swing.JTextField startTxt;
+    private javax.swing.JLabel statusLbl;
+    private javax.swing.JTextField statusTxt;
     // End of variables declaration//GEN-END:variables
 }

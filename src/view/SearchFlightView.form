@@ -42,89 +42,73 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="infoPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="airlineLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="flightIdLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="destinationLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="departureLbl" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="searchAllBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="airlineTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="flightIdTxt" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="searchAllBtn" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="destinationTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="departureTxt" alignment="0" pref="174" max="32767" attributes="0"/>
-                              <Component id="dateTxt" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="searchIdBtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="searchAirlineBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="infoPanel" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="departureLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="departureTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="flightIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="flightIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchIdBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="destinationLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="destinationTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="airlineLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="airlineTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchAirlineBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="searchAllBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="infoPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="departureLbl">
+    <Component class="javax.swing.JLabel" name="airlineLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Departure City:"/>
+        <Property name="text" type="java.lang.String" value="Airline:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="departureTxt">
-    </Component>
-    <Component class="javax.swing.JLabel" name="dateLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Date (YYYY-MM-DD):"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="dateTxt">
-    </Component>
-    <Component class="javax.swing.JButton" name="searchBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Search"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="airlineTxt">
     </Component>
     <Component class="javax.swing.JButton" name="clearAllBtn">
       <Properties>
@@ -136,14 +120,12 @@
         <Property name="text" type="java.lang.String" value="Search All"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="destinationLbl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Destination:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="destinationTxt">
-    </Component>
     <Container class="javax.swing.JPanel" name="infoPanel">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -153,10 +135,27 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="78" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="120" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JLabel" name="flightIdLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Flight ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="flightIdTxt">
+    </Component>
+    <Component class="javax.swing.JButton" name="searchIdBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Search"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="searchAirlineBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Search"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

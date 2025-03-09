@@ -25,58 +25,68 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="priceLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="departureLbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="airlineLbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="timeLbl" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="deleteFlightBtn" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="editBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="airlineTxt" alignment="0" pref="193" max="32767" attributes="0"/>
-                              <Component id="durationTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="departureTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="priceTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="dateTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="timeTxt" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="flightIdLbl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="flighIdTxt" min="-2" pref="153" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="priceLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="seatLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="statusLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tripIdLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="seatTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="statusTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="priceTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tripIdTxt" alignment="0" pref="193" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="departureLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="flightNumLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="airlineLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="arrivalLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="editBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="airlineTxt" alignment="0" pref="193" max="32767" attributes="0"/>
+                                  <Component id="flightNumTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="departureTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="arrivalTxt" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="flightIdLbl" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="flighIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="flighIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="flightIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -85,8 +95,8 @@
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="durationTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="flightNumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="flightNumTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -95,27 +105,35 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="arrivalLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="arrivalTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="priceLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="priceTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="seatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="seatTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="timeLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="timeTxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusTxt" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tripIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tripIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="editBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="deleteFlightBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,16 +153,16 @@
     </Component>
     <Component class="javax.swing.JTextField" name="airlineTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="flightNumLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duration:"/>
+        <Property name="text" type="java.lang.String" value="Flight Number:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="durationTxt">
+    <Component class="javax.swing.JTextField" name="flightNumTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="departureLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Departure City:"/>
+        <Property name="text" type="java.lang.String" value="Departure Time:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="departureTxt">
@@ -156,19 +174,19 @@
     </Component>
     <Component class="javax.swing.JTextField" name="priceTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="dateLbl">
+    <Component class="javax.swing.JLabel" name="seatLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Date (YYYY-MM-DD):"/>
+        <Property name="text" type="java.lang.String" value="Seat Class:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="dateTxt">
+    <Component class="javax.swing.JTextField" name="seatTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="timeLbl">
+    <Component class="javax.swing.JLabel" name="statusLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Time:"/>
+        <Property name="text" type="java.lang.String" value="Status:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="timeTxt">
+    <Component class="javax.swing.JTextField" name="statusTxt">
     </Component>
     <Component class="javax.swing.JButton" name="editBtn">
       <Properties>
@@ -180,15 +198,24 @@
         <Property name="text" type="java.lang.String" value="Clear All"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="deleteFlightBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Flight"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="searchBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="arrivalLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Arrival Time:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="arrivalTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="tripIdLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Trip ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tripIdTxt">
     </Component>
   </SubComponents>
 </Form>

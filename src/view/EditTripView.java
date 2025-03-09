@@ -28,91 +28,122 @@ public class EditTripView extends javax.swing.JFrame {
 
         tripIdLbl = new javax.swing.JLabel();
         tripIdTxt = new javax.swing.JTextField();
-        totalTimeLbl = new javax.swing.JLabel();
-        totalPriceLbl = new javax.swing.JLabel();
-        promoIdLbl = new javax.swing.JLabel();
-        toatlTimeTxt = new javax.swing.JTextField();
-        totalPriceTxt = new javax.swing.JTextField();
-        promoIdTxt = new javax.swing.JTextField();
+        originLbl = new javax.swing.JLabel();
+        destinationLbl = new javax.swing.JLabel();
+        departureLbl = new javax.swing.JLabel();
+        originTxt = new javax.swing.JTextField();
+        destinationTxt = new javax.swing.JTextField();
+        departureTxt = new javax.swing.JTextField();
         editBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        deleteTripBtn = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
+        returnLbl = new javax.swing.JLabel();
+        returnTxt = new javax.swing.JTextField();
+        statusLbl = new javax.swing.JLabel();
+        statusTxt = new javax.swing.JTextField();
+        promoIdLbl = new javax.swing.JLabel();
+        promoIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Edit Trip");
 
         tripIdLbl.setText("Trip ID:");
 
-        totalTimeLbl.setText("Total Time:");
+        originLbl.setText("Origin:");
 
-        totalPriceLbl.setText("Total Price:");
+        destinationLbl.setText("Destination:");
 
-        promoIdLbl.setText("Promotion ID:");
+        departureLbl.setText("Departure (YYYY-MM-DD):");
 
         editBtn.setText("Edit");
 
         clearAllBtn.setText("Clear All");
 
-        deleteTripBtn.setText("Delete Trip");
-
         searchBtn.setText("Search");
+
+        returnLbl.setText("Return (YYYY-MM-DD):");
+
+        statusLbl.setText("Status:");
+
+        promoIdLbl.setText("Promotion ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(promoIdLbl)
-                    .addComponent(totalPriceLbl)
-                    .addComponent(totalTimeLbl)
-                    .addComponent(tripIdLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deleteTripBtn)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(statusLbl)
+                            .addComponent(returnLbl)
+                            .addComponent(destinationLbl)
+                            .addComponent(originLbl)
+                            .addComponent(promoIdLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(departureLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(editBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(toatlTimeTxt)
-                        .addComponent(totalPriceTxt)
-                        .addComponent(promoIdTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchBtn)))
-                .addGap(75, 75, 75))
+                    .addComponent(originTxt)
+                    .addComponent(destinationTxt)
+                    .addComponent(departureTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                    .addComponent(returnTxt)
+                    .addComponent(statusTxt)
+                    .addComponent(promoIdTxt))
+                .addGap(113, 113, 113))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tripIdLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchBtn)
+                .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tripIdLbl)
                     .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(totalTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(toatlTimeTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(originLbl, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(originTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalPriceLbl)
-                    .addComponent(totalPriceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(destinationLbl)
+                    .addComponent(destinationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(departureLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(returnLbl)
+                    .addComponent(returnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusLbl)
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(promoIdLbl)
                     .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editBtn)
                     .addComponent(clearAllBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteTripBtn)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,15 +186,20 @@ public class EditTripView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JButton deleteTripBtn;
+    private javax.swing.JLabel departureLbl;
+    private javax.swing.JTextField departureTxt;
+    private javax.swing.JLabel destinationLbl;
+    private javax.swing.JTextField destinationTxt;
     private javax.swing.JButton editBtn;
+    private javax.swing.JLabel originLbl;
+    private javax.swing.JTextField originTxt;
     private javax.swing.JLabel promoIdLbl;
     private javax.swing.JTextField promoIdTxt;
+    private javax.swing.JLabel returnLbl;
+    private javax.swing.JTextField returnTxt;
     private javax.swing.JButton searchBtn;
-    private javax.swing.JTextField toatlTimeTxt;
-    private javax.swing.JLabel totalPriceLbl;
-    private javax.swing.JTextField totalPriceTxt;
-    private javax.swing.JLabel totalTimeLbl;
+    private javax.swing.JLabel statusLbl;
+    private javax.swing.JTextField statusTxt;
     private javax.swing.JLabel tripIdLbl;
     private javax.swing.JTextField tripIdTxt;
     // End of variables declaration//GEN-END:variables

@@ -31,17 +31,14 @@
                   <Component id="tripIdLbl" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="unbookTripBtn" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="bookTripBtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="customerIdTxt" alignment="0" pref="182" max="32767" attributes="0"/>
-                      <Component id="tripIdTxt" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="addBookingBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="customerIdTxt" alignment="0" pref="182" max="32767" attributes="0"/>
+                  <Component id="tripIdTxt" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="108" max="32767" attributes="0"/>
           </Group>
@@ -62,12 +59,10 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bookTripBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addBookingBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="unbookTripBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="137" max="32767" attributes="0"/>
+              <EmptySpace pref="166" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,19 +82,14 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tripIdTxt">
     </Component>
-    <Component class="javax.swing.JButton" name="bookTripBtn">
+    <Component class="javax.swing.JButton" name="addBookingBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Book Trip"/>
+        <Property name="text" type="java.lang.String" value="Add Booking"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="clearAllBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clear All"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="unbookTripBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Unbook Trip"/>
       </Properties>
     </Component>
   </SubComponents>
