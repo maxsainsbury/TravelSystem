@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class EditCustomerView extends javax.swing.JFrame {
 
@@ -28,13 +24,13 @@ public class EditCustomerView extends javax.swing.JFrame {
 
         customerIdLbl = new javax.swing.JLabel();
         customerIdTxt = new javax.swing.JTextField();
-        fNameLbl = new javax.swing.JLabel();
-        lNameLbl = new javax.swing.JLabel();
+        fnameLbl = new javax.swing.JLabel();
+        lnameLbl = new javax.swing.JLabel();
         emailLbl = new javax.swing.JLabel();
         phoneLbl = new javax.swing.JLabel();
         dobLbl = new javax.swing.JLabel();
-        fNameTxt = new javax.swing.JTextField();
-        lNameTxt = new javax.swing.JTextField();
+        fnameTxt = new javax.swing.JTextField();
+        lnameTxt = new javax.swing.JTextField();
         emailTxt = new javax.swing.JTextField();
         phoneTxt = new javax.swing.JTextField();
         dobTxt = new javax.swing.JTextField();
@@ -57,9 +53,9 @@ public class EditCustomerView extends javax.swing.JFrame {
 
         customerIdLbl.setText("Customer ID:");
 
-        fNameLbl.setText("First Name:");
+        fnameLbl.setText("First Name:");
 
-        lNameLbl.setText("Last Name:");
+        lnameLbl.setText("Last Name:");
 
         emailLbl.setText("Email:");
 
@@ -112,8 +108,8 @@ public class EditCustomerView extends javax.swing.JFrame {
                             .addComponent(dobLbl)
                             .addComponent(phoneLbl)
                             .addComponent(emailLbl)
-                            .addComponent(lNameLbl)
-                            .addComponent(fNameLbl))
+                            .addComponent(lnameLbl)
+                            .addComponent(fnameLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -122,8 +118,8 @@ public class EditCustomerView extends javax.swing.JFrame {
                                 .addComponent(clearAllBtn))
                             .addComponent(phoneTxt)
                             .addComponent(emailTxt)
-                            .addComponent(lNameTxt)
-                            .addComponent(fNameTxt)
+                            .addComponent(lnameTxt)
+                            .addComponent(fnameTxt)
                             .addComponent(dobTxt, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(unitTxt)
                             .addComponent(streetTxt)
@@ -142,12 +138,12 @@ public class EditCustomerView extends javax.swing.JFrame {
                     .addComponent(searchBtn))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fNameLbl))
+                    .addComponent(fnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fnameLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lNameLbl)
-                    .addComponent(lNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lnameLbl)
+                    .addComponent(lnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLbl)
@@ -242,10 +238,10 @@ public class EditCustomerView extends javax.swing.JFrame {
     private javax.swing.JButton editBtn;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTxt;
-    private javax.swing.JLabel fNameLbl;
-    private javax.swing.JTextField fNameTxt;
-    private javax.swing.JLabel lNameLbl;
-    private javax.swing.JTextField lNameTxt;
+    private javax.swing.JLabel fnameLbl;
+    private javax.swing.JTextField fnameTxt;
+    private javax.swing.JLabel lnameLbl;
+    private javax.swing.JTextField lnameTxt;
     private javax.swing.JLabel phoneLbl;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel postalLbl;

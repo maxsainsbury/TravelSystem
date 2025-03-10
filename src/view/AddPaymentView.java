@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author c0544162
+ * @author Ebba de Groot
  */
 public class AddPaymentView extends javax.swing.JFrame {
 
@@ -43,7 +39,7 @@ public class AddPaymentView extends javax.swing.JFrame {
         dateTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Payment");
+        setTitle("Add Payment");
 
         amountLbl.setText("Amount:");
 
@@ -61,7 +57,7 @@ public class AddPaymentView extends javax.swing.JFrame {
 
         payBtn.setText("Pay");
 
-        dateLbl.setText("Date:");
+        dateLbl.setText("Date (YYYY-MM-DD):");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,19 +66,6 @@ public class AddPaymentView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(empIdLbl)
-                            .addComponent(bookingIdLbl)
-                            .addComponent(amountLbl)
-                            .addComponent(dateLbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                            .addComponent(empIdTxt)
-                            .addComponent(bookingIdTxt)
-                            .addComponent(amountTxt)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(methodLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -90,7 +73,20 @@ public class AddPaymentView extends javax.swing.JFrame {
                             .addComponent(payBtn)
                             .addComponent(debitRBtn)
                             .addComponent(visaRBtn)
-                            .addComponent(masterRBtn))))
+                            .addComponent(masterRBtn)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(empIdLbl)
+                            .addComponent(bookingIdLbl)
+                            .addComponent(amountLbl)
+                            .addComponent(dateLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(dateTxt)
+                            .addComponent(empIdTxt)
+                            .addComponent(bookingIdTxt)
+                            .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

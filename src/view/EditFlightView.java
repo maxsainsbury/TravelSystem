@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class EditFlightView extends javax.swing.JFrame {
 
@@ -57,7 +53,7 @@ public class EditFlightView extends javax.swing.JFrame {
 
         flightNumLbl.setText("Flight Number:");
 
-        departureLbl.setText("Departure Time:");
+        departureLbl.setText("Departure (HH:MM):");
 
         priceLbl.setText("Price:");
 
@@ -71,7 +67,7 @@ public class EditFlightView extends javax.swing.JFrame {
 
         searchBtn.setText("Search");
 
-        arrivalLbl.setText("Arrival Time:");
+        arrivalLbl.setText("Arrival (HH:MM):");
 
         tripIdLbl.setText("Trip ID:");
 
@@ -89,7 +85,7 @@ public class EditFlightView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -102,7 +98,7 @@ public class EditFlightView extends javax.swing.JFrame {
                                     .addComponent(seatTxt)
                                     .addComponent(statusTxt)
                                     .addComponent(priceTxt)
-                                    .addComponent(tripIdTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
+                                    .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(departureLbl)
@@ -115,10 +111,10 @@ public class EditFlightView extends javax.swing.JFrame {
                                         .addComponent(editBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(clearAllBtn))
-                                    .addComponent(airlineTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                                    .addComponent(airlineTxt)
                                     .addComponent(flightNumTxt)
                                     .addComponent(departureTxt)
-                                    .addComponent(arrivalTxt))))))
+                                    .addComponent(arrivalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

@@ -126,6 +126,33 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="employeeMnu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Employee"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="searchEmpMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search Employees"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="editEmpMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Edit Employee"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="addEmpMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Employee"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteEmpMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Employee"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="bookingMnu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Booking"/>
@@ -149,6 +176,11 @@
             <MenuItem class="javax.swing.JMenuItem" name="addPaymentMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Payment"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="searchPaymentMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search Payments"/>
               </Properties>
             </MenuItem>
           </SubComponents>

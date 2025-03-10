@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class AddPromoView extends javax.swing.JFrame {
 
@@ -32,12 +28,14 @@ public class AddPromoView extends javax.swing.JFrame {
         percentTxt = new javax.swing.JTextField();
         startLbl = new javax.swing.JLabel();
         startTxt = new javax.swing.JTextField();
-        EndLbl = new javax.swing.JLabel();
+        endLbl = new javax.swing.JLabel();
         endTxt = new javax.swing.JTextField();
         addPromoBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
         descLbl = new javax.swing.JLabel();
         descTxt = new javax.swing.JTextField();
+        statusLbl = new javax.swing.JLabel();
+        statusTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Promotion");
@@ -48,13 +46,15 @@ public class AddPromoView extends javax.swing.JFrame {
 
         startLbl.setText("Start (YYYY-MM-DD):");
 
-        EndLbl.setText("End (YYYY-MM-DD):");
+        endLbl.setText("End (YYYY-MM-DD):");
 
         addPromoBtn.setText("Add Promotion");
 
         clearAllBtn.setText("Clear All");
 
         descLbl.setText("Description:");
+
+        statusLbl.setText("Status:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,11 +63,12 @@ public class AddPromoView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(statusLbl)
                     .addComponent(descLbl)
                     .addComponent(percentLbl)
                     .addComponent(promoNameLbl)
                     .addComponent(startLbl)
-                    .addComponent(EndLbl))
+                    .addComponent(endLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(endTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
@@ -78,7 +79,8 @@ public class AddPromoView extends javax.swing.JFrame {
                         .addComponent(addPromoBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn))
-                    .addComponent(descTxt))
+                    .addComponent(descTxt)
+                    .addComponent(statusTxt))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,7 +100,7 @@ public class AddPromoView extends javax.swing.JFrame {
                     .addComponent(startTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EndLbl)
+                    .addComponent(endLbl)
                     .addComponent(endTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -106,9 +108,13 @@ public class AddPromoView extends javax.swing.JFrame {
                     .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusLbl)
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addPromoBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,11 +156,11 @@ public class AddPromoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EndLbl;
     private javax.swing.JButton addPromoBtn;
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel descLbl;
     private javax.swing.JTextField descTxt;
+    private javax.swing.JLabel endLbl;
     private javax.swing.JTextField endTxt;
     private javax.swing.JLabel percentLbl;
     private javax.swing.JTextField percentTxt;
@@ -162,5 +168,7 @@ public class AddPromoView extends javax.swing.JFrame {
     private javax.swing.JTextField promoNameTxt;
     private javax.swing.JLabel startLbl;
     private javax.swing.JTextField startTxt;
+    private javax.swing.JLabel statusLbl;
+    private javax.swing.JTextField statusTxt;
     // End of variables declaration//GEN-END:variables
 }

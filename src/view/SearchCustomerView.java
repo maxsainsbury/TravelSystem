@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class SearchCustomerView extends javax.swing.JFrame {
 
@@ -40,7 +36,7 @@ public class SearchCustomerView extends javax.swing.JFrame {
         searchIdBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Search Customer");
+        setTitle("Search Customers");
 
         emailLbl.setText("Email:");
 

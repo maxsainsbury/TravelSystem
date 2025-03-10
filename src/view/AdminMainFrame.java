@@ -4,12 +4,12 @@ package view;
  *
  * @author Ebba de Groot
  */
-public class EmployeeMainFrame extends javax.swing.JFrame {
+public class AdminMainFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainFrame
      */
-    public EmployeeMainFrame() {
+    public AdminMainFrame() {
         initComponents();
     }
 
@@ -44,11 +44,17 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
         editPromoMnu = new javax.swing.JMenuItem();
         addPromoMnu = new javax.swing.JMenuItem();
         deletePromoMnu = new javax.swing.JMenuItem();
+        employeeMnu = new javax.swing.JMenu();
+        searchEmpMnu = new javax.swing.JMenuItem();
+        editEmpMnu = new javax.swing.JMenuItem();
+        addEmpMnu = new javax.swing.JMenuItem();
+        deleteEmpMnu = new javax.swing.JMenuItem();
         bookingMnu = new javax.swing.JMenu();
         searchBookingMnu = new javax.swing.JMenuItem();
         addBookingMnu = new javax.swing.JMenuItem();
         deleteBookingMnu = new javax.swing.JMenuItem();
         addPaymentMnu = new javax.swing.JMenuItem();
+        searchPaymentMnu = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -134,6 +140,22 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
 
         menuBar.add(promotionsMnu);
 
+        employeeMnu.setText("Employee");
+
+        searchEmpMnu.setText("Search Employees");
+        employeeMnu.add(searchEmpMnu);
+
+        editEmpMnu.setText("Edit Employee");
+        employeeMnu.add(editEmpMnu);
+
+        addEmpMnu.setText("Add Employee");
+        employeeMnu.add(addEmpMnu);
+
+        deleteEmpMnu.setText("Delete Employee");
+        employeeMnu.add(deleteEmpMnu);
+
+        menuBar.add(employeeMnu);
+
         bookingMnu.setText("Booking");
 
         searchBookingMnu.setText("Search Bookings");
@@ -147,6 +169,9 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
 
         addPaymentMnu.setText("Add Payment");
         bookingMnu.add(addPaymentMnu);
+
+        searchPaymentMnu.setText("Search Payments");
+        bookingMnu.add(searchPaymentMnu);
 
         menuBar.add(bookingMnu);
 
@@ -219,6 +244,7 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addBookingMnu;
     private javax.swing.JMenuItem addCustomerMnu;
+    private javax.swing.JMenuItem addEmpMnu;
     private javax.swing.JMenuItem addFlightMnu;
     private javax.swing.JMenuItem addPaymentMnu;
     private javax.swing.JMenuItem addPromoMnu;
@@ -227,20 +253,25 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu customerMnu;
     private javax.swing.JMenuItem deleteBookingMnu;
     private javax.swing.JMenuItem deleteCustomerMnu;
+    private javax.swing.JMenuItem deleteEmpMnu;
     private javax.swing.JMenuItem deleteFlightMnu;
     private javax.swing.JMenuItem deletePromoMnu;
     private javax.swing.JMenuItem deleteTripMnu;
     private javax.swing.JMenuItem editCustomerMnu;
+    private javax.swing.JMenuItem editEmpMnu;
     private javax.swing.JMenuItem editFlightMnu;
     private javax.swing.JMenuItem editPromoMnu;
     private javax.swing.JMenuItem editTripMnu;
+    private javax.swing.JMenu employeeMnu;
     private javax.swing.JMenu flightMnu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu promotionsMnu;
     private javax.swing.JMenuItem searchBookingMnu;
     private javax.swing.JMenuItem searchCustomerMnu;
+    private javax.swing.JMenuItem searchEmpMnu;
     private javax.swing.JMenuItem searchFlightMnu;
+    private javax.swing.JMenuItem searchPaymentMnu;
     private javax.swing.JMenuItem searchPromoMnu;
     private javax.swing.JMenuItem searchTripMnu;
     private javax.swing.JMenu tripMnu;

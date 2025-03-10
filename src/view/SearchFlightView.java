@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class SearchFlightView extends javax.swing.JFrame {
 
@@ -43,7 +39,7 @@ public class SearchFlightView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Search Flight");
+        setTitle("Search Flights");
 
         airlineLbl.setText("Airline:");
 

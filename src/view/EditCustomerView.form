@@ -45,8 +45,8 @@
                           <Component id="dobLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="phoneLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="lNameLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="fNameLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="lnameLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="fnameLbl" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -57,8 +57,8 @@
                           </Group>
                           <Component id="phoneTxt" alignment="0" max="32767" attributes="0"/>
                           <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lNameTxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="fNameTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lnameTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="fnameTxt" alignment="0" max="32767" attributes="0"/>
                           <Component id="dobTxt" alignment="1" max="32767" attributes="0"/>
                           <Component id="unitTxt" alignment="0" max="32767" attributes="0"/>
                           <Component id="streetTxt" alignment="0" max="32767" attributes="0"/>
@@ -83,13 +83,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="fNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fnameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fnameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lnameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lnameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -149,12 +149,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="customerIdTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="fNameLbl">
+    <Component class="javax.swing.JLabel" name="fnameLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="First Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lNameLbl">
+    <Component class="javax.swing.JLabel" name="lnameLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="Last Name:"/>
       </Properties>
@@ -174,9 +174,9 @@
         <Property name="text" type="java.lang.String" value="DOB (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="fNameTxt">
+    <Component class="javax.swing.JTextField" name="fnameTxt">
     </Component>
-    <Component class="javax.swing.JTextField" name="lNameTxt">
+    <Component class="javax.swing.JTextField" name="lnameTxt">
     </Component>
     <Component class="javax.swing.JTextField" name="emailTxt">
     </Component>

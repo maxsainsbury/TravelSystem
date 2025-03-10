@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import java.awt.event.ActionListener;
@@ -10,7 +6,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author goenchoi
+ * @author Ebba de Groot
  */
 public class LoginView extends javax.swing.JFrame {
 

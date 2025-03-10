@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class AddBookingView extends javax.swing.JFrame {
 
@@ -32,9 +28,16 @@ public class AddBookingView extends javax.swing.JFrame {
         tripIdTxt = new javax.swing.JTextField();
         addBookingBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
+        priceLbl = new javax.swing.JLabel();
+        priceTxt = new javax.swing.JTextField();
+        dateLbl = new javax.swing.JLabel();
+        dateTxt = new javax.swing.JTextField();
+        payBtn = new javax.swing.JButton();
+        empIdLbl = new javax.swing.JLabel();
+        empIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Book Trip");
+        setTitle("Add Booking");
 
         customerIdLbl.setText("Customer ID:");
 
@@ -44,29 +47,48 @@ public class AddBookingView extends javax.swing.JFrame {
 
         clearAllBtn.setText("Clear All");
 
+        priceLbl.setText("Total Price:");
+
+        dateLbl.setText("Date Booked (YYYY-MM-DD):");
+
+        payBtn.setText("Add Payment");
+
+        empIdLbl.setText("Employee ID:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(empIdLbl)
+                    .addComponent(dateLbl)
+                    .addComponent(priceLbl)
                     .addComponent(customerIdLbl)
                     .addComponent(tripIdLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(payBtn)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addBookingBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn))
-                    .addComponent(customerIdTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                    .addComponent(tripIdTxt))
-                .addContainerGap(108, Short.MAX_VALUE))
+                    .addComponent(customerIdTxt)
+                    .addComponent(tripIdTxt)
+                    .addComponent(priceTxt)
+                    .addComponent(dateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(empIdTxt))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(empIdLbl)
+                    .addComponent(empIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerIdLbl)
                     .addComponent(customerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -76,9 +98,19 @@ public class AddBookingView extends javax.swing.JFrame {
                     .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLbl)
+                    .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateLbl)
+                    .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBookingBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(payBtn)
+                .addGap(65, 65, 65))
         );
 
         pack();
@@ -127,6 +159,13 @@ public class AddBookingView extends javax.swing.JFrame {
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel customerIdLbl;
     private javax.swing.JTextField customerIdTxt;
+    private javax.swing.JLabel dateLbl;
+    private javax.swing.JTextField dateTxt;
+    private javax.swing.JLabel empIdLbl;
+    private javax.swing.JTextField empIdTxt;
+    private javax.swing.JButton payBtn;
+    private javax.swing.JLabel priceLbl;
+    private javax.swing.JTextField priceTxt;
     private javax.swing.JLabel tripIdLbl;
     private javax.swing.JTextField tripIdTxt;
     // End of variables declaration//GEN-END:variables
