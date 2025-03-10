@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class SearchTripView extends javax.swing.JFrame {
 
@@ -26,23 +22,27 @@ public class SearchTripView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        departureLbl = new javax.swing.JLabel();
-        departureTxt = new javax.swing.JTextField();
+        originLbl = new javax.swing.JLabel();
+        originTxt = new javax.swing.JTextField();
         monthLbl = new javax.swing.JLabel();
         monthTxt = new javax.swing.JTextField();
-        searchBtn = new javax.swing.JButton();
+        searchIdBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
         infoPanel = new javax.swing.JPanel();
+        tripIdLbl = new javax.swing.JLabel();
+        tripIdTxt = new javax.swing.JTextField();
+        searchOriginBtn = new javax.swing.JButton();
+        searchMonthBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Trip");
 
-        departureLbl.setText("Departure City:");
+        originLbl.setText("Origin:");
 
-        departureTxt.addActionListener(new java.awt.event.ActionListener() {
+        originTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                departureTxtActionPerformed(evt);
+                originTxtActionPerformed(evt);
             }
         });
 
@@ -54,22 +54,30 @@ public class SearchTripView extends javax.swing.JFrame {
             }
         });
 
-        searchBtn.setText("Search");
+        searchIdBtn.setText("Search");
 
         clearAllBtn.setText("Clear All");
 
         searchAllBtn.setText("Search All");
 
+        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGap(0, 346, Short.MAX_VALUE)
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 123, Short.MAX_VALUE)
         );
+
+        tripIdLbl.setText("Trip ID:");
+
+        searchOriginBtn.setText("Search");
+
+        searchMonthBtn.setText("Search");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,50 +86,64 @@ public class SearchTripView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(departureLbl)
-                            .addComponent(monthLbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(searchAllBtn)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchBtn)
+                                .addComponent(searchAllBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clearAllBtn))
-                            .addComponent(monthTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(departureTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)))
-                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                .addComponent(clearAllBtn)
+                                .addGap(6, 6, 6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(originLbl)
+                                    .addComponent(monthLbl)
+                                    .addComponent(tripIdLbl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(monthTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                    .addComponent(originTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                    .addComponent(tripIdTxt))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchIdBtn)
+                            .addComponent(searchOriginBtn)
+                            .addComponent(searchMonthBtn))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departureLbl)
-                    .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tripIdLbl)
+                    .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchIdBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(originLbl)
+                    .addComponent(originTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchOriginBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monthLbl)
-                    .addComponent(monthTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(monthTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchMonthBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchBtn)
-                    .addComponent(clearAllBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchAllBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(clearAllBtn)
+                    .addComponent(searchAllBtn))
+                .addGap(18, 18, 18)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void departureTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departureTxtActionPerformed
+    private void originTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_originTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_departureTxtActionPerformed
+    }//GEN-LAST:event_originTxtActionPerformed
 
     private void monthTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthTxtActionPerformed
         // TODO add your handling code here:
@@ -164,12 +186,16 @@ public class SearchTripView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JLabel departureLbl;
-    private javax.swing.JTextField departureTxt;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JLabel monthLbl;
     private javax.swing.JTextField monthTxt;
+    private javax.swing.JLabel originLbl;
+    private javax.swing.JTextField originTxt;
     private javax.swing.JButton searchAllBtn;
-    private javax.swing.JButton searchBtn;
+    private javax.swing.JButton searchIdBtn;
+    private javax.swing.JButton searchMonthBtn;
+    private javax.swing.JButton searchOriginBtn;
+    private javax.swing.JLabel tripIdLbl;
+    private javax.swing.JTextField tripIdTxt;
     // End of variables declaration//GEN-END:variables
 }

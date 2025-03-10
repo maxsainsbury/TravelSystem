@@ -25,92 +25,104 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="promoIdLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="flightIdLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalPriceLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalTimeLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="returnLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="departureLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="destinationLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="originLbl" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="addTripBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="totalTimeTxt" max="32767" attributes="0"/>
-                      <Component id="totalPriceTxt" max="32767" attributes="0"/>
-                      <Component id="flightIdTxt" max="32767" attributes="0"/>
-                      <Component id="promoIdTxt" pref="190" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="originTxt" max="32767" attributes="0"/>
+                  <Component id="destinationTxt" max="32767" attributes="0"/>
+                  <Component id="departureTxt" max="32767" attributes="0"/>
+                  <Component id="returnTxt" max="32767" attributes="0"/>
+                  <Component id="promoIdTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="statusTxt" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="totalTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalTimeTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="originLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="originTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="totalPriceLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalPriceTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="destinationLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="destinationTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="flightIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="flightIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="departureLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="departureTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="returnLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="returnTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="statusLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="promoIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="promoIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addTripBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="totalTimeLbl">
+    <Component class="javax.swing.JLabel" name="originLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total Time:"/>
+        <Property name="text" type="java.lang.String" value="Origin:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="totalTimeTxt">
+    <Component class="javax.swing.JTextField" name="originTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="totalPriceLbl">
+    <Component class="javax.swing.JLabel" name="destinationLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total Price:"/>
+        <Property name="text" type="java.lang.String" value="Destination:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="totalPriceTxt">
+    <Component class="javax.swing.JTextField" name="destinationTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="flightIdLbl">
+    <Component class="javax.swing.JLabel" name="departureLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Flight ID:"/>
+        <Property name="text" type="java.lang.String" value="Departure (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="flightIdTxt">
+    <Component class="javax.swing.JTextField" name="departureTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="promoIdLbl">
+    <Component class="javax.swing.JLabel" name="returnLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Promotion ID:"/>
+        <Property name="text" type="java.lang.String" value="Return (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="promoIdTxt">
+    <Component class="javax.swing.JTextField" name="returnTxt">
     </Component>
     <Component class="javax.swing.JButton" name="addTripBtn">
       <Properties>
@@ -121,6 +133,23 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Clear All"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="statusLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="statusTxt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statusTxtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="promoIdLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Promotion ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="promoIdTxt">
     </Component>
   </SubComponents>
 </Form>

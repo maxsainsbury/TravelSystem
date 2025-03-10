@@ -25,50 +25,56 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="promoIdLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="percentLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="promoNameLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="monthLbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="yearLbl" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <Component id="promoNameLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="editBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="103" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="monthTxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="yearTxt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="promoNameTxt" alignment="1" max="32767" attributes="0"/>
-                          <Component id="percentTxt" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="deletePromoBtn" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="promoIdTxt" min="-2" pref="121" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="promoNameTxt" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <Component id="promoIdLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="promoIdTxt" min="-2" pref="135" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="descLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="percentLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="startLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="endLbl" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="endTxt" alignment="1" max="32767" attributes="0"/>
+                  <Component id="startTxt" alignment="1" max="32767" attributes="0"/>
+                  <Component id="percentTxt" max="32767" attributes="0"/>
+                  <Component id="statusTxt" max="32767" attributes="0"/>
+                  <Component id="descTxt" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="promoIdLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="promoIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -81,27 +87,35 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="percentLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="descLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="descTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="percentTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="percentLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="monthLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="monthTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="yearTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="yearLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="statusTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="editBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="deletePromoBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -128,19 +142,19 @@
     </Component>
     <Component class="javax.swing.JTextField" name="percentTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="monthLbl">
+    <Component class="javax.swing.JLabel" name="startLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Month:"/>
+        <Property name="text" type="java.lang.String" value="Start (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="monthTxt">
+    <Component class="javax.swing.JTextField" name="startTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="yearLbl">
+    <Component class="javax.swing.JLabel" name="endLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Year:"/>
+        <Property name="text" type="java.lang.String" value="End (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="yearTxt">
+    <Component class="javax.swing.JTextField" name="endTxt">
     </Component>
     <Component class="javax.swing.JButton" name="editBtn">
       <Properties>
@@ -152,15 +166,24 @@
         <Property name="text" type="java.lang.String" value="Clear All"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="deletePromoBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Promotion"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="searchBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="statusLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="statusTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="descLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Description:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="descTxt">
     </Component>
   </SubComponents>
 </Form>

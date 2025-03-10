@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class AddTripView extends javax.swing.JFrame {
 
@@ -26,84 +22,113 @@ public class AddTripView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        totalTimeLbl = new javax.swing.JLabel();
-        totalTimeTxt = new javax.swing.JTextField();
-        totalPriceLbl = new javax.swing.JLabel();
-        totalPriceTxt = new javax.swing.JTextField();
-        flightIdLbl = new javax.swing.JLabel();
-        flightIdTxt = new javax.swing.JTextField();
-        promoIdLbl = new javax.swing.JLabel();
-        promoIdTxt = new javax.swing.JTextField();
+        originLbl = new javax.swing.JLabel();
+        originTxt = new javax.swing.JTextField();
+        destinationLbl = new javax.swing.JLabel();
+        destinationTxt = new javax.swing.JTextField();
+        departureLbl = new javax.swing.JLabel();
+        departureTxt = new javax.swing.JTextField();
+        returnLbl = new javax.swing.JLabel();
+        returnTxt = new javax.swing.JTextField();
         addTripBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
+        statusLbl = new javax.swing.JLabel();
+        statusTxt = new javax.swing.JTextField();
+        promoIdLbl = new javax.swing.JLabel();
+        promoIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Trip");
 
-        totalTimeLbl.setText("Total Time:");
+        originLbl.setText("Origin:");
 
-        totalPriceLbl.setText("Total Price:");
+        destinationLbl.setText("Destination:");
 
-        flightIdLbl.setText("Flight ID:");
+        departureLbl.setText("Departure (YYYY-MM-DD):");
 
-        promoIdLbl.setText("Promotion ID:");
+        returnLbl.setText("Return (YYYY-MM-DD):");
 
         addTripBtn.setText("Add Trip");
 
         clearAllBtn.setText("Clear All");
+
+        statusLbl.setText("Status:");
+
+        statusTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusTxtActionPerformed(evt);
+            }
+        });
+
+        promoIdLbl.setText("Promotion ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(promoIdLbl)
-                    .addComponent(flightIdLbl)
-                    .addComponent(totalPriceLbl)
-                    .addComponent(totalTimeLbl))
+                    .addComponent(statusLbl)
+                    .addComponent(returnLbl)
+                    .addComponent(departureLbl)
+                    .addComponent(destinationLbl)
+                    .addComponent(originLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addTripBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(totalTimeTxt)
-                        .addComponent(totalPriceTxt)
-                        .addComponent(flightIdTxt)
-                        .addComponent(promoIdTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                    .addComponent(originTxt)
+                    .addComponent(destinationTxt)
+                    .addComponent(departureTxt)
+                    .addComponent(returnTxt)
+                    .addComponent(promoIdTxt)
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalTimeLbl)
-                    .addComponent(totalTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(originLbl)
+                    .addComponent(originTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalPriceLbl)
-                    .addComponent(totalPriceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(destinationLbl)
+                    .addComponent(destinationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(flightIdLbl)
-                    .addComponent(flightIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(departureLbl)
+                    .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(returnLbl)
+                    .addComponent(returnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusLbl)
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(promoIdLbl)
                     .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addTripBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void statusTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,13 +168,17 @@ public class AddTripView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addTripBtn;
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JLabel flightIdLbl;
-    private javax.swing.JTextField flightIdTxt;
+    private javax.swing.JLabel departureLbl;
+    private javax.swing.JTextField departureTxt;
+    private javax.swing.JLabel destinationLbl;
+    private javax.swing.JTextField destinationTxt;
+    private javax.swing.JLabel originLbl;
+    private javax.swing.JTextField originTxt;
     private javax.swing.JLabel promoIdLbl;
     private javax.swing.JTextField promoIdTxt;
-    private javax.swing.JLabel totalPriceLbl;
-    private javax.swing.JTextField totalPriceTxt;
-    private javax.swing.JLabel totalTimeLbl;
-    private javax.swing.JTextField totalTimeTxt;
+    private javax.swing.JLabel returnLbl;
+    private javax.swing.JTextField returnTxt;
+    private javax.swing.JLabel statusLbl;
+    private javax.swing.JTextField statusTxt;
     // End of variables declaration//GEN-END:variables
 }

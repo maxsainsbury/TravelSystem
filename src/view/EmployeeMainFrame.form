@@ -7,16 +7,16 @@
         <Property name="text" type="java.lang.String" value="jMenuItem1"/>
       </Properties>
     </Component>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Menu class="javax.swing.JMenuBar" name="menuBar">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="CustomerMnu">
+        <Menu class="javax.swing.JMenu" name="customerMnu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Customer"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="addCustomerMnu">
+            <MenuItem class="javax.swing.JMenuItem" name="searchCustomerMnu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Customer"/>
+                <Property name="text" type="java.lang.String" value="Search Customers"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editCustomerMnu">
@@ -24,21 +24,26 @@
                 <Property name="text" type="java.lang.String" value="Edit Customer"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="searchCustomerMnu">
+            <MenuItem class="javax.swing.JMenuItem" name="addCustomerMnu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Search Customer"/>
+                <Property name="text" type="java.lang.String" value="Add Customer"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteCustomerMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Customer"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="addTripMnu">
+        <Menu class="javax.swing.JMenu" name="tripMnu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Trips"/>
+            <Property name="text" type="java.lang.String" value="Trip"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="bookTripMnu">
+            <MenuItem class="javax.swing.JMenuItem" name="searchTripMnu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Book Trip"/>
+                <Property name="text" type="java.lang.String" value="Search Trips"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editTripMnu">
@@ -46,19 +51,24 @@
                 <Property name="text" type="java.lang.String" value="Edit Trip"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="addTripMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Trip"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addTripMnuActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteTripMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Trip"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="flightMnu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Flights"/>
+            <Property name="text" type="java.lang.String" value="Flight"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="searchFlightMnu">
@@ -68,11 +78,21 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editFlightMnu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit Flights"/>
+                <Property name="text" type="java.lang.String" value="Edit Flight"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editFlightMnuActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="addFlightMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Flight"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteFlightMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Flight"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -99,6 +119,38 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addPromoMnuActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deletePromoMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Promotion"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="bookingMnu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Booking"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="searchBookingMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search Bookings"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="addBookingMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Booking"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteBookingMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Booking"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="addPaymentMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Payment"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
@@ -109,7 +161,7 @@
     <Property name="title" type="java.lang.String" value="Travel System"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -128,12 +180,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="670" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="652" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="380" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="212" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

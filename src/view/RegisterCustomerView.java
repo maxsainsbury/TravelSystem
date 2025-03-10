@@ -4,12 +4,12 @@ package view;
  *
  * @author Ebba de Groot
  */
-public class AddCustomerView extends javax.swing.JFrame {
+public class RegisterCustomerView extends javax.swing.JFrame {
 
     /**
      * Creates new form AddCustomerView
      */
-    public AddCustomerView() {
+    public RegisterCustomerView() {
         initComponents();
     }
 
@@ -36,15 +36,19 @@ public class AddCustomerView extends javax.swing.JFrame {
         unitTxt = new javax.swing.JTextField();
         streetLbl = new javax.swing.JLabel();
         streetTxt = new javax.swing.JTextField();
-        addCustomerBtn = new javax.swing.JButton();
+        registerBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
         postalLbl = new javax.swing.JLabel();
         postalTxt = new javax.swing.JTextField();
         countryLbl = new javax.swing.JLabel();
         countryTxt = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordTxt = new javax.swing.JTextField();
+        usernameLbl = new javax.swing.JLabel();
+        usernameTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Add Customer");
+        setTitle("Register");
 
         fnameLbl.setText("First Name:");
 
@@ -60,13 +64,17 @@ public class AddCustomerView extends javax.swing.JFrame {
 
         streetLbl.setText("Street Address:");
 
-        addCustomerBtn.setText("Add Customer");
+        registerBtn.setText("Register");
 
         clearAllBtn.setText("Clear All");
 
         postalLbl.setText("Postal Code:");
 
         countryLbl.setText("Country:");
+
+        passwordLbl.setText("Password:");
+
+        usernameLbl.setText("Username:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +83,8 @@ public class AddCustomerView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(usernameLbl)
+                    .addComponent(passwordLbl)
                     .addComponent(countryLbl)
                     .addComponent(postalLbl)
                     .addComponent(streetLbl)
@@ -86,9 +96,10 @@ public class AddCustomerView extends javax.swing.JFrame {
                     .addComponent(fnameLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(countryTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(addCustomerBtn)
+                        .addComponent(registerBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -99,13 +110,22 @@ public class AddCustomerView extends javax.swing.JFrame {
                     .addComponent(fnameTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                     .addComponent(lnameTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(postalTxt))
+                    .addComponent(postalTxt)
+                    .addComponent(usernameTxt))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameLbl)
+                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fnameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fnameLbl))
@@ -141,9 +161,9 @@ public class AddCustomerView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(countryLbl)
                     .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addCustomerBtn)
+                    .addComponent(registerBtn)
                     .addComponent(clearAllBtn))
                 .addGap(20, 20, 20))
         );
@@ -187,7 +207,6 @@ public class AddCustomerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addCustomerBtn;
     private javax.swing.JLabel addressLbl;
     private javax.swing.JTextField addressTxt;
     private javax.swing.JButton clearAllBtn;
@@ -199,13 +218,18 @@ public class AddCustomerView extends javax.swing.JFrame {
     private javax.swing.JTextField fnameTxt;
     private javax.swing.JLabel lnameLbl;
     private javax.swing.JTextField lnameTxt;
+    private javax.swing.JLabel passwordLbl;
+    private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel phoneLbl;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel postalLbl;
     private javax.swing.JTextField postalTxt;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JLabel streetLbl;
     private javax.swing.JTextField streetTxt;
     private javax.swing.JLabel unitLbl;
     private javax.swing.JTextField unitTxt;
+    private javax.swing.JLabel usernameLbl;
+    private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

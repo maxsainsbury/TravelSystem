@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class AddFlightView extends javax.swing.JFrame {
 
@@ -27,42 +23,46 @@ public class AddFlightView extends javax.swing.JFrame {
     private void initComponents() {
 
         airlineLbl = new javax.swing.JLabel();
-        durationLbl = new javax.swing.JLabel();
+        flightNumLbl = new javax.swing.JLabel();
         departureLbl = new javax.swing.JLabel();
-        destinatinLbl = new javax.swing.JLabel();
+        arrivalLbl = new javax.swing.JLabel();
         priceLbl = new javax.swing.JLabel();
-        dateLbl = new javax.swing.JLabel();
-        timeLbl = new javax.swing.JLabel();
+        seatLbl = new javax.swing.JLabel();
+        statusLbl = new javax.swing.JLabel();
         airlineTxt = new javax.swing.JTextField();
-        durationTxt = new javax.swing.JTextField();
+        flightNumTxt = new javax.swing.JTextField();
         departureTxt = new javax.swing.JTextField();
-        destinationTxt = new javax.swing.JTextField();
+        arrivalTxt = new javax.swing.JTextField();
         priceTxt = new javax.swing.JTextField();
-        dateTxt = new javax.swing.JTextField();
-        timeTxt = new javax.swing.JTextField();
+        seatTxt = new javax.swing.JTextField();
+        statusTxt = new javax.swing.JTextField();
         addFlightBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
+        tripIdLbl = new javax.swing.JLabel();
+        tripIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Flight");
 
         airlineLbl.setText("Airline:");
 
-        durationLbl.setText("Duration:");
+        flightNumLbl.setText("Flight Number:");
 
-        departureLbl.setText("Departure City:");
+        departureLbl.setText("Departure (HH:MM):");
 
-        destinatinLbl.setText("Destination:");
+        arrivalLbl.setText("Arrival (HH:MM):");
 
         priceLbl.setText("Price:");
 
-        dateLbl.setText("Date (YYYY-MM-DD):");
+        seatLbl.setText("Seat Class:");
 
-        timeLbl.setText("Time (HH:MM):");
+        statusLbl.setText("Status:");
 
         addFlightBtn.setText("Add Flight");
 
         clearAllBtn.setText("Clear All");
+
+        tripIdLbl.setText("Trip ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,27 +71,29 @@ public class AddFlightView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(timeLbl)
-                    .addComponent(dateLbl)
+                    .addComponent(tripIdLbl)
+                    .addComponent(statusLbl)
+                    .addComponent(seatLbl)
                     .addComponent(priceLbl)
-                    .addComponent(destinatinLbl)
+                    .addComponent(arrivalLbl)
                     .addComponent(departureLbl)
-                    .addComponent(durationLbl)
+                    .addComponent(flightNumLbl)
                     .addComponent(airlineLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(airlineTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(durationTxt)
+                    .addComponent(airlineTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(flightNumTxt)
                     .addComponent(departureTxt)
-                    .addComponent(dateTxt)
-                    .addComponent(timeTxt)
+                    .addComponent(seatTxt)
+                    .addComponent(statusTxt)
                     .addComponent(priceTxt, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addFlightBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(destinationTxt))
+                    .addComponent(arrivalTxt)
+                    .addComponent(tripIdTxt))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -103,33 +105,37 @@ public class AddFlightView extends javax.swing.JFrame {
                     .addComponent(airlineTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(durationLbl)
-                    .addComponent(durationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(flightNumLbl)
+                    .addComponent(flightNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(departureLbl)
                     .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(destinationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(destinatinLbl))
+                    .addComponent(arrivalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(arrivalLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(priceLbl, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(priceTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateLbl))
+                    .addComponent(seatTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seatLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(timeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(timeLbl))
+                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(statusLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tripIdLbl)
+                    .addComponent(tripIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addFlightBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -174,18 +180,20 @@ public class AddFlightView extends javax.swing.JFrame {
     private javax.swing.JButton addFlightBtn;
     private javax.swing.JLabel airlineLbl;
     private javax.swing.JTextField airlineTxt;
+    private javax.swing.JLabel arrivalLbl;
+    private javax.swing.JTextField arrivalTxt;
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JLabel dateLbl;
-    private javax.swing.JTextField dateTxt;
     private javax.swing.JLabel departureLbl;
     private javax.swing.JTextField departureTxt;
-    private javax.swing.JLabel destinatinLbl;
-    private javax.swing.JTextField destinationTxt;
-    private javax.swing.JLabel durationLbl;
-    private javax.swing.JTextField durationTxt;
+    private javax.swing.JLabel flightNumLbl;
+    private javax.swing.JTextField flightNumTxt;
     private javax.swing.JLabel priceLbl;
     private javax.swing.JTextField priceTxt;
-    private javax.swing.JLabel timeLbl;
-    private javax.swing.JTextField timeTxt;
+    private javax.swing.JLabel seatLbl;
+    private javax.swing.JTextField seatTxt;
+    private javax.swing.JLabel statusLbl;
+    private javax.swing.JTextField statusTxt;
+    private javax.swing.JLabel tripIdLbl;
+    private javax.swing.JTextField tripIdTxt;
     // End of variables declaration//GEN-END:variables
 }

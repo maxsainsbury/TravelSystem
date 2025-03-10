@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
  *
- * @author degro
+ * @author Ebba de Groot
  */
 public class SearchFlightView extends javax.swing.JFrame {
 
@@ -28,35 +24,30 @@ public class SearchFlightView extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        departureLbl = new javax.swing.JLabel();
-        departureTxt = new javax.swing.JTextField();
-        dateLbl = new javax.swing.JLabel();
-        dateTxt = new javax.swing.JTextField();
-        searchBtn = new javax.swing.JButton();
+        airlineLbl = new javax.swing.JLabel();
+        airlineTxt = new javax.swing.JTextField();
         clearAllBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
-        destinationLbl = new javax.swing.JLabel();
-        destinationTxt = new javax.swing.JTextField();
         infoPanel = new javax.swing.JPanel();
+        flightIdLbl = new javax.swing.JLabel();
+        flightIdTxt = new javax.swing.JTextField();
+        searchIdBtn = new javax.swing.JButton();
+        searchAirlineBtn = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Search Flight");
+        setTitle("Search Flights");
 
-        departureLbl.setText("Departure City:");
-
-        dateLbl.setText("Date (YYYY-MM-DD):");
-
-        searchBtn.setText("Search");
+        airlineLbl.setText("Airline:");
 
         clearAllBtn.setText("Clear All");
 
         searchAllBtn.setText("Search All");
 
-        destinationLbl.setText("Destination:");
+        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -66,61 +57,64 @@ public class SearchFlightView extends javax.swing.JFrame {
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
+
+        flightIdLbl.setText("Flight ID:");
+
+        searchIdBtn.setText("Search");
+
+        searchAirlineBtn.setText("Search");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(airlineLbl)
+                    .addComponent(flightIdLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(destinationLbl)
-                            .addComponent(dateLbl)
-                            .addComponent(departureLbl))
+                        .addComponent(searchAllBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clearAllBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(airlineTxt)
+                            .addComponent(flightIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clearAllBtn))
-                            .addComponent(searchAllBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(destinationTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(departureTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                                .addComponent(dateTxt, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                            .addComponent(searchIdBtn)
+                            .addComponent(searchAirlineBtn))))
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departureLbl)
-                    .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(flightIdLbl)
+                    .addComponent(flightIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchIdBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(destinationLbl)
-                    .addComponent(destinationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(airlineLbl)
+                    .addComponent(airlineTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchAirlineBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateLbl)
-                    .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchBtn)
-                    .addComponent(clearAllBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchAllBtn)
-                .addGap(14, 14, 14)
+                    .addComponent(clearAllBtn)
+                    .addComponent(searchAllBtn))
+                .addGap(18, 18, 18)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,17 +156,16 @@ public class SearchFlightView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel airlineLbl;
+    private javax.swing.JTextField airlineTxt;
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JLabel dateLbl;
-    private javax.swing.JTextField dateTxt;
-    private javax.swing.JLabel departureLbl;
-    private javax.swing.JTextField departureTxt;
-    private javax.swing.JLabel destinationLbl;
-    private javax.swing.JTextField destinationTxt;
+    private javax.swing.JLabel flightIdLbl;
+    private javax.swing.JTextField flightIdTxt;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton searchAirlineBtn;
     private javax.swing.JButton searchAllBtn;
-    private javax.swing.JButton searchBtn;
+    private javax.swing.JButton searchIdBtn;
     // End of variables declaration//GEN-END:variables
 }
