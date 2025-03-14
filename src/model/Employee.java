@@ -42,8 +42,8 @@ public class Employee extends User{
      * @param firstName first name of the employee
      * @param lastName last name of the employee
      */
-    public Employee(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, int year, int month, int day, String password, String status, String cell, String position, double salary, String role, int createdBy) {
-        super(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, year, month, day, password, Employee.userType);
+    public Employee(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String password, String status, String cell, String position, double salary, String role, int createdBy) {
+        super(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, password, Employee.userType);
         this.SIN = SIN;
         this.status = status;
         this.cell = cell;

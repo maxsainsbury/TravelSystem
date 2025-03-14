@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -13,6 +17,157 @@ public class AddEmployeeView extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getAddEmpBtn() {
+        return addEmpBtn;
+    }
+
+    public void setAddEmpBtn(JButton addEmpBtn) {
+        this.addEmpBtn = addEmpBtn;
+    }
+
+    public JTextField getCellTxt() {
+        return cellTxt;
+    }
+
+    public void setCellTxt(JTextField cellTxt) {
+        this.cellTxt = cellTxt;
+    }
+
+    public JTextField getCityTxt() {
+        return cityTxt;
+    }
+
+    public void setCityTxt(JTextField cityTxt) {
+        this.cityTxt = cityTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getCountryTxt() {
+        return countryTxt;
+    }
+
+    public void setCountryTxt(JTextField countryTxt) {
+        this.countryTxt = countryTxt;
+    }
+
+    public JTextField getDobTxt() {
+        return dobTxt;
+    }
+
+    public void setDobTxt(JTextField dobTxt) {
+        this.dobTxt = dobTxt;
+    }
+
+    public JTextField getEmailTxt() {
+        return emailTxt;
+    }
+
+    public void setEmailTxt(JTextField emailTxt) {
+        this.emailTxt = emailTxt;
+    }
+
+    public JTextField getFnameTxt() {
+        return fnameTxt;
+    }
+
+    public void setFnameTxt(JTextField fnameTxt) {
+        this.fnameTxt = fnameTxt;
+    }
+
+    public JTextField getLnameTxt() {
+        return lnameTxt;
+    }
+
+    public void setLnameTxt(JTextField lnameTxt) {
+        this.lnameTxt = lnameTxt;
+    }
+
+    public JTextField getPhoneTxt() {
+        return phoneTxt;
+    }
+
+    public void setPhoneTxt(JTextField phoneTxt) {
+        this.phoneTxt = phoneTxt;
+    }
+
+    public JTextField getPositionTxt() {
+        return positionTxt;
+    }
+
+    public void setPositionTxt(JTextField positionTxt) {
+        this.positionTxt = positionTxt;
+    }
+
+    public JTextField getPostalTxt() {
+        return postalTxt;
+    }
+
+    public void setPostalTxt(JTextField postalTxt) {
+        this.postalTxt = postalTxt;
+    }
+
+    public JTextField getRoleTxt() {
+        return roleTxt;
+    }
+
+    public void setRoleTxt(JTextField roleTxt) {
+        this.roleTxt = roleTxt;
+    }
+
+    public JTextField getSalaryTxt() {
+        return salaryTxt;
+    }
+
+    public void setSalaryTxt(JTextField salaryTxt) {
+        this.salaryTxt = salaryTxt;
+    }
+
+    public JTextField getSinTxt() {
+        return sinTxt;
+    }
+
+    public void setSinTxt(JTextField sinTxt) {
+        this.sinTxt = sinTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+
+    public JTextField getStreetTxt() {
+        return streetTxt;
+    }
+
+    public void setStreetTxt(JTextField streetTxt) {
+        this.streetTxt = streetTxt;
+    }
+
+    public JTextField getUnitTxt() {
+        return unitTxt;
+    }
+
+    public void setUnitTxt(JTextField unitTxt) {
+        this.unitTxt = unitTxt;
+    }
+    
+    public void addEmpBtnActionListener(ActionListener myActionListener) {
+        addEmpBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -92,9 +92,11 @@ public class User {
      * @param postalCode
      * @param password 
      */
-    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, int year, int month, int day, String password, String userType) {
+    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String password, String userType) {
         this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
-        this.dob = LocalDate.of(year, month, day);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //turn the value from the database into a LocalDate object
+        this.dob = LocalDate.parse(dob, formatter);
         this.password = password;
         this.userType = userType;
         
