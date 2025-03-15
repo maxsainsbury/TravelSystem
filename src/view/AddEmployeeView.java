@@ -160,6 +160,31 @@ public class AddEmployeeView extends javax.swing.JFrame {
     public void setUnitTxt(JTextField unitTxt) {
         this.unitTxt = unitTxt;
     }
+
+    public JTextField getPasswordTxt() {
+        return passwordTxt;
+    }
+
+    public void setPasswordTxt(JTextField passwordTxt) {
+        this.passwordTxt = passwordTxt;
+    }
+
+    public JTextField getUserNameTxt() {
+        return userNameTxt;
+    }
+
+    public void setUserNameTxt(JTextField userNameTxt) {
+        this.userNameTxt = userNameTxt;
+    }
+
+    public JTextField getCreatedByTxt() {
+        return createdByTxt;
+    }
+
+    public void setCreatedByTxt(JTextField createdByTxt) {
+        this.createdByTxt = createdByTxt;
+    }
+    
     
     public void addEmpBtnActionListener(ActionListener myActionListener) {
         addEmpBtn.addActionListener(myActionListener);
@@ -211,6 +236,12 @@ public class AddEmployeeView extends javax.swing.JFrame {
         roleTxt = new javax.swing.JTextField();
         addEmpBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        userNameTxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        passwordTxt = new javax.swing.JTextField();
+        createdByLabel = new javax.swing.JLabel();
+        createdByTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Employee");
@@ -248,8 +279,24 @@ public class AddEmployeeView extends javax.swing.JFrame {
         roleLbl.setText("Role:");
 
         addEmpBtn.setText("Add Employee");
+        addEmpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmpBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("User Name:");
+
+        jLabel2.setText("Password");
+
+        createdByLabel.setText("Created by: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,6 +305,9 @@ public class AddEmployeeView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(createdByLabel)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addComponent(roleLbl)
                     .addComponent(salaryLbl)
                     .addComponent(positionLbl)
@@ -278,26 +328,29 @@ public class AddEmployeeView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addEmpBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(clearAllBtn))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(fnameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                        .addComponent(lnameTxt)
-                        .addComponent(dobTxt)
-                        .addComponent(emailTxt)
-                        .addComponent(sinTxt)
-                        .addComponent(statusTxt)
-                        .addComponent(phoneTxt)
-                        .addComponent(cellTxt)
-                        .addComponent(unitTxt)
-                        .addComponent(streetTxt)
-                        .addComponent(cityTxt)
-                        .addComponent(postalTxt)
-                        .addComponent(countryTxt)
-                        .addComponent(positionTxt)
-                        .addComponent(salaryTxt)
-                        .addComponent(roleTxt)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(createdByTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(passwordTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(userNameTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(fnameTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                        .addComponent(lnameTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(dobTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(sinTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(statusTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(phoneTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cellTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(unitTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(streetTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cityTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(postalTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(countryTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(positionTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(salaryTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(roleTxt, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,15 +420,35 @@ public class AddEmployeeView extends javax.swing.JFrame {
                     .addComponent(roleLbl)
                     .addComponent(roleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createdByLabel)
+                    .addComponent(createdByTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addEmpBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void addEmpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmpBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addEmpBtnActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -420,14 +493,19 @@ public class AddEmployeeView extends javax.swing.JFrame {
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel countryLbl;
     private javax.swing.JTextField countryTxt;
+    private javax.swing.JLabel createdByLabel;
+    private javax.swing.JTextField createdByTxt;
     private javax.swing.JLabel dobLbl;
     private javax.swing.JTextField dobTxt;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel fnameLbl;
     private javax.swing.JTextField fnameTxt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lnameLbl;
     private javax.swing.JTextField lnameTxt;
+    private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel phoneLbl;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel positionLbl;
@@ -446,5 +524,6 @@ public class AddEmployeeView extends javax.swing.JFrame {
     private javax.swing.JTextField streetTxt;
     private javax.swing.JLabel unitLbl;
     private javax.swing.JTextField unitTxt;
+    private javax.swing.JTextField userNameTxt;
     // End of variables declaration//GEN-END:variables
 }

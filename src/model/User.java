@@ -24,6 +24,8 @@ public class User {
     private String userType;
     private int userId;
     
+    
+    
     /**
      * Constructor for the user class, use as a base constructor for both public constructors to get rid of repeated code
      * @param username
@@ -38,8 +40,7 @@ public class User {
      * @param country
      * @param postalCode 
      */
-    private User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode) {
-        this.username = username;
+    private User(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -68,8 +69,9 @@ public class User {
      * @param postalCode
      * @param userId 
      */
-    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, int userId) {
-        this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
+
+    public User(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, int userId) {
+        this(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
         //Set up a formatter to tell the program how to interpret the value given by the date column in the Promotion database
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         //turn the value from the database into a LocalDate object
@@ -78,8 +80,7 @@ public class User {
     }
     
     /**
-     * Constructor for User class when creating a new user
-     * sets the password variable
+     * Constructor for User class when creating a new user.
      * @param username
      * @param firstName
      * @param lastName
@@ -90,22 +91,48 @@ public class User {
      * @param city
      * @param country
      * @param postalCode
-     * @param password 
      */
-    public User(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String password, String userType) {
-        this(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
+    public User(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String userType, String username, String password) {
+        this(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         //turn the value from the database into a LocalDate object
         this.dob = LocalDate.parse(dob, formatter);
+        this.userType = userType;
+        this.username = username;
+        this.password = password;
+        
+    }
+    
+    /**
+     * Constructor to create new user with username and password.
+     * Used when adding new employee or customer. 
+     * table in database. 
+     * @param username
+     * @param password
+     * @param userType
+     */
+    public User(String username, String password, String userType){
+        this.username = username;
         this.password = password;
         this.userType = userType;
         
     }
-
-    public String getUsername() {
-        return username;
+    
+    /**
+     * Constructor to create user when userId is known.
+     * @param userId
+     * @param username
+     * @param password
+     * @param userType 
+     */
+    public User(int userId, String username, String password, String userType){
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.userType = userType;
+        
     }
-
+    
     public void setUsername(String username) {
         this.username = username;
     }
@@ -214,8 +241,9 @@ public class User {
         this.userType = userType;
     }
 
-    
-    
-    
+    public String getUsername() {
+        return username;
+    }
+   
     
 }
