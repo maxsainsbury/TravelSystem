@@ -27,6 +27,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="cityLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="usernameLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="passwordLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="countryLbl" min="-2" max="-2" attributes="0"/>
@@ -58,6 +59,7 @@
                   <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="postalTxt" max="32767" attributes="0"/>
                   <Component id="usernameTxt" max="32767" attributes="0"/>
+                  <Component id="cityTxt" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
           </Group>
@@ -66,7 +68,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="usernameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="usernameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -112,6 +114,11 @@
                   <Component id="streetTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="8" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="postalLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="postalTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -224,6 +231,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="usernameTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="cityLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="City:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cityTxt">
     </Component>
   </SubComponents>
 </Form>

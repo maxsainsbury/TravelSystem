@@ -105,6 +105,14 @@ public class RegisterCustomerView extends javax.swing.JFrame {
         this.usernameTxt = usernameTxt;
     }
 
+    public JTextField getCityTxt() {
+        return cityTxt;
+    }
+
+    public void setCityTxt(JTextField cityTxt) {
+        this.cityTxt = cityTxt;
+    }
+
     public JButton getClearAllBtn() {
         return clearAllBtn;
     }
@@ -154,6 +162,8 @@ public class RegisterCustomerView extends javax.swing.JFrame {
         passwordTxt = new javax.swing.JTextField();
         usernameLbl = new javax.swing.JLabel();
         usernameTxt = new javax.swing.JTextField();
+        cityLbl = new javax.swing.JLabel();
+        cityTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Register");
@@ -194,6 +204,8 @@ public class RegisterCustomerView extends javax.swing.JFrame {
 
         usernameLbl.setText("Username:");
 
+        cityLbl.setText("City:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,6 +213,7 @@ public class RegisterCustomerView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cityLbl)
                     .addComponent(usernameLbl)
                     .addComponent(passwordLbl)
                     .addComponent(countryLbl)
@@ -229,13 +242,14 @@ public class RegisterCustomerView extends javax.swing.JFrame {
                     .addComponent(lnameTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(postalTxt)
-                    .addComponent(usernameTxt))
+                    .addComponent(usernameTxt)
+                    .addComponent(cityTxt))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernameLbl)
                     .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -272,6 +286,10 @@ public class RegisterCustomerView extends javax.swing.JFrame {
                     .addComponent(streetLbl)
                     .addComponent(streetTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cityLbl)
+                    .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postalLbl)
                     .addComponent(postalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -335,6 +353,8 @@ public class RegisterCustomerView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLbl;
     private javax.swing.JTextField addressTxt;
+    private javax.swing.JLabel cityLbl;
+    private javax.swing.JTextField cityTxt;
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel countryLbl;
     private javax.swing.JTextField countryTxt;

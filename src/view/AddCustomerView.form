@@ -27,33 +27,40 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="citylbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="passwordLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="usernameLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="countryLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="postalLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="unitLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="dobLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="phoneLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="lnameLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="fnameLbl" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="countryTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="phoneTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="dobTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="unitTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="streetTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="fnameTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lnameTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="postalTxt" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="addCustomerBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="phoneTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="addressTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="unitTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="streetTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="fnameTxt" alignment="0" pref="195" max="32767" attributes="0"/>
-                  <Component id="lnameTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="emailTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="postalTxt" max="32767" attributes="0"/>
+                  <Component id="usernameTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="passwordTxt" max="32767" attributes="0"/>
+                  <Component id="cityTxt" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
           </Group>
@@ -84,8 +91,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addressLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dobLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dobTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -99,6 +106,11 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="citylbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="postalLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="postalTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -107,7 +119,17 @@
                   <Component id="countryLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="countryTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="usernameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="usernameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="passwordLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passwordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addCustomerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -146,12 +168,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="phoneTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="addressLbl">
+    <Component class="javax.swing.JLabel" name="dobLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="DOB (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="addressTxt">
+    <Component class="javax.swing.JTextField" name="dobTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="unitLbl">
       <Properties>
@@ -196,6 +218,27 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="countryTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="usernameLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Username:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="usernameTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="passwordLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Password:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="passwordTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="citylbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="City:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cityTxt">
     </Component>
   </SubComponents>
 </Form>

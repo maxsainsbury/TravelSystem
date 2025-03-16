@@ -44,7 +44,7 @@ public class Customer extends User{
      * @param month
      * @param day 
      */
-    public Customer(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String userType, String userName, String userPassword) {
+    public Customer(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String userName, String userPassword) {
         super(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, Customer.userType, userName, userPassword);  
     }
 
