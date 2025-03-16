@@ -49,6 +49,7 @@ public class UserDAO {
     public boolean addUserRecord(User user) {
         String query ="INSERT INTO user (username, password, user_type) VALUES (?, ?, ?)";
         
+        // Create a new user in the database and return the newly created user_id
         try(Connection connection = DBConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, user.getUsername());
@@ -57,10 +58,12 @@ public class UserDAO {
             int status = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if(resultSet.next()) {
+                // Set the new user_id to this user. 
                 int last_inserted_id = resultSet.getInt(1);
                 user.setUserId(last_inserted_id);
             }
             
+            // Successfull insertion will return value greater than 0.
             return status > 0; 
             
         } catch(Exception e) {

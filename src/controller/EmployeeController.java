@@ -4,7 +4,6 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashSet;
 import view.AddEmployeeView;
 import model.Employee;
 import javax.swing.*;
@@ -62,7 +61,7 @@ public class EmployeeController {
                     empUnit, empStreetAdress, empCity, empCountry, empPostalCode, empDob, empStatus, 
                     empCell, empPosition, empSalary, empRole, empUserName, empPassword, empCreatedBy);   
             
-            // Set the user attribute to the new employee.
+            // Set the user attribute of the userDao to the new employee.
             userDao.setUser(newEmployee);
 
             // Inserting new user in database
@@ -76,9 +75,10 @@ public class EmployeeController {
                 return;
             } 
             
-            //
             JOptionPane.showMessageDialog(null, "Successfully added a new user.");
+            // setting the newEmployee's userId to the newly created userId when new user was inserted.
             newEmployee.setUserId(userDao.getUser().getUserId());
+            // Insert new employee in database
             result = employeeDao.addEmployee(newEmployee);
             if(result) {
                 JOptionPane.showMessageDialog(null, "Successfully added a new employee");
