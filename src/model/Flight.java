@@ -18,7 +18,9 @@ public class Flight {
     private int tripId;
     private int flightId;
     
-    
+    public Flight() {
+        this.flightId = 0;
+    }
     /**
      * Constructor for a flight class when getting the information from the database
      * @param airLine
@@ -31,7 +33,7 @@ public class Flight {
      * @param tripId
      * @param flightId 
      */
-    public Flight(String airLine, String flightNumber, String departureTime, String arrivalTime, double price, String seatClass, String status, int tripId, int flightId) {
+    public Flight(String airline, String flightNumber, String departureTime, String arrivalTime, double price, String seatClass, String status, int tripId, int flightId) {
         this.airline = airline;
         this.flightNumber = flightNumber;
         this.price = price;
@@ -39,7 +41,7 @@ public class Flight {
         this.status = status;
         this.tripId = tripId;
         this.flightId = flightId;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         //take the departure and arrival time parameters and turn them into a LocalTime value
         this.departureTime = LocalDateTime.parse(departureTime, formatter);
         this.arrivalTime = LocalDateTime.parse(arrivalTime, formatter);
