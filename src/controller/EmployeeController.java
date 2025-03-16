@@ -4,9 +4,11 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 import view.AddEmployeeView;
 import model.Employee;
 import javax.swing.*;
+import model.User;
 
 
 /**
@@ -60,6 +62,9 @@ public class EmployeeController {
                     empUnit, empStreetAdress, empCity, empCountry, empPostalCode, empDob, empStatus, 
                     empCell, empPosition, empSalary, empRole, empUserName, empPassword, empCreatedBy);   
             
+            // Set the user attribute to the new employee.
+            userDao.setUser(newEmployee);
+
             // Inserting new user in database
             // newEmployee is automatically casted with User when passed into userDao
             boolean result = userDao.addUserRecord(newEmployee);

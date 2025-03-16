@@ -27,7 +27,7 @@ public class EmployeeDAO {
     public boolean addEmployee(Employee employee) {
         String query = "INSERT INTO employee(employee_id, first_name, last_name, dob, "
                         + "email, SIN, status, phone, cell, unit_number, street_address, "
-                        + "city, postal_code, country, position, salary, role, created_by, user_id) )"
+                        + "city, postal_code, country, position, salary, role, created_by, user_id)"
                         + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try(Connection connection = DBConnection.getConnection();

@@ -58,7 +58,7 @@ public class UserDAO {
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if(resultSet.next()) {
                 int last_inserted_id = resultSet.getInt(1);
-                this.user.setUserId(last_inserted_id);
+                user.setUserId(last_inserted_id);
             }
             
             return status > 0; 
