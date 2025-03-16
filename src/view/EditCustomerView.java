@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +15,118 @@ public class EditCustomerView extends javax.swing.JFrame {
      */
     public EditCustomerView() {
         initComponents();
+    }
+
+    public JTextField getCityTxt() {
+        return cityTxt;
+    }
+
+    public void setCityTxt(JTextField cityTxt) {
+        this.cityTxt = cityTxt;
+    }
+
+    public JTextField getCountryTxt() {
+        return countryTxt;
+    }
+
+    public void setCountryTxt(JTextField countryTxt) {
+        this.countryTxt = countryTxt;
+    }
+
+    public JTextField getCustomerIdTxt() {
+        return customerIdTxt;
+    }
+
+    public void setCustomerIdTxt(JTextField customerIdTxt) {
+        this.customerIdTxt = customerIdTxt;
+    }
+
+    public JTextField getDobTxt() {
+        return dobTxt;
+    }
+
+    public void setDobTxt(JTextField dobTxt) {
+        this.dobTxt = dobTxt;
+    }
+
+    public JTextField getEmailTxt() {
+        return emailTxt;
+    }
+
+    public void setEmailTxt(JTextField emailTxt) {
+        this.emailTxt = emailTxt;
+    }
+
+    public JTextField getFnameTxt() {
+        return fnameTxt;
+    }
+
+    public void setFnameTxt(JTextField fnameTxt) {
+        this.fnameTxt = fnameTxt;
+    }
+
+    public JTextField getLnameTxt() {
+        return lnameTxt;
+    }
+
+    public void setLnameTxt(JTextField lnameTxt) {
+        this.lnameTxt = lnameTxt;
+    }
+
+    public JTextField getPhoneTxt() {
+        return phoneTxt;
+    }
+
+    public void setPhoneTxt(JTextField phoneTxt) {
+        this.phoneTxt = phoneTxt;
+    }
+
+    public JTextField getPostalTxt() {
+        return postalTxt;
+    }
+
+    public void setPostalTxt(JTextField postalTxt) {
+        this.postalTxt = postalTxt;
+    }
+
+    public JTextField getStreetTxt() {
+        return streetTxt;
+    }
+
+    public void setStreetTxt(JTextField streetTxt) {
+        this.streetTxt = streetTxt;
+    }
+
+    public JTextField getUnitTxt() {
+        return unitTxt;
+    }
+
+    public void setUnitTxt(JTextField unitTxt) {
+        this.unitTxt = unitTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getEditBtn() {
+        return editBtn;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+    
+    public void editBtnActionListener(ActionListener myActionListener) {
+        editBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchBtnActionListener(ActionListener myActionListener) {
+        searchBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
     }
 
     /**
@@ -64,6 +180,11 @@ public class EditCustomerView extends javax.swing.JFrame {
         dobLbl.setText("DOB (YYYY-MM-DD):");
 
         editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
         clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +194,11 @@ public class EditCustomerView extends javax.swing.JFrame {
         });
 
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         unitLbl.setText("Unit Number:");
 
@@ -189,6 +315,14 @@ public class EditCustomerView extends javax.swing.JFrame {
     private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBtnActionPerformed
 
     /**
      * @param args the command line arguments

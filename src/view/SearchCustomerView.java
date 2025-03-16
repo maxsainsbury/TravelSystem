@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +16,78 @@ public class SearchCustomerView extends javax.swing.JFrame {
      */
     public SearchCustomerView() {
         initComponents();
+    }
+
+    public JTextField getCustomerIdTxt() {
+        return customerIdTxt;
+    }
+
+    public void setCustomerIdTxt(JTextField customerIdTxt) {
+        this.customerIdTxt = customerIdTxt;
+    }
+
+    public JTextField getEmailTxt() {
+        return emailTxt;
+    }
+
+    public void setEmailTxt(JTextField emailTxt) {
+        this.emailTxt = emailTxt;
+    }
+
+    public JPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public void setInfoPanel(JPanel infoPanel) {
+        this.infoPanel = infoPanel;
+    }
+
+    public JTextField getPhoneTxt() {
+        return phoneTxt;
+    }
+
+    public void setPhoneTxt(JTextField phoneTxt) {
+        this.phoneTxt = phoneTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public JButton getSearchEmailBtn() {
+        return searchEmailBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+
+    public JButton getSearchPhoneBtn() {
+        return searchPhoneBtn;
+    }
+    
+    public void searchAllBtnActionListener(ActionListener myActionListener) {
+        searchAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchEmailBtnActionListener(ActionListener myActionListener) {
+        searchEmailBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchIdBtnActionListener(ActionListener myActionListener) {
+        searchIdBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchPhoneBtnActionListener(ActionListener myActionListener) {
+        searchPhoneBtn.addActionListener(myActionListener);
     }
 
     /**
@@ -43,10 +120,25 @@ public class SearchCustomerView extends javax.swing.JFrame {
         phoneLbl.setText("Phone:");
 
         searchPhoneBtn.setText("Search");
+        searchPhoneBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPhoneBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         searchAllBtn.setText("Search All");
+        searchAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAllBtnActionPerformed(evt);
+            }
+        });
 
         infoPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -62,6 +154,11 @@ public class SearchCustomerView extends javax.swing.JFrame {
         );
 
         searchEmailBtn.setText("Search");
+        searchEmailBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEmailBtnActionPerformed(evt);
+            }
+        });
 
         customerIdLbl.setText("Customer ID:");
 
@@ -140,6 +237,22 @@ public class SearchCustomerView extends javax.swing.JFrame {
     private void searchIdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchIdBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchIdBtnActionPerformed
+
+    private void searchEmailBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEmailBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchEmailBtnActionPerformed
+
+    private void searchPhoneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPhoneBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPhoneBtnActionPerformed
+
+    private void searchAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchAllBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
 
     /**
      * @param args the command line arguments

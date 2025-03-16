@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +15,86 @@ public class EditPromoView extends javax.swing.JFrame {
      */
     public EditPromoView() {
         initComponents();
+    }
+
+    public JTextField getDescTxt() {
+        return descTxt;
+    }
+
+    public void setDescTxt(JTextField descTxt) {
+        this.descTxt = descTxt;
+    }
+
+    public JTextField getEndTxt() {
+        return endTxt;
+    }
+
+    public void setEndTxt(JTextField endTxt) {
+        this.endTxt = endTxt;
+    }
+
+    public JTextField getPercentTxt() {
+        return percentTxt;
+    }
+
+    public void setPercentTxt(JTextField percentTxt) {
+        this.percentTxt = percentTxt;
+    }
+
+    public JTextField getPromoIdTxt() {
+        return promoIdTxt;
+    }
+
+    public void setPromoIdTxt(JTextField promoIdTxt) {
+        this.promoIdTxt = promoIdTxt;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public void setPromoNameTxt(JTextField promoNameTxt) {
+        this.promoNameTxt = promoNameTxt;
+    }
+
+    public JTextField getStartTxt() {
+        return startTxt;
+    }
+
+    public void setStartTxt(JTextField startTxt) {
+        this.startTxt = startTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getEditBtn() {
+        return editBtn;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+    
+    public void editBtnActionListener(ActionListener myActionListener) {
+        editBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchBtnActionListener(ActionListener myActionListener) {
+        searchBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
     }
 
     /**
@@ -54,10 +138,25 @@ public class EditPromoView extends javax.swing.JFrame {
         endLbl.setText("End (YYYY-MM-DD):");
 
         editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         statusLbl.setText("Status:");
 
@@ -146,6 +245,18 @@ public class EditPromoView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBtnActionPerformed
 
     /**
      * @param args the command line arguments
