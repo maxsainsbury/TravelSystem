@@ -55,6 +55,20 @@ public class Employee extends User{
         this.createdBy = createdBy;
     }
     
+    /**
+     * Constructor to create employee object for employee search, deletion view. 
+     * @param employeeId
+     * @param firstName
+     * @param lastName
+     * @param role 
+     */
+    public Employee(int employeeId, String firstName, String lastName, String phone, String email, String role) {
+        super(firstName, lastName, phone, email);
+        this.role = role;
+        this.employeeId = employeeId;
+        
+    }
+    
     public int getSIN() {
         return SIN;
     }

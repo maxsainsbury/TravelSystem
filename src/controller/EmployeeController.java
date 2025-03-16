@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 import view.AddEmployeeView;
 import model.Employee;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import model.User;
+import view.DeleteEmployeeView;
 
 
 /**
@@ -18,14 +20,37 @@ public class EmployeeController {
     private EmployeeDAO employeeDao;
     private AddEmployeeView addEmployeeView;
     private UserDAO userDao;
+    private DeleteEmployeeView deleteEmployeeView;
     
+    /**
+     * Controller for addEmployeeView
+     * @param employeeDao
+     * @param addEmployeeView
+     * @param userDao 
+     */
     public EmployeeController(EmployeeDAO employeeDao, AddEmployeeView addEmployeeView, UserDAO userDao) {
         this.employeeDao = employeeDao;
         this.addEmployeeView = addEmployeeView;
         this.userDao = userDao;
         
         this.addEmployeeView.addEmpBtnActionListener(new AddEmployee());
-        this.addEmployeeView.clearAllBtnActionListener(new ClearAllTextFields());
+        this.addEmployeeView.clearAllBtnActionListener(new ClearTxtAddEmpView());
+    }
+    
+    /**
+     * Constructor for DeleteEmployeeView
+     * @param employeeDao
+     * @param deleteEmployeeView
+     * @param userDao 
+     */
+    public EmployeeController(EmployeeDAO employeeDao, DeleteEmployeeView deleteEmployeeView, UserDAO userDao){
+        this.employeeDao = employeeDao;
+        this.deleteEmployeeView = deleteEmployeeView;
+        this.userDao = userDao;
+        
+        this.deleteEmployeeView.searchBtnActionListener(new SearchEmployeeById());
+        this.deleteEmployeeView.clearBtnActionListener(new ClrAllTxtDelEmpView());
+        this.deleteEmployeeView.deleteBtnActionListener(new DeleteEmployee());
     }
     
     /**
@@ -83,7 +108,7 @@ public class EmployeeController {
             if(result) {
                 JOptionPane.showMessageDialog(null, "Successfully added a new employee");
             } else {
-                JOptionPane.showMessageDialog(null, "Was no able to add a new employee.");
+                JOptionPane.showMessageDialog(null, "Was not able to add a new employee.");
             }
         }
     }
@@ -91,10 +116,9 @@ public class EmployeeController {
     /**
      * Class that sets all text fields in addEmployeeView to an empty string. 
      */
-    private class ClearAllTextFields implements ActionListener {
+    private class ClearTxtAddEmpView implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("button is working.");
             addEmployeeView.getFnameTxt().setText("");
             addEmployeeView.getLnameTxt().setText("");
             addEmployeeView.getDobTxt().setText("");
@@ -115,4 +139,62 @@ public class EmployeeController {
             addEmployeeView.getPasswordTxt().setText("");
         }   
     }
+    
+    // Class to remove employee from employee table in database
+    private class SearchEmployeeById implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int employeeId = Integer.parseInt(deleteEmployeeView.getEmpIdTxt().getText());
+            DefaultTableModel model = (DefaultTableModel)deleteEmployeeView.getTblEmployee().getModel();
+            model.setRowCount(0);
+            
+            try{
+                if(employeeId != 0) {                    
+                    Employee employee = employeeDao.fetchEmployeeForDelTable(employeeId);
+                    Object[] row = {
+                        employee.getEmployeeId(),
+                        employee.getFirstName() + " " + employee.getLastName(),
+                        employee.getRole()
+                    };
+                model.addRow(row);                    
+                }
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Employee Id does not exist.");
+            }
+        }
+    }
+    
+    // Class to delete employee in delete deleteEmployeeView
+    private class DeleteEmployee implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int employeeId = Integer.parseInt(deleteEmployeeView.getEmpIdTxt().getText());
+            DefaultTableModel model = (DefaultTableModel)deleteEmployeeView.getTblEmployee().getModel();
+
+            if(employeeId != 0) {
+                boolean result = employeeDao.deleteEmployee(employeeId);
+                
+                if(result) {
+                JOptionPane.showMessageDialog(null, "Successfully deleted the employee");
+                model.setRowCount(0);
+                } else {
+                JOptionPane.showMessageDialog(null, "Was not able to delete employee.");
+                }
+            }
+        }
+    }
+    
+    private class ClrAllTxtDelEmpView implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)deleteEmployeeView.getTblEmployee().getModel();
+            model.setRowCount(0);
+            deleteEmployeeView.getEmpIdTxt().setText("");
+        }
+    
+    }
+
 }

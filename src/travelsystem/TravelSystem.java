@@ -4,6 +4,8 @@ import view.AddEmployeeView;
 import controller.EmployeeController;
 import dao.EmployeeDAO;
 import dao.UserDAO;
+import view.DeleteEmployeeView;
+import view.SearchEmployeeView;
 
 /**
  *
@@ -20,6 +22,10 @@ public class TravelSystem {
         UserDAO userDao = new UserDAO();
         EmployeeController empController = new EmployeeController(empDao, addEmployeeView, userDao);
         addEmployeeView.setVisible(true);
+        
+        DeleteEmployeeView deleteEmployeeView = new DeleteEmployeeView();
+        EmployeeController empDeleteController = new EmployeeController(empDao, deleteEmployeeView, userDao);
+        deleteEmployeeView.setVisible(true);
     }
     
 }
