@@ -26,7 +26,7 @@ public class CustomerDAO {
     // Sending data to employee table in database when adding new employee.
     public boolean addCustomer(Customer customer) {
         String query = "INSERT INTO customer(customer_id, first_name, last_name, dob, "
-                        + "email, phone, unit_number, street_address, "
+                        + "email, phone_num, unit_number, street_address, "
                         + "city, postal_code, country, user_id)"
                         + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         

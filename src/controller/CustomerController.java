@@ -56,7 +56,7 @@ public class CustomerController {
             userDao.setUser(newCustomer);
 
             // Inserting new user in database
-            // newEmployee is automatically casted with User when passed into userDao
+            // newCustomer is automatically casted with User when passed into userDao
             boolean result = userDao.addUserRecord(newCustomer);
             
             // If failed to add data to database

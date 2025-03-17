@@ -1,9 +1,12 @@
 package travelsystem;
 
+import controller.CustomerController;
 import view.AddEmployeeView;
 import controller.EmployeeController;
+import dao.CustomerDAO;
 import dao.EmployeeDAO;
 import dao.UserDAO;
+import view.AddCustomerView;
 
 /**
  *
@@ -15,11 +18,11 @@ public class TravelSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AddEmployeeView addEmployeeView = new AddEmployeeView();
-        EmployeeDAO empDao = new EmployeeDAO();
+        AddCustomerView addCustomerView = new AddCustomerView();
+        CustomerDAO custDao = new CustomerDAO();
         UserDAO userDao = new UserDAO();
-        EmployeeController empController = new EmployeeController(empDao, addEmployeeView, userDao);
-        addEmployeeView.setVisible(true);
+        CustomerController custController = new CustomerController(custDao, addCustomerView, userDao);
+        addCustomerView.setVisible(true);
     }
     
 }
