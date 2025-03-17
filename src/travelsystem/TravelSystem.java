@@ -3,6 +3,7 @@ package travelsystem;
 import controller.FlightController;
 import dao.FlightDAO;
 import view.AddFlightView;
+import view.DeleteFlightView;
 import view.EditFlightView;
 
 /**
@@ -16,10 +17,14 @@ public class TravelSystem {
      */
     public static void main(String[] args) {
         FlightDAO flightDAO = new FlightDAO();
-        EditFlightView editFlightView = new EditFlightView();
-        FlightController flightController = new FlightController(editFlightView, flightDAO);
+        DeleteFlightView deleteFlightView = new DeleteFlightView();
+        FlightController flightController = new FlightController(deleteFlightView, flightDAO);
+        FlightDAO flightDAO2 = new FlightDAO();
+        AddFlightView addFlightView2 = new AddFlightView();
+        FlightController flightController2 = new FlightController(addFlightView2, flightDAO2);
         
-        editFlightView.setVisible(true);
+        deleteFlightView.setVisible(true);
+        addFlightView2.setVisible(true);
     }
     
 }

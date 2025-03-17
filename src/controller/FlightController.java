@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Flight;
 import view.AddFlightView;
 import view.DeleteFlightView;
@@ -36,6 +37,9 @@ public class FlightController {
         this.deleteFlightView = deleteFlightView;
         this.flightDAO = flightDAO;
         
+        this.deleteFlightView.searchBtnListener(new SearchToDelete());
+        this.deleteFlightView.clearAllBtnListener(new ClearDeleteTextFields());
+        this.deleteFlightView.deleteFlightBtnListener(new DeletFlightRecord());
     }
     
     public FlightController(EditFlightView editFlightView, FlightDAO flightDAO) {
@@ -50,6 +54,75 @@ public class FlightController {
     public FlightController(SearchFlightView searchFlightView, FlightDAO flightDAO) {
         this.searchFlightView = searchFlightView;
         this.flightDAO = flightDAO;
+    }
+
+
+    private class ClearDeleteTextFields implements ActionListener {
+
+        public ClearDeleteTextFields() {
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
+            model.removeRow(0);
+            model.addRow(new Object[9]);
+            deleteFlightView.getIdTxt().setText("");
+        }
+    }
+
+    private class DeletFlightRecord implements ActionListener {
+
+        public DeletFlightRecord() {
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int flightId = Integer.parseInt(deleteFlightView.getIdTxt().getText());
+            boolean result = flightDAO.deleteFlightRecort(flightId);
+            DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
+            model.removeRow(0);
+            model.addRow(new Object[9]);
+            if (result) {
+                JOptionPane.showMessageDialog(null, "Flight record deleted successfully!");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Flight record was not deleted!");
+            }
+        }
+    }
+
+    private class SearchToDelete implements ActionListener {
+
+        public SearchToDelete() {
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e)  {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
+            model.removeRow(0);
+            String flightId = deleteFlightView.getIdTxt().getText();
+            Flight output = flightDAO.searchFlightFromId(flightId);
+            if(output.getFlightId() > 0) {
+                int tripId = output.getTripId();
+                String airline = output.getAirline();
+                String flightNumber = output.getFlightNumber();
+                String departureTime = formatter.format(output.getDepartureTime()).substring(0, 16);
+                String arrivalTime = formatter.format(output.getArrivalTime()).substring(0, 16);
+                double price = output.getPrice();
+                String seatClass = output.getSeatClass();
+                String Status = output.getStatus();
+                Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+                
+                model.addRow(row);
+                
+            }
+            else {
+                model.addRow(new Object[9]);
+                JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+            }
+        }
     }
 
     private class SearchToEdit implements ActionListener {

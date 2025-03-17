@@ -121,4 +121,19 @@ public class FlightDAO {
         }
         return false;
     }
+    
+    public boolean deleteFlightRecort(int flightId) {
+        String query = "DELETE FROM flight WHERE flight_id = ?";
+        
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, flightId);
+            
+            return preparedStatement.executeUpdate() > 0;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
