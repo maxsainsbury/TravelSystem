@@ -303,7 +303,7 @@ public class CustomerController {
                         customer.getDob(),
                         customer.getEmail(),
                         customer.getPhone(),
-                        customer.getUnitNumber() + customer.getStreetAddress() + customer.getCity() + customer.getCountry(),
+                        customer.getUnitNumber() + " " + customer.getStreetAddress() + " " + customer.getCity() + " " + customer.getCountry(),
                         customer.getPostalCode()
                     };
                     model.addRow(row);                    
@@ -351,7 +351,7 @@ public class CustomerController {
                         customer.getDob(),
                         customer.getEmail(),
                         customer.getPhone(),
-                        customer.getUnitNumber() + customer.getStreetAddress() + customer.getCity() + customer.getCountry(),
+                        customer.getUnitNumber() + " " + customer.getStreetAddress() + " " + customer.getCity() + " " + customer.getCountry(),
                         customer.getPostalCode()                        
                     };                 
                     model.addRow(row);
@@ -382,7 +382,7 @@ public class CustomerController {
                         customer.getDob(),
                         customer.getEmail(),
                         customer.getPhone(),
-                        customer.getUnitNumber() + customer.getStreetAddress() + customer.getCity() + customer.getCountry(),
+                        customer.getUnitNumber() + " " + customer.getStreetAddress() + " " + customer.getCity() + " " + customer.getCountry(),
                         customer.getPostalCode()                        
                     };                 
                     model.addRow(row);
@@ -411,7 +411,7 @@ public class CustomerController {
                         customer.getDob(),
                         customer.getEmail(),
                         customer.getPhone(),
-                        customer.getUnitNumber() + customer.getStreetAddress() + customer.getCity() + customer.getCountry(),
+                        customer.getUnitNumber() + " " + customer.getStreetAddress() + " " + customer.getCity() + " " + customer.getCountry(),
                         customer.getPostalCode()                        
                 };                 
                 model.addRow(row);
