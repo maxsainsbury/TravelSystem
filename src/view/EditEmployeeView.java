@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +15,8 @@ public class EditEmployeeView extends javax.swing.JFrame {
      */
     public EditEmployeeView() {
         initComponents();
+        setDefaultCloseOperation(EditEmployeeView.DISPOSE_ON_CLOSE);
+        
     }
 
     /**
@@ -60,7 +66,7 @@ public class EditEmployeeView extends javax.swing.JFrame {
         empIdTxt = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit Employee");
 
         fnameLbl.setText("First Name:");
@@ -96,12 +102,27 @@ public class EditEmployeeView extends javax.swing.JFrame {
         roleLbl.setText("Role:");
 
         editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         empIdLbl.setText("Employee ID:");
 
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,6 +263,18 @@ public class EditEmployeeView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -277,6 +310,178 @@ public class EditEmployeeView extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getCellTxt() {
+        return cellTxt;
+    }
+
+    public void setCellTxt(JTextField cellTxt) {
+        this.cellTxt = cellTxt;
+    }
+
+    public JTextField getCityTxt() {
+        return cityTxt;
+    }
+
+    public void setCityTxt(JTextField cityTxt) {
+        this.cityTxt = cityTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getCountryTxt() {
+        return countryTxt;
+    }
+
+    public void setCountryTxt(JTextField countryTxt) {
+        this.countryTxt = countryTxt;
+    }
+
+    public JTextField getDobTxt() {
+        return dobTxt;
+    }
+
+    public void setDobTxt(JTextField dobTxt) {
+        this.dobTxt = dobTxt;
+    }
+
+    public JButton getEditBtn() {
+        return editBtn;
+    }
+
+    public void setEditBtn(JButton editBtn) {
+        this.editBtn = editBtn;
+    }
+
+    public JTextField getEmailTxt() {
+        return emailTxt;
+    }
+
+    public void setEmailTxt(JTextField emailTxt) {
+        this.emailTxt = emailTxt;
+    }
+
+    public JTextField getEmpIdTxt() {
+        return empIdTxt;
+    }
+
+    public void setEmpIdTxt(JTextField empIdTxt) {
+        this.empIdTxt = empIdTxt;
+    }
+
+    public JTextField getFnameTxt() {
+        return fnameTxt;
+    }
+
+    public void setFnameTxt(JTextField fnameTxt) {
+        this.fnameTxt = fnameTxt;
+    }
+
+    public JTextField getLnameTxt() {
+        return lnameTxt;
+    }
+
+    public void setLnameTxt(JTextField lnameTxt) {
+        this.lnameTxt = lnameTxt;
+    }
+
+    public JTextField getPhoneTxt() {
+        return phoneTxt;
+    }
+
+    public void setPhoneTxt(JTextField phoneTxt) {
+        this.phoneTxt = phoneTxt;
+    }
+
+    public JTextField getPositionTxt() {
+        return positionTxt;
+    }
+
+    public void setPositionTxt(JTextField positionTxt) {
+        this.positionTxt = positionTxt;
+    }
+
+    public JTextField getPostalTxt() {
+        return postalTxt;
+    }
+
+    public void setPostalTxt(JTextField postalTxt) {
+        this.postalTxt = postalTxt;
+    }
+
+    public JTextField getRoleTxt() {
+        return roleTxt;
+    }
+
+    public void setRoleTxt(JTextField roleTxt) {
+        this.roleTxt = roleTxt;
+    }
+
+    public JTextField getSalaryTxt() {
+        return salaryTxt;
+    }
+
+    public void setSalaryTxt(JTextField salaryTxt) {
+        this.salaryTxt = salaryTxt;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public void setSearchBtn(JButton searchBtn) {
+        this.searchBtn = searchBtn;
+    }
+
+    public JTextField getSinTxt() {
+        return sinTxt;
+    }
+
+    public void setSinTxt(JTextField sinTxt) {
+        this.sinTxt = sinTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+
+    public JTextField getStreetTxt() {
+        return streetTxt;
+    }
+
+    public void setStreetTxt(JTextField streetTxt) {
+        this.streetTxt = streetTxt;
+    }
+
+    public JTextField getUnitTxt() {
+        return unitTxt;
+    }
+
+    public void setUnitTxt(JTextField unitTxt) {
+        this.unitTxt = unitTxt;
+    }
+    
+    public void searchBtnActionListener(ActionListener myActionListener) {
+        searchBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void editBtnActionListener(ActionListener myActionListener) {
+        editBtn.addActionListener(myActionListener);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cellLbl;
     private javax.swing.JTextField cellTxt;

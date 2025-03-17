@@ -133,6 +133,18 @@ public class User {
         
     }
     
+    /**
+     * Basic constructor to initialize first and last name. 
+     * @param firstName
+     * @param lastName 
+     */
+    public User(String firstName, String lastName, String phone, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+    };
+    
     public void setUsername(String username) {
         this.username = username;
     }

@@ -1,16 +1,13 @@
 package travelsystem;
 
-import controller.CustomerController;
-import view.AddEmployeeView;
-import controller.EmployeeController;
-import dao.CustomerDAO;
-import dao.EmployeeDAO;
-import dao.UserDAO;
-import view.AddCustomerView;
+
+import view.*;
+import controller.*;
+import dao.*;
 
 /**
  *
- * @author C0457438
+ * @author Goen, Max, Ebba
  */
 public class TravelSystem {
 
@@ -23,6 +20,9 @@ public class TravelSystem {
         UserDAO userDao = new UserDAO();
         CustomerController custController = new CustomerController(custDao, addCustomerView, userDao);
         addCustomerView.setVisible(true);
+        //Test Employee Create, Read, Update, Delete functionality. 
+        AdminMainFrame adminMainFrame = new AdminMainFrame();
+        adminMainFrame.setVisible(true);
     }
     
 }
