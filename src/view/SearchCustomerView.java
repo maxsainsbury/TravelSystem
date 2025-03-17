@@ -3,6 +3,7 @@ package view;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -34,12 +35,12 @@ public class SearchCustomerView extends javax.swing.JFrame {
         this.emailTxt = emailTxt;
     }
 
-    public JPanel getInfoPanel() {
-        return infoPanel;
+    public JTable getSearchCustomerTbl() {
+        return searchCustomerTbl;
     }
 
-    public void setInfoPanel(JPanel infoPanel) {
-        this.infoPanel = infoPanel;
+    public void setSearchCustomerTbl(JTable searchCustomerTbl) {
+        this.searchCustomerTbl = searchCustomerTbl;
     }
 
     public JTextField getPhoneTxt() {
@@ -106,11 +107,12 @@ public class SearchCustomerView extends javax.swing.JFrame {
         searchPhoneBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
         searchEmailBtn = new javax.swing.JButton();
         customerIdLbl = new javax.swing.JLabel();
         customerIdTxt = new javax.swing.JTextField();
         searchIdBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        searchCustomerTbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Customers");
@@ -140,19 +142,6 @@ public class SearchCustomerView extends javax.swing.JFrame {
             }
         });
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
-        );
-
         searchEmailBtn.setText("Search");
         searchEmailBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,14 +158,28 @@ public class SearchCustomerView extends javax.swing.JFrame {
             }
         });
 
+        searchCustomerTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                " Customer ID", "Name", "DOB", "Email", "Phone", "Address", "Postal Code"
+            }
+        ));
+        jScrollPane1.setViewportView(searchCustomerTbl);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 122, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(emailLbl)
                             .addComponent(customerIdLbl)
@@ -199,10 +202,9 @@ public class SearchCustomerView extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(searchPhoneBtn)
                                     .addComponent(searchEmailBtn))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))))
+                        .addGap(0, 134, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,9 +228,9 @@ public class SearchCustomerView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchAllBtn)
                     .addComponent(clearAllBtn))
-                .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -295,10 +297,11 @@ public class SearchCustomerView extends javax.swing.JFrame {
     private javax.swing.JTextField customerIdTxt;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTxt;
-    private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel phoneLbl;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JButton searchAllBtn;
+    private javax.swing.JTable searchCustomerTbl;
     private javax.swing.JButton searchEmailBtn;
     private javax.swing.JButton searchIdBtn;
     private javax.swing.JButton searchPhoneBtn;

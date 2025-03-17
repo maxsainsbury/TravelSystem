@@ -47,6 +47,20 @@ public class Customer extends User{
     public Customer(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String userName, String userPassword) {
         super(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, Customer.userType, userName, userPassword);  
     }
+    
+    /**
+     * Constructor to create customer object deletion view. 
+     * @param customerId
+     * @param firstName
+     * @param lastName
+     * @param phone
+     * @param email
+     */
+    public Customer(int customerId, String firstName, String lastName, String phone, String email) {
+        super(firstName, lastName, phone, email);
+        this.customerId = customerId;
+        
+    }
 
     public int getCustomerId() {
         return customerId;
