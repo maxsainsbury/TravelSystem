@@ -136,4 +136,90 @@ public class FlightDAO {
         }
         return false;
     }
+    
+    public Flight[] searchFromAirline(String airline) {
+        String query = "SELECT *, COUNT(*) OVER() as count FROM flight WHERE UPPER(airline) = UPPER(?)";
+        
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, airline);
+            
+            ResultSet results = preparedStatement.executeQuery();
+            results.next();
+            int totalRows = results.getInt("count");
+            if (totalRows > 0) {
+                Flight[] output = new Flight[totalRows];
+                for(int i = 0; i < totalRows; i++) {
+                    int flightId = results.getInt("flight_id");
+                    int tripId = results.getInt("trip_id");
+                    String flightNumber = results.getString("flight_number");
+                    String departureDateTime = results.getString("departure_time");
+                    String departureDate = departureDateTime.substring(0, 10);
+                    String departureTime = departureDateTime.substring(11, departureDateTime.length() - 3);
+                    departureDateTime = departureDate + " " + departureTime;
+                    String arrivalDateTime = results.getString("arrival_time");
+                    String arrivalDate = arrivalDateTime.substring(0, 10);
+                    String arrivalTime = arrivalDateTime.substring(11, arrivalDateTime.length() - 3);
+                    arrivalDateTime = arrivalDate + " " + arrivalTime;
+                    double price = results.getDouble("price");
+                    String seatClass = results.getString("seat_class");
+                    String status = results.getString("status");
+                    output[i] = new Flight(airline, flightNumber, departureDateTime, arrivalDateTime, price, seatClass, status, tripId, flightId);
+                    results.next();
+                }
+                
+                return output;
+            }
+            
+            
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        Flight[] output = {new Flight()};
+        return output;
+    }
+    
+    public Flight[] searchAll() {
+        String query = "SELECT *, COUNT(*) OVER() as count FROM flight";
+        
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            
+            ResultSet results = preparedStatement.executeQuery();
+            results.next();
+            int totalRows = results.getInt("count");
+            if (totalRows > 0) {
+                Flight[] output = new Flight[totalRows];
+                for(int i = 0; i < totalRows; i++) {
+                    int flightId = results.getInt("flight_id");
+                    int tripId = results.getInt("trip_id");
+                    String airline = results.getString("airline");
+                    String flightNumber = results.getString("flight_number");
+                    String departureDateTime = results.getString("departure_time");
+                    String departureDate = departureDateTime.substring(0, 10);
+                    String departureTime = departureDateTime.substring(11, departureDateTime.length() - 3);
+                    departureDateTime = departureDate + " " + departureTime;
+                    String arrivalDateTime = results.getString("arrival_time");
+                    String arrivalDate = arrivalDateTime.substring(0, 10);
+                    String arrivalTime = arrivalDateTime.substring(11, arrivalDateTime.length() - 3);
+                    arrivalDateTime = arrivalDate + " " + arrivalTime;
+                    double price = results.getDouble("price");
+                    String seatClass = results.getString("seat_class");
+                    String status = results.getString("status");
+                    output[i] = new Flight(airline, flightNumber, departureDateTime, arrivalDateTime, price, seatClass, status, tripId, flightId);
+                    results.next();
+                }
+                
+                return output;
+            }
+            
+            
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        Flight[] output = {new Flight()};
+        return output;
+    }
 }

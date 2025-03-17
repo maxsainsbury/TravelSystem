@@ -54,13 +54,119 @@ public class FlightController {
     public FlightController(SearchFlightView searchFlightView, FlightDAO flightDAO) {
         this.searchFlightView = searchFlightView;
         this.flightDAO = flightDAO;
+        
+        this.searchFlightView.searchAirlineBtnLisener(new SearchAirline());
+        this.searchFlightView.searchIdBtnLisener(new SearchId());
+        this.searchFlightView.searchAllBtnLisener(new SearchAll());
+        this.searchFlightView.clearAllBtnLisener(new clearAllSearch());
+    }
+
+    private class SearchAirline implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
+            model.setRowCount(0);
+            String airline = searchFlightView.getAirlineTxt().getText();
+            Flight[] output = flightDAO.searchFromAirline(airline);
+            if(output[0].getFlightId() > 0) {
+                for(int i = 0; i < output.length; i++) {
+                    int flightId = output[i].getFlightId();
+                    int tripId = output[i].getTripId();
+                    String flightNumber = output[i].getFlightNumber();
+                    String departureTime = formatter.format(output[i].getDepartureTime()).substring(0, 16);
+                    String arrivalTime = formatter.format(output[i].getArrivalTime()).substring(0, 16);
+                    double price = output[i].getPrice();
+                    String seatClass = output[i].getSeatClass();
+                    String Status = output[i].getStatus();
+                    Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+
+                    model.addRow(row);
+                }
+
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No flights with that airline!");
+            }
+        }
+        
+    }
+
+    private class SearchId implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
+            model.setRowCount(0);
+            String flightId = searchFlightView.getFlightIdTxt().getText();
+            Flight output = flightDAO.searchFlightFromId(flightId);
+            if(output.getFlightId() > 0) {
+                int tripId = output.getTripId();
+                String airline = output.getAirline();
+                String flightNumber = output.getFlightNumber();
+                String departureTime = formatter.format(output.getDepartureTime()).substring(0, 16);
+                String arrivalTime = formatter.format(output.getArrivalTime()).substring(0, 16);
+                double price = output.getPrice();
+                String seatClass = output.getSeatClass();
+                String Status = output.getStatus();
+                Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+                
+                model.addRow(row);
+                
+            }
+            else {
+                model.addRow(new Object[9]);
+                JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+            }
+        }
+    }
+
+    private class SearchAll implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
+            model.setRowCount(0);
+            Flight[] output = flightDAO.searchAll();
+            if(output[0].getFlightId() > 0) {
+                for(int i = 0; i < output.length; i++) {
+                    int flightId= output[i].getFlightId();
+                    int tripId = output[i].getTripId();
+                    String airline = output[i].getAirline();
+                    String flightNumber = output[i].getFlightNumber();
+                    String departureTime = formatter.format(output[i].getDepartureTime()).substring(0, 16);
+                    String arrivalTime = formatter.format(output[i].getArrivalTime()).substring(0, 16);
+                    double price = output[i].getPrice();
+                    String seatClass = output[i].getSeatClass();
+                    String Status = output[i].getStatus();
+                    Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+
+                    model.addRow(row);
+                }
+                
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No flight in database!");
+            }
+        }
+    }
+
+    private class clearAllSearch implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
+            model.setRowCount(0);
+            searchFlightView.getAirlineTxt().setText("");
+            searchFlightView.getFlightIdTxt().setText("");
+        }
     }
 
 
     private class ClearDeleteTextFields implements ActionListener {
-
-        public ClearDeleteTextFields() {
-        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -72,9 +178,6 @@ public class FlightController {
     }
 
     private class DeletFlightRecord implements ActionListener {
-
-        public DeletFlightRecord() {
-        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -93,9 +196,6 @@ public class FlightController {
     }
 
     private class SearchToDelete implements ActionListener {
-
-        public SearchToDelete() {
-        }
 
         @Override
         public void actionPerformed(ActionEvent e)  {
