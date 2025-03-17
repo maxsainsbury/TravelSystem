@@ -25,6 +25,11 @@ public class FlightController {
     private SearchFlightView searchFlightView;
     private FlightDAO flightDAO;
     
+    /**
+     * Constructor for controlling the addFlightView
+     * @param addFlightView
+     * @param flightDAO 
+     */
     public FlightController(AddFlightView addFlightView, FlightDAO flightDAO) {
         this.addFlightView = addFlightView;
         this.flightDAO = flightDAO;
@@ -32,7 +37,11 @@ public class FlightController {
         this.addFlightView.addFlightBtnListener(new AddFlightRecord());
         this.addFlightView.addClearBtnListener(new ClearAddTextFields());
     }
-    
+    /**
+     * Constructor for controlling the deleteFlightView
+     * @param deleteFlightView
+     * @param flightDAO 
+     */
     public FlightController(DeleteFlightView deleteFlightView, FlightDAO flightDAO){
         this.deleteFlightView = deleteFlightView;
         this.flightDAO = flightDAO;
@@ -42,6 +51,11 @@ public class FlightController {
         this.deleteFlightView.deleteFlightBtnListener(new DeletFlightRecord());
     }
     
+    /**
+     * Constructor for controlling the editFlightView
+     * @param editFlightView
+     * @param flightDAO 
+     */
     public FlightController(EditFlightView editFlightView, FlightDAO flightDAO) {
         this.editFlightView = editFlightView;
         this.flightDAO = flightDAO;
@@ -51,6 +65,11 @@ public class FlightController {
         this.editFlightView.clearAllBtnListener(new ClearEditTextFields());
     }
     
+    /**
+     * Constructor for controlling the searchFlightView
+     * @param searchFlightView
+     * @param flightDAO 
+     */
     public FlightController(SearchFlightView searchFlightView, FlightDAO flightDAO) {
         this.searchFlightView = searchFlightView;
         this.flightDAO = flightDAO;
@@ -61,38 +80,50 @@ public class FlightController {
         this.searchFlightView.clearAllBtnLisener(new clearAllSearch());
     }
 
+    //in the search view search by airline
     private class SearchAirline implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            //formatter to change the DateTime values to the propper format
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            //store the table in a variable to manipulate later
             DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
+            //remove all rows form the table
             model.setRowCount(0);
+            //get the inputed airline vlaue
             String airline = searchFlightView.getAirlineTxt().getText();
+            //get all returned flight from that airline from the database
             Flight[] output = flightDAO.searchFromAirline(airline);
+            //if query returned any rows
             if(output[0].getFlightId() > 0) {
+                //for all rows returned
                 for(int i = 0; i < output.length; i++) {
+                    //store all values in variables
                     int flightId = output[i].getFlightId();
                     int tripId = output[i].getTripId();
                     String flightNumber = output[i].getFlightNumber();
+                    //format the dates to the correct format and remove the seconds position 
                     String departureTime = formatter.format(output[i].getDepartureTime()).substring(0, 16);
                     String arrivalTime = formatter.format(output[i].getArrivalTime()).substring(0, 16);
                     double price = output[i].getPrice();
                     String seatClass = output[i].getSeatClass();
                     String Status = output[i].getStatus();
+                    //create a object array to place in the table
                     Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
-
+                    //add the object to the table
                     model.addRow(row);
                 }
 
             }
+            //if no rows returned
             else {
                 JOptionPane.showMessageDialog(null, "No flights with that airline!");
             }
         }
         
     }
-
+    //int the search view search by id
     private class SearchId implements ActionListener {
 
         @Override
@@ -122,7 +153,8 @@ public class FlightController {
             }
         }
     }
-
+    
+    //in the search view search for everything
     private class SearchAll implements ActionListener {
 
         @Override
@@ -153,7 +185,8 @@ public class FlightController {
             }
         }
     }
-
+    
+    //in the search view clear all fields
     private class clearAllSearch implements ActionListener {
 
         @Override
@@ -165,7 +198,7 @@ public class FlightController {
         }
     }
 
-
+    //in the delete view clear all fields
     private class ClearDeleteTextFields implements ActionListener {
 
         @Override
@@ -177,31 +210,38 @@ public class FlightController {
         }
     }
 
+    //in the delete view delete a row
     private class DeletFlightRecord implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            //get inputed vlaue
             int flightId = Integer.parseInt(deleteFlightView.getIdTxt().getText());
+            //try to delete the row
             boolean result = flightDAO.deleteFlightRecort(flightId);
+            //store the table in a variable
             DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
-            model.removeRow(0);
-            model.addRow(new Object[9]);
+            //remove row from table
+            model.setRowCount(0);
+            //if row deleted
             if (result) {
                 JOptionPane.showMessageDialog(null, "Flight record deleted successfully!");
             }
+            //if row was not deleted
             else {
                 JOptionPane.showMessageDialog(null, "Flight record was not deleted!");
             }
         }
     }
-
+    
+    //in delete view search the database
     private class SearchToDelete implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e)  {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
-            model.removeRow(0);
+            model.setRowCount(0);
             String flightId = deleteFlightView.getIdTxt().getText();
             Flight output = flightDAO.searchFlightFromId(flightId);
             if(output.getFlightId() > 0) {
@@ -225,6 +265,7 @@ public class FlightController {
         }
     }
 
+    //in the edit vie search the database
     private class SearchToEdit implements ActionListener {
 
         @Override
@@ -255,7 +296,8 @@ public class FlightController {
             }
         }
     }
-
+    
+    //in the edit view edit a row in the database
     private class EditFlighRecord implements ActionListener {
 
         @Override
@@ -280,7 +322,8 @@ public class FlightController {
             }
         }
     }
-
+    
+    //in edit view clear all text fields
     private class ClearEditTextFields implements ActionListener {
         
         @Override
@@ -296,6 +339,7 @@ public class FlightController {
         }
     }
     
+    //in add view add a row to database
     private class AddFlightRecord implements ActionListener{
         public AddFlightRecord() {}
 
