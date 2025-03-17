@@ -16,6 +16,7 @@ public class DeleteEmployeeView extends javax.swing.JFrame {
      */
     public DeleteEmployeeView() {
         initComponents();
+        setDefaultCloseOperation(DeleteEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JButton getClearAllBtn() {

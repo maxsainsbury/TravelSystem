@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import model.User;
 
@@ -101,6 +102,11 @@ public class EmployeeDAO {
         return employee;      
     }
     
+    /**
+     * Method to delete employee in database
+     * @param employeeId
+     * @return 
+     */
     public boolean deleteEmployee(int employeeId) {
         String query = """
                       DELETE FROM user
@@ -210,7 +216,7 @@ public class EmployeeDAO {
     
     
     // Method to fetch employee data from database by employee id for edit employee view and search employee view
-    public Employee fetchEmployeeForEditTable(int employeeId) throws Exception{
+    public Employee fetchEmployeeById(int employeeId) throws Exception{
         String query = """
                        SELECT *
                        FROM employee
@@ -252,6 +258,54 @@ public class EmployeeDAO {
             e.printStackTrace();
         }
         return employee;
+    }
+    
+    public boolean editEmployee(Employee employee) {
+        String query = """
+                      UPDATE employee
+                      SET first_name = ?,
+                          last_name = ?,
+                          dob = ?,
+                          email = ?,
+                          SIN = ?,
+                          status = ?,
+                          phone = ?,
+                          cell = ?,
+                          unit_number = ?,
+                          street_address = ?,
+                          city = ?,
+                          postal_code = ?,
+                          country = ?,
+                          position = ?,
+                          salary = ?,
+                          role = ?       
+                      WHERE employee_id = ?
+                      """;
+       try(Connection connection = DBConnection.getConnection();
+           PreparedStatement preparedStatement = connection.prepareStatement(query)){
+           preparedStatement.setString(1, employee.getFirstName());
+           preparedStatement.setString(2, employee.getLastName());
+           preparedStatement.setString(3, employee.getDob().toString());
+           preparedStatement.setString(4, employee.getEmail());
+           preparedStatement.setInt(5, employee.getSIN());
+           preparedStatement.setString(6, employee.getStatus());
+           preparedStatement.setString(7, employee.getPhone());
+           preparedStatement.setString(8, employee.getCell());
+           preparedStatement.setString(9, employee.getUnitNumber());
+           preparedStatement.setString(10, employee.getStreetAddress());
+           preparedStatement.setString(11, employee.getCity());
+           preparedStatement.setString(12, employee.getPostalCode());
+           preparedStatement.setString(13, employee.getCountry());
+           preparedStatement.setString(14, employee.getPosition());
+           preparedStatement.setDouble(15, employee.getSalary());
+           preparedStatement.setString(16, employee.getRole());  
+           preparedStatement.setInt(17, employee.getEmployeeId());  
+                  
+           return preparedStatement.executeUpdate() > 0;
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+       return false;
     }
     
     

@@ -50,8 +50,18 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Travel System");
 
         CustomerMnu.setText("Customer");
+        CustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerMnuActionPerformed(evt);
+            }
+        });
 
         addCustomerMnu.setText("Add Customer");
+        addCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCustomerMnuActionPerformed(evt);
+            }
+        });
         CustomerMnu.add(addCustomerMnu);
 
         editCustomerMnu.setText("Edit Customer");
@@ -140,6 +150,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void editFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFlightMnuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editFlightMnuActionPerformed
+
+    private void CustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerMnuActionPerformed
+       
+    }//GEN-LAST:event_CustomerMnuActionPerformed
+
+    private void addCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerMnuActionPerformed
+        
+    }//GEN-LAST:event_addCustomerMnuActionPerformed
 
     /**
      * @param args the command line arguments

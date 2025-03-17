@@ -16,6 +16,8 @@ public class SearchEmployeeView extends javax.swing.JFrame {
      */
     public SearchEmployeeView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
+        
     }
 
     /**
@@ -38,7 +40,7 @@ public class SearchEmployeeView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearchEmployees = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search Employees");
 
         empIdLbl.setText("Employee ID:");
@@ -85,6 +87,7 @@ public class SearchEmployeeView extends javax.swing.JFrame {
                 "Employee Id", "Name", "Role", "Position", "Email", "Cell", "Address", "Postal Code", "Created by"
             }
         ));
+        tblSearchEmployees.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jScrollPane1.setViewportView(tblSearchEmployees);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,8 +136,8 @@ public class SearchEmployeeView extends javax.swing.JFrame {
                     .addComponent(searchAllBtn)
                     .addComponent(clearAllBtn))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,7 +193,8 @@ public class SearchEmployeeView extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
     public JButton getClearAllBtn() {
         return clearAllBtn;
     }

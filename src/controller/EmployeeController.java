@@ -4,6 +4,7 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import view.AddEmployeeView;
 import model.Employee;
@@ -26,6 +27,8 @@ public class EmployeeController {
     private DeleteEmployeeView deleteEmployeeView;
     private SearchEmployeeView searchEmployeeView;
     private EditEmployeeView editEmployeeView;
+    // This variable will hold an instance of employee to be used in employee editing.
+    private Employee tempEmployee;
     
     /**
      * Controller for addEmployeeView
@@ -48,10 +51,9 @@ public class EmployeeController {
      * @param deleteEmployeeView
      * @param userDao 
      */
-    public EmployeeController(EmployeeDAO employeeDao, DeleteEmployeeView deleteEmployeeView, UserDAO userDao){
+    public EmployeeController(EmployeeDAO employeeDao, DeleteEmployeeView deleteEmployeeView){
         this.employeeDao = employeeDao;
         this.deleteEmployeeView = deleteEmployeeView;
-        this.userDao = userDao;
         
         this.deleteEmployeeView.searchBtnActionListener(new SearchEmployeeById());
         this.deleteEmployeeView.clearBtnActionListener(new ClrAllTxtDelEmpView());
@@ -81,6 +83,10 @@ public class EmployeeController {
     public EmployeeController(EmployeeDAO employeeDao, EditEmployeeView editEmployeeView){
         this.employeeDao = employeeDao;
         this.editEmployeeView = editEmployeeView;
+        
+        this.editEmployeeView.searchBtnActionListener(new SearchById());
+        this.editEmployeeView.clearAllBtnActionListener(new ClearAllEditView());
+        this.editEmployeeView.editBtnActionListener(new EditEmployee());
     }
     
     /**
@@ -237,7 +243,7 @@ public class EmployeeController {
             
             try{
                 if(employeeId != 0) {                    
-                    Employee employee = employeeDao.fetchEmployeeForEditTable(employeeId);
+                    Employee employee = employeeDao.fetchEmployeeById(employeeId);
                     Object[] row = {
                         employee.getEmployeeId(),
                         employee.getFirstName() + " " + employee.getLastName(),
@@ -332,6 +338,107 @@ public class EmployeeController {
                 };                 
                 model.addRow(row);
             }                             
+        }
+    }
+    
+    // Class to search employee from employee table in database for employee search view
+    private class SearchById implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int employeeId = Integer.parseInt(editEmployeeView.getEmpIdTxt().getText());       
+            try{
+                if(employeeId != 0) {                    
+                    Employee employee = employeeDao.fetchEmployeeById(employeeId);
+                    // Temporarly hold this employee to be used in employee edit.
+                    tempEmployee = employee;
+                    System.out.println(tempEmployee.getFirstName());
+
+                        editEmployeeView.getFnameTxt().setText(employee.getFirstName());
+                        editEmployeeView.getLnameTxt().setText(employee.getLastName());
+                        editEmployeeView.getDobTxt().setText(employee.getDob().toString());
+                        editEmployeeView.getEmailTxt().setText(employee.getEmail());
+                        editEmployeeView.getSinTxt().setText(Integer.toString(employee.getSIN()));
+                        editEmployeeView.getStatusTxt().setText(employee.getStatus());
+                        editEmployeeView.getPhoneTxt().setText(employee.getPhone());
+                        editEmployeeView.getCellTxt().setText(employee.getCell());
+                        editEmployeeView.getUnitTxt().setText(employee.getUnitNumber());
+                        editEmployeeView.getStreetTxt().setText(employee.getStreetAddress());
+                        editEmployeeView.getCityTxt().setText(employee.getCity());
+                        editEmployeeView.getPostalTxt().setText(employee.getPostalCode());
+                        editEmployeeView.getCountryTxt().setText(employee.getCountry());
+                        editEmployeeView.getPositionTxt().setText(employee.getPosition());
+                        editEmployeeView.getSalaryTxt().setText(Double.toString(employee.getSalary()));
+                        editEmployeeView.getRoleTxt().setText(employee.getRole());
+                } else {
+                    throw new Exception();
+
+                }
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Employee Id does not exist.");
+            }
+        }
+    }
+    
+    private class ClearAllEditView implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            editEmployeeView.getEmpIdTxt().setText("");
+            editEmployeeView.getFnameTxt().setText("");
+            editEmployeeView.getLnameTxt().setText("");
+            editEmployeeView.getDobTxt().setText("");
+            editEmployeeView.getEmailTxt().setText("");
+            editEmployeeView.getSinTxt().setText("");
+            editEmployeeView.getStatusTxt().setText("");
+            editEmployeeView.getPhoneTxt().setText("");
+            editEmployeeView.getCellTxt().setText("");
+            editEmployeeView.getUnitTxt().setText("");
+            editEmployeeView.getStreetTxt().setText("");
+            editEmployeeView.getCityTxt().setText("");
+            editEmployeeView.getPostalTxt().setText("");
+            editEmployeeView.getCountryTxt().setText("");
+            editEmployeeView.getPositionTxt().setText("");
+            editEmployeeView.getSalaryTxt().setText("");
+            editEmployeeView.getRoleTxt().setText("");
+
+        }
+    }
+    
+    /**
+     * Class to edit employee information in database in the editEmployeeView
+     */
+    private class EditEmployee implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {  
+            System.out.println(tempEmployee.getFirstName());
+
+            if(tempEmployee != null) {                                
+                tempEmployee.setFirstName(editEmployeeView.getFnameTxt().getText());
+                tempEmployee.setLastName(editEmployeeView.getLnameTxt().getText());
+                tempEmployee.setDob(LocalDate.parse(editEmployeeView.getDobTxt().getText()));
+                tempEmployee.setEmail(editEmployeeView.getEmailTxt().getText());
+                tempEmployee.setSIN(Integer.parseInt(editEmployeeView.getSinTxt().getText()));
+                tempEmployee.setStatus(editEmployeeView.getStatusTxt().getText());
+                tempEmployee.setPhone(editEmployeeView.getPhoneTxt().getText());
+                tempEmployee.setCell(editEmployeeView.getCellTxt().getText());
+                tempEmployee.setUnitNumber(editEmployeeView.getUnitTxt().getText());
+                tempEmployee.setStreetAddress(editEmployeeView.getStreetTxt().getText());
+                tempEmployee.setCity(editEmployeeView.getCityTxt().getText());
+                tempEmployee.setPostalCode(editEmployeeView.getPostalTxt().getText());
+                tempEmployee.setCountry(editEmployeeView.getCountryTxt().getText());
+                tempEmployee.setPosition(editEmployeeView.getPositionTxt().getText());
+                tempEmployee.setSalary(Double.parseDouble(editEmployeeView.getSalaryTxt().getText()));
+                tempEmployee.setRole(editEmployeeView.getRoleTxt().getText());
+                
+                boolean result = employeeDao.editEmployee(tempEmployee);
+                if(result) {
+                    JOptionPane.showMessageDialog(null, "Successfully edited employee Id:  " + tempEmployee.getEmployeeId() + ".");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Was not able to edit employee.");
+                }
+            }            
         }
     }
 }

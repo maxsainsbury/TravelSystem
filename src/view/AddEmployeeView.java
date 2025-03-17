@@ -15,6 +15,7 @@ public class AddEmployeeView extends javax.swing.JFrame {
      */
     public AddEmployeeView() {
         initComponents();
+        setDefaultCloseOperation(AddEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JButton getAddEmpBtn() {
@@ -193,6 +194,7 @@ public class AddEmployeeView extends javax.swing.JFrame {
     public void clearAllBtnActionListener(ActionListener myActionListener) {
         clearAllBtn.addActionListener(myActionListener);
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -243,8 +245,13 @@ public class AddEmployeeView extends javax.swing.JFrame {
         createdByLabel = new javax.swing.JLabel();
         createdByTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Employee");
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
 
         fnameLbl.setText("First Name:");
 
@@ -448,6 +455,10 @@ public class AddEmployeeView extends javax.swing.JFrame {
     private void addEmpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmpBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addEmpBtnActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
     
     /**
      * @param args the command line arguments
