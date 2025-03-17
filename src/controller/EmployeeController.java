@@ -4,12 +4,15 @@ import dao.EmployeeDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import view.AddEmployeeView;
 import model.Employee;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import model.User;
 import view.DeleteEmployeeView;
+import view.EditEmployeeView;
+import view.SearchEmployeeView;
 
 
 /**
@@ -21,6 +24,8 @@ public class EmployeeController {
     private AddEmployeeView addEmployeeView;
     private UserDAO userDao;
     private DeleteEmployeeView deleteEmployeeView;
+    private SearchEmployeeView searchEmployeeView;
+    private EditEmployeeView editEmployeeView;
     
     /**
      * Controller for addEmployeeView
@@ -51,6 +56,31 @@ public class EmployeeController {
         this.deleteEmployeeView.searchBtnActionListener(new SearchEmployeeById());
         this.deleteEmployeeView.clearBtnActionListener(new ClrAllTxtDelEmpView());
         this.deleteEmployeeView.deleteBtnActionListener(new DeleteEmployee());
+    }
+    
+    /**
+     * Constructor for SearchEmployeeView
+     * @param employeeDao
+     * @param searchEmployeeView 
+     */
+    public EmployeeController(EmployeeDAO employeeDao, SearchEmployeeView searchEmployeeView) {
+        this.employeeDao = employeeDao;
+        this.searchEmployeeView = searchEmployeeView;
+        
+        this.searchEmployeeView.searchIdBtnActionListener(new GetEmployeeById());
+        this.searchEmployeeView.clearAllBtnActionListener(new ClrAllTxtSearchEmpView());
+        this.searchEmployeeView.searchPositonBtnActionListener(new SearchEmployeeByPosition());
+        this.searchEmployeeView.searchAllBtnActionListener(new SearchAllEmployees());
+    }
+    
+    /**
+     * Constructor for EditEmployeeView
+     * @param employeeDao
+     * @param editEmployeeView 
+     */
+    public EmployeeController(EmployeeDAO employeeDao, EditEmployeeView editEmployeeView){
+        this.employeeDao = employeeDao;
+        this.editEmployeeView = editEmployeeView;
     }
     
     /**
@@ -140,7 +170,7 @@ public class EmployeeController {
         }   
     }
     
-    // Class to remove employee from employee table in database
+    // Class to search employee from employee table in database for employee delete view.
     private class SearchEmployeeById implements ActionListener {
 
         @Override
@@ -194,7 +224,114 @@ public class EmployeeController {
             model.setRowCount(0);
             deleteEmployeeView.getEmpIdTxt().setText("");
         }
-    
     }
+    
+    // Class to search employee from employee table in database for employee search view
+    private class GetEmployeeById implements ActionListener {
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int employeeId = Integer.parseInt(searchEmployeeView.getEmpIdTxt().getText());
+            DefaultTableModel model = (DefaultTableModel)searchEmployeeView.getTblSearchEmployees().getModel();
+            model.setRowCount(0);
+            
+            try{
+                if(employeeId != 0) {                    
+                    Employee employee = employeeDao.fetchEmployeeForEditTable(employeeId);
+                    Object[] row = {
+                        employee.getEmployeeId(),
+                        employee.getFirstName() + " " + employee.getLastName(),
+                        employee.getRole(),
+                        employee.getPosition(),
+                        employee.getEmail(),
+                        employee.getCell(),
+                        employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                        employee.getPostalCode(),
+                        employee.getCreatedBy()
+                        
+                    };
+                    model.addRow(row);                    
+                }
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Employee Id does not exist.");
+            }
+        }
+    }
+    
+    /**
+     * Class clears all text in search employee view.
+     */
+    private class ClrAllTxtSearchEmpView implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)searchEmployeeView.getTblSearchEmployees().getModel();
+            model.setRowCount(0);
+            searchEmployeeView.getEmpIdTxt().setText("");
+            searchEmployeeView.getPositionTxt().setText("");
+        }
+    }
+    
+    // Class to search employee from employee table in database for employee search view
+    private class SearchEmployeeByPosition implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String employeePosition = searchEmployeeView.getPositionTxt().getText();
+            DefaultTableModel model = (DefaultTableModel)searchEmployeeView.getTblSearchEmployees().getModel();
+            model.setRowCount(0);          
+
+            if(!employeePosition.equals("")) {       
+                ArrayList<Employee> employees = employeeDao.fetchEmployeeByPosition(employeePosition);
+                if(employees.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No employees with that position.");
+                }
+
+                for (Employee employee: employees) {
+                    Object[] row = {
+                        employee.getEmployeeId(),
+                        employee.getFirstName() + " " + employee.getLastName(),
+                        employee.getRole(),
+                        employee.getPosition(),
+                        employee.getEmail(),
+                        employee.getCell(),
+                        employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                        employee.getPostalCode(),
+                        employee.getCreatedBy()                        
+                    };                 
+                    model.addRow(row);
+                }       
+            }            
+        }
+    }
+    
+    // Class to search employee from employee table in database for employee search view
+    private class SearchAllEmployees implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {            
+            DefaultTableModel model = (DefaultTableModel)searchEmployeeView.getTblSearchEmployees().getModel();
+            model.setRowCount(0);          
+                  
+            ArrayList<Employee> employees = employeeDao.fetchAllEmployees();
+            if(employees.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No employees to display.");
+            }
+
+            for (Employee employee: employees) {
+                Object[] row = {
+                    employee.getEmployeeId(),
+                    employee.getFirstName() + " " + employee.getLastName(),
+                    employee.getRole(),
+                    employee.getPosition(),
+                    employee.getEmail(),
+                    employee.getCell(),
+                    employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                    employee.getPostalCode(),
+                    employee.getCreatedBy()                        
+                };                 
+                model.addRow(row);
+            }                             
+        }
+    }
 }

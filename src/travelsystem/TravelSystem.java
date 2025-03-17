@@ -26,6 +26,10 @@ public class TravelSystem {
         DeleteEmployeeView deleteEmployeeView = new DeleteEmployeeView();
         EmployeeController empDeleteController = new EmployeeController(empDao, deleteEmployeeView, userDao);
         deleteEmployeeView.setVisible(true);
+        
+        SearchEmployeeView searchEmployeeView = new SearchEmployeeView();
+        EmployeeController empSearchController = new EmployeeController(empDao, searchEmployeeView );
+        searchEmployeeView.setVisible(true);
     }
     
 }

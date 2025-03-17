@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import model.User;
 
 /**
@@ -67,7 +68,7 @@ public class EmployeeDAO {
         return false;
     }
     
-    // Method to fetch employee data from database by employee id
+    // Method to fetch employee data from database by employee id for employee delete view
     public Employee fetchEmployeeForDelTable(int employeeId) throws Exception{
         String query = """
                        SELECT employee_id, first_name, last_name, phone, email, role
@@ -106,10 +107,8 @@ public class EmployeeDAO {
                       WHERE user_id = ( SELECT user_id
                                         FROM (SELECT employee_id
                                               FROM user INNER JOIN employee USING (user_id)) as temp
-                                        WHERE employee_id = ?)
-                                             
+                                        WHERE employee_id = ?)                      
                       """;
-
        try(Connection connection = DBConnection.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(query)){
            preparedStatement.setInt(1, employeeId);
@@ -121,5 +120,139 @@ public class EmployeeDAO {
        }
        return false;
     }
+     // Method to fetch employee data from database by employee id for edit employee view
+    public ArrayList<Employee> fetchEmployeeByPosition(String position){
+        ArrayList<Employee> employees = new ArrayList<>();
+        String query = """
+                       SELECT *
+                       FROM employee
+                       WHERE position = ?
+                       """;
+        
+        try(Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            preparedStatement.setString(1, position);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            while(resultSet.next()) {
+                employee = new Employee(
+                resultSet.getString("first_name"),
+                resultSet.getString("last_name"),
+                resultSet.getString("email"),
+                resultSet.getString("phone"),
+                resultSet.getString("unit_number"), 
+                resultSet.getString("street_address"),   
+                resultSet.getString("city"),
+                resultSet.getString("country"), 
+                resultSet.getString("postal_code"), 
+                resultSet.getString("dob"),
+                resultSet.getInt("user_id"),
+                resultSet.getInt("SIN"),
+                resultSet.getString("status"),
+                resultSet.getString("cell"), 
+                resultSet.getString("position"),
+                resultSet.getDouble("salary"),      
+                resultSet.getString("role"),
+                resultSet.getInt("created_by"),                       
+                resultSet.getInt("employee_id")
+                );
+                employees.add(employee);
+            } 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employees;
+    }
+    
+         // Method to fetch employee data from database by employee id for edit employee view
+    public ArrayList<Employee> fetchAllEmployees(){
+        ArrayList<Employee> employees = new ArrayList<>();
+        String query = """
+                       SELECT *
+                       FROM employee
+                       """;
+        
+        try(Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            while(resultSet.next()) {
+                employee = new Employee(
+                resultSet.getString("first_name"),
+                resultSet.getString("last_name"),
+                resultSet.getString("email"),
+                resultSet.getString("phone"),
+                resultSet.getString("unit_number"), 
+                resultSet.getString("street_address"),   
+                resultSet.getString("city"),
+                resultSet.getString("country"), 
+                resultSet.getString("postal_code"), 
+                resultSet.getString("dob"),
+                resultSet.getInt("user_id"),
+                resultSet.getInt("SIN"),
+                resultSet.getString("status"),
+                resultSet.getString("cell"), 
+                resultSet.getString("position"),
+                resultSet.getDouble("salary"),      
+                resultSet.getString("role"),
+                resultSet.getInt("created_by"),                       
+                resultSet.getInt("employee_id")
+                );
+                employees.add(employee);
+            } 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employees;
+    }
+    
+    
+    // Method to fetch employee data from database by employee id for edit employee view and search employee view
+    public Employee fetchEmployeeForEditTable(int employeeId) throws Exception{
+        String query = """
+                       SELECT *
+                       FROM employee
+                       WHERE employee_id = ?
+                       """;
+        
+        try(Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            preparedStatement.setInt(1, employeeId);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            if(resultSet.next()) {
+                employee = new Employee(
+                resultSet.getString("first_name"),
+                resultSet.getString("last_name"),
+                resultSet.getString("email"),
+                resultSet.getString("phone"),
+                resultSet.getString("unit_number"), 
+                resultSet.getString("street_address"),   
+                resultSet.getString("city"),
+                resultSet.getString("country"), 
+                resultSet.getString("postal_code"), 
+                resultSet.getString("dob"),
+                resultSet.getInt("user_id"),
+                resultSet.getInt("SIN"),
+                resultSet.getString("status"),
+                resultSet.getString("cell"), 
+                resultSet.getString("position"),
+                resultSet.getDouble("salary"),      
+                resultSet.getString("role"),
+                resultSet.getInt("created_by"),                       
+                resultSet.getInt("employee_id")
+                );
+            } else {
+                throw new Exception();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
+    }
+    
     
 }
