@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -24,22 +29,33 @@ public class SearchPromoView extends javax.swing.JFrame {
 
         monthLbl = new javax.swing.JLabel();
         monthTxt = new javax.swing.JTextField();
-        searchIdBtn = new javax.swing.JButton();
+        searchNameBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
         promoIdLbl = new javax.swing.JLabel();
-        promoIdTxt = new javax.swing.JTextField();
+        promoNameTxt = new javax.swing.JTextField();
         searchMonthBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        searchPromoTbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Promotions");
 
-        monthLbl.setText("Month:");
+        monthLbl.setText("Month (MMM):");
 
-        searchIdBtn.setText("Search");
+        searchNameBtn.setText("Search");
+        searchNameBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchNameBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         searchAllBtn.setText("Search All");
         searchAllBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -48,22 +64,33 @@ public class SearchPromoView extends javax.swing.JFrame {
             }
         });
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
-        );
-
-        promoIdLbl.setText("Promotion ID:");
+        promoIdLbl.setText("Promotion Name: ");
 
         searchMonthBtn.setText("Search");
+        searchMonthBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchMonthBtnActionPerformed(evt);
+            }
+        });
+
+        searchPromoTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Promotion Id", "Prmotion Name", "Discount percent", "Promotion Start Date", "Promotion End Date", "Status"
+            }
+        ));
+        jScrollPane1.setViewportView(searchPromoTbl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,27 +99,27 @@ public class SearchPromoView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(promoIdLbl)
-                                .addComponent(monthLbl))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(promoIdLbl)
+                            .addComponent(monthLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(searchAllBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearAllBtn)
+                                .addGap(18, 18, 18))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(monthTxt)
-                                .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(searchIdBtn)
-                                .addComponent(searchMonthBtn)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchAllBtn)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(clearAllBtn)
-                            .addGap(109, 109, 109)))
-                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                                .addComponent(promoNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchNameBtn)
+                            .addComponent(searchMonthBtn))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,8 +127,8 @@ public class SearchPromoView extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(promoIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchIdBtn))
+                        .addComponent(promoNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchNameBtn))
                     .addComponent(promoIdLbl, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -113,8 +140,8 @@ public class SearchPromoView extends javax.swing.JFrame {
                     .addComponent(clearAllBtn)
                     .addComponent(searchAllBtn))
                 .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
         );
 
         pack();
@@ -123,6 +150,18 @@ public class SearchPromoView extends javax.swing.JFrame {
     private void searchAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAllBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchAllBtnActionPerformed
+
+    private void searchNameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchNameBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchNameBtnActionPerformed
+
+    private void searchMonthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMonthBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchMonthBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,16 +197,90 @@ public class SearchPromoView extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void clearAllBtnActionListener (ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchAllBtnActionListener (ActionListener myActionListener) {
+        searchAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchNameActionListener (ActionListener myActionListener) {
+        searchNameBtn.addActionListener(myActionListener);
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getMonthTxt() {
+        return monthTxt;
+    }
+
+    public void setMonthTxt(JTextField monthTxt) {
+        this.monthTxt = monthTxt;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public void setPromoNameTxt(JTextField promoNameTxt) {
+        this.promoNameTxt = promoNameTxt;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public void setSearchAllBtn(JButton searchAllBtn) {
+        this.searchAllBtn = searchAllBtn;
+    }
+
+    public JButton getSearchMonthBtn() {
+        return searchMonthBtn;
+    }
+
+    public void setSearchMonthBtn(JButton searchMonthBtn) {
+        this.searchMonthBtn = searchMonthBtn;
+    }
+
+    public JButton getSearchNameBtn() {
+        return searchNameBtn;
+    }
+
+    public void setSearchNameBtn(JButton searchNameBtn) {
+        this.searchNameBtn = searchNameBtn;
+    }
+
+    public JTable getSearchPromoTbl() {
+        return searchPromoTbl;
+    }
+
+    public void setSearchPromoTbl(JTable searchPromoTbl) {
+        this.searchPromoTbl = searchPromoTbl;
+    }
+    
+    public void searchMonthBtnActionListener (ActionListener myActionListener) {
+        searchMonthBtn.addActionListener(myActionListener);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel monthLbl;
     private javax.swing.JTextField monthTxt;
     private javax.swing.JLabel promoIdLbl;
-    private javax.swing.JTextField promoIdTxt;
+    private javax.swing.JTextField promoNameTxt;
     private javax.swing.JButton searchAllBtn;
-    private javax.swing.JButton searchIdBtn;
     private javax.swing.JButton searchMonthBtn;
+    private javax.swing.JButton searchNameBtn;
+    private javax.swing.JTable searchPromoTbl;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -54,10 +58,25 @@ public class EditPromoView extends javax.swing.JFrame {
         endLbl.setText("End (YYYY-MM-DD):");
 
         editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         statusLbl.setText("Status:");
 
@@ -147,6 +166,18 @@ public class EditPromoView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -180,6 +211,98 @@ public class EditPromoView extends javax.swing.JFrame {
                 new EditPromoView().setVisible(true);
             }
         });
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getDescTxt() {
+        return descTxt;
+    }
+
+    public void setDescTxt(JTextField descTxt) {
+        this.descTxt = descTxt;
+    }
+
+    public JButton getEditBtn() {
+        return editBtn;
+    }
+
+    public void setEditBtn(JButton editBtn) {
+        this.editBtn = editBtn;
+    }
+
+    public JTextField getEndTxt() {
+        return endTxt;
+    }
+
+    public void setEndTxt(JTextField endTxt) {
+        this.endTxt = endTxt;
+    }
+
+    public JTextField getPercentTxt() {
+        return percentTxt;
+    }
+
+    public void setPercentTxt(JTextField percentTxt) {
+        this.percentTxt = percentTxt;
+    }
+
+    public JTextField getPromoIdTxt() {
+        return promoIdTxt;
+    }
+
+    public void setPromoIdTxt(JTextField promoIdTxt) {
+        this.promoIdTxt = promoIdTxt;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public void setPromoNameTxt(JTextField promoNameTxt) {
+        this.promoNameTxt = promoNameTxt;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public void setSearchBtn(JButton searchBtn) {
+        this.searchBtn = searchBtn;
+    }
+
+    public JTextField getStartTxt() {
+        return startTxt;
+    }
+
+    public void setStartTxt(JTextField startTxt) {
+        this.startTxt = startTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void editBtnActionListener(ActionListener myActionListener) {
+        editBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchBtnActionListener(ActionListener myActionListener) {
+        searchBtn.addActionListener(myActionListener);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

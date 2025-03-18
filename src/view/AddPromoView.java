@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +15,7 @@ public class AddPromoView extends javax.swing.JFrame {
      */
     public AddPromoView() {
         initComponents();
+        setDefaultCloseOperation(AddEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -49,8 +54,18 @@ public class AddPromoView extends javax.swing.JFrame {
         endLbl.setText("End (YYYY-MM-DD):");
 
         addPromoBtn.setText("Add Promotion");
+        addPromoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPromoBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         descLbl.setText("Description:");
 
@@ -120,6 +135,14 @@ public class AddPromoView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addPromoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPromoBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPromoBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,6 +178,78 @@ public class AddPromoView extends javax.swing.JFrame {
         });
     }
 
+    public JButton getAddPromoBtn() {
+        return addPromoBtn;
+    }
+
+    public void setAddPromoBtn(JButton addPromoBtn) {
+        this.addPromoBtn = addPromoBtn;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getDescTxt() {
+        return descTxt;
+    }
+
+    public void setDescTxt(JTextField descTxt) {
+        this.descTxt = descTxt;
+    }
+
+    public JTextField getEndTxt() {
+        return endTxt;
+    }
+
+    public void setEndTxt(JTextField endTxt) {
+        this.endTxt = endTxt;
+    }
+
+    public JTextField getPercentTxt() {
+        return percentTxt;
+    }
+
+    public void setPercentTxt(JTextField percentTxt) {
+        this.percentTxt = percentTxt;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public void setPromoNameTxt(JTextField promoNameTxt) {
+        this.promoNameTxt = promoNameTxt;
+    }
+
+    public JTextField getStartTxt() {
+        return startTxt;
+    }
+
+    public void setStartTxt(JTextField startTxt) {
+        this.startTxt = startTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+    
+    public void addPromoBtnActionListener(ActionListener myActionListener) {
+        addPromoBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPromoBtn;
     private javax.swing.JButton clearAllBtn;

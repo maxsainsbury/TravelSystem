@@ -213,10 +213,10 @@ public class EmployeeController {
                 boolean result = employeeDao.deleteEmployee(employeeId);
                 
                 if(result) {
-                JOptionPane.showMessageDialog(null, "Successfully deleted the employee");
-                model.setRowCount(0);
+                    JOptionPane.showMessageDialog(null, "Successfully deleted the employee");
+                    model.setRowCount(0);
                 } else {
-                JOptionPane.showMessageDialog(null, "Was not able to delete employee.");
+                    JOptionPane.showMessageDialog(null, "Was not able to delete employee.");
                 }
             }
         }
@@ -352,24 +352,22 @@ public class EmployeeController {
                     Employee employee = employeeDao.fetchEmployeeById(employeeId);
                     // Temporarly hold this employee to be used in employee edit.
                     tempEmployee = employee;
-                    System.out.println(tempEmployee.getFirstName());
-
-                        editEmployeeView.getFnameTxt().setText(employee.getFirstName());
-                        editEmployeeView.getLnameTxt().setText(employee.getLastName());
-                        editEmployeeView.getDobTxt().setText(employee.getDob().toString());
-                        editEmployeeView.getEmailTxt().setText(employee.getEmail());
-                        editEmployeeView.getSinTxt().setText(Integer.toString(employee.getSIN()));
-                        editEmployeeView.getStatusTxt().setText(employee.getStatus());
-                        editEmployeeView.getPhoneTxt().setText(employee.getPhone());
-                        editEmployeeView.getCellTxt().setText(employee.getCell());
-                        editEmployeeView.getUnitTxt().setText(employee.getUnitNumber());
-                        editEmployeeView.getStreetTxt().setText(employee.getStreetAddress());
-                        editEmployeeView.getCityTxt().setText(employee.getCity());
-                        editEmployeeView.getPostalTxt().setText(employee.getPostalCode());
-                        editEmployeeView.getCountryTxt().setText(employee.getCountry());
-                        editEmployeeView.getPositionTxt().setText(employee.getPosition());
-                        editEmployeeView.getSalaryTxt().setText(Double.toString(employee.getSalary()));
-                        editEmployeeView.getRoleTxt().setText(employee.getRole());
+                    editEmployeeView.getFnameTxt().setText(employee.getFirstName());
+                    editEmployeeView.getLnameTxt().setText(employee.getLastName());
+                    editEmployeeView.getDobTxt().setText(employee.getDob().toString());
+                    editEmployeeView.getEmailTxt().setText(employee.getEmail());
+                    editEmployeeView.getSinTxt().setText(Integer.toString(employee.getSIN()));
+                    editEmployeeView.getStatusTxt().setText(employee.getStatus());
+                    editEmployeeView.getPhoneTxt().setText(employee.getPhone());
+                    editEmployeeView.getCellTxt().setText(employee.getCell());
+                    editEmployeeView.getUnitTxt().setText(employee.getUnitNumber());
+                    editEmployeeView.getStreetTxt().setText(employee.getStreetAddress());
+                    editEmployeeView.getCityTxt().setText(employee.getCity());
+                    editEmployeeView.getPostalTxt().setText(employee.getPostalCode());
+                    editEmployeeView.getCountryTxt().setText(employee.getCountry());
+                    editEmployeeView.getPositionTxt().setText(employee.getPosition());
+                    editEmployeeView.getSalaryTxt().setText(Double.toString(employee.getSalary()));
+                    editEmployeeView.getRoleTxt().setText(employee.getRole());
                 } else {
                     throw new Exception();
 
