@@ -75,7 +75,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -162,7 +162,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="departureLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Departure (HH:MM):"/>
+        <Property name="text" type="java.lang.String" value="Departure (YYYY-MM-DD HH:MM):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="departureTxt">
@@ -205,7 +205,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="arrivalLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Arrival (HH:MM):"/>
+        <Property name="text" type="java.lang.String" value="Arrival (YYYY-MM-DD HH:MM):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="arrivalTxt">

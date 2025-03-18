@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +16,158 @@ public class AddFlightView extends javax.swing.JFrame {
      */
     public AddFlightView() {
         initComponents();
+    }
+
+    public JButton getAddFlightBtn() {
+        return addFlightBtn;
+    }
+
+    public void setAddFlightBtn(JButton addFlightBtn) {
+        this.addFlightBtn = addFlightBtn;
+    }
+
+    public JLabel getAirlineLbl() {
+        return airlineLbl;
+    }
+
+    public void setAirlineLbl(JLabel airlineLbl) {
+        this.airlineLbl = airlineLbl;
+    }
+
+    public JTextField getAirlineTxt() {
+        return airlineTxt;
+    }
+
+    public void setAirlineTxt(JTextField airlineTxt) {
+        this.airlineTxt = airlineTxt;
+    }
+
+    public JLabel getArrivalLbl() {
+        return arrivalLbl;
+    }
+
+    public void setArrivalLbl(JLabel arrivalLbl) {
+        this.arrivalLbl = arrivalLbl;
+    }
+
+    public JTextField getArrivalTxt() {
+        return arrivalTxt;
+    }
+
+    public void setArrivalTxt(JTextField arrivalTxt) {
+        this.arrivalTxt = arrivalTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JLabel getDepartureLbl() {
+        return departureLbl;
+    }
+
+    public void setDepartureLbl(JLabel departureLbl) {
+        this.departureLbl = departureLbl;
+    }
+
+    public JTextField getDepartureTxt() {
+        return departureTxt;
+    }
+
+    public void setDepartureTxt(JTextField departureTxt) {
+        this.departureTxt = departureTxt;
+    }
+
+    public JLabel getFlightNumLbl() {
+        return flightNumLbl;
+    }
+
+    public void setFlightNumLbl(JLabel flightNumLbl) {
+        this.flightNumLbl = flightNumLbl;
+    }
+
+    public JTextField getFlightNumTxt() {
+        return flightNumTxt;
+    }
+
+    public void setFlightNumTxt(JTextField flightNumTxt) {
+        this.flightNumTxt = flightNumTxt;
+    }
+
+    public JLabel getPriceLbl() {
+        return priceLbl;
+    }
+
+    public void setPriceLbl(JLabel priceLbl) {
+        this.priceLbl = priceLbl;
+    }
+
+    public JTextField getPriceTxt() {
+        return priceTxt;
+    }
+
+    public void setPriceTxt(JTextField priceTxt) {
+        this.priceTxt = priceTxt;
+    }
+
+    public JLabel getSeatLbl() {
+        return seatLbl;
+    }
+
+    public void setSeatLbl(JLabel seatLbl) {
+        this.seatLbl = seatLbl;
+    }
+
+    public JTextField getSeatTxt() {
+        return seatTxt;
+    }
+
+    public void setSeatTxt(JTextField seatTxt) {
+        this.seatTxt = seatTxt;
+    }
+
+    public JLabel getStatusLbl() {
+        return statusLbl;
+    }
+
+    public void setStatusLbl(JLabel statusLbl) {
+        this.statusLbl = statusLbl;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+
+    public JLabel getTripIdLbl() {
+        return tripIdLbl;
+    }
+
+    public void setTripIdLbl(JLabel tripIdLbl) {
+        this.tripIdLbl = tripIdLbl;
+    }
+
+    public JTextField getTripIdTxt() {
+        return tripIdTxt;
+    }
+
+    public void setTripIdTxt(JTextField tripIdTxt) {
+        this.tripIdTxt = tripIdTxt;
+    }
+    
+    public void addFlightBtnListener(ActionListener addBtnClick) {
+        addFlightBtn.addActionListener(addBtnClick);
+    }
+    
+    public void addClearBtnListener(ActionListener clearBtnClick) {
+        clearAllBtn.addActionListener(clearBtnClick);
     }
 
     /**
@@ -48,9 +205,9 @@ public class AddFlightView extends javax.swing.JFrame {
 
         flightNumLbl.setText("Flight Number:");
 
-        departureLbl.setText("Departure (HH:MM):");
+        departureLbl.setText("Departure (YYYY-MM-DD HH:MM):");
 
-        arrivalLbl.setText("Arrival (HH:MM):");
+        arrivalLbl.setText("Arrival (YYYY-MM-DD HH:MM):");
 
         priceLbl.setText("Price:");
 
@@ -69,40 +226,42 @@ public class AddFlightView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tripIdLbl)
-                    .addComponent(statusLbl)
-                    .addComponent(seatLbl)
-                    .addComponent(priceLbl)
-                    .addComponent(arrivalLbl)
-                    .addComponent(departureLbl)
                     .addComponent(flightNumLbl)
-                    .addComponent(airlineLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(departureLbl)
+                    .addComponent(airlineLbl)
+                    .addComponent(arrivalLbl)
+                    .addComponent(priceLbl)
+                    .addComponent(seatLbl)
+                    .addComponent(statusLbl))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(airlineTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                    .addComponent(flightNumTxt)
-                    .addComponent(departureTxt)
-                    .addComponent(seatTxt)
-                    .addComponent(statusTxt)
-                    .addComponent(priceTxt, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addComponent(addFlightBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearAllBtn)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(arrivalTxt)
-                    .addComponent(tripIdTxt))
+                        .addComponent(clearAllBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tripIdTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(departureTxt)
+                            .addComponent(flightNumTxt)
+                            .addComponent(airlineTxt)
+                            .addComponent(arrivalTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(priceTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(statusTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(seatTxt, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(airlineLbl)
-                    .addComponent(airlineTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(airlineTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(airlineLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(flightNumLbl)
@@ -112,13 +271,13 @@ public class AddFlightView extends javax.swing.JFrame {
                     .addComponent(departureLbl)
                     .addComponent(departureTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(arrivalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(arrivalLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(priceLbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(priceTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(seatTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,7 +294,7 @@ public class AddFlightView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addFlightBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
