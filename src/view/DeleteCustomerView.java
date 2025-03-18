@@ -17,6 +17,7 @@ public class DeleteCustomerView extends javax.swing.JFrame {
      */
     public DeleteCustomerView() {
         initComponents();
+        setDefaultCloseOperation(DeleteCustomerView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getIdTxt() {
@@ -76,7 +77,7 @@ public class DeleteCustomerView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         delCustomerTbl = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Delete Customer");
 
         idLbl.setText("Customer ID:");

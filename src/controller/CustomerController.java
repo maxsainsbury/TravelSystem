@@ -57,7 +57,7 @@ public class CustomerController {
     }
     
     /**
-     * Constructor for DeleteEmployeeView
+     * Constructor for DeleteCustomerView
      * @param customerDao
      * @param deleteCustomerView
      */
@@ -71,7 +71,7 @@ public class CustomerController {
     }
     
     /**
-     * Constructor for SearchEmployeeView
+     * Constructor for SearchCustomerView
      * @param customerDao
      * @param searchCustomerView 
      */
@@ -87,7 +87,7 @@ public class CustomerController {
     }
     
     /**
-     * Constructor for EditEmployeeView
+     * Constructor for EditCustomerView
      * @param customerDao
      * @param editCustomerView 
      */
@@ -329,7 +329,7 @@ public class CustomerController {
         }
     }
     
-    // Class to search employee from employee table in database for employee search view
+    // Class to search customer from customer table in database for customer search view
     private class SearchCustomerByEmail implements ActionListener {
 
         @Override
@@ -360,7 +360,7 @@ public class CustomerController {
         }
     }
     
-    // Class to search employee from employee table in database for employee search view
+    // Class to search customer from customer table in database for customer search view
     private class SearchCustomerByPhone implements ActionListener {
 
         @Override
@@ -391,7 +391,7 @@ public class CustomerController {
         }
     }
     
-    // Class to search employee from employee table in database for employee search view
+    // Class to search customer from customer table in database for customer search view
     private class SearchAllCustomers implements ActionListener {
 
         @Override

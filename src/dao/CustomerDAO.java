@@ -27,7 +27,7 @@ public class CustomerDAO {
         this.customer = new Customer(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, userName, userPassword);
     }
     
-    // Constructor for employee deletion or search.
+    // Constructor for customer deletion or search.
     public CustomerDAO(int customerId, String firstName, String lastName, String phone, String email){
         this.customer = new Customer(customerId, firstName, lastName, phone, email);
     };

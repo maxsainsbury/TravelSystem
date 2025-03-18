@@ -15,6 +15,7 @@ public class AddCustomerView extends javax.swing.JFrame {
      */
     public AddCustomerView() {
         initComponents();
+        setDefaultCloseOperation(AddCustomerView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getDobTxt() {
@@ -165,8 +166,13 @@ public class AddCustomerView extends javax.swing.JFrame {
         citylbl = new javax.swing.JLabel();
         cityTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Customer");
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
 
         fnameLbl.setText("First Name:");
 
@@ -315,6 +321,10 @@ public class AddCustomerView extends javax.swing.JFrame {
     private void addCustomerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addCustomerBtnActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
 
     /**
      * @param args the command line arguments
