@@ -24,8 +24,8 @@ public class Customer extends User{
      * @param dob
      * @param id 
      */
-    public Customer(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, int userId, int customerId) {
-        super(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, userId);
+    public Customer(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, int userId, int customerId) {
+        super(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, userId);
         this.customerId = customerId;
     }
     
@@ -44,9 +44,8 @@ public class Customer extends User{
      * @param month
      * @param day 
      */
-    public Customer(String username, String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, int year, int month, int day, String password, String userType) {
-        super(username, firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, year, month, day, password, Customer.userType);
-        
+    public Customer(String firstName, String lastName, String email, String phone, String unitNumber, String streetAddress, String city, String country, String postalCode, String dob, String userType, String userName, String userPassword) {
+        super(firstName, lastName, email, phone, unitNumber, streetAddress, city, country, postalCode, dob, Customer.userType, userName, userPassword);  
     }
 
     public int getCustomerId() {

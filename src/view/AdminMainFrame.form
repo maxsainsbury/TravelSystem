@@ -135,21 +135,33 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Employees"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchEmpMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editEmpMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Employee"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editEmpMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addEmpMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Employee"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addEmpMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteEmpMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Employee"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteEmpMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -1,5 +1,9 @@
 package view;
 
+import controller.EmployeeController;
+import dao.EmployeeDAO;
+import dao.UserDAO;
+
 /**
  *
  * @author Ebba de Groot
@@ -143,15 +147,35 @@ public class AdminMainFrame extends javax.swing.JFrame {
         employeeMnu.setText("Employee");
 
         searchEmpMnu.setText("Search Employees");
+        searchEmpMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEmpMnuActionPerformed(evt);
+            }
+        });
         employeeMnu.add(searchEmpMnu);
 
         editEmpMnu.setText("Edit Employee");
+        editEmpMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editEmpMnuActionPerformed(evt);
+            }
+        });
         employeeMnu.add(editEmpMnu);
 
         addEmpMnu.setText("Add Employee");
+        addEmpMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmpMnuActionPerformed(evt);
+            }
+        });
         employeeMnu.add(addEmpMnu);
 
         deleteEmpMnu.setText("Delete Employee");
+        deleteEmpMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEmpMnuActionPerformed(evt);
+            }
+        });
         employeeMnu.add(deleteEmpMnu);
 
         menuBar.add(employeeMnu);
@@ -202,6 +226,35 @@ public class AdminMainFrame extends javax.swing.JFrame {
     private void editFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFlightMnuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editFlightMnuActionPerformed
+
+    private void searchEmpMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEmpMnuActionPerformed
+        SearchEmployeeView searchEmployeeView = new SearchEmployeeView();
+        EmployeeDAO employeeDao = new EmployeeDAO();
+        EmployeeController SearchEmployeeController = new EmployeeController(employeeDao, searchEmployeeView);
+        searchEmployeeView.setVisible(true);
+    }//GEN-LAST:event_searchEmpMnuActionPerformed
+
+    private void editEmpMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmpMnuActionPerformed
+        EditEmployeeView editEmployeeView = new EditEmployeeView();
+        EmployeeDAO employeeDao = new EmployeeDAO();
+        EmployeeController employeeController = new EmployeeController(employeeDao, editEmployeeView);
+        editEmployeeView.setVisible(true);
+    }//GEN-LAST:event_editEmpMnuActionPerformed
+
+    private void addEmpMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmpMnuActionPerformed
+        AddEmployeeView addEmployeeView = new AddEmployeeView();
+        EmployeeDAO employeeDao = new EmployeeDAO();
+        UserDAO userDao = new UserDAO();
+        EmployeeController employeeController = new EmployeeController(employeeDao, addEmployeeView, userDao);
+        addEmployeeView.setVisible(true);
+    }//GEN-LAST:event_addEmpMnuActionPerformed
+
+    private void deleteEmpMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmpMnuActionPerformed
+        DeleteEmployeeView deleteEmployeeView = new DeleteEmployeeView();
+        EmployeeDAO employeeDao = new EmployeeDAO();
+        EmployeeController employeeController = new EmployeeController(employeeDao, deleteEmployeeView);
+        deleteEmployeeView.setVisible(true);
+    }//GEN-LAST:event_deleteEmpMnuActionPerformed
 
     /**
      * @param args the command line arguments
