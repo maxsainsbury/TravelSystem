@@ -1,7 +1,9 @@
 package view;
 
 import controller.EmployeeController;
+import controller.TripController;
 import dao.EmployeeDAO;
+import dao.TripDAO;
 import dao.UserDAO;
 
 /**
@@ -216,7 +218,10 @@ public class AdminMainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addTripMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTripMnuActionPerformed
-        // TODO add your handling code here:
+        AddTripView addTripView = new AddTripView();
+        TripDAO tripDAO = new TripDAO();
+        TripController tripController = new TripController(addTripView, tripDAO);
+        addTripView.setVisible(true);
     }//GEN-LAST:event_addTripMnuActionPerformed
 
     private void addPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPromoMnuActionPerformed

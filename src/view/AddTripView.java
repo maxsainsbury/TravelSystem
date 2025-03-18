@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +15,46 @@ public class AddTripView extends javax.swing.JFrame {
      */
     public AddTripView() {
         initComponents();
+    }
+
+    public JButton getAddTripBtn() {
+        return addTripBtn;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JTextField getDepartureTxt() {
+        return departureTxt;
+    }
+
+    public JTextField getDestinationTxt() {
+        return destinationTxt;
+    }
+
+    public JTextField getOriginTxt() {
+        return originTxt;
+    }
+
+    public JTextField getPromoIdTxt() {
+        return promoIdTxt;
+    }
+
+    public JTextField getReturnTxt() {
+        return returnTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+    
+    public void addTripBtnListener(ActionListener addBtnClick) {
+        addTripBtn.addActionListener(addBtnClick);
+    }
+    
+    public void addClearBtnListener(ActionListener addBtnClick) {
+        clearAllBtn.addActionListener(addBtnClick);
     }
 
     /**
