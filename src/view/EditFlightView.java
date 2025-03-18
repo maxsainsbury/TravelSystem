@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -12,6 +16,108 @@ public class EditFlightView extends javax.swing.JFrame {
     public EditFlightView() {
         initComponents();
     }
+
+    public JTextField getAirlineTxt() {
+        return airlineTxt;
+    }
+
+    public void setAirlineTxt(JTextField airlineTxt) {
+        this.airlineTxt = airlineTxt;
+    }
+
+    public JTextField getArrivalTxt() {
+        return arrivalTxt;
+    }
+
+    public void setArrivalTxt(JTextField arrivalTxt) {
+        this.arrivalTxt = arrivalTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getDepartureTxt() {
+        return departureTxt;
+    }
+
+    public void setDepartureTxt(JTextField departureTxt) {
+        this.departureTxt = departureTxt;
+    }
+
+    public JTextField getFlighIdTxt() {
+        return flighIdTxt;
+    }
+
+    public void setFlighIdTxt(JTextField flighIdTxt) {
+        this.flighIdTxt = flighIdTxt;
+    }
+
+    public JTextField getFlightNumTxt() {
+        return flightNumTxt;
+    }
+
+    public void setFlightNumTxt(JTextField flightNumTxt) {
+        this.flightNumTxt = flightNumTxt;
+    }
+
+    public JTextField getPriceTxt() {
+        return priceTxt;
+    }
+
+    public void setPriceTxt(JTextField priceTxt) {
+        this.priceTxt = priceTxt;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public void setSearchBtn(JButton searchBtn) {
+        this.searchBtn = searchBtn;
+    }
+
+    public JTextField getSeatTxt() {
+        return seatTxt;
+    }
+
+    public void setSeatTxt(JTextField seatTxt) {
+        this.seatTxt = seatTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+
+    public JTextField getTripIdTxt() {
+        return tripIdTxt;
+    }
+
+    public void setTripIdTxt(JTextField tripIdTxt) {
+        this.tripIdTxt = tripIdTxt;
+    }
+    
+    public void searchBtnListener(ActionListener addBtnClick) {
+        searchBtn.addActionListener(addBtnClick);
+    }
+    
+    public void editBtnListener(ActionListener addBtnClick) {
+        editBtn.addActionListener(addBtnClick);
+    }
+    
+    public void clearAllBtnListener(ActionListener addBtnClick) {
+        clearAllBtn.addActionListener(addBtnClick);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +159,7 @@ public class EditFlightView extends javax.swing.JFrame {
 
         flightNumLbl.setText("Flight Number:");
 
-        departureLbl.setText("Departure (HH:MM):");
+        departureLbl.setText("Departure (YYYY-MM-DD HH:MM):");
 
         priceLbl.setText("Price:");
 
@@ -67,7 +173,7 @@ public class EditFlightView extends javax.swing.JFrame {
 
         searchBtn.setText("Search");
 
-        arrivalLbl.setText("Arrival (HH:MM):");
+        arrivalLbl.setText("Arrival (YYYY-MM-DD HH:MM):");
 
         tripIdLbl.setText("Trip ID:");
 
@@ -115,7 +221,7 @@ public class EditFlightView extends javax.swing.JFrame {
                                     .addComponent(flightNumTxt)
                                     .addComponent(departureTxt)
                                     .addComponent(arrivalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

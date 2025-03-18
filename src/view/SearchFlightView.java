@@ -1,5 +1,14 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -12,6 +21,107 @@ public class SearchFlightView extends javax.swing.JFrame {
     public SearchFlightView() {
         initComponents();
     }
+
+    public JLabel getAirlineLbl() {
+        return airlineLbl;
+    }
+
+    public void setAirlineLbl(JLabel airlineLbl) {
+        this.airlineLbl = airlineLbl;
+    }
+
+    public JTextField getAirlineTxt() {
+        return airlineTxt;
+    }
+
+    public void setAirlineTxt(JTextField airlineTxt) {
+        this.airlineTxt = airlineTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JLabel getFlightIdLbl() {
+        return flightIdLbl;
+    }
+
+    public void setFlightIdLbl(JLabel flightIdLbl) {
+        this.flightIdLbl = flightIdLbl;
+    }
+
+    public JTextField getFlightIdTxt() {
+        return flightIdTxt;
+    }
+
+    public void setFlightIdTxt(JTextField flightIdTxt) {
+        this.flightIdTxt = flightIdTxt;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTextArea getjTextArea1() {
+        return jTextArea1;
+    }
+
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1 = jTextArea1;
+    }
+
+    public JButton getSearchAirlineBtn() {
+        return searchAirlineBtn;
+    }
+
+    public void setSearchAirlineBtn(JButton searchAirlineBtn) {
+        this.searchAirlineBtn = searchAirlineBtn;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public void setSearchAllBtn(JButton searchAllBtn) {
+        this.searchAllBtn = searchAllBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+
+    public void setSearchIdBtn(JButton searchIdBtn) {
+        this.searchIdBtn = searchIdBtn;
+    }
+
+    public JTable getSearchTable() {
+        return searchTable;
+    }
+    
+    public void searchIdBtnLisener(ActionListener addBtnClick) {
+        searchIdBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchAirlineBtnLisener(ActionListener addBtnClick) {
+        searchAirlineBtn.addActionListener(addBtnClick);
+    }
+     
+    public void searchAllBtnLisener(ActionListener addBtnClick) {
+        searchAllBtn.addActionListener(addBtnClick);
+    }
+    
+     public void clearAllBtnLisener(ActionListener addBtnClick) {
+        clearAllBtn.addActionListener(addBtnClick);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,11 +138,12 @@ public class SearchFlightView extends javax.swing.JFrame {
         airlineTxt = new javax.swing.JTextField();
         clearAllBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
         flightIdLbl = new javax.swing.JLabel();
         flightIdTxt = new javax.swing.JTextField();
         searchIdBtn = new javax.swing.JButton();
         searchAirlineBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        searchTable = new javax.swing.JTable();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -47,53 +158,54 @@ public class SearchFlightView extends javax.swing.JFrame {
 
         searchAllBtn.setText("Search All");
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
         flightIdLbl.setText("Flight ID:");
 
         searchIdBtn.setText("Search");
 
         searchAirlineBtn.setText("Search");
+        searchAirlineBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAirlineBtnActionPerformed(evt);
+            }
+        });
+
+        searchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Flight Id", "Trip Id", "Airline", "Flight Number", "Departure Time", "Arrival Time", "Price", "Seat Class", "Status"
+            }
+        ));
+        jScrollPane2.setViewportView(searchTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(airlineLbl)
-                    .addComponent(flightIdLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(searchAllBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearAllBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(airlineTxt)
-                            .addComponent(flightIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(airlineLbl)
+                            .addComponent(flightIdLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(searchIdBtn)
-                            .addComponent(searchAirlineBtn))))
-                .addGap(56, 56, 56))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(searchAllBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearAllBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(airlineTxt)
+                                    .addComponent(flightIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(searchIdBtn)
+                                    .addComponent(searchAirlineBtn))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,13 +224,17 @@ public class SearchFlightView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearAllBtn)
                     .addComponent(searchAllBtn))
-                .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchAirlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAirlineBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchAirlineBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,11 +277,12 @@ public class SearchFlightView extends javax.swing.JFrame {
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel flightIdLbl;
     private javax.swing.JTextField flightIdTxt;
-    private javax.swing.JPanel infoPanel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton searchAirlineBtn;
     private javax.swing.JButton searchAllBtn;
     private javax.swing.JButton searchIdBtn;
+    private javax.swing.JTable searchTable;
     // End of variables declaration//GEN-END:variables
 }
