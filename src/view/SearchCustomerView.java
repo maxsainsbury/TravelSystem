@@ -17,6 +17,7 @@ public class SearchCustomerView extends javax.swing.JFrame {
      */
     public SearchCustomerView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getCustomerIdTxt() {
@@ -114,7 +115,7 @@ public class SearchCustomerView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         searchCustomerTbl = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search Customers");
 
         emailLbl.setText("Email:");

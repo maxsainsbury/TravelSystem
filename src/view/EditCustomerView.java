@@ -15,6 +15,7 @@ public class EditCustomerView extends javax.swing.JFrame {
      */
     public EditCustomerView() {
         initComponents();
+        setDefaultCloseOperation(EditEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getCityTxt() {
@@ -164,7 +165,7 @@ public class EditCustomerView extends javax.swing.JFrame {
         countryLbl = new javax.swing.JLabel();
         countryTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit Customer");
 
         customerIdLbl.setText("Customer ID:");

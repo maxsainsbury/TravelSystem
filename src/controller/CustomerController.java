@@ -428,7 +428,7 @@ public class CustomerController {
             try{
                 if(customerId != 0) {                    
                     Customer customer = customerDao.fetchCustomerById(customerId);
-                    // Temporarly hold this customer to be used in employee edit.
+                    // Temporarly hold this customer to be used in customer edit.
                     tempCustomer = customer;
                     System.out.println(tempCustomer.getFirstName());
 

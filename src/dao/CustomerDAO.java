@@ -64,7 +64,7 @@ public class CustomerDAO {
     // Method to fetch customer data from database by customer id for customer delete view
     public Customer fetchCustomerForDelTable(int customerId) throws Exception{
         String query = """
-                       SELECT customer_id, first_name, last_name, phone, email
+                       SELECT customer_id, first_name, last_name, phone_num, email
                        FROM customer
                        WHERE customer_id = ?
                        """;
@@ -80,7 +80,7 @@ public class CustomerDAO {
                 resultSet.getInt("customer_id"),
                 resultSet.getString("first_name"),
                 resultSet.getString("last_name"),
-                resultSet.getString("phone"),
+                resultSet.getString("phone_num"),
                 resultSet.getString("email")
                 );
             } else {
@@ -100,11 +100,11 @@ public class CustomerDAO {
      */
     public boolean deleteCustomer(int customerId) {
         String query = """
-                      DELETE FROM user
-                      WHERE user_id = ( SELECT user_id
-                                        FROM (SELECT customer_id
-                                              FROM user INNER JOIN customer USING (user_id)) as temp
-                                        WHERE customer_id = ?)                      
+                    DELETE FROM user
+                    WHERE user_id = ( SELECT user_id
+                                      FROM (SELECT customer_id
+                                            FROM user INNER JOIN customer USING (user_id)) as temp
+                                      WHERE customer_id = ?)                        
                       """;
        try(Connection connection = DBConnection.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(query)){
@@ -113,7 +113,7 @@ public class CustomerDAO {
            return preparedStatement.executeUpdate() > 0;
 
        } catch (SQLException e) {
-           // Exception will be caught in Controller to display message to user.
+            e.printStackTrace();
        }
        return false;
     }
@@ -213,7 +213,7 @@ public class CustomerDAO {
                 resultSet.getString("first_name"),
                 resultSet.getString("last_name"),
                 resultSet.getString("email"),
-                resultSet.getString("phone"),
+                resultSet.getString("phone_num"),
                 resultSet.getString("unit_number"), 
                 resultSet.getString("street_address"),   
                 resultSet.getString("city"),
@@ -275,7 +275,7 @@ public class CustomerDAO {
                           last_name = ?,
                           dob = ?,
                           email = ?,
-                          phone = ?,
+                          phone_num = ?,
                           unit_number = ?,
                           street_address = ?,
                           city = ?,
