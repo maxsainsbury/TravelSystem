@@ -100,6 +100,11 @@ public class AdminMainFrame extends javax.swing.JFrame {
         tripMnu.add(addTripMnu);
 
         deleteTripMnu.setText("Delete Trip");
+        deleteTripMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteTripMnuActionPerformed(evt);
+            }
+        });
         tripMnu.add(deleteTripMnu);
 
         menuBar.add(tripMnu);
@@ -223,7 +228,7 @@ public class AdminMainFrame extends javax.swing.JFrame {
         TripController tripController = new TripController(addTripView, tripDAO);
         addTripView.setVisible(true);
     }//GEN-LAST:event_addTripMnuActionPerformed
-
+    
     private void addPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPromoMnuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addPromoMnuActionPerformed
@@ -260,6 +265,13 @@ public class AdminMainFrame extends javax.swing.JFrame {
         EmployeeController employeeController = new EmployeeController(employeeDao, deleteEmployeeView);
         deleteEmployeeView.setVisible(true);
     }//GEN-LAST:event_deleteEmpMnuActionPerformed
+
+    private void deleteTripMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTripMnuActionPerformed
+        DeleteTripView deleteTripView = new DeleteTripView();
+        TripDAO tripDAO = new TripDAO();
+        TripController tripController = new TripController(deleteTripView, tripDAO);
+        deleteTripView.setVisible(true);
+    }//GEN-LAST:event_deleteTripMnuActionPerformed
 
     /**
      * @param args the command line arguments

@@ -53,4 +53,48 @@ public class TripDAO {
         return false;
     }
     
+    public Trip searchTripFromId(int id) {
+        String query = "SELECT * FROM trip WHERE trip_id = ?;";
+        
+        try(Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            
+            ResultSet result = preparedStatement.executeQuery();
+            
+            if(result.isBeforeFirst()) {
+                result.next();
+                int tripId = result.getInt("trip_id");
+                String origin = result.getString("origin");
+                String destination = result.getString("destination");
+                String departureDate = result.getString("departure_date");
+                String returnDate = result.getString("return_date");
+                String status = result.getString("trip_status");
+                int promotionId = result.getInt("promotion_id");
+                
+                return new Trip(origin, destination, departureDate, returnDate, promotionId, status, tripId);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return new Trip();
+    }
+    
+    public boolean deleteTripRecord(int tripId) {
+        String query = "DELETE FROM trip WHERE trip_id = ?";
+        
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, tripId);
+            
+            return preparedStatement.executeUpdate() > 0;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
 }

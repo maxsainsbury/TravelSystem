@@ -7,7 +7,9 @@ package controller;
 import dao.TripDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Trip;
 import view.AddTripView;
 import view.DeleteTripView;
@@ -31,6 +33,70 @@ public class TripController {
         
         this.addTripView.addTripBtnListener(new AddTripRecord());
         this.addTripView.addClearBtnListener(new ClearAddTextFields());
+    }
+    
+    public TripController(DeleteTripView deletTripView, TripDAO tripDAO) {
+        this.deleteTripView = deletTripView;
+        this.tripDAO = tripDAO;
+        
+        this.deleteTripView.searchTripBtnListener(new SearchForDelete());
+        this.deleteTripView.clearAllBtnListener(new ClearAllDelete());
+        this.deleteTripView.deleteTripBtnListener(new DeleteTripRecord());
+    }
+
+    private class SearchForDelete implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
+            model.setRowCount(0);
+            int tripId = Integer.parseInt(deleteTripView.getIdTxt().getText());
+            Trip output = tripDAO.searchTripFromId(tripId);
+            if(output.getTripId() > 0) {
+                String origin = output.getOrigin();
+                String destination = output.getDestination();
+                String departureDate = output.getDepartureDate().toString();
+                String returnDate = output.getReturnDate().toString();
+                String status = output.getStatus();
+                int promotionId = output.getPromotionId();
+                
+                Object[] row = {tripId, origin, destination, departureDate, returnDate, status, promotionId };
+                model.addRow(row);
+                
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No trips with that trip id!");
+            }
+        }
+    }
+
+    private class ClearAllDelete implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
+            model.setRowCount(0);
+            deleteTripView.getIdTxt().setText("");
+        }
+    }
+
+    private class DeleteTripRecord implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int flightId = Integer.parseInt(deleteTripView.getIdTxt().getText());
+            DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
+            boolean result = tripDAO.deleteTripRecord(flightId);
+            if(result) {
+                model.setRowCount(0);
+                JOptionPane.showMessageDialog(null, "Trip record deleted successfully!");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Trip record was not deleted!");
+            }
+            
+        }
     }
 
     private class AddTripRecord implements ActionListener {

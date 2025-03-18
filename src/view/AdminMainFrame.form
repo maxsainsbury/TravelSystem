@@ -63,6 +63,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Trip"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

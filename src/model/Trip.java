@@ -17,6 +17,9 @@ public class Trip {
     private int promotionId;
     private int tripId;
     
+    public Trip() {
+        this.tripId = 0;
+    }
     /**
      * Constructor for a Trip object for when getting information from the database
      * @param origin
