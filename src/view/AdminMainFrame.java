@@ -89,6 +89,11 @@ public class AdminMainFrame extends javax.swing.JFrame {
         tripMnu.add(searchTripMnu);
 
         editTripMnu.setText("Edit Trip");
+        editTripMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTripMnuActionPerformed(evt);
+            }
+        });
         tripMnu.add(editTripMnu);
 
         addTripMnu.setText("Add Trip");
@@ -272,6 +277,13 @@ public class AdminMainFrame extends javax.swing.JFrame {
         TripController tripController = new TripController(deleteTripView, tripDAO);
         deleteTripView.setVisible(true);
     }//GEN-LAST:event_deleteTripMnuActionPerformed
+
+    private void editTripMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTripMnuActionPerformed
+        EditTripView editTripView = new EditTripView();
+        TripDAO tripDAO = new TripDAO();
+        TripController tripController = new TripController(editTripView, tripDAO);
+        editTripView.setVisible(true);
+    }//GEN-LAST:event_editTripMnuActionPerformed
 
     /**
      * @param args the command line arguments

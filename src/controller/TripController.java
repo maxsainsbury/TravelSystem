@@ -35,13 +35,77 @@ public class TripController {
         this.addTripView.addClearBtnListener(new ClearAddTextFields());
     }
     
-    public TripController(DeleteTripView deletTripView, TripDAO tripDAO) {
-        this.deleteTripView = deletTripView;
+    public TripController(DeleteTripView deleteTripView, TripDAO tripDAO) {
+        this.deleteTripView = deleteTripView;
         this.tripDAO = tripDAO;
         
         this.deleteTripView.searchTripBtnListener(new SearchForDelete());
         this.deleteTripView.clearAllBtnListener(new ClearAllDelete());
         this.deleteTripView.deleteTripBtnListener(new DeleteTripRecord());
+    }
+    
+    public TripController(EditTripView editTripView, TripDAO tripDAO) {
+        this.editTripView = editTripView;
+        this.tripDAO = tripDAO;
+        
+        this.editTripView.searchBtnListener(new SerchForEdit());
+        this.editTripView.clearAllBtnListener(new ClearAllEdit());
+        this.editTripView.editTripBtnListener(new EditTripRecord());
+    }
+
+    private class SerchForEdit implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int tripId = Integer.parseInt(editTripView.getTripIdTxt().getText());
+            Trip output = tripDAO.searchTripFromId(tripId);
+            if(output.getTripId() > 0) {
+                editTripView.getOriginTxt().setText(output.getOrigin());
+                editTripView.getDestinationTxt().setText(output.getDestination());
+                editTripView.getDepartureTxt().setText(output.getDepartureDate().toString());
+                editTripView.getReturnTxt().setText(output.getReturnDate().toString());
+                editTripView.getStatusTxt().setText(output.getStatus());
+                editTripView.getPromoIdTxt().setText(Integer.toString(output.getPromotionId()));
+            }
+        }
+    }
+
+    private class ClearAllEdit implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            editTripView.getTripIdTxt().setText("");
+            editTripView.getOriginTxt().setText("");
+            editTripView.getDestinationTxt().setText("");
+            editTripView.getDepartureTxt().setText("");
+            editTripView.getReturnTxt().setText("");
+            editTripView.getStatusTxt().setText("");
+            editTripView.getPromoIdTxt().setText("");
+        }
+    }
+
+    private class EditTripRecord implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int tripId = Integer.parseInt(editTripView.getTripIdTxt().getText());
+            String origin = editTripView.getOriginTxt().getText();
+            String destination = editTripView.getDestinationTxt().getText();
+            String departureDate = editTripView.getDepartureTxt().getText();
+            String returnDate = editTripView.getReturnTxt().getText();
+            String status = editTripView.getStatusTxt().getText();
+            int promotionId = Integer.parseInt(editTripView.getPromoIdTxt().getText());
+            
+            Trip trip = new Trip(origin, destination, departureDate, returnDate, promotionId, status, tripId);
+            boolean result = tripDAO.editTripRecord(trip);
+            
+            if(result) {
+                JOptionPane.showMessageDialog(null, "Trip record was updated scuccessfully!");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Trip record was not updated!");
+            }
+        }
     }
 
     private class SearchForDelete implements ActionListener {

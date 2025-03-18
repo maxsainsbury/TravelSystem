@@ -97,4 +97,25 @@ public class TripDAO {
         return false;
     }
     
+    public boolean editTripRecord(Trip trip) {
+        String query = "UPDATE trip SET origin = ?, destination = ?, departure_date = ?, return_date = ?, trip_status = ?, promotion_id = ? WHERE trip_id = ?";
+        
+        try (Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, trip.getOrigin());
+            preparedStatement.setString(2, trip.getDestination());
+            preparedStatement.setString(3, trip.getDepartureDate().toString());
+            preparedStatement.setString(4, trip.getReturnDate().toString());
+            preparedStatement.setString(5, trip.getStatus());
+            preparedStatement.setInt(6, trip.getPromotionId());
+            preparedStatement.setInt(7, trip.getTripId());
+            
+            return preparedStatement.executeUpdate() > 0;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
 }
