@@ -108,11 +108,9 @@ public class EmployeeDAO {
      */
     public boolean deleteEmployee(int employeeId) {
         String query = """
-                      DELETE FROM user
-                      WHERE user_id = ( SELECT user_id
-                                        FROM (SELECT employee_id
-                                              FROM user INNER JOIN employee USING (user_id)) as temp
-                                        WHERE employee_id = ?)                      
+                      DELETE u
+                      FROM user u INNER JOIN employee e USING (user_id)
+                      WHERE employee_id = ?                     
                       """;
        try(Connection connection = DBConnection.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(query)){
