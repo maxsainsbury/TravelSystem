@@ -24,7 +24,7 @@ public class TripController {
     private AddTripView addTripView;
     private DeleteTripView deleteTripView;
     private EditTripView editTripView;
-    private SearchTripView searchtripView;
+    private SearchTripView searchTripView;
     private TripDAO tripDAO;
     
     public TripController(AddTripView addTripView, TripDAO tripDAO) {
@@ -48,12 +48,216 @@ public class TripController {
         this.editTripView = editTripView;
         this.tripDAO = tripDAO;
         
-        this.editTripView.searchBtnListener(new SerchForEdit());
+        this.editTripView.searchBtnListener(new SearchForEdit());
         this.editTripView.clearAllBtnListener(new ClearAllEdit());
         this.editTripView.editTripBtnListener(new EditTripRecord());
     }
+    
+    public TripController(SearchTripView searchTripView, TripDAO tripDAO) {
+        this.searchTripView = searchTripView;
+        this.tripDAO = tripDAO;
+        
+        this.searchTripView.clearAllBtnListener(new ClearAllSearch());
+        this.searchTripView.searchAllBtnListener(new SerchAll());
+        this.searchTripView.searchIdBtnListener(new SearchById());
+        this.searchTripView.searchMonthBtnListener(new SearchByMonth());
+        this.searchTripView.searchOriginBtnListener(new SearchByOrigin());
+    }
 
-    private class SerchForEdit implements ActionListener {
+    private class ClearAllSearch implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
+            searchTripView.getTripIdTxt().setText("");
+            searchTripView.getOriginTxt().setText("");
+            searchTripView.getMonthTxt().setText("");
+            model.setRowCount(0);
+        }
+    }
+
+    private class SerchAll implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Trip[] output = tripDAO.searchAll();
+            DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
+            model.setRowCount(0);
+            if(output[0].getTripId() > 0) {
+                for(int i = 0; i < output.length; i++) {
+                    int tripId = output[i].getTripId();
+                    String origin = output[i].getOrigin();
+                    String destination = output[i].getDestination();
+                    String departureDate = output[i].getDepartureDate().toString();
+                    String returnDate = output[i].getReturnDate().toString();
+                    String status = output[i].getStatus();
+                    int promotionId = output[i].getPromotionId();
+                    
+                    Object[] row = { tripId, origin, destination, departureDate, returnDate, status, promotionId };
+                    model.addRow(row);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No trips in the trip database!");
+            }
+        }
+    }
+
+    private class SearchById implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int tripId = Integer.parseInt(searchTripView.getTripIdTxt().getText());
+            DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
+            model.setRowCount(0);
+            Trip output = tripDAO.searchTripFromId(tripId);
+            if(output.getTripId() > 0) {
+                String origin = output.getOrigin();
+                String destination = output.getDestination();
+                String departureDate = output.getDepartureDate().toString();
+                String returnDate = output.getReturnDate().toString();
+                String status = output.getStatus();
+                int promotionId = output.getPromotionId();
+
+                Object[] row = { tripId, origin, destination, departureDate, returnDate, status, promotionId };
+                model.addRow(row);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No trip related to that id!");
+            }
+        }
+    }
+
+    private class SearchByMonth implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
+            model.setRowCount(0);
+            String departureMonth = searchTripView.getMonthTxt().getText();
+            switch(departureMonth) {
+                case "January":
+                case "january":
+                case "Jan":
+                case "jan":
+                    departureMonth = "01";
+                    break;
+                case "Febuary":
+                case "febuary":
+                case "Feb":
+                case "feb":
+                    departureMonth = "02";
+                    break;
+                case "March":
+                case "Mar":
+                case "march":
+                case "mar":
+                    departureMonth = "03";
+                    break;
+                case "April":
+                case "april":
+                case "Apr":
+                case "apr":
+                    departureMonth = "04";
+                    break;
+                case "May":
+                case "may":
+                    departureMonth = "05";
+                    break;
+                case "June":
+                case "june":
+                    departureMonth = "06";
+                    break;
+                case "July":
+                case "july":
+                    departureMonth = "07";
+                    break;
+                case "August":
+                case "august":
+                case "Aug":
+                case "aug":
+                    departureMonth = "08";
+                    break;
+                case "September":
+                case "september":
+                case "Sep":
+                case "sep":
+                    departureMonth = "09";
+                    break;
+                case "October":
+                case "october":
+                case "Oct":
+                case "oct":
+                    departureMonth = "10";
+                    break;
+                case "November":
+                case "november":
+                case "Nov":
+                case "nov":
+                    departureMonth = "11";
+                    break;
+                case "December":
+                case "december":
+                case "Dec":
+                case "dec":
+                    departureMonth = "12";
+                    break;
+                default:
+                    if (departureMonth.length() == 1) {
+                        departureMonth = "0" + departureMonth;
+                    }
+            }
+            
+            
+            Trip[] output = tripDAO.searchByMonth(departureMonth);
+            if(output[0].getTripId() > 0) {
+                for(int i = 0; i < output.length; i++) {
+                    int tripId = output[i].getTripId();
+                    String origin = output[i].getOrigin();
+                    String destination = output[i].getDestination();
+                    String departureDate = output[i].getDepartureDate().toString();
+                    String returnDate = output[i].getReturnDate().toString();
+                    String status = output[i].getStatus();
+                    int promotionId = output[i].getPromotionId();
+                    
+                    Object[] row = { tripId, origin, destination, departureDate, returnDate, status, promotionId };
+                    model.addRow(row);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No trip related starting in that month!");
+            }
+        }
+    }
+
+    private class SearchByOrigin implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
+            model.setRowCount(0);
+            String origin = searchTripView.getOriginTxt().getText();
+            Trip[] output = tripDAO.searchByOrigin(origin);
+            if(output[0].getTripId() > 0) {
+                for(int i = 0; i < output.length; i++) {
+                    int tripId = output[i].getTripId();
+                    String destination = output[i].getDestination();
+                    String departureDate = output[i].getDepartureDate().toString();
+                    String returnDate = output[i].getReturnDate().toString();
+                    String status = output[i].getStatus();
+                    int promotionId = output[i].getPromotionId();
+                    
+                    Object[] row = { tripId, origin, destination, departureDate, returnDate, status, promotionId };
+                    model.addRow(row);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "No trip related with from origin city!");
+            }
+        }
+    }
+
+    private class SearchForEdit implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -65,7 +269,9 @@ public class TripController {
                 editTripView.getDepartureTxt().setText(output.getDepartureDate().toString());
                 editTripView.getReturnTxt().setText(output.getReturnDate().toString());
                 editTripView.getStatusTxt().setText(output.getStatus());
+                if(output.getPromotionId() > 0) {
                 editTripView.getPromoIdTxt().setText(Integer.toString(output.getPromotionId()));
+                }
             }
         }
     }
@@ -94,8 +300,14 @@ public class TripController {
             String departureDate = editTripView.getDepartureTxt().getText();
             String returnDate = editTripView.getReturnTxt().getText();
             String status = editTripView.getStatusTxt().getText();
-            int promotionId = Integer.parseInt(editTripView.getPromoIdTxt().getText());
-            
+            String promotionIdString = editTripView.getPromoIdTxt().getText();
+            int promotionId;
+            if(!promotionIdString.equals("")) {
+                promotionId = Integer.parseInt(editTripView.getPromoIdTxt().getText());
+            }
+            else {
+                promotionId = 0;
+            }
             Trip trip = new Trip(origin, destination, departureDate, returnDate, promotionId, status, tripId);
             boolean result = tripDAO.editTripRecord(trip);
             
