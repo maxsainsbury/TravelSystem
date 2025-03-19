@@ -94,31 +94,36 @@ public class FlightController {
             //get the inputed airline vlaue
             String airline = searchFlightView.getAirlineTxt().getText();
             //get all returned flight from that airline from the database
-            Flight[] output = flightDAO.searchFromAirline(airline);
-            //if query returned any rows
-            if(output[0].getFlightId() > 0) {
-                //for all rows returned
-                for(int i = 0; i < output.length; i++) {
-                    //store all values in variables
-                    int flightId = output[i].getFlightId();
-                    int tripId = output[i].getTripId();
-                    String flightNumber = output[i].getFlightNumber();
-                    //format the dates to the correct format and remove the seconds position 
-                    String departureTime = formatter.format(output[i].getDepartureTime()).substring(0, 16);
-                    String arrivalTime = formatter.format(output[i].getArrivalTime()).substring(0, 16);
-                    double price = output[i].getPrice();
-                    String seatClass = output[i].getSeatClass();
-                    String Status = output[i].getStatus();
-                    //create a object array to place in the table
-                    Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
-                    //add the object to the table
-                    model.addRow(row);
-                }
+            if(!airline.equals("")) {
+                Flight[] output = flightDAO.searchFromAirline(airline);
+                //if query returned any rows
+                if(output[0].getFlightId() > 0) {
+                    //for all rows returned
+                    for(int i = 0; i < output.length; i++) {
+                        //store all values in variables
+                        int flightId = output[i].getFlightId();
+                        int tripId = output[i].getTripId();
+                        String flightNumber = output[i].getFlightNumber();
+                        //format the dates to the correct format and remove the seconds position 
+                        String departureTime = formatter.format(output[i].getDepartureTime()).substring(0, 16);
+                        String arrivalTime = formatter.format(output[i].getArrivalTime()).substring(0, 16);
+                        double price = output[i].getPrice();
+                        String seatClass = output[i].getSeatClass();
+                        String Status = output[i].getStatus();
+                        //create a object array to place in the table
+                        Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+                        //add the object to the table
+                        model.addRow(row);
+                    }
 
+                }
+                //if no rows returned
+                else {
+                    JOptionPane.showMessageDialog(null, "No flights with that airline!");
+                }
             }
-            //if no rows returned
             else {
-                JOptionPane.showMessageDialog(null, "No flights with that airline!");
+                JOptionPane.showMessageDialog(null, "No airline inputed in text box!");
             }
         }
         
@@ -132,24 +137,29 @@ public class FlightController {
             DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
             model.setRowCount(0);
             String flightId = searchFlightView.getFlightIdTxt().getText();
-            Flight output = flightDAO.searchFlightFromId(flightId);
-            if(output.getFlightId() > 0) {
-                int tripId = output.getTripId();
-                String airline = output.getAirline();
-                String flightNumber = output.getFlightNumber();
-                String departureTime = formatter.format(output.getDepartureTime()).substring(0, 16);
-                String arrivalTime = formatter.format(output.getArrivalTime()).substring(0, 16);
-                double price = output.getPrice();
-                String seatClass = output.getSeatClass();
-                String Status = output.getStatus();
-                Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
-                
-                model.addRow(row);
-                
+            if(!flightId.equals("")) {
+                Flight output = flightDAO.searchFlightFromId(flightId);
+                if(output.getFlightId() > 0) {
+                    int tripId = output.getTripId();
+                    String airline = output.getAirline();
+                    String flightNumber = output.getFlightNumber();
+                    String departureTime = formatter.format(output.getDepartureTime()).substring(0, 16);
+                    String arrivalTime = formatter.format(output.getArrivalTime()).substring(0, 16);
+                    double price = output.getPrice();
+                    String seatClass = output.getSeatClass();
+                    String Status = output.getStatus();
+                    Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+
+                    model.addRow(row);
+
+                }
+                else {
+                    model.addRow(new Object[9]);
+                    JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+                }
             }
             else {
-                model.addRow(new Object[9]);
-                JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+                JOptionPane.showMessageDialog(null, "No id inputed in text box!");
             }
         }
     }
@@ -243,24 +253,29 @@ public class FlightController {
             DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
             model.setRowCount(0);
             String flightId = deleteFlightView.getIdTxt().getText();
-            Flight output = flightDAO.searchFlightFromId(flightId);
-            if(output.getFlightId() > 0) {
-                int tripId = output.getTripId();
-                String airline = output.getAirline();
-                String flightNumber = output.getFlightNumber();
-                String departureTime = formatter.format(output.getDepartureTime()).substring(0, 16);
-                String arrivalTime = formatter.format(output.getArrivalTime()).substring(0, 16);
-                double price = output.getPrice();
-                String seatClass = output.getSeatClass();
-                String Status = output.getStatus();
-                Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
-                
-                model.addRow(row);
-                
+            if(!flightId.equals("")) {
+                Flight output = flightDAO.searchFlightFromId(flightId);
+                if(output.getFlightId() > 0) {
+                    int tripId = output.getTripId();
+                    String airline = output.getAirline();
+                    String flightNumber = output.getFlightNumber();
+                    String departureTime = formatter.format(output.getDepartureTime()).substring(0, 16);
+                    String arrivalTime = formatter.format(output.getArrivalTime()).substring(0, 16);
+                    double price = output.getPrice();
+                    String seatClass = output.getSeatClass();
+                    String Status = output.getStatus();
+                    Object[] row = { flightId, tripId, airline, flightNumber, departureTime, arrivalTime, price, seatClass, Status };
+
+                    model.addRow(row);
+
+                }
+                else {
+                    model.addRow(new Object[9]);
+                    JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+                }
             }
             else {
-                model.addRow(new Object[9]);
-                JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+                JOptionPane.showMessageDialog(null, "No id inputed in text box!");
             }
         }
     }
@@ -280,19 +295,25 @@ public class FlightController {
             editFlightView.getTripIdTxt().setText("");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String flightId = editFlightView.getFlighIdTxt().getText();
-            Flight output = flightDAO.searchFlightFromId(flightId);
-            if(output.getFlightId() > 0) {
-                editFlightView.getAirlineTxt().setText(output.getAirline());
-                editFlightView.getFlightNumTxt().setText(output.getFlightNumber());
-                editFlightView.getDepartureTxt().setText(formatter.format(output.getDepartureTime()).substring(0,16));
-                editFlightView.getArrivalTxt().setText(formatter.format(output.getArrivalTime()).substring(0, 16));
-                editFlightView.getPriceTxt().setText(Double.toString(output.getPrice()));
-                editFlightView.getSeatTxt().setText(output.getSeatClass());
-                editFlightView.getStatusTxt().setText(output.getStatus());
-                editFlightView.getTripIdTxt().setText(Integer.toString(output.getTripId()));
+            if(flightId.equals("")) {
+                Flight output = flightDAO.searchFlightFromId(flightId);
+                System.out.println(output.getFlightId());
+                if(output.getFlightId() > 0) {
+                    editFlightView.getAirlineTxt().setText(output.getAirline());
+                    editFlightView.getFlightNumTxt().setText(output.getFlightNumber());
+                    editFlightView.getDepartureTxt().setText(formatter.format(output.getDepartureTime()).substring(0,16));
+                    editFlightView.getArrivalTxt().setText(formatter.format(output.getArrivalTime()).substring(0, 16));
+                    editFlightView.getPriceTxt().setText(Double.toString(output.getPrice()));
+                    editFlightView.getSeatTxt().setText(output.getSeatClass());
+                    editFlightView.getStatusTxt().setText(output.getStatus());
+                    editFlightView.getTripIdTxt().setText(Integer.toString(output.getTripId()));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+                }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No flight with that flight id!");
+                JOptionPane.showMessageDialog(null, "No id entered in text box!");
             }
         }
     }
@@ -311,14 +332,19 @@ public class FlightController {
             String seatClass = editFlightView.getSeatTxt().getText();
             String status = editFlightView.getStatusTxt().getText();
             int tripId = Integer.parseInt(editFlightView.getTripIdTxt().getText());
-            Flight flight = new Flight(airline, flightNumber, departureTime, arrivalTime, price, seatClass, status, tripId, flightId);
-            
-            boolean result = flightDAO.editFlightRecord(flight);
-            if (result) {
-                JOptionPane.showMessageDialog(null, "Flight record updated successfully!");
+            try {
+                Flight flight = new Flight(airline, flightNumber, departureTime, arrivalTime, price, seatClass, status, tripId, flightId);
+
+                boolean result = flightDAO.editFlightRecord(flight);
+                if (result) {
+                    JOptionPane.showMessageDialog(null, "Flight record updated successfully!");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Flight record was not updated!");
+                }
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Flight record was not updated!");
+            catch(Exception err) {
+                JOptionPane.showMessageDialog(null, "One or more dates not inputed correctly!");
             }
         }
     }
@@ -345,22 +371,31 @@ public class FlightController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String airline = addFlightView.getAirlineTxt().getText();
-            String flightNumber = addFlightView.getFlightNumTxt().getText();
-            String departureTime = addFlightView.getDepartureTxt().getText();
-            String arrivalTime = addFlightView.getArrivalTxt().getText();
-            double price = Double.parseDouble(addFlightView.getPriceTxt().getText());
-            String seatClass = addFlightView.getSeatTxt().getText();
-            String status = addFlightView.getStatusTxt().getText();
-            int tripId = Integer.parseInt(addFlightView.getTripIdTxt().getText());
-            
-            Flight flight = new Flight(airline, flightNumber, departureTime, arrivalTime, price, seatClass, status, tripId);
-            boolean result = flightDAO.addFlightRecord(flight);
-            if (result) {
-                JOptionPane.showMessageDialog(null, "Flight record created successfully!");
+            try{
+                String airline = addFlightView.getAirlineTxt().getText();
+                String flightNumber = addFlightView.getFlightNumTxt().getText();
+                String departureTime = addFlightView.getDepartureTxt().getText();
+                String arrivalTime = addFlightView.getArrivalTxt().getText();
+                double price = Double.parseDouble(addFlightView.getPriceTxt().getText());
+                String seatClass = addFlightView.getSeatTxt().getText();
+                String status = addFlightView.getStatusTxt().getText();
+                int tripId = Integer.parseInt(addFlightView.getTripIdTxt().getText());
+                try {
+                    Flight flight = new Flight(airline, flightNumber, departureTime, arrivalTime, price, seatClass, status, tripId);
+                    boolean result = flightDAO.addFlightRecord(flight);
+                    if (result) {
+                        JOptionPane.showMessageDialog(null, "Flight record created successfully!");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Flight record was not created!");
+                    }
+                }
+                catch(Exception err) {
+                    JOptionPane.showMessageDialog(null, "One or more dates not inputed correctly!");
+                }
             }
-            else {
-                JOptionPane.showMessageDialog(null, "Flight record was not created!");
+            catch(Exception err) {
+                JOptionPane.showMessageDialog(null, "One or more inputs are incorrect!");
             }
         }
     }
