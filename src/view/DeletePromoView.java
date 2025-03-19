@@ -19,6 +19,38 @@ public class DeletePromoView extends javax.swing.JFrame {
         setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
+    public JTextField getIdTxt() {
+        return idTxt;
+    }
+
+    public void setIdTxt(JTextField idTxt) {
+        this.idTxt = idTxt;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public void deleteBtnActionListener(ActionListener myActionListener) {
+        deleteBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchBtnActionListener(ActionListener myActionListener) {
+        searchBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -171,18 +203,6 @@ public class DeletePromoView extends javax.swing.JFrame {
         });
     }
 
-    public JButton getClearAllBtn() {
-        return clearAllBtn;
-    }
-
-    public void setClearAllBtn(JButton clearAllBtn) {
-        this.clearAllBtn = clearAllBtn;
-    }
-
-    public JButton getDeleteBtn() {
-        return deleteBtn;
-    }
-
     public void setDeleteBtn(JButton deleteBtn) {
         this.deleteBtn = deleteBtn;
     }
@@ -195,32 +215,8 @@ public class DeletePromoView extends javax.swing.JFrame {
         this.deletePromoTbl = deletePromoTbl;
     }
 
-    public JTextField getIdTxt() {
-        return idTxt;
-    }
-
-    public void setIdTxt(JTextField idTxt) {
-        this.idTxt = idTxt;
-    }
-
-    public JButton getSearchBtn() {
-        return searchBtn;
-    }
-
     public void setSearchBtn(JButton searchBtn) {
         this.searchBtn = searchBtn;
-    }
-    
-    public void clearAllBtnActionListener(ActionListener myActionListener) {
-        clearAllBtn.addActionListener(myActionListener);
-    }
-    
-    public void deleteBtnActionListener(ActionListener myActionListener) {
-        deleteBtn.addActionListener(myActionListener);
-    }
-    
-    public void searchBtnActionListener(ActionListener myActionListener) {
-        searchBtn.addActionListener(myActionListener);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -233,3 +229,4 @@ public class DeletePromoView extends javax.swing.JFrame {
     private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
 }
+

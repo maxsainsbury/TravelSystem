@@ -1,5 +1,7 @@
 package view;
 
+import controller.*;
+import dao.*;
 import controller.EmployeeController;
 import controller.FlightController;
 import controller.PromotionController;
@@ -72,15 +74,35 @@ public class AdminMainFrame extends javax.swing.JFrame {
         customerMnu.setText("Customer");
 
         searchCustomerMnu.setText("Search Customers");
+        searchCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(searchCustomerMnu);
 
         editCustomerMnu.setText("Edit Customer");
+        editCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(editCustomerMnu);
 
         addCustomerMnu.setText("Add Customer");
+        addCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(addCustomerMnu);
 
         deleteCustomerMnu.setText("Delete Customer");
+        deleteCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(deleteCustomerMnu);
 
         menuBar.add(customerMnu);
@@ -337,6 +359,34 @@ public class AdminMainFrame extends javax.swing.JFrame {
         PromotionController promotionController = new PromotionController(promotionDao,promotionView);
         promotionView.setVisible(true);
     }//GEN-LAST:event_deletePromoMnuActionPerformed
+    private void searchCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerMnuActionPerformed
+        SearchCustomerView searchCustomerView = new SearchCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        CustomerController customerController = new CustomerController(customerDAO, searchCustomerView);
+        searchCustomerView.setVisible(true);
+    }//GEN-LAST:event_searchCustomerMnuActionPerformed
+
+    private void editCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerMnuActionPerformed
+        EditCustomerView editCustomerView = new EditCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        CustomerController customerController = new CustomerController(customerDAO, editCustomerView);
+        editCustomerView.setVisible(true);
+    }//GEN-LAST:event_editCustomerMnuActionPerformed
+
+    private void addCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerMnuActionPerformed
+        AddCustomerView addCustomerView = new AddCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        UserDAO userDao = new UserDAO();
+        CustomerController customerController = new CustomerController(customerDAO, addCustomerView, userDao);
+        addCustomerView.setVisible(true);
+    }//GEN-LAST:event_addCustomerMnuActionPerformed
+
+    private void deleteCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerMnuActionPerformed
+        DeleteCustomerView deleteCustomerView = new DeleteCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        CustomerController customerController = new CustomerController(customerDAO, deleteCustomerView);
+        deleteCustomerView.setVisible(true);
+    }//GEN-LAST:event_deleteCustomerMnuActionPerformed
 
     /**
      * @param args the command line arguments
