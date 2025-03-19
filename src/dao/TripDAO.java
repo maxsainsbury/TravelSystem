@@ -135,23 +135,21 @@ public class TripDAO {
         
         try (Connection connection = DBConnection.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            if(!trip.getDepartureDate().equals("") | !trip.getReturnDate().equals("")) {
-                preparedStatement.setString(1, trip.getOrigin());
-                preparedStatement.setString(2, trip.getDestination());
-                preparedStatement.setString(3, trip.getDepartureDate().toString());
-                preparedStatement.setString(4, trip.getReturnDate().toString());
-                preparedStatement.setString(5, trip.getStatus());
-                if(trip.getPromotionId() > 0) {
-                    preparedStatement.setInt(6, trip.getPromotionId());
-                    preparedStatement.setInt(7, trip.getTripId());
-                }
-                else {
-                    preparedStatement.setInt(6, trip.getTripId());
-                }
-
-
-                return preparedStatement.executeUpdate() > 0;
+            preparedStatement.setString(1, trip.getOrigin());
+            preparedStatement.setString(2, trip.getDestination());
+            preparedStatement.setString(3, trip.getDepartureDate().toString());
+            preparedStatement.setString(4, trip.getReturnDate().toString());
+            preparedStatement.setString(5, trip.getStatus());
+            if(trip.getPromotionId() > 0) {
+                preparedStatement.setInt(6, trip.getPromotionId());
+                preparedStatement.setInt(7, trip.getTripId());
             }
+            else {
+                preparedStatement.setInt(6, trip.getTripId());
+            }
+
+
+            return preparedStatement.executeUpdate() > 0;
         }
         catch (Exception e) {
             e.printStackTrace();
