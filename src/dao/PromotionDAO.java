@@ -43,6 +43,12 @@ public class PromotionDAO {
         this.promotion = promotion;
     }
     
+    /**
+     * Use the promotion instance that was passed in and insert it's attributes values
+     * into new row in database. 
+     * @param promotion
+     * @return true if successful addition.
+     */
     public boolean addPromotion(Promotion promotion){
         String query = """
                        INSERT INTO promotion (name, description, discount_percentage, 
@@ -100,6 +106,12 @@ public class PromotionDAO {
         return promotions;
     }
     
+    /**
+     * Takes in a promotion name, and returns an arraylist of all promotions with matching
+     * name from database.
+     * @param promoName
+     * @return ArrayList of promotion instances(row from table in database).
+     */
     public ArrayList<Promotion> fetchPromotionByName(String promoName) {
         ArrayList<Promotion> promotions = new ArrayList<>();
         String query = """
@@ -132,7 +144,14 @@ public class PromotionDAO {
         return promotions;
     }
     
-        public ArrayList<Promotion> fetchPromotionByMonth(String promoMonth) {
+    /**
+     * Takes in a promotion month string as a parameter and fetches all promotion that has
+     * matching month in start_date column.
+     * @param promoMonth
+     * @return Arraylist of promotion instances retrieved from database.
+     *       Each instance of promotion contain attributes of one row from table.
+     */
+    public ArrayList<Promotion> fetchPromotionByMonth(String promoMonth) {
         ArrayList<Promotion> promotions = new ArrayList<>();
         String query = """
                        SELECT * 
@@ -145,7 +164,8 @@ public class PromotionDAO {
             preparedStatement.setString(1, promoMonth);
             
             ResultSet resultSet = preparedStatement.executeQuery();
-            
+       
+            // Loop until no more rows in the resultset
             while(resultSet.next()) {                               
                 Promotion promotion = new Promotion(
                     resultSet.getString("name"),
@@ -163,7 +183,13 @@ public class PromotionDAO {
         }
         return promotions;
     }
-        
+    
+    /** 
+     * Takes in promotion id as parameter and deletes the promotion with matching
+     * id in database.
+     * @param promoId
+     * @return true if successful deletion
+     */    
     public boolean deletePromotion(int promoId){
         String query = """
                        DELETE FROM travelsystemdb.promotion
@@ -181,6 +207,12 @@ public class PromotionDAO {
         return false;        
     }      
     
+    /**
+     * Fetches promotion row with matching promotion id. 
+     * @param promoId
+     * @return Promotion instance with attributes retrieved from database.
+     * @throws Exception 
+     */
     public Promotion fetchPromotionById(int promoId) throws Exception{
         String query = """
                        SELECT * 
@@ -215,20 +247,20 @@ public class PromotionDAO {
     
     /**
      * Method to edit promotion in edit promotion view.
-     * @param promotion object that will hold edited attributes and sent to the database.
-     * @return 
+     * @param promotion object that holds edited attributes and to be sent to the database.
+     * @return true if successful edit in database.
      */
     public boolean editPromotion(Promotion promotion) {
         String query = """
-                      UPDATE employee
-                      SET name = ?,
-                          description = ?,
-                          discount_percentage = ?,
-                          start_date = ?,
-                          end_date = ?,
-                          status = ?,                             
-                      WHERE promotion_id = ?
-                      """;
+                       UPDATE travelsystemdb.promotion
+                       SET name = ?,
+                           description = ?,
+                           discount_percentage = ?,
+                           start_date = ?,
+                       	   end_date = ?,
+                       	   status = ?                          
+                       WHERE promotion_id = ?;
+                       """;
        try(Connection connection = DBConnection.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(query)){
            preparedStatement.setString(1, promotion.getPromoName());
@@ -237,7 +269,7 @@ public class PromotionDAO {
            preparedStatement.setString(4, promotion.getStartDate().toString());
            preparedStatement.setString(5, promotion.getEndDate().toString());
            preparedStatement.setString(6, promotion.getStatus());
-           preparedStatement.setDouble(7, promotion.getPromoId()); 
+           preparedStatement.setInt(7, promotion.getPromoId()); 
                   
            return preparedStatement.executeUpdate() > 0;
        } catch (SQLException e) {

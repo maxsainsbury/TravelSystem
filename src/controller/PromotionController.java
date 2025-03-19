@@ -71,24 +71,28 @@ public class PromotionController {
      * Inserts the newly created promotion into the database with it's attributes.
      */
     private class AddPromotion implements ActionListener {
-
+        // Get all inputs and create a new instance of promotion with the input values.
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = addPromotionView.getPromoNameTxt().getText();
-            double discount = Double.parseDouble(addPromotionView.getPercentTxt().getText());
-            String startDate = addPromotionView.getStartTxt().getText();
-            String endDate = addPromotionView.getEndTxt().getText();
-            String description = addPromotionView.getDescTxt().getText();
-            String status = addPromotionView.getStatusTxt().getText();
+            try{
+                String name = addPromotionView.getPromoNameTxt().getText();
+                double discount = Double.parseDouble(addPromotionView.getPercentTxt().getText());
+                String startDate = addPromotionView.getStartTxt().getText();
+                String endDate = addPromotionView.getEndTxt().getText();
+                String description = addPromotionView.getDescTxt().getText();
+                String status = addPromotionView.getStatusTxt().getText();
 
-            Promotion newPromotion = new Promotion(name, discount, description, status, startDate, endDate);
-            boolean result = promotionDao.addPromotion(newPromotion);
+                Promotion newPromotion = new Promotion(name, discount, description, status, startDate, endDate);
+                boolean result = promotionDao.addPromotion(newPromotion);
 
-            if(result) {
-                JOptionPane.showMessageDialog(null, "Successfully added a new promotion");
-            } else {
-                JOptionPane.showMessageDialog(null, "Was not able to add new promotion.");
-            }   
+                if(result) {
+                    JOptionPane.showMessageDialog(null, "Successfully added a new promotion");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Was not able to add new promotion.");
+                }   
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Invalid entry. Please double check your inputs. ");
+            }
         }
     }
     
@@ -162,14 +166,13 @@ public class PromotionController {
             model.setRowCount(0);
             String promoName = searchPromotionView.getPromoNameTxt().getText();
             
+            // Check for empty string entries
             try {
-                if(!promoName.equals("")) {          
+                if(!promoName.equals("")) {    
+                    // Get an arraylist of the promotion instances that were retrieved from the database.
                     ArrayList<Promotion> promotions = promotionDao.fetchPromotionByName(promoName);
-                     
-                    if(promotions.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "No promotions with that name.");
-                    }
 
+                    // Display the attributes of each instances in each row of table.
                     for (Promotion promotion: promotions) {
                         Object[] row = {
                             promotion.getPromoId(),
@@ -200,11 +203,11 @@ public class PromotionController {
             DefaultTableModel model = (DefaultTableModel)searchPromotionView.getSearchPromoTbl().getModel();
             model.setRowCount(0);
             String promoMonth = searchPromotionView.getMonthTxt().getText();
-            
+            // Get an arraylist of promotion instances retrieved from database. 
             try {
                 if(!promoMonth.equals("")) {          
-                    ArrayList<Promotion> promotions = promotionDao.fetchPromotionByMonth(promoMonth);
-                     
+                    ArrayList<Promotion> promotions = promotionDao.fetchPromotionByMonth(promoMonth);                    
+                    // If no promotions exsist for that month in database
                     if(promotions.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "No promotion during this month.");
                     }
@@ -220,6 +223,7 @@ public class PromotionController {
                         model.addRow(row);
                     } 
                 } else {
+                    // Throw exception for invalid entries
                     throw new Exception(); 
                 }
             }catch (Exception ex) {
@@ -272,6 +276,9 @@ public class PromotionController {
         }            
     }
     
+    /**
+     * Deletes the promotion that was searched in SearchPromotionById.
+     */
     private class DeletePromotion implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -288,11 +295,14 @@ public class PromotionController {
         }
     }
     
+    /**
+     * Edits the promotion that was searched by SearchByIdForEdit.
+     */
     private class EditPromotion implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {  
-            
+            // check if the instance of promotion that was instantiated by SearchByIDForEdit is not null
             if(promoToEdit != null) {                                
                 promoToEdit.setPromoName(editPromotionView.getPromoNameTxt().getText());
                 promoToEdit.setPromoId(Integer.parseInt(editPromotionView.getPromoIdTxt().getText()));
@@ -310,17 +320,20 @@ public class PromotionController {
                 }
                 // Celar the variable.
                 promoToEdit = null;
-            }            
+            }     
         }  
     }
     
-        // Class to search promotion from promotion table in database for promotion search view
+    /**
+     * Class to search promotion from promotion table in database for promotion search view.
+     */
     private class SearchByIdForEdit implements ActionListener {
-
         @Override
-        public void actionPerformed(ActionEvent e) {
-            int promotionId = Integer.parseInt(editPromotionView.getPromoIdTxt().getText());       
+        public void actionPerformed(ActionEvent e) {     
+   
             try{
+                int promotionId = Integer.parseInt(editPromotionView.getPromoIdTxt().getText());
+                
                 if(promotionId != 0) {                    
                     promoToEdit = promotionDao.fetchPromotionById(promotionId);
 
@@ -332,8 +345,8 @@ public class PromotionController {
                     editPromotionView.getPromoIdTxt().setText(Integer.toString(promoToEdit.getPromoId()));
                     editPromotionView.getPercentTxt().setText(String.valueOf(promoToEdit.getDiscountPercent()));
                 } else {
+                    // throw exception for invalid entries (empty, wrong type) 
                     throw new Exception();
-
                 }
             } catch(Exception ex) {
                 JOptionPane.showMessageDialog(null, "promotion Id does not exist.");

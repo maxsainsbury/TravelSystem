@@ -16,6 +16,7 @@ public class AddFlightView extends javax.swing.JFrame {
      */
     public AddFlightView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JButton getAddFlightBtn() {
@@ -330,7 +331,7 @@ public class AddFlightView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddFlightView().setVisible(true);
+                new AddFlightView().setVisible(true);              
             }
         });
     }

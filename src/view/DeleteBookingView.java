@@ -11,6 +11,7 @@ public class DeleteBookingView extends javax.swing.JFrame {
      */
     public DeleteBookingView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

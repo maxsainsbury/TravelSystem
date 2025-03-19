@@ -11,6 +11,7 @@ public class EditTripView extends javax.swing.JFrame {
      */
     public EditTripView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

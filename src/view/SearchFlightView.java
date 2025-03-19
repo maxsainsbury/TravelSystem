@@ -20,6 +20,7 @@ public class SearchFlightView extends javax.swing.JFrame {
      */
     public SearchFlightView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JLabel getAirlineLbl() {

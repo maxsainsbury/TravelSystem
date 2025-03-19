@@ -1,7 +1,11 @@
 package view;
 
 import controller.EmployeeController;
+import controller.FlightController;
+import controller.PromotionController;
 import dao.EmployeeDAO;
+import dao.FlightDAO;
+import dao.PromotionDAO;
 import dao.UserDAO;
 
 /**
@@ -40,9 +44,9 @@ public class AdminMainFrame extends javax.swing.JFrame {
         deleteTripMnu = new javax.swing.JMenuItem();
         flightMnu = new javax.swing.JMenu();
         searchFlightMnu = new javax.swing.JMenuItem();
-        editFlightMnu = new javax.swing.JMenuItem();
         addFlightMnu = new javax.swing.JMenuItem();
         deleteFlightMnu = new javax.swing.JMenuItem();
+        editFlightMnu = new javax.swing.JMenuItem();
         promotionsMnu = new javax.swing.JMenu();
         searchPromoMnu = new javax.swing.JMenuItem();
         editPromoMnu = new javax.swing.JMenuItem();
@@ -105,7 +109,28 @@ public class AdminMainFrame extends javax.swing.JFrame {
         flightMnu.setText("Flight");
 
         searchFlightMnu.setText("Search Flights");
+        searchFlightMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFlightMnuActionPerformed(evt);
+            }
+        });
         flightMnu.add(searchFlightMnu);
+
+        addFlightMnu.setText("Add Flight");
+        addFlightMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFlightMnuActionPerformed(evt);
+            }
+        });
+        flightMnu.add(addFlightMnu);
+
+        deleteFlightMnu.setText("Delete Flight");
+        deleteFlightMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteFlightMnuActionPerformed(evt);
+            }
+        });
+        flightMnu.add(deleteFlightMnu);
 
         editFlightMnu.setText("Edit Flight");
         editFlightMnu.addActionListener(new java.awt.event.ActionListener() {
@@ -115,20 +140,24 @@ public class AdminMainFrame extends javax.swing.JFrame {
         });
         flightMnu.add(editFlightMnu);
 
-        addFlightMnu.setText("Add Flight");
-        flightMnu.add(addFlightMnu);
-
-        deleteFlightMnu.setText("Delete Flight");
-        flightMnu.add(deleteFlightMnu);
-
         menuBar.add(flightMnu);
 
         promotionsMnu.setText("Promotion");
 
         searchPromoMnu.setText("Search Promotions");
+        searchPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(searchPromoMnu);
 
         editPromoMnu.setText("Edit Promotion");
+        editPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(editPromoMnu);
 
         addPromoMnu.setText("Add Promotion");
@@ -140,6 +169,11 @@ public class AdminMainFrame extends javax.swing.JFrame {
         promotionsMnu.add(addPromoMnu);
 
         deletePromoMnu.setText("Delete Promotion");
+        deletePromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(deletePromoMnu);
 
         menuBar.add(promotionsMnu);
@@ -220,11 +254,17 @@ public class AdminMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addTripMnuActionPerformed
 
     private void addPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPromoMnuActionPerformed
-        // TODO add your handling code here:
+        AddPromoView promotionView = new AddPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
+        promotionView.setVisible(true);
     }//GEN-LAST:event_addPromoMnuActionPerformed
 
     private void editFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFlightMnuActionPerformed
-        // TODO add your handling code here:
+        EditFlightView editFlightView= new EditFlightView();
+        FlightDAO flightDao = new FlightDAO();
+        FlightController flightController = new FlightController(editFlightView, flightDao);
+        editFlightView.setVisible(true);
     }//GEN-LAST:event_editFlightMnuActionPerformed
 
     private void searchEmpMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEmpMnuActionPerformed
@@ -255,6 +295,48 @@ public class AdminMainFrame extends javax.swing.JFrame {
         EmployeeController employeeController = new EmployeeController(employeeDao, deleteEmployeeView);
         deleteEmployeeView.setVisible(true);
     }//GEN-LAST:event_deleteEmpMnuActionPerformed
+
+    private void searchFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFlightMnuActionPerformed
+        SearchFlightView searchFlightView= new SearchFlightView();
+        FlightDAO flightDao = new FlightDAO();
+        FlightController flightController = new FlightController(searchFlightView, flightDao);
+        searchFlightView.setVisible(true);
+    }//GEN-LAST:event_searchFlightMnuActionPerformed
+
+    private void deleteFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFlightMnuActionPerformed
+        DeleteFlightView deleteFlightView= new DeleteFlightView();
+        FlightDAO flightDao = new FlightDAO();
+        FlightController flightController = new FlightController(deleteFlightView, flightDao);
+        deleteFlightView.setVisible(true);
+    }//GEN-LAST:event_deleteFlightMnuActionPerformed
+
+    private void addFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFlightMnuActionPerformed
+        AddFlightView addFlightView= new AddFlightView();
+        FlightDAO flightDao = new FlightDAO();
+        FlightController flightController = new FlightController(addFlightView, flightDao);
+        addFlightView.setVisible(true);
+    }//GEN-LAST:event_addFlightMnuActionPerformed
+
+    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
+        SearchPromoView promotionView = new SearchPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
+        promotionView.setVisible(true);
+    }//GEN-LAST:event_searchPromoMnuActionPerformed
+
+    private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPromoMnuActionPerformed
+        EditPromoView promotionView = new EditPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
+        promotionView.setVisible(true);
+    }//GEN-LAST:event_editPromoMnuActionPerformed
+
+    private void deletePromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePromoMnuActionPerformed
+        DeletePromoView promotionView = new DeletePromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
+        promotionView.setVisible(true);
+    }//GEN-LAST:event_deletePromoMnuActionPerformed
 
     /**
      * @param args the command line arguments

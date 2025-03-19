@@ -16,6 +16,7 @@ public class SearchPromoView extends javax.swing.JFrame {
      */
     public SearchPromoView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

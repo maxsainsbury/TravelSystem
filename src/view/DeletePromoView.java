@@ -16,6 +16,7 @@ public class DeletePromoView extends javax.swing.JFrame {
      */
     public DeletePromoView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

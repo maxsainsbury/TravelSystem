@@ -11,6 +11,7 @@ public class DeleteTripView extends javax.swing.JFrame {
      */
     public DeleteTripView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

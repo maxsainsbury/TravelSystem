@@ -11,6 +11,7 @@ public class AddTripView extends javax.swing.JFrame {
      */
     public AddTripView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

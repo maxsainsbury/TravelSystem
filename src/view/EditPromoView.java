@@ -15,6 +15,7 @@ public class EditPromoView extends javax.swing.JFrame {
      */
     public EditPromoView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**
