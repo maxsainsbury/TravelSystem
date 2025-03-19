@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
@@ -81,7 +82,7 @@ public class AddTripView extends javax.swing.JFrame {
         promoIdLbl = new javax.swing.JLabel();
         promoIdTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Trip");
 
         originLbl.setText("Origin:");

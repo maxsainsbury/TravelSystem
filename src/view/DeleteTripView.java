@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -67,7 +68,7 @@ public class DeleteTripView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         deleteTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Delete Trip");
 
         idLbl.setText("Trip ID:");

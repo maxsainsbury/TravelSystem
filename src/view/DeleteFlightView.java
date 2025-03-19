@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -74,7 +75,7 @@ public class DeleteFlightView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         deleteTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Delete Flight");
 
         idLbl.setText("Flight ID:");
