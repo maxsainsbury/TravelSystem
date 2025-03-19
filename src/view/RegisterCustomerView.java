@@ -17,12 +17,12 @@ public class RegisterCustomerView extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JTextField getAddressTxt() {
-        return addressTxt;
+    public JTextField getDobTxt() {
+        return dobTxt;
     }
 
-    public void setAddressTxt(JTextField addressTxt) {
-        this.addressTxt = addressTxt;
+    public void setDobTxt(JTextField dobTxt) {
+        this.dobTxt = dobTxt;
     }
 
     public JTextField getCountryTxt() {
@@ -146,8 +146,8 @@ public class RegisterCustomerView extends javax.swing.JFrame {
         emailTxt = new javax.swing.JTextField();
         phoneLbl = new javax.swing.JLabel();
         phoneTxt = new javax.swing.JTextField();
-        addressLbl = new javax.swing.JLabel();
-        addressTxt = new javax.swing.JTextField();
+        dobLbl = new javax.swing.JLabel();
+        dobTxt = new javax.swing.JTextField();
         unitLbl = new javax.swing.JLabel();
         unitTxt = new javax.swing.JTextField();
         streetLbl = new javax.swing.JLabel();
@@ -176,7 +176,7 @@ public class RegisterCustomerView extends javax.swing.JFrame {
 
         phoneLbl.setText("Phone:");
 
-        addressLbl.setText("DOB (YYYY-MM-DD):");
+        dobLbl.setText("DOB (YYYY-MM-DD):");
 
         unitLbl.setText("Unit Number:");
 
@@ -220,7 +220,7 @@ public class RegisterCustomerView extends javax.swing.JFrame {
                     .addComponent(postalLbl)
                     .addComponent(streetLbl)
                     .addComponent(unitLbl)
-                    .addComponent(addressLbl)
+                    .addComponent(dobLbl)
                     .addComponent(phoneLbl)
                     .addComponent(emailLbl)
                     .addComponent(lnameLbl)
@@ -235,7 +235,7 @@ public class RegisterCustomerView extends javax.swing.JFrame {
                         .addComponent(clearAllBtn)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(phoneTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dobTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(unitTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(streetTxt, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fnameTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
@@ -275,8 +275,8 @@ public class RegisterCustomerView extends javax.swing.JFrame {
                     .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dobLbl)
+                    .addComponent(dobTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(unitLbl)
@@ -351,13 +351,13 @@ public class RegisterCustomerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressLbl;
-    private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel cityLbl;
     private javax.swing.JTextField cityTxt;
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel countryLbl;
     private javax.swing.JTextField countryTxt;
+    private javax.swing.JLabel dobLbl;
+    private javax.swing.JTextField dobTxt;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel fnameLbl;
