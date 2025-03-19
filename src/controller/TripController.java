@@ -68,7 +68,7 @@ public class TripController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
+            DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
             searchTripView.getTripIdTxt().setText("");
             searchTripView.getOriginTxt().setText("");
             searchTripView.getMonthTxt().setText("");
@@ -327,6 +327,7 @@ public class TripController {
         public void actionPerformed(ActionEvent e) {
             String tripIdString = editTripView.getTripIdTxt().getText();
             if(!tripIdString.equals("")) {
+                System.out.println(tripIdString);
                 int tripId = Integer.parseInt(tripIdString);
                 String origin = editTripView.getOriginTxt().getText();
                 String destination = editTripView.getDestinationTxt().getText();
@@ -349,7 +350,7 @@ public class TripController {
                         JOptionPane.showMessageDialog(null, "Trip record was updated scuccessfully!");
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "No id inputed in text field!");
+                        JOptionPane.showMessageDialog(null, "Trip record was not updated!");
                     }
                 }
                 catch (Exception err) {
