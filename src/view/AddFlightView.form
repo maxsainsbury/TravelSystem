@@ -25,35 +25,39 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="tripIdLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="statusLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="seatLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="priceLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="arrivalLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="departureLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="flightNumLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="airlineLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="departureLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="airlineLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="arrivalLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="priceLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="seatLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusLbl" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="airlineTxt" alignment="0" pref="232" max="32767" attributes="0"/>
-                  <Component id="flightNumTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="departureTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="seatTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="statusTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="priceTxt" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="addFlightBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="clearAllBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="arrivalTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="tripIdTxt" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tripIdTxt" alignment="1" max="32767" attributes="0"/>
+                          <Component id="departureTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="flightNumTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="airlineTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="arrivalTxt" alignment="1" max="32767" attributes="0"/>
+                          <Component id="priceTxt" alignment="1" max="32767" attributes="0"/>
+                          <Component id="statusTxt" alignment="1" max="32767" attributes="0"/>
+                          <Component id="seatTxt" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,9 +65,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="airlineLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="airlineTxt" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="airlineTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="airlineLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -76,14 +80,14 @@
                   <Component id="departureTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="arrivalTxt" min="-2" max="-2" attributes="0"/>
-                  <Component id="arrivalLbl" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="arrivalTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="arrivalLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="priceLbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="priceTxt" alignment="1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="priceTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priceLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -105,7 +109,7 @@
                   <Component id="addFlightBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clearAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,12 +127,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="departureLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Departure (HH:MM):"/>
+        <Property name="text" type="java.lang.String" value="Departure (YYYY-MM-DD HH:MM):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="arrivalLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Arrival (HH:MM):"/>
+        <Property name="text" type="java.lang.String" value="Arrival (YYYY-MM-DD HH:MM):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="priceLbl">
