@@ -100,11 +100,9 @@ public class CustomerDAO {
      */
     public boolean deleteCustomer(int customerId) {
         String query = """
-                    DELETE FROM user
-                    WHERE user_id = ( SELECT user_id
-                                      FROM (SELECT customer_id
-                                            FROM user INNER JOIN customer USING (user_id)) as temp
-                                      WHERE customer_id = ?)                        
+                    DELETE u
+                    FROM user u INNER JOIN customer c USING (user_id)
+                    WHERE customer_id = ?
                       """;
        try(Connection connection = DBConnection.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(query)){
@@ -280,7 +278,7 @@ public class CustomerDAO {
                           street_address = ?,
                           city = ?,
                           postal_code = ?,
-                          country = ?,      
+                          country = ?     
                       WHERE customer_id = ?
                       """;
        try(Connection connection = DBConnection.getConnection();
