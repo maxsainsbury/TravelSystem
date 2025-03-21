@@ -18,7 +18,10 @@ public class TravelSystem {
         //Test Employee Create, Read, Update, Delete functionality. 
         LoginDAO loginDAO = new LoginDAO();
         LoginView loginView = new LoginView();
-        LoginController loginController = new LoginController(loginView, loginDAO);
+        CustomerMainFrame customerMainFrame = new CustomerMainFrame();
+        EmployeeMainFrame employeeMainFrame = new EmployeeMainFrame();
+        AdminMainFrame adminMainFrame = new AdminMainFrame();
+        LoginController loginController = new LoginController(loginView, loginDAO, customerMainFrame, employeeMainFrame, adminMainFrame);
         loginView.setVisible(true);
     }
     

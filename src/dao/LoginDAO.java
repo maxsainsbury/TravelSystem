@@ -17,7 +17,7 @@ public class LoginDAO {
     }
     
     public User checkUserType(String username, String password) {
-        String query = "SELECT user_type FROM user WHERE UPPER(username) = UPPER(?) AND password = ?;";
+        String query = "SELECT * FROM user WHERE UPPER(username) = UPPER(?) AND password = ?;";
         
         try(Connection connection = DBConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -58,6 +58,7 @@ public class LoginDAO {
         }
         catch(Exception e) {
             e.printStackTrace();
-    }
+        }
         return "";
+    }
 }

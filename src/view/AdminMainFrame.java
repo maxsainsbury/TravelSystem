@@ -353,6 +353,36 @@ public class AdminMainFrame extends javax.swing.JFrame {
         deleteFlightView.setVisible(true);
     }//GEN-LAST:event_deleteFlightMnuActionPerformed
 
+    private void searchCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerMnuActionPerformed
+        SearchCustomerView searchCustomerView = new SearchCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        CustomerController customerController = new CustomerController(customerDAO, searchCustomerView);
+        searchCustomerView.setVisible(true);
+    }//GEN-LAST:event_searchCustomerMnuActionPerformed
+
+    private void editCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerMnuActionPerformed
+        EditCustomerView editCustomerView = new EditCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        CustomerController customerController = new CustomerController(customerDAO, editCustomerView);
+        editCustomerView.setVisible(true);
+    }//GEN-LAST:event_editCustomerMnuActionPerformed
+
+    private void addCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerMnuActionPerformed
+        AddCustomerView addCustomerView = new AddCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        UserDAO userDAO = new UserDAO();
+        CustomerController customerController = new CustomerController(customerDAO, addCustomerView, userDAO);
+        addCustomerView.setVisible(true);
+    }//GEN-LAST:event_addCustomerMnuActionPerformed
+
+    private void deleteCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerMnuActionPerformed
+        DeleteCustomerView deleteCustomerView = new DeleteCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        CustomerController customerController = new CustomerController(customerDAO, deleteCustomerView);
+        deleteCustomerView.setVisible(true);
+    }//GEN-LAST:event_deleteCustomerMnuActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */

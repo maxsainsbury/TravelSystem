@@ -18,6 +18,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Trips"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -30,6 +33,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Promotions"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchPromoMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -42,11 +48,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Bookings"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBookingMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addBookingMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Booking"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBookingMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

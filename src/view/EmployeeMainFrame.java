@@ -58,9 +58,19 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
         customerMnu.setText("Customer");
 
         searchCustomerMnu.setText("Search Customers");
+        searchCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(searchCustomerMnu);
 
         editCustomerMnu.setText("Edit Customer");
+        editCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(editCustomerMnu);
 
         addCustomerMnu.setText("Add Customer");
@@ -177,6 +187,14 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
     private void editFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFlightMnuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editFlightMnuActionPerformed
+
+    private void searchCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerMnuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCustomerMnuActionPerformed
+
+    private void editCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerMnuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editCustomerMnuActionPerformed
 
     /**
      * @param args the command line arguments
