@@ -19,6 +19,46 @@ public class DeletePromoView extends javax.swing.JFrame {
         setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
+    public JTextField getIdTxt() {
+        return idTxt;
+    }
+
+    public void setIdTxt(JTextField idTxt) {
+        this.idTxt = idTxt;
+    }
+
+    public JPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public void setInfoPanel(JPanel infoPanel) {
+        this.infoPanel = infoPanel;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public void deleteBtnActionListener(ActionListener myActionListener) {
+        deleteBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchBtnActionListener(ActionListener myActionListener) {
+        searchBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

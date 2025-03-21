@@ -1,5 +1,11 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -12,6 +18,58 @@ public class SearchTripView extends javax.swing.JFrame {
     public SearchTripView() {
         initComponents();
         setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JTextField getMonthTxt() {
+        return monthTxt;
+    }
+
+    public JTextField getOriginTxt() {
+        return originTxt;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+
+    public JButton getSearchOriginBtn() {
+        return searchOriginBtn;
+    }
+
+    public JTable getSearchTable() {
+        return searchTable;
+    }
+
+    public JTextField getTripIdTxt() {
+        return tripIdTxt;
+    }
+    
+    public void clearAllBtnListener(ActionListener addBtnClick) {
+        clearAllBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchIdBtnListener(ActionListener addBtnClick) {
+        searchIdBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchMonthBtnListener(ActionListener addBtnClick) {
+        searchMonthBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchOriginBtnListener(ActionListener addBtnClick) {
+        searchOriginBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchAllBtnListener(ActionListener addBtnClick) {
+        searchAllBtn.addActionListener(addBtnClick);
     }
 
     /**
@@ -30,13 +88,14 @@ public class SearchTripView extends javax.swing.JFrame {
         searchIdBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
         tripIdLbl = new javax.swing.JLabel();
         tripIdTxt = new javax.swing.JTextField();
         searchOriginBtn = new javax.swing.JButton();
         searchMonthBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        searchTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search Trip");
 
         originLbl.setText("Origin:");
@@ -61,24 +120,21 @@ public class SearchTripView extends javax.swing.JFrame {
 
         searchAllBtn.setText("Search All");
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 123, Short.MAX_VALUE)
-        );
-
         tripIdLbl.setText("Trip ID:");
 
         searchOriginBtn.setText("Search");
 
         searchMonthBtn.setText("Search");
+
+        searchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Trip Id", "Origin", "Destination", "Departure Date", "Return Date", "Trip Status", "Promotion Id"
+            }
+        ));
+        jScrollPane1.setViewportView(searchTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,31 +142,32 @@ public class SearchTripView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(searchAllBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clearAllBtn)
+                        .addGap(6, 6, 6))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchAllBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clearAllBtn)
-                                .addGap(6, 6, 6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(originLbl)
-                                    .addComponent(monthLbl)
-                                    .addComponent(tripIdLbl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(monthTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                    .addComponent(originTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                    .addComponent(tripIdTxt))))
+                            .addComponent(originLbl)
+                            .addComponent(monthLbl)
+                            .addComponent(tripIdLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(searchIdBtn)
-                            .addComponent(searchOriginBtn)
-                            .addComponent(searchMonthBtn))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(monthTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(originTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(tripIdTxt))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchIdBtn)
+                    .addComponent(searchOriginBtn)
+                    .addComponent(searchMonthBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,9 +191,9 @@ public class SearchTripView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearAllBtn)
                     .addComponent(searchAllBtn))
-                .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -187,7 +244,7 @@ public class SearchTripView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel monthLbl;
     private javax.swing.JTextField monthTxt;
     private javax.swing.JLabel originLbl;
@@ -196,6 +253,7 @@ public class SearchTripView extends javax.swing.JFrame {
     private javax.swing.JButton searchIdBtn;
     private javax.swing.JButton searchMonthBtn;
     private javax.swing.JButton searchOriginBtn;
+    private javax.swing.JTable searchTable;
     private javax.swing.JLabel tripIdLbl;
     private javax.swing.JTextField tripIdTxt;
     // End of variables declaration//GEN-END:variables

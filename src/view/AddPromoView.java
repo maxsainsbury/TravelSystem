@@ -18,6 +18,70 @@ public class AddPromoView extends javax.swing.JFrame {
         setDefaultCloseOperation(AddEmployeeView.DISPOSE_ON_CLOSE);
     }
 
+    public JTextField getDescTxt() {
+        return descTxt;
+    }
+
+    public void setDescTxt(JTextField descTxt) {
+        this.descTxt = descTxt;
+    }
+
+    public JTextField getEndTxt() {
+        return endTxt;
+    }
+
+    public void setEndTxt(JTextField endTxt) {
+        this.endTxt = endTxt;
+    }
+
+    public JTextField getPercentTxt() {
+        return percentTxt;
+    }
+
+    public void setPercentTxt(JTextField percentTxt) {
+        this.percentTxt = percentTxt;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public void setPromoNameTxt(JTextField promoNameTxt) {
+        this.promoNameTxt = promoNameTxt;
+    }
+
+    public JTextField getStartTxt() {
+        return startTxt;
+    }
+
+    public void setStartTxt(JTextField startTxt) {
+        this.startTxt = startTxt;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public void setStatusTxt(JTextField statusTxt) {
+        this.statusTxt = statusTxt;
+    }
+
+    public JButton getAddPromoBtn() {
+        return addPromoBtn;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+    
+    public void addPromoBtnActionListener(ActionListener myActionListener) {
+        addPromoBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -12,6 +17,58 @@ public class EditTripView extends javax.swing.JFrame {
     public EditTripView() {
         initComponents();
         setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JTextField getDepartureTxt() {
+        return departureTxt;
+    }
+
+    public JTextField getDestinationTxt() {
+        return destinationTxt;
+    }
+
+    public JButton getEditBtn() {
+        return editBtn;
+    }
+
+    public JTextField getOriginTxt() {
+        return originTxt;
+    }
+
+    public JTextField getPromoIdTxt() {
+        return promoIdTxt;
+    }
+
+    public JTextField getReturnTxt() {
+        return returnTxt;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public JTextField getStatusTxt() {
+        return statusTxt;
+    }
+
+    public JTextField getTripIdTxt() {
+        return tripIdTxt;
+    }
+    
+    public void clearAllBtnListener(ActionListener addBtnClick) {
+        clearAllBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchBtnListener(ActionListener addBtnClick) {
+        searchBtn.addActionListener(addBtnClick);
+    }
+    
+    public void editTripBtnListener(ActionListener addBtnClick) {
+        editBtn.addActionListener(addBtnClick);
     }
 
     /**
@@ -41,7 +98,7 @@ public class EditTripView extends javax.swing.JFrame {
         promoIdLbl = new javax.swing.JLabel();
         promoIdTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit Trip");
 
         tripIdLbl.setText("Trip ID:");
