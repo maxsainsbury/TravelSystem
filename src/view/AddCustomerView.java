@@ -1,5 +1,9 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +15,119 @@ public class AddCustomerView extends javax.swing.JFrame {
      */
     public AddCustomerView() {
         initComponents();
+        setDefaultCloseOperation(AddCustomerView.DISPOSE_ON_CLOSE);
+    }
+
+    public JTextField getDobTxt() {
+        return dobTxt;
+    }
+
+    public void setDobTxt(JTextField addressTxt) {
+        this.dobTxt = addressTxt;
+    }
+
+    public JTextField getCountryTxt() {
+        return countryTxt;
+    }
+
+    public void setCountryTxt(JTextField countryTxt) {
+        this.countryTxt = countryTxt;
+    }
+
+    public JTextField getEmailTxt() {
+        return emailTxt;
+    }
+
+    public void setEmailTxt(JTextField emailTxt) {
+        this.emailTxt = emailTxt;
+    }
+
+    public JTextField getFnameTxt() {
+        return fnameTxt;
+    }
+
+    public void setFnameTxt(JTextField fnameTxt) {
+        this.fnameTxt = fnameTxt;
+    }
+
+    public JTextField getLnameTxt() {
+        return lnameTxt;
+    }
+
+    public void setLnameTxt(JTextField lnameTxt) {
+        this.lnameTxt = lnameTxt;
+    }
+
+    public JTextField getPhoneTxt() {
+        return phoneTxt;
+    }
+
+    public void setPhoneTxt(JTextField phoneTxt) {
+        this.phoneTxt = phoneTxt;
+    }
+
+    public JTextField getPostalTxt() {
+        return postalTxt;
+    }
+
+    public void setPostalTxt(JTextField postalTxt) {
+        this.postalTxt = postalTxt;
+    }
+
+    public JTextField getStreetTxt() {
+        return streetTxt;
+    }
+
+    public void setStreetTxt(JTextField streetTxt) {
+        this.streetTxt = streetTxt;
+    }
+
+    public JTextField getUnitTxt() {
+        return unitTxt;
+    }
+
+    public void setUnitTxt(JTextField unitTxt) {
+        this.unitTxt = unitTxt;
+    }
+
+    public JTextField getPasswordTxt() {
+        return passwordTxt;
+    }
+
+    public void setPasswordTxt(JTextField passwordTxt) {
+        this.passwordTxt = passwordTxt;
+    }
+
+    public JTextField getUsernameTxt() {
+        return usernameTxt;
+    }
+
+    public void setUsernameTxt(JTextField usernameTxt) {
+        this.usernameTxt = usernameTxt;
+    }
+
+    public JTextField getCityTxt() {
+        return cityTxt;
+    }
+
+    public void setCityTxt(JTextField cityTxt) {
+        this.cityTxt = cityTxt;
+    }
+
+    public JButton getAddCustomerBtn() {
+        return addCustomerBtn;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+    
+    public void addCustomerBtnActionListener(ActionListener myActionListener) {
+        addCustomerBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
     }
 
     /**
@@ -30,8 +147,8 @@ public class AddCustomerView extends javax.swing.JFrame {
         emailTxt = new javax.swing.JTextField();
         phoneLbl = new javax.swing.JLabel();
         phoneTxt = new javax.swing.JTextField();
-        addressLbl = new javax.swing.JLabel();
-        addressTxt = new javax.swing.JTextField();
+        dobLbl = new javax.swing.JLabel();
+        dobTxt = new javax.swing.JTextField();
         unitLbl = new javax.swing.JLabel();
         unitTxt = new javax.swing.JTextField();
         streetLbl = new javax.swing.JLabel();
@@ -42,9 +159,20 @@ public class AddCustomerView extends javax.swing.JFrame {
         postalTxt = new javax.swing.JTextField();
         countryLbl = new javax.swing.JLabel();
         countryTxt = new javax.swing.JTextField();
+        usernameLbl = new javax.swing.JLabel();
+        usernameTxt = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordTxt = new javax.swing.JTextField();
+        citylbl = new javax.swing.JLabel();
+        cityTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Customer");
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
 
         fnameLbl.setText("First Name:");
 
@@ -54,19 +182,35 @@ public class AddCustomerView extends javax.swing.JFrame {
 
         phoneLbl.setText("Phone:");
 
-        addressLbl.setText("DOB (YYYY-MM-DD):");
+        dobLbl.setText("DOB (YYYY-MM-DD):");
 
         unitLbl.setText("Unit Number:");
 
         streetLbl.setText("Street Address:");
 
         addCustomerBtn.setText("Add Customer");
+        addCustomerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCustomerBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         postalLbl.setText("Postal Code:");
 
         countryLbl.setText("Country:");
+
+        usernameLbl.setText("Username:");
+
+        passwordLbl.setText("Password:");
+
+        citylbl.setText("City:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,31 +219,38 @@ public class AddCustomerView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(citylbl)
+                    .addComponent(passwordLbl)
+                    .addComponent(usernameLbl)
                     .addComponent(countryLbl)
                     .addComponent(postalLbl)
                     .addComponent(streetLbl)
                     .addComponent(unitLbl)
-                    .addComponent(addressLbl)
+                    .addComponent(dobLbl)
                     .addComponent(phoneLbl)
                     .addComponent(emailLbl)
                     .addComponent(lnameLbl)
                     .addComponent(fnameLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(countryTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(countryTxt)
+                    .addComponent(phoneTxt)
+                    .addComponent(dobTxt)
+                    .addComponent(unitTxt)
+                    .addComponent(streetTxt)
+                    .addComponent(fnameTxt)
+                    .addComponent(lnameTxt)
+                    .addComponent(emailTxt)
+                    .addComponent(postalTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
                         .addComponent(addCustomerBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clearAllBtn)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(phoneTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(unitTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(streetTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fnameTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(lnameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(postalTxt))
+                    .addComponent(usernameTxt)
+                    .addComponent(passwordTxt)
+                    .addComponent(cityTxt))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
@@ -123,8 +274,8 @@ public class AddCustomerView extends javax.swing.JFrame {
                     .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl)
-                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dobLbl)
+                    .addComponent(dobTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(unitLbl)
@@ -135,13 +286,25 @@ public class AddCustomerView extends javax.swing.JFrame {
                     .addComponent(streetTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(citylbl)
+                    .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postalLbl)
                     .addComponent(postalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(countryLbl)
                     .addComponent(countryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLbl)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addCustomerBtn)
                     .addComponent(clearAllBtn))
@@ -150,6 +313,18 @@ public class AddCustomerView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void addCustomerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addCustomerBtnActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
 
     /**
      * @param args the command line arguments
@@ -188,17 +363,21 @@ public class AddCustomerView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustomerBtn;
-    private javax.swing.JLabel addressLbl;
-    private javax.swing.JTextField addressTxt;
+    private javax.swing.JTextField cityTxt;
+    private javax.swing.JLabel citylbl;
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel countryLbl;
     private javax.swing.JTextField countryTxt;
+    private javax.swing.JLabel dobLbl;
+    private javax.swing.JTextField dobTxt;
     private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel fnameLbl;
     private javax.swing.JTextField fnameTxt;
     private javax.swing.JLabel lnameLbl;
     private javax.swing.JTextField lnameTxt;
+    private javax.swing.JLabel passwordLbl;
+    private javax.swing.JTextField passwordTxt;
     private javax.swing.JLabel phoneLbl;
     private javax.swing.JTextField phoneTxt;
     private javax.swing.JLabel postalLbl;
@@ -207,5 +386,7 @@ public class AddCustomerView extends javax.swing.JFrame {
     private javax.swing.JTextField streetTxt;
     private javax.swing.JLabel unitLbl;
     private javax.swing.JTextField unitTxt;
+    private javax.swing.JLabel usernameLbl;
+    private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +16,62 @@ public class SearchPromoView extends javax.swing.JFrame {
      */
     public SearchPromoView() {
         initComponents();
+    }
+
+    public JTextField getMonthTxt() {
+        return monthTxt;
+    }
+
+    public void setMonthTxt(JTextField monthTxt) {
+        this.monthTxt = monthTxt;
+    }
+
+    public JTextField getPromoIdTxt() {
+        return promoIdTxt;
+    }
+
+    public void setPromoIdTxt(JTextField promoIdTxt) {
+        this.promoIdTxt = promoIdTxt;
+    }
+
+    public JPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public void setInfoPanel(JPanel infoPanel) {
+        this.infoPanel = infoPanel;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+
+    public JButton getSearchMonthBtn() {
+        return searchMonthBtn;
+    }
+    
+    public void searchAllBtnActionListener(ActionListener myActionListener) {
+        searchAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchMonthBtnActionListener(ActionListener myActionListener) {
+        searchMonthBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchIdBtnActionListener(ActionListener myActionListener) {
+        searchIdBtn.addActionListener(myActionListener);
     }
 
     /**

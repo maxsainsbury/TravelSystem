@@ -1,12 +1,7 @@
 package view;
 
-import controller.EmployeeController;
-import controller.FlightController;
-import controller.TripController;
-import dao.EmployeeDAO;
-import dao.FlightDAO;
-import dao.TripDAO;
-import dao.UserDAO;
+import controller.*;
+import dao.*;
 
 /**
  *
@@ -72,15 +67,35 @@ public class AdminMainFrame extends javax.swing.JFrame {
         customerMnu.setText("Customer");
 
         searchCustomerMnu.setText("Search Customers");
+        searchCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(searchCustomerMnu);
 
         editCustomerMnu.setText("Edit Customer");
+        editCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(editCustomerMnu);
 
         addCustomerMnu.setText("Add Customer");
+        addCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(addCustomerMnu);
 
         deleteCustomerMnu.setText("Delete Customer");
+        deleteCustomerMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCustomerMnuActionPerformed(evt);
+            }
+        });
         customerMnu.add(deleteCustomerMnu);
 
         menuBar.add(customerMnu);
