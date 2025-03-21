@@ -61,7 +61,11 @@ public class FlightDAO {
      */
     public boolean addFlightRecord(Flight flight) {
         //SQL query to insert a flight record into the database
-        String query = "INSERT INTO flight(trip_id, airline, flight_number, departure_time, arrival_time, price, seat_class, status) VALUE (?,?,?,?,?,?,?,?)";
+        String query = """
+                       INSERT INTO flight
+                       (trip_id, airline, flight_number, departure_time, arrival_time, price, seat_class, status) 
+                       VALUE (?,?,?,?,?,?,?,?)
+                       """;
         
         try (Connection connection = DBConnection.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -125,6 +129,9 @@ public class FlightDAO {
                 //return a flight object from the values
                 return new Flight(airline, flightNumber, departureDateTime, arrivalDateTime, price, seatClass, status, tripId, flightId);
             }  
+            else {
+                return new Flight();
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -139,7 +146,18 @@ public class FlightDAO {
      * @return true if edited false if not
      */
     public boolean editFlightRecord(Flight flight) {
-        String query = "UPDATE flight SET trip_id = ?, airline = ?, flight_number = ?, departure_time = ?, arrival_time = ?, price = ?, seat_class = ?, status = ?";
+        String query = """
+                       UPDATE flight 
+                       SET trip_id = ?, 
+                       airline = ?, 
+                       flight_number = ?, 
+                       departure_time = ?, 
+                       arrival_time = ?, 
+                       price = ?, 
+                       seat_class = ?, 
+                       status = ?
+                       WHERE flight_id = ?
+                       """;
         
         try (Connection connection = DBConnection.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -151,6 +169,7 @@ public class FlightDAO {
             preparedStatement.setDouble(6, flight.getPrice());
             preparedStatement.setString(7, flight.getSeatClass());
             preparedStatement.setString(8, flight.getStatus());
+            preparedStatement.setInt(9, flight.getFlightId());
             
             return preparedStatement.executeUpdate() > 0;
         }
@@ -187,7 +206,12 @@ public class FlightDAO {
      */
     public Flight[] searchFromAirline(String airline) {
         //select everything in the table and the count of all rows returned
-        String query = "SELECT *, COUNT(*) OVER() as count FROM flight WHERE UPPER(airline) = UPPER(?)";
+        String query = """
+                       SELECT *, 
+                       COUNT(*) OVER() as count 
+                       FROM flight 
+                       WHERE UPPER(airline) = UPPER(?)
+                       """;
         
         try (Connection connection = DBConnection.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -195,12 +219,12 @@ public class FlightDAO {
             
             //execute the select statement and store the returned table
             ResultSet results = preparedStatement.executeQuery();
-            //go to first row in table
-            results.next();
-            //store total rows returned by select in variable
-            int totalRows = results.getInt("count");
             //if at least 1 row is returned
-            if (totalRows > 0) {
+            if (results.isBeforeFirst()) {
+                //go to first row in table
+                results.next();
+                //store total rows returned by select in variable
+                int totalRows = results.getInt("count");
                 //sel output array to the length of the total rows returned
                 Flight[] output = new Flight[totalRows];
                 //for all rows in returned table
@@ -254,9 +278,9 @@ public class FlightDAO {
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             
             ResultSet results = preparedStatement.executeQuery();
-            results.next();
-            int totalRows = results.getInt("count");
-            if (totalRows > 0) {
+            if (results.isBeforeFirst()) {
+                results.next();
+                int totalRows = results.getInt("count");
                 Flight[] output = new Flight[totalRows];
                 for(int i = 0; i < totalRows; i++) {
                     int flightId = results.getInt("flight_id");
