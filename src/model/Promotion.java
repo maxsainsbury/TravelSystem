@@ -16,6 +16,7 @@ public class Promotion {
     private LocalDate startDate;
     private LocalDate endDate;
     private String status;
+    private String month;
     
     /**
      * Constructor for a Promotion object for when getting the information from the database
@@ -33,30 +34,32 @@ public class Promotion {
         this.description = description;
         this.status = status;
         this.promoId = promoId;
-        //Set up a formatter to tell the program how to interpret the value given by the date column in the Promotion database
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //turn the value from the database into a LocalDate object
         this.startDate = LocalDate.parse(startDate, formatter);
         this.endDate = LocalDate.parse(endDate, formatter);
+
     }
     
     /**
      * Constructor for a Promotion object for when creating a new promotion in the GUI
      * @param promoName
      * @param discountPercent
-     * @param year
-     * @param month 
+     * @param description
+     * @param status
+     * @param startDate
+     * @param endDate
      */
-    public Promotion(String promoName, double discountPercent, String description, String status, int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay) {
+    public Promotion(String promoName, double discountPercent, String description, String status, String startDate, String endDate) {
         this.promoName = promoName;
         this.discountPercent = discountPercent;
         this.description = description;
-        this.status = status;
-        //take the inputed year and month values, and set a Localdate object to the first of that month
-        this.startDate = LocalDate.of(startYear, startMonth, startDay);
-        this.endDate = LocalDate.of(endYear, endMonth, endDay);
-    }
+        this.status = status;  
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.startDate = LocalDate.parse(startDate, formatter);
+        this.endDate = LocalDate.parse(endDate, formatter);
 
+    }
+    
     public int getPromoId() {
         return promoId;
     }

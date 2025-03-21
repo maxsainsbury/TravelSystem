@@ -11,6 +11,7 @@ public class AddPaymentView extends javax.swing.JFrame {
      */
     public AddPaymentView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**
