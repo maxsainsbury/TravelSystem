@@ -15,6 +15,7 @@ public class EditPromoView extends javax.swing.JFrame {
      */
     public EditPromoView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getDescTxt() {
@@ -250,13 +251,13 @@ public class EditPromoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearAllBtnActionPerformed
-
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,6 +292,18 @@ public class EditPromoView extends javax.swing.JFrame {
                 new EditPromoView().setVisible(true);
             }
         });
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public void setEditBtn(JButton editBtn) {
+        this.editBtn = editBtn;
+    }
+
+    public void setSearchBtn(JButton searchBtn) {
+        this.searchBtn = searchBtn;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -57,11 +57,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Trips"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editTripMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Trip"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addTripMnu">
               <Properties>
@@ -75,6 +81,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Trip"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -87,6 +96,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Flights"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchFlightMnuActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="addFlightMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Flight"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addFlightMnuActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteFlightMnu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Flight"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteFlightMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editFlightMnu">
               <Properties>
@@ -95,16 +123,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editFlightMnuActionPerformed"/>
               </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="addFlightMnu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Add Flight"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="deleteFlightMnu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Flight"/>
-              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -117,11 +135,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Promotions"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchPromoMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editPromoMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Promotion"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editPromoMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addPromoMnu">
               <Properties>
@@ -135,6 +159,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Promotion"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletePromoMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

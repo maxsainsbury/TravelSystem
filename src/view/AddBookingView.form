@@ -44,7 +44,7 @@
                   <Component id="customerIdTxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="tripIdTxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="priceTxt" max="32767" attributes="0"/>
-                  <Component id="dateTxt" pref="182" max="32767" attributes="0"/>
+                  <Component id="dateTxt" max="32767" attributes="0"/>
                   <Component id="empIdTxt" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="50" max="32767" attributes="0"/>

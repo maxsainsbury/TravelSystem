@@ -1,5 +1,10 @@
 package view;
 
+import controller.PromotionController;
+import dao.PromotionDAO;
+
+
+
 /**
  *
  * @author Ebba de Groot
@@ -116,9 +121,19 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
         promotionsMnu.setText("Promotion");
 
         searchPromoMnu.setText("Search Promotions");
+        searchPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(searchPromoMnu);
 
         editPromoMnu.setText("Edit Promotion");
+        editPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(editPromoMnu);
 
         addPromoMnu.setText("Add Promotion");
@@ -130,6 +145,11 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
         promotionsMnu.add(addPromoMnu);
 
         deletePromoMnu.setText("Delete Promotion");
+        deletePromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(deletePromoMnu);
 
         menuBar.add(promotionsMnu);
@@ -167,16 +187,40 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addTripMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTripMnuActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_addTripMnuActionPerformed
 
     private void addPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPromoMnuActionPerformed
-        // TODO add your handling code here:
+        AddPromoView promotionView = new AddPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao, promotionView);
+        promotionView.setVisible(true);
     }//GEN-LAST:event_addPromoMnuActionPerformed
 
     private void editFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFlightMnuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editFlightMnuActionPerformed
+
+    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
+        SearchPromoView promotionView = new SearchPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao, promotionView);
+        promotionView.setVisible(true);
+    }//GEN-LAST:event_searchPromoMnuActionPerformed
+
+    private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPromoMnuActionPerformed
+        EditPromoView promotionView = new EditPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao, promotionView);
+        promotionView.setVisible(true);
+    }//GEN-LAST:event_editPromoMnuActionPerformed
+
+    private void deletePromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePromoMnuActionPerformed
+        DeletePromoView promotionView = new DeletePromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao, promotionView);
+        promotionView.setVisible(true);
+    }//GEN-LAST:event_deletePromoMnuActionPerformed
 
     /**
      * @param args the command line arguments

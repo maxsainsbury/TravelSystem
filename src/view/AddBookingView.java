@@ -11,6 +11,7 @@ public class AddBookingView extends javax.swing.JFrame {
      */
     public AddBookingView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

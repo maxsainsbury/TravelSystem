@@ -15,6 +15,7 @@ public class AddPromoView extends javax.swing.JFrame {
      */
     public AddPromoView() {
         initComponents();
+        setDefaultCloseOperation(AddEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getDescTxt() {
@@ -241,6 +242,15 @@ public class AddPromoView extends javax.swing.JFrame {
         });
     }
 
+    public void setAddPromoBtn(JButton addPromoBtn) {
+        this.addPromoBtn = addPromoBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPromoBtn;
     private javax.swing.JButton clearAllBtn;

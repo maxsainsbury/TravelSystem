@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -16,6 +17,7 @@ public class AddFlightView extends javax.swing.JFrame {
      */
     public AddFlightView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JButton getAddFlightBtn() {
@@ -198,7 +200,7 @@ public class AddFlightView extends javax.swing.JFrame {
         tripIdLbl = new javax.swing.JLabel();
         tripIdTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Flight");
 
         airlineLbl.setText("Airline:");
@@ -330,7 +332,7 @@ public class AddFlightView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddFlightView().setVisible(true);
+                new AddFlightView().setVisible(true);              
             }
         });
     }

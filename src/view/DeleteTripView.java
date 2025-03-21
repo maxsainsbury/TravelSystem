@@ -1,5 +1,11 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +17,39 @@ public class DeleteTripView extends javax.swing.JFrame {
      */
     public DeleteTripView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    public JTable getDeleteTable() {
+        return deleteTable;
+    }
+
+    public JTextField getIdTxt() {
+        return idTxt;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+    
+    public void deleteTripBtnListener(ActionListener addBtnClick) {
+        deleteBtn.addActionListener(addBtnClick);
+    }
+    
+    public void clearAllBtnListener(ActionListener addBtnClick) {
+        clearAllBtn.addActionListener(addBtnClick);
+    }
+    
+    public void searchTripBtnListener(ActionListener addBtnClick) {
+        searchBtn.addActionListener(addBtnClick);
     }
 
     /**
@@ -26,10 +65,11 @@ public class DeleteTripView extends javax.swing.JFrame {
         idTxt = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
         deleteBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        deleteTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Delete Trip");
 
         idLbl.setText("Trip ID:");
@@ -38,20 +78,17 @@ public class DeleteTripView extends javax.swing.JFrame {
 
         clearAllBtn.setText("Clear All");
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
-        );
-
         deleteBtn.setText("Delete Trip");
+
+        deleteTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Trip Id", "Origin", "Destination", "Departure Date", "Return Date", "Trip Status", "Promotion Id"
+            }
+        ));
+        jScrollPane1.setViewportView(deleteTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,10 +106,12 @@ public class DeleteTripView extends javax.swing.JFrame {
                         .addComponent(searchBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(deleteBtn)
-                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(deleteBtn)))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -85,11 +124,11 @@ public class DeleteTripView extends javax.swing.JFrame {
                     .addComponent(searchBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clearAllBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(deleteBtn)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,9 +172,10 @@ public class DeleteTripView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JButton deleteBtn;
+    private javax.swing.JTable deleteTable;
     private javax.swing.JLabel idLbl;
     private javax.swing.JTextField idTxt;
-    private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
 }
