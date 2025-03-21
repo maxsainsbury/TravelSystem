@@ -16,6 +16,8 @@ public class LoginView extends javax.swing.JFrame {
     public LoginView() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,7 +34,7 @@ public class LoginView extends javax.swing.JFrame {
         UserIdTxt = new javax.swing.JTextField();
         passwordTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
 
         useIdLbl.setText("User ID:");

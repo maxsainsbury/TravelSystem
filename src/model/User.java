@@ -145,6 +145,10 @@ public class User {
         this.email = email;
     };
     
+    public User() {
+        this.userId = 0;
+    }
+    
     public void setUsername(String username) {
         this.username = username;
     }
