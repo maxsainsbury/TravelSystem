@@ -1,7 +1,7 @@
 package view;
 
-import controller.TripController;
-import dao.TripDAO;
+import controller.*;
+import dao.*;
 
 /**
  *
@@ -108,7 +108,10 @@ public class CustomerMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchTripMnuActionPerformed
 
     private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
-        // TODO add your handling code here:
+        SearchPromoView searchPromoView = new SearchPromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, searchPromoView);
+        searchPromoView.setVisible(true);
     }//GEN-LAST:event_searchPromoMnuActionPerformed
 
     private void searchBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBookingMnuActionPerformed

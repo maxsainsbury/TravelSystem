@@ -23,6 +23,10 @@ public class TravelSystem {
         AdminMainFrame adminMainFrame = new AdminMainFrame();
         LoginController loginController = new LoginController(loginView, loginDAO, customerMainFrame, employeeMainFrame, adminMainFrame);
         loginView.setVisible(true);
+        adminMainFrame.setVisible(true);
+        customerMainFrame.setVisible(true);
+        employeeMainFrame.setVisible(true);
+        
     }
     
 }

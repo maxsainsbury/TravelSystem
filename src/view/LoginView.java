@@ -33,6 +33,7 @@ public class LoginView extends javax.swing.JFrame {
         loginBtn = new javax.swing.JButton();
         UserIdTxt = new javax.swing.JTextField();
         passwordTxt = new javax.swing.JTextField();
+        registerBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -49,6 +50,13 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
 
+        registerBtn.setText("Register");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,8 +67,11 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(passwordLbl)
                     .addComponent(useIdLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(loginBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerBtn))
                     .addComponent(UserIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(74, Short.MAX_VALUE))
@@ -77,7 +88,9 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(passwordLbl)
                     .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginBtn)
+                    .addComponent(registerBtn))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -87,6 +100,10 @@ public class LoginView extends javax.swing.JFrame {
     private void UserIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserIdTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UserIdTxtActionPerformed
+
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerBtnActionPerformed
 
     public JTextField getUserIdTxt() {
         return UserIdTxt;
@@ -111,10 +128,18 @@ public class LoginView extends javax.swing.JFrame {
     public void setPasswordTxt(JTextField passwordTxt) {
         this.passwordTxt = passwordTxt;
     }
+
+    public JButton getRegisterBtn() {
+        return registerBtn;
+    }
     
     // Button to submit userid and password to login to system.
-     public void loginBtnListener(ActionListener myActionListener) {
+    public void loginBtnListener(ActionListener myActionListener) {
         loginBtn.addActionListener(myActionListener);
+    }
+     
+    public void registerBtnListener(ActionListener myActionListener) {
+        registerBtn.addActionListener(myActionListener);
     }
     
     /**
@@ -157,6 +182,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JButton loginBtn;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JTextField passwordTxt;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JLabel useIdLbl;
     // End of variables declaration//GEN-END:variables
 }

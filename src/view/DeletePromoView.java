@@ -27,14 +27,6 @@ public class DeletePromoView extends javax.swing.JFrame {
         this.idTxt = idTxt;
     }
 
-    public JPanel getInfoPanel() {
-        return infoPanel;
-    }
-
-    public void setInfoPanel(JPanel infoPanel) {
-        this.infoPanel = infoPanel;
-    }
-
     public JButton getClearAllBtn() {
         return clearAllBtn;
     }
@@ -46,6 +38,12 @@ public class DeletePromoView extends javax.swing.JFrame {
     public JButton getSearchBtn() {
         return searchBtn;
     }
+
+    public JTable getDeletePromoTbl() {
+        return deletePromoTbl;
+    }
+    
+    
 
     public void deleteBtnActionListener(ActionListener myActionListener) {
         deleteBtn.addActionListener(myActionListener);
@@ -209,58 +207,6 @@ public class DeletePromoView extends javax.swing.JFrame {
                 new DeleteCustomerView().setVisible(true);
             }
         });
-    }
-
-    public JButton getClearAllBtn() {
-        return clearAllBtn;
-    }
-
-    public void setClearAllBtn(JButton clearAllBtn) {
-        this.clearAllBtn = clearAllBtn;
-    }
-
-    public JButton getDeleteBtn() {
-        return deleteBtn;
-    }
-
-    public void setDeleteBtn(JButton deleteBtn) {
-        this.deleteBtn = deleteBtn;
-    }
-
-    public JTable getDeletePromoTbl() {
-        return deletePromoTbl;
-    }
-
-    public void setDeletePromoTbl(JTable deletePromoTbl) {
-        this.deletePromoTbl = deletePromoTbl;
-    }
-
-    public JTextField getIdTxt() {
-        return idTxt;
-    }
-
-    public void setIdTxt(JTextField idTxt) {
-        this.idTxt = idTxt;
-    }
-
-    public JButton getSearchBtn() {
-        return searchBtn;
-    }
-
-    public void setSearchBtn(JButton searchBtn) {
-        this.searchBtn = searchBtn;
-    }
-    
-    public void clearAllBtnActionListener(ActionListener myActionListener) {
-        clearAllBtn.addActionListener(myActionListener);
-    }
-    
-    public void deleteBtnActionListener(ActionListener myActionListener) {
-        deleteBtn.addActionListener(myActionListener);
-    }
-    
-    public void searchBtnActionListener(ActionListener myActionListener) {
-        searchBtn.addActionListener(myActionListener);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

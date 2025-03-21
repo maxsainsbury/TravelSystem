@@ -170,22 +170,6 @@ public class AdminMainFrame extends javax.swing.JFrame {
         });
         flightMnu.add(editFlightMnu);
 
-        addFlightMnu.setText("Add Flight");
-        addFlightMnu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFlightMnuActionPerformed(evt);
-            }
-        });
-        flightMnu.add(addFlightMnu);
-
-        deleteFlightMnu.setText("Delete Flight");
-        deleteFlightMnu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteFlightMnuActionPerformed(evt);
-            }
-        });
-        flightMnu.add(deleteFlightMnu);
-
         menuBar.add(flightMnu);
 
         promotionsMnu.setText("Promotion");
@@ -416,6 +400,26 @@ public class AdminMainFrame extends javax.swing.JFrame {
         deleteCustomerView.setVisible(true);
     }//GEN-LAST:event_deleteCustomerMnuActionPerformed
 
+    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
+        SearchPromoView searchPromoView = new SearchPromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, searchPromoView);
+        searchPromoView.setVisible(true);
+    }//GEN-LAST:event_searchPromoMnuActionPerformed
+    
+    private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        EditPromoView editPromoView = new EditPromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, editPromoView);
+        editPromoView.setVisible(true);
+    }      
+    
+    private void deletePromoMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        DeletePromoView deletePromoView = new DeletePromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, deletePromoView);
+        deletePromoView.setVisible(true);
+    }      
     
     /**
      * @param args the command line arguments

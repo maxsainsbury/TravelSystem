@@ -27,22 +27,6 @@ public class SearchPromoView extends javax.swing.JFrame {
         this.monthTxt = monthTxt;
     }
 
-    public JTextField getPromoIdTxt() {
-        return promoIdTxt;
-    }
-
-    public void setPromoIdTxt(JTextField promoIdTxt) {
-        this.promoIdTxt = promoIdTxt;
-    }
-
-    public JPanel getInfoPanel() {
-        return infoPanel;
-    }
-
-    public void setInfoPanel(JPanel infoPanel) {
-        this.infoPanel = infoPanel;
-    }
-
     public JButton getClearAllBtn() {
         return clearAllBtn;
     }
@@ -51,12 +35,24 @@ public class SearchPromoView extends javax.swing.JFrame {
         return searchAllBtn;
     }
 
-    public JButton getSearchIdBtn() {
-        return searchIdBtn;
-    }
-
     public JButton getSearchMonthBtn() {
         return searchMonthBtn;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public JButton getSearchNameBtn() {
+        return searchNameBtn;
+    }
+
+    public JTable getSearchPromoTbl() {
+        return searchPromoTbl;
+    }
+    
+    public void searchNameActionListener(ActionListener myActionListener) {
+        searchNameBtn.addActionListener(myActionListener);
     }
     
     public void searchAllBtnActionListener(ActionListener myActionListener) {
@@ -71,9 +67,6 @@ public class SearchPromoView extends javax.swing.JFrame {
         searchMonthBtn.addActionListener(myActionListener);
     }
     
-    public void searchIdBtnActionListener(ActionListener myActionListener) {
-        searchIdBtn.addActionListener(myActionListener);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -255,77 +248,6 @@ public class SearchPromoView extends javax.swing.JFrame {
         });
     }
     
-    public void clearAllBtnActionListener (ActionListener myActionListener) {
-        clearAllBtn.addActionListener(myActionListener);
-    }
-    
-    public void searchAllBtnActionListener (ActionListener myActionListener) {
-        searchAllBtn.addActionListener(myActionListener);
-    }
-    
-    public void searchNameActionListener (ActionListener myActionListener) {
-        searchNameBtn.addActionListener(myActionListener);
-    }
-
-    public JButton getClearAllBtn() {
-        return clearAllBtn;
-    }
-
-    public void setClearAllBtn(JButton clearAllBtn) {
-        this.clearAllBtn = clearAllBtn;
-    }
-
-    public JTextField getMonthTxt() {
-        return monthTxt;
-    }
-
-    public void setMonthTxt(JTextField monthTxt) {
-        this.monthTxt = monthTxt;
-    }
-
-    public JTextField getPromoNameTxt() {
-        return promoNameTxt;
-    }
-
-    public void setPromoNameTxt(JTextField promoNameTxt) {
-        this.promoNameTxt = promoNameTxt;
-    }
-
-    public JButton getSearchAllBtn() {
-        return searchAllBtn;
-    }
-
-    public void setSearchAllBtn(JButton searchAllBtn) {
-        this.searchAllBtn = searchAllBtn;
-    }
-
-    public JButton getSearchMonthBtn() {
-        return searchMonthBtn;
-    }
-
-    public void setSearchMonthBtn(JButton searchMonthBtn) {
-        this.searchMonthBtn = searchMonthBtn;
-    }
-
-    public JButton getSearchNameBtn() {
-        return searchNameBtn;
-    }
-
-    public void setSearchNameBtn(JButton searchNameBtn) {
-        this.searchNameBtn = searchNameBtn;
-    }
-
-    public JTable getSearchPromoTbl() {
-        return searchPromoTbl;
-    }
-
-    public void setSearchPromoTbl(JTable searchPromoTbl) {
-        this.searchPromoTbl = searchPromoTbl;
-    }
-    
-    public void searchMonthBtnActionListener (ActionListener myActionListener) {
-        searchMonthBtn.addActionListener(myActionListener);
-    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

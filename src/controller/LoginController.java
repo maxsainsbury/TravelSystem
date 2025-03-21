@@ -1,6 +1,8 @@
 package controller;
 
+import dao.CustomerDAO;
 import dao.LoginDAO;
+import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -10,6 +12,7 @@ import view.CustomerMainFrame;
 import view.EmployeeMainFrame;
 import view.LoginView;
 import view.MainFrame;
+import view.RegisterCustomerView;
 
 /**
  *
@@ -30,6 +33,19 @@ public class LoginController {
         this.employeeMainFrame = employeeMainFrame;
         this.adminMainFrame = adminMainFrame;
         this.loginView.loginBtnListener(new Login());
+        this.loginView.registerBtnListener(new RgisterCustomer());
+    }
+
+    private class RgisterCustomer implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            RegisterCustomerView registerCustomerView = new RegisterCustomerView();
+            CustomerDAO customerDAO = new CustomerDAO();
+            UserDAO userDAO = new UserDAO();
+            CustomerController customerController = new CustomerController(customerDAO, registerCustomerView, userDAO);
+            registerCustomerView.setVisible(true);
+        }
     }
 
     private class Login implements ActionListener {

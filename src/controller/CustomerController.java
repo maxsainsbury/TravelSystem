@@ -53,7 +53,7 @@ public class CustomerController {
         this.userDao = userDao;
         
         this.registerCustomerView.registerBtnActionListener(new RegisterCustomer());
-        this.registerCustomerView.clearAllBtnActionListener(new ClearAllTextFields());
+        this.registerCustomerView.clearAllBtnActionListener(new ClearAllRegister());
     }
     
     /**
@@ -98,6 +98,28 @@ public class CustomerController {
         this.editCustomerView.searchBtnActionListener(new SearchById());
         this.editCustomerView.clearAllBtnActionListener(new ClearAllEditView());
         this.editCustomerView.editBtnActionListener(new EditCustomer());
+    }
+
+    private class ClearAllRegister implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            registerCustomerView.getUsernameTxt().setText("");
+            registerCustomerView.getPasswordTxt().setText("");
+            registerCustomerView.getFnameTxt().setText("");
+            registerCustomerView.getLnameTxt().setText("");
+            registerCustomerView.getEmailTxt().setText("");
+            registerCustomerView.getPhoneTxt().setText("");
+            registerCustomerView.getPhoneTxt().setText("");
+            registerCustomerView.getDobTxt().setText("");
+            registerCustomerView.getUnitTxt().setText("");
+            registerCustomerView.getStreetTxt().setText("");
+            registerCustomerView.getCityTxt().setText("");
+            registerCustomerView.getPostalTxt().setText("");
+            registerCustomerView.getCountryTxt().setText("");
+        }
+
+    
     }
     
     /**
@@ -161,18 +183,18 @@ public class CustomerController {
     private class RegisterCustomer implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {      
-            String custFName = addCustomerView.getFnameTxt().getText();
-            String custLName = addCustomerView.getLnameTxt().getText();
-            String custDob = addCustomerView.getDobTxt().getText();
-            String custEmail = addCustomerView.getEmailTxt().getText();
-            String custPhone = addCustomerView.getPhoneTxt().getText();
-            String custUnit = addCustomerView.getUnitTxt().getText();
-            String custStreetAdress = addCustomerView.getStreetTxt().getText();
-            String custCity = addCustomerView.getCityTxt().getText();
-            String custPostalCode = addCustomerView.getPostalTxt().getText();
-            String custCountry = addCustomerView.getCountryTxt().getText();
-            String custUsername = addCustomerView.getUsernameTxt().getText();
-            String custPassword = addCustomerView.getPasswordTxt().getText();
+            String custFName = registerCustomerView.getFnameTxt().getText();
+            String custLName = registerCustomerView.getLnameTxt().getText();
+            String custDob = registerCustomerView.getDobTxt().getText();
+            String custEmail = registerCustomerView.getEmailTxt().getText();
+            String custPhone = registerCustomerView.getPhoneTxt().getText();
+            String custUnit = registerCustomerView.getUnitTxt().getText();
+            String custStreetAdress = registerCustomerView.getStreetTxt().getText();
+            String custCity = registerCustomerView.getCityTxt().getText();
+            String custPostalCode = registerCustomerView.getPostalTxt().getText();
+            String custCountry = registerCustomerView.getCountryTxt().getText();
+            String custUsername = registerCustomerView.getUsernameTxt().getText();
+            String custPassword = registerCustomerView.getPasswordTxt().getText();
             
             // Create new instance of Customer to send data to database. 
             Customer newCustomer = new Customer(custFName, custLName, custEmail, custPhone, 
@@ -200,9 +222,11 @@ public class CustomerController {
             result = customerDao.addCustomer(newCustomer);
             if(result) {
                 JOptionPane.showMessageDialog(null, "Successfully added a new customer");
+                registerCustomerView.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Was not able to add a new customer.");
             }
+            return ;
         }
     }
     
