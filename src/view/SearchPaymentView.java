@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +16,62 @@ public class SearchPaymentView extends javax.swing.JFrame {
      */
     public SearchPaymentView() {
         initComponents();
+    }
+
+    public JTextField getBookingIdTxt() {
+        return bookingIdTxt;
+    }
+
+    public void setBookingIdTxt(JTextField bookingIdTxt) {
+        this.bookingIdTxt = bookingIdTxt;
+    }
+
+    public JTextField getPaymentIdTxt() {
+        return paymentIdTxt;
+    }
+
+    public void setPaymentIdTxt(JTextField paymentIdTxt) {
+        this.paymentIdTxt = paymentIdTxt;
+    }
+
+    public JTable getSearchPaymentTbl() {
+        return searchPaymentTbl;
+    }
+
+    public void setSearchPaymentTbl(JTable searchPaymentTbl) {
+        this.searchPaymentTbl = searchPaymentTbl;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public JButton getSearchBookingBtn() {
+        return searchBookingBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+    
+    public void searchIdBtnActionListener(ActionListener myActionListener) {
+        searchIdBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchBookingBtnActionListener(ActionListener myActionListener) {
+        searchBookingBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchAllBtnBtnActionListener(ActionListener myActionListener) {
+        searchAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
     }
 
     /**
@@ -30,7 +91,8 @@ public class SearchPaymentView extends javax.swing.JFrame {
         searchBookingBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        searchPaymentTbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Payments");
@@ -47,18 +109,18 @@ public class SearchPaymentView extends javax.swing.JFrame {
 
         clearAllBtn.setText("Clear All");
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        searchPaymentTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Payment ID", "Booking ID", "Employee ID", "Payment Date", "Amount", "Method", "Status"
+            }
+        ));
+        jScrollPane1.setViewportView(searchPaymentTbl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,10 +146,10 @@ public class SearchPaymentView extends javax.swing.JFrame {
                             .addComponent(searchIdBtn)
                             .addComponent(searchBookingBtn))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,8 +169,8 @@ public class SearchPaymentView extends javax.swing.JFrame {
                     .addComponent(searchAllBtn)
                     .addComponent(clearAllBtn))
                 .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,11 +216,12 @@ public class SearchPaymentView extends javax.swing.JFrame {
     private javax.swing.JLabel bookingIdLbl;
     private javax.swing.JTextField bookingIdTxt;
     private javax.swing.JButton clearAllBtn;
-    private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel paymentIdLbl;
     private javax.swing.JTextField paymentIdTxt;
     private javax.swing.JButton searchAllBtn;
     private javax.swing.JButton searchBookingBtn;
     private javax.swing.JButton searchIdBtn;
+    private javax.swing.JTable searchPaymentTbl;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -11,6 +16,62 @@ public class AddPaymentView extends javax.swing.JFrame {
      */
     public AddPaymentView() {
         initComponents();
+        setDefaultCloseOperation(AddPaymentView.DISPOSE_ON_CLOSE);
+    }
+
+    public JTextField getAmountTxt() {
+        return amountTxt;
+    }
+
+    public void setAmountTxt(JTextField amountTxt) {
+        this.amountTxt = amountTxt;
+    }
+
+    public JTextField getBookingIdTxt() {
+        return bookingIdTxt;
+    }
+
+    public void setBookingIdTxt(JTextField bookingIdTxt) {
+        this.bookingIdTxt = bookingIdTxt;
+    }
+
+    public JTextField getDateTxt() {
+        return dateTxt;
+    }
+
+    public void setDateTxt(JTextField dateTxt) {
+        this.dateTxt = dateTxt;
+    }
+
+    public JTextField getEmpIdTxt() {
+        return empIdTxt;
+    }
+
+    public void setEmpIdTxt(JTextField empIdTxt) {
+        this.empIdTxt = empIdTxt;
+    }
+    
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+    public JButton getPayBtn() {
+        return payBtn;
+    }
+    
+    public void searchIdBtnActionListener(ActionListener myActionListener) {
+        searchIdBtn.addActionListener(myActionListener);
+    }
+    
+    public void payBtnActionListener(ActionListener myActionListener) {
+        payBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
     }
 
     /**
@@ -24,6 +85,8 @@ public class AddPaymentView extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         amountLbl = new javax.swing.JLabel();
         bookingIdLbl = new javax.swing.JLabel();
         empIdLbl = new javax.swing.JLabel();
@@ -31,14 +94,18 @@ public class AddPaymentView extends javax.swing.JFrame {
         bookingIdTxt = new javax.swing.JTextField();
         empIdTxt = new javax.swing.JTextField();
         methodLbl = new javax.swing.JLabel();
-        masterRBtn = new javax.swing.JRadioButton();
-        visaRBtn = new javax.swing.JRadioButton();
-        debitRBtn = new javax.swing.JRadioButton();
         payBtn = new javax.swing.JButton();
         dateLbl = new javax.swing.JLabel();
         dateTxt = new javax.swing.JTextField();
+        searchIdBtn = new javax.swing.JButton();
+        clearAllBtn = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Payment");
 
         amountLbl.setText("Amount:");
@@ -49,57 +116,89 @@ public class AddPaymentView extends javax.swing.JFrame {
 
         methodLbl.setText("Payment Method:");
 
-        masterRBtn.setText("MasterCard");
-
-        visaRBtn.setText("Visa");
-
-        debitRBtn.setText("Debit");
-
         payBtn.setText("Pay");
+        payBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payBtnActionPerformed(evt);
+            }
+        });
 
         dateLbl.setText("Date (YYYY-MM-DD):");
+
+        searchIdBtn.setText("Search");
+        searchIdBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchIdBtnActionPerformed(evt);
+            }
+        });
+
+        clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MasterCard", "Visa", "Debit" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(methodLbl)
+                        .addGap(66, 66, 66)
+                        .addComponent(amountLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(payBtn)
-                            .addComponent(debitRBtn)
-                            .addComponent(visaRBtn)
-                            .addComponent(masterRBtn)))
+                        .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(empIdLbl)
-                            .addComponent(bookingIdLbl)
-                            .addComponent(amountLbl)
-                            .addComponent(dateLbl))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(bookingIdLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(methodLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(payBtn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(clearAllBtn))
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(empIdLbl)
+                                    .addComponent(dateLbl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(empIdTxt)
+                                    .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dateTxt)
-                            .addComponent(empIdTxt)
-                            .addComponent(bookingIdTxt)
-                            .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addComponent(searchIdBtn)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bookingIdLbl)
+                    .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchIdBtn))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(amountLbl)
                     .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bookingIdLbl)
-                    .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(empIdLbl)
@@ -109,20 +208,34 @@ public class AddPaymentView extends javax.swing.JFrame {
                     .addComponent(dateLbl)
                     .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(methodLbl)
-                    .addComponent(masterRBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(visaRBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(debitRBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(payBtn)
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payBtn)
+                    .addComponent(clearAllBtn))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payBtnActionPerformed
+
+    private void searchIdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchIdBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchIdBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,14 +280,16 @@ public class AddPaymentView extends javax.swing.JFrame {
     private javax.swing.JTextField bookingIdTxt;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel dateLbl;
     private javax.swing.JTextField dateTxt;
-    private javax.swing.JRadioButton debitRBtn;
     private javax.swing.JLabel empIdLbl;
     private javax.swing.JTextField empIdTxt;
-    private javax.swing.JRadioButton masterRBtn;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel methodLbl;
     private javax.swing.JButton payBtn;
-    private javax.swing.JRadioButton visaRBtn;
+    private javax.swing.JButton searchIdBtn;
     // End of variables declaration//GEN-END:variables
 }
