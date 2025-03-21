@@ -19,6 +19,7 @@ public class DeleteFlightView extends javax.swing.JFrame {
      */
     public DeleteFlightView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JButton getClearAllBtn() {

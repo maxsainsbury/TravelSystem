@@ -39,9 +39,9 @@ public class AdminMainFrame extends javax.swing.JFrame {
         deleteTripMnu = new javax.swing.JMenuItem();
         flightMnu = new javax.swing.JMenu();
         searchFlightMnu = new javax.swing.JMenuItem();
-        editFlightMnu = new javax.swing.JMenuItem();
         addFlightMnu = new javax.swing.JMenuItem();
         deleteFlightMnu = new javax.swing.JMenuItem();
+        editFlightMnu = new javax.swing.JMenuItem();
         promotionsMnu = new javax.swing.JMenu();
         searchPromoMnu = new javax.swing.JMenuItem();
         editPromoMnu = new javax.swing.JMenuItem();
@@ -146,6 +146,22 @@ public class AdminMainFrame extends javax.swing.JFrame {
         });
         flightMnu.add(searchFlightMnu);
 
+        addFlightMnu.setText("Add Flight");
+        addFlightMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFlightMnuActionPerformed(evt);
+            }
+        });
+        flightMnu.add(addFlightMnu);
+
+        deleteFlightMnu.setText("Delete Flight");
+        deleteFlightMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteFlightMnuActionPerformed(evt);
+            }
+        });
+        flightMnu.add(deleteFlightMnu);
+
         editFlightMnu.setText("Edit Flight");
         editFlightMnu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,9 +191,19 @@ public class AdminMainFrame extends javax.swing.JFrame {
         promotionsMnu.setText("Promotion");
 
         searchPromoMnu.setText("Search Promotions");
+        searchPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(searchPromoMnu);
 
         editPromoMnu.setText("Edit Promotion");
+        editPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(editPromoMnu);
 
         addPromoMnu.setText("Add Promotion");
@@ -189,6 +215,11 @@ public class AdminMainFrame extends javax.swing.JFrame {
         promotionsMnu.add(addPromoMnu);
 
         deletePromoMnu.setText("Delete Promotion");
+        deletePromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(deletePromoMnu);
 
         menuBar.add(promotionsMnu);
@@ -272,7 +303,10 @@ public class AdminMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addTripMnuActionPerformed
     
     private void addPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPromoMnuActionPerformed
-        // TODO add your handling code here:
+        AddPromoView promotionView = new AddPromoView();
+        PromotionDAO promotionDao = new PromotionDAO();
+        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
+        promotionView.setVisible(true);
     }//GEN-LAST:event_addPromoMnuActionPerformed
 
     private void editFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFlightMnuActionPerformed
