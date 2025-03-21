@@ -9,17 +9,19 @@ import java.time.format.DateTimeFormatter;
  * @author Max Sainsbury
  */
 public class Trip {
-    private int customerId;
     private String origin;
     private String destination;
     private LocalDate departureDate;
     private LocalDate returnDate;
+    private String status;
     private int promotionId;
     private int tripId;
     
+    public Trip() {
+        this.tripId = 0;
+    }
     /**
      * Constructor for a Trip object for when getting information from the database
-     * @param customerId
      * @param origin
      * @param destination
      * @param departureDate
@@ -27,20 +29,19 @@ public class Trip {
      * @param promotionId
      * @param tripId 
      */
-    public Trip (int customerId, String origin, String destination, String departureDate, String returnDate, int promotionId, int tripId) {
-        this.customerId = customerId;
+    public Trip (String origin, String destination, String departureDate, String returnDate, int promotionId, String status, int tripId) {
         this.origin = origin;
         this.destination = destination;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.departureDate = LocalDate.parse(departureDate, formatter);
         this.returnDate = LocalDate.parse(returnDate, formatter);
         this.promotionId = promotionId;
+        this.status = status;
         this.tripId = tripId;
     }
     
     /**
      * Constructor for a Trip object for when making one in the GUI
-     * @param customerId
      * @param origin
      * @param destination
      * @param departureYear
@@ -50,20 +51,14 @@ public class Trip {
      * @param returnMonth
      * @param returnDay 
      */
-    public Trip(int customerId, String origin, String destination, int departureYear, int departureMonth, int departureDay, int returnYear, int returnMonth, int returnDay) {
-        this.customerId = customerId;
+    public Trip(String origin, String destination, String departureDate, String returnDate, int promotionId, String status) {
         this.origin = origin;
         this.destination = destination;
-        this.departureDate = LocalDate.of(departureYear, departureMonth, departureDay);
-        this.returnDate = LocalDate.of(returnYear, returnMonth, returnDay);
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.departureDate = LocalDate.parse(departureDate, formatter);
+        this.returnDate = LocalDate.parse(returnDate, formatter);
+        this.promotionId = promotionId;
+        this.status = status;
     }
 
     public String getOrigin() {
@@ -113,6 +108,16 @@ public class Trip {
     public void setTripId(int tripId) {
         this.tripId = tripId;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
 
     
     
