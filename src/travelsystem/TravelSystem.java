@@ -16,8 +16,10 @@ public class TravelSystem {
      */
     public static void main(String[] args) {
         //Test Employee Create, Read, Update, Delete functionality. 
-        AdminMainFrame adminMainFrame = new AdminMainFrame();
-        adminMainFrame.setVisible(true);
+        LoginDAO loginDAO = new LoginDAO();
+        LoginView loginView = new LoginView();
+        LoginController loginController = new LoginController(loginView, loginDAO);
+        loginView.setVisible(true);
     }
     
 }
