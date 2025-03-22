@@ -25,6 +25,17 @@ public class FlightController {
     private EditFlightView editFlightView;
     private SearchFlightView searchFlightView;
     private FlightDAO flightDAO;
+    private Pattern lettersOnly = Pattern.compile("^[A-z]+$");
+    private Pattern lettersAndSpaces = Pattern.compile("^[A-z ]$");
+    private Pattern numbersOnly = Pattern.compile("^[0-9]+$");
+    private Pattern pricePattern = Pattern.compile("^[0-9]+\\.?[0-9]{0,2}$");
+    private Pattern lettersAndNumbers = Pattern.compile("^[0-9A-z]+$");
+    private Pattern date = Pattern.compile(
+                        "^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)$" 
+                        + "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$"
+                        + "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$" 
+                        + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$");
+    private Pattern time = Pattern.compile("^ (2[0-3]|[01]?[0-9]):([0-5]?[0-9])$");
     
     /**
      * Constructor for controlling the addFlightView
@@ -94,8 +105,9 @@ public class FlightController {
             model.setRowCount(0);
             //get the inputed airline vlaue
             String airline = searchFlightView.getAirlineTxt().getText();
+            Matcher airlineMatch = lettersOnly.matcher(airline);
             //get all returned flight from that airline from the database
-            if(!airline.equals("")) {
+            if(airlineMatch.find()) {
                 Flight[] output = flightDAO.searchFromAirline(airline);
                 //if query returned any rows
                 if(output[0].getFlightId() > 0) {
@@ -124,7 +136,7 @@ public class FlightController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No airline inputed in text box!");
+                JOptionPane.showMessageDialog(null, "Airline must only contain letters");
             }
         }
         
@@ -138,7 +150,8 @@ public class FlightController {
             DefaultTableModel model = (DefaultTableModel)searchFlightView.getSearchTable().getModel();
             model.setRowCount(0);
             String flightId = searchFlightView.getFlightIdTxt().getText();
-            if(!flightId.equals("")) {
+            Matcher flightIdMatch = numbersOnly.matcher(flightId);
+            if(flightIdMatch.find()) {
                 Flight output = flightDAO.searchFlightFromId(flightId);
                 if(output.getFlightId() > 0) {
                     int tripId = output.getTripId();
@@ -160,7 +173,7 @@ public class FlightController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No id inputed in text box!");
+                JOptionPane.showMessageDialog(null, "Id must only contain numbers!");
             }
         }
     }
@@ -227,20 +240,27 @@ public class FlightController {
         @Override
         public void actionPerformed(ActionEvent e) {
             //get inputed vlaue
-            int flightId = Integer.parseInt(deleteFlightView.getIdTxt().getText());
-            //try to delete the row
-            boolean result = flightDAO.deleteFlightRecort(flightId);
-            //store the table in a variable
-            DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
-            //remove row from table
-            model.setRowCount(0);
-            //if row deleted
-            if (result) {
-                JOptionPane.showMessageDialog(null, "Flight record deleted successfully!");
+            String flightIdString = deleteFlightView.getIdTxt().getText();
+            Matcher flightIdMatcher = numbersOnly.matcher(flightIdString);
+            if(flightIdMatcher.find()){
+                int flightId = Integer.parseInt(deleteFlightView.getIdTxt().getText());
+                //try to delete the row
+                boolean result = flightDAO.deleteFlightRecort(flightId);
+                //store the table in a variable
+                DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
+                //remove row from table
+                model.setRowCount(0);
+                //if row deleted
+                if (result) {
+                    JOptionPane.showMessageDialog(null, "Flight record deleted successfully!");
+                }
+                //if row was not deleted
+                else {
+                    JOptionPane.showMessageDialog(null, "Flight record was not deleted!");
+                }
             }
-            //if row was not deleted
             else {
-                JOptionPane.showMessageDialog(null, "Flight record was not deleted!");
+                JOptionPane.showMessageDialog(null, "Flight id can only contain numbers");
             }
         }
     }
@@ -254,7 +274,8 @@ public class FlightController {
             DefaultTableModel model = (DefaultTableModel)deleteFlightView.getDeleteTable().getModel();
             model.setRowCount(0);
             String flightId = deleteFlightView.getIdTxt().getText();
-            if(!flightId.equals("")) {
+            Matcher flightIdMatch = numbersOnly.matcher(flightId);
+            if(flightIdMatch.find()) {
                 Flight output = flightDAO.searchFlightFromId(flightId);
                 if(output.getFlightId() > 0) {
                     int tripId = output.getTripId();
@@ -276,7 +297,7 @@ public class FlightController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No id inputed in text box!");
+                JOptionPane.showMessageDialog(null, "Flight id can only contain numbers");
             }
         }
     }
@@ -296,7 +317,8 @@ public class FlightController {
             editFlightView.getTripIdTxt().setText("");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String flightId = editFlightView.getFlighIdTxt().getText();
-            if(flightId.equals("")) {
+            Matcher flightIdMatch = numbersOnly.matcher(flightId);
+            if(flightIdMatch.find()) {
                 Flight output = flightDAO.searchFlightFromId(flightId);
                 System.out.println(output.getFlightId());
                 if(output.getFlightId() > 0) {
@@ -314,7 +336,7 @@ public class FlightController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No id entered in text box!");
+                JOptionPane.showMessageDialog(null, "Flight id can only contain numbers");
             }
         }
     }
@@ -324,15 +346,66 @@ public class FlightController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            
+            String flightIdString = editFlightView.getFlighIdTxt().getText();
+            Matcher flightIdMatch = numbersOnly.matcher(flightIdString);
+            if(!flightIdMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Flight id can only contain numbers");
+                return;
+            }
             int flightId = Integer.parseInt(editFlightView.getFlighIdTxt().getText());
             String airline = editFlightView.getAirlineTxt().getText();
+            Matcher airlineMatch = lettersOnly.matcher(airline);
+            if(!airlineMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Airline can only contain letters!");
+                return;
+            }
             String flightNumber = editFlightView.getFlightNumTxt().getText();
+            Matcher flightNumMatch = lettersAndNumbers.matcher(flightNumber);
+            if(!flightNumMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Flight number can only contain letters and numbers!");
+                return;
+            }
             String departureTime = editFlightView.getDepartureTxt().getText();
+            Matcher dateMatcher = date.matcher(departureTime.substring(0, 10));
+            Matcher timeMatcher= time.matcher(departureTime.substring(10));
+            if(!dateMatcher.find() | !timeMatcher.find()) {
+                JOptionPane.showMessageDialog(null, "Departure date formated incorrectly!");
+                return;
+            }
             String arrivalTime = editFlightView.getArrivalTxt().getText();
-            double price = Double.parseDouble(editFlightView.getPriceTxt().getText());
+            dateMatcher = date.matcher(arrivalTime.substring(0, 10));
+            timeMatcher = time.matcher(arrivalTime.substring(10));
+            if(!dateMatcher.find() | !timeMatcher.find()) {
+                JOptionPane.showMessageDialog(null, "Arrival dat formated incorrectly!");
+                return;
+            }
+            String priceString = editFlightView.getPriceTxt().getText();
+            Matcher priceMatch = pricePattern.matcher(priceString);
+            if(!priceMatch.find()) {
+                JOptionPane.showMessageDialog(null, "pirce is formated incorrectly!");
+                return;
+            }
+            double price = Double.parseDouble(priceString);
             String seatClass = editFlightView.getSeatTxt().getText();
+            Matcher seatMatch = lettersOnly.matcher(seatClass);
+            if(!seatMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Seat class can only contain letters!");
+                return;
+            }
             String status = editFlightView.getStatusTxt().getText();
-            int tripId = Integer.parseInt(editFlightView.getTripIdTxt().getText());
+            Matcher statusMatch = lettersAndSpaces.matcher(status);
+            if(!statusMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Status can only contain letters and spaces!");
+                return;
+            }
+            String tripIdString = editFlightView.getTripIdTxt().getText();
+            Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+            if(!tripIdMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Trip id can only contain numbers!");
+                return;
+            }
+            int tripId = Integer.parseInt(tripIdString);
             try {
                 Flight flight = new Flight(airline, flightNumber, departureTime, arrivalTime, price, seatClass, status, tripId, flightId);
 
@@ -374,13 +447,58 @@ public class FlightController {
         public void actionPerformed(ActionEvent e) {
             try{
                 String airline = addFlightView.getAirlineTxt().getText();
+                Matcher airlineMatch = lettersOnly.matcher(airline);
+                if(!airlineMatch.find()) {
+                    JOptionPane.showMessageDialog(null, "Airline can only contain letters!");
+                    return;
+                }
                 String flightNumber = addFlightView.getFlightNumTxt().getText();
+                Matcher flightNumMatch = lettersAndNumbers.matcher(flightNumber);
+                if(!flightNumMatch.find()) {
+                    JOptionPane.showMessageDialog(null, "Flight number can only contain letters and numbers!");
+                    return;
+                }
                 String departureTime = addFlightView.getDepartureTxt().getText();
+                System.out.println(departureTime.substring(0, 10));
+                Matcher dateMatcher = date.matcher(departureTime.substring(0, 10));
+                Matcher timeMatcher= time.matcher(departureTime.substring(10));
+                if(!dateMatcher.find() | !timeMatcher.find()) {
+                    JOptionPane.showMessageDialog(null, "Departure date formated incorrectly!");
+                    return;
+                }
                 String arrivalTime = addFlightView.getArrivalTxt().getText();
-                double price = Double.parseDouble(addFlightView.getPriceTxt().getText());
+                dateMatcher = date.matcher(arrivalTime.substring(0, 10));
+                timeMatcher = time.matcher(arrivalTime.substring(10));
+                if(!dateMatcher.find() | !timeMatcher.find()) {
+                    JOptionPane.showMessageDialog(null, "Arrival date formated incorrectly!");
+                    return;
+                }
+                String priceString = addFlightView.getPriceTxt().getText();
+                Matcher priceMatch = pricePattern.matcher(priceString); 
+                if(!priceMatch.find()) {
+                    JOptionPane.showMessageDialog(null, "pirce is formated incorrectly!");
+                    return;
+                }
+                double price = Double.parseDouble(priceString);
                 String seatClass = addFlightView.getSeatTxt().getText();
+                Matcher seatMatch = lettersOnly.matcher(seatClass);
+                if(!seatMatch.find()) {
+                    JOptionPane.showMessageDialog(null, "Seat class can only contain letters!");
+                    return;
+                }
                 String status = addFlightView.getStatusTxt().getText();
-                int tripId = Integer.parseInt(addFlightView.getTripIdTxt().getText());
+                Matcher statusMatch = lettersAndSpaces.matcher(status);
+                if(!statusMatch.find()) {
+                    JOptionPane.showMessageDialog(null, "Status can only contain letters and Spaces!");
+                    return;
+                }
+                String tripIdString = addFlightView.getTripIdTxt().getText();
+                Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+                if(!tripIdMatch.find()) {
+                    JOptionPane.showMessageDialog(null, "Trip id can only contain numbers!");
+                    return;
+                }
+                int tripId = Integer.parseInt(tripIdString);
                 try {
                     Flight flight = new Flight(airline, flightNumber, departureTime, arrivalTime, price, seatClass, status, tripId);
                     boolean result = flightDAO.addFlightRecord(flight);
