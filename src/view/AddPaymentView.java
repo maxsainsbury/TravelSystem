@@ -2,7 +2,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -50,20 +50,17 @@ public class AddPaymentView extends javax.swing.JFrame {
     public void setEmpIdTxt(JTextField empIdTxt) {
         this.empIdTxt = empIdTxt;
     }
+
+    public JComboBox<String> getMethodCmbo() {
+        return methodCmbo;
+    }
     
     public JButton getClearAllBtn() {
         return clearAllBtn;
     }
 
-    public JButton getSearchIdBtn() {
-        return searchIdBtn;
-    }
     public JButton getPayBtn() {
         return payBtn;
-    }
-    
-    public void searchIdBtnActionListener(ActionListener myActionListener) {
-        searchIdBtn.addActionListener(myActionListener);
     }
     
     public void payBtnActionListener(ActionListener myActionListener) {
@@ -97,9 +94,8 @@ public class AddPaymentView extends javax.swing.JFrame {
         payBtn = new javax.swing.JButton();
         dateLbl = new javax.swing.JLabel();
         dateTxt = new javax.swing.JTextField();
-        searchIdBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        methodCmbo = new javax.swing.JComboBox<>();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -125,13 +121,6 @@ public class AddPaymentView extends javax.swing.JFrame {
 
         dateLbl.setText("Date (YYYY-MM-DD):");
 
-        searchIdBtn.setText("Search");
-        searchIdBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchIdBtnActionPerformed(evt);
-            }
-        });
-
         clearAllBtn.setText("Clear All");
         clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,10 +128,10 @@ public class AddPaymentView extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MasterCard", "Visa", "Debit" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        methodCmbo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MasterCard", "Visa", "Debit" }));
+        methodCmbo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                methodCmboActionPerformed(evt);
             }
         });
 
@@ -154,48 +143,44 @@ public class AddPaymentView extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(amountLbl)
+                        .addGap(20, 20, 20)
+                        .addComponent(methodLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(bookingIdLbl)
+                                .addComponent(payBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(methodLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(payBtn)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(clearAllBtn))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(empIdLbl)
-                                    .addComponent(dateLbl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(empIdTxt)
-                                    .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(clearAllBtn))
+                            .addComponent(methodCmbo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(empIdLbl)
+                            .addComponent(dateLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchIdBtn)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(empIdTxt)
+                            .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(bookingIdLbl)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(bookingIdTxt))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(66, 66, 66)
+                            .addComponent(amountLbl)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bookingIdLbl)
                     .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchIdBtn))
-                .addGap(18, 18, 18)
+                    .addComponent(bookingIdLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(amountLbl)
                     .addComponent(amountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,12 +195,12 @@ public class AddPaymentView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(methodLbl)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(methodCmbo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payBtn)
                     .addComponent(clearAllBtn))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,17 +210,13 @@ public class AddPaymentView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_payBtnActionPerformed
 
-    private void searchIdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchIdBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchIdBtnActionPerformed
-
     private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clearAllBtnActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void methodCmboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_methodCmboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_methodCmboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,11 +266,10 @@ public class AddPaymentView extends javax.swing.JFrame {
     private javax.swing.JTextField dateTxt;
     private javax.swing.JLabel empIdLbl;
     private javax.swing.JTextField empIdTxt;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox<String> methodCmbo;
     private javax.swing.JLabel methodLbl;
     private javax.swing.JButton payBtn;
-    private javax.swing.JButton searchIdBtn;
     // End of variables declaration//GEN-END:variables
 }

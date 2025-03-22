@@ -64,15 +64,15 @@ public class Payment {
      * @param bookingId
      * @param employeeId
      * @param amount
-     * @param paymentMethod
-     * @param status 
+     * @param paymentMethod 
+     * @param paymentDate
      */
-   public Payment(int bookingId, int employeeId, double amount, String paymentMethod, String status, String paymentDate) {
+   public Payment(int bookingId, int employeeId, double amount, String paymentMethod, String paymentDate) {
         this.bookingId = bookingId;
         this.employeeId = employeeId;
         this.amount = amount;
         this.paymentMethod = paymentMethod;
-        this.status = status;
+        this.status = "Paid";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.paymentDate = LocalDate.parse(paymentDate, formatter);
     }
