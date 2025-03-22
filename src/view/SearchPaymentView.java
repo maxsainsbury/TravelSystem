@@ -16,7 +16,7 @@ public class SearchPaymentView extends javax.swing.JFrame {
      */
     public SearchPaymentView() {
         initComponents();
-        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(SearchPaymentView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getBookingIdTxt() {
@@ -95,7 +95,7 @@ public class SearchPaymentView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         searchPaymentTbl = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search Payments");
 
         paymentIdLbl.setText("Payment ID:");

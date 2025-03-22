@@ -54,7 +54,7 @@ public class PaymentController {
             addPaymentView.getEmpIdTxt().setText("");
             addPaymentView.getDateTxt().setText("");
             addPaymentView.getBookingIdTxt().setText("");
-            addPaymentView.getAmountTxt.setText("");
+            addPaymentView.getAmountTxt().setText("");
         }
     }
     
@@ -75,8 +75,8 @@ public class PaymentController {
         public void actionPerformed(ActionEvent e) {
             int bookId = Integer.parseInt(addPaymentView.getBookingIdTxt().getText());
             int empId = Integer.parseInt(addPaymentView.getEmpIdTxt().getText());
-            double payAmount = Double.parseDouble(addPaymentView.getAmountTxt.getText());
-            String payMethod = (String) addPaymentView.getMethodCmbo.getSelectedItem();
+            double payAmount = Double.parseDouble(addPaymentView.getAmountTxt().getText());
+            String payMethod = (String) addPaymentView.getMethodCmbo().getSelectedItem();
             String payDate = addPaymentView.getDateTxt().getText();
             
             boolean result;
