@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Flight;
@@ -24,6 +25,9 @@ public class FlightController {
     private EditFlightView editFlightView;
     private SearchFlightView searchFlightView;
     private FlightDAO flightDAO;
+    private Pattern lettersOnly = Pattern.compile("[A-z]+");
+    private Pattern numbersOnly = Pattern.compile("[0-9]+");
+    private Pattern date = Pattern.compile("[0-9]{4}-[0-1][0-9]-");
     
     /**
      * Constructor for controlling the addFlightView
