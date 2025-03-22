@@ -66,7 +66,6 @@ public class SearchPromoView extends javax.swing.JFrame {
     public void searchMonthBtnActionListener(ActionListener myActionListener) {
         searchMonthBtn.addActionListener(myActionListener);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -248,7 +247,46 @@ public class SearchPromoView extends javax.swing.JFrame {
         });
     }
     
-    
+    public void searchNameActionListener (ActionListener myActionListener) {
+        searchNameBtn.addActionListener(myActionListener);
+    }
+
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public void setPromoNameTxt(JTextField promoNameTxt) {
+        this.promoNameTxt = promoNameTxt;
+    }
+
+    public void setSearchAllBtn(JButton searchAllBtn) {
+        this.searchAllBtn = searchAllBtn;
+    }
+
+    public void setSearchMonthBtn(JButton searchMonthBtn) {
+        this.searchMonthBtn = searchMonthBtn;
+    }
+
+    public JButton getSearchNameBtn() {
+        return searchNameBtn;
+    }
+
+    public void setSearchNameBtn(JButton searchNameBtn) {
+        this.searchNameBtn = searchNameBtn;
+    }
+
+    public JTable getSearchPromoTbl() {
+        return searchPromoTbl;
+    }
+
+    public void setSearchPromoTbl(JTable searchPromoTbl) {
+        this.searchPromoTbl = searchPromoTbl;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;

@@ -208,6 +208,22 @@ public class DeletePromoView extends javax.swing.JFrame {
             }
         });
     }
+
+    public void setDeleteBtn(JButton deleteBtn) {
+        this.deleteBtn = deleteBtn;
+    }
+
+    public JTable getDeletePromoTbl() {
+        return deletePromoTbl;
+    }
+
+    public void setDeletePromoTbl(JTable deletePromoTbl) {
+        this.deletePromoTbl = deletePromoTbl;
+    }
+
+    public void setSearchBtn(JButton searchBtn) {
+        this.searchBtn = searchBtn;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
@@ -219,3 +235,4 @@ public class DeletePromoView extends javax.swing.JFrame {
     private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
 }
+
