@@ -213,10 +213,6 @@ public class DeletePromoView extends javax.swing.JFrame {
         this.deleteBtn = deleteBtn;
     }
 
-    public JTable getDeletePromoTbl() {
-        return deletePromoTbl;
-    }
-
     public void setDeletePromoTbl(JTable deletePromoTbl) {
         this.deletePromoTbl = deletePromoTbl;
     }

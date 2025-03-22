@@ -115,11 +115,17 @@ public class CustomerMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchPromoMnuActionPerformed
 
     private void searchBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBookingMnuActionPerformed
-        // TODO add your handling code here:
+        SearchBookingView searchBookingView = new SearchBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, searchBookingView);
+        searchBookingView.setVisible(true);
     }//GEN-LAST:event_searchBookingMnuActionPerformed
 
     private void addBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookingMnuActionPerformed
-        // TODO add your handling code here:
+        AddBookingView addBookingView = new AddBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, addBookingView);
+        addBookingView.setVisible(true);
     }//GEN-LAST:event_addBookingMnuActionPerformed
 
     /**
