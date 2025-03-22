@@ -45,8 +45,8 @@ public class Booking {
      * @param day
      * @param employeeId 
      */
-    public Booking(int customerId, int tripId, double totalPrice, int year, int month, int day, int employeeId){
-        this(customerId, tripId, totalPrice, year, month, day);
+    public Booking(int customerId, int tripId, double totalPrice, String bookingDate, int employeeId){
+        this(customerId, tripId, totalPrice, bookingDate);
         this.employeeId = employeeId;
     }
     
@@ -55,15 +55,16 @@ public class Booking {
      * @param customerId
      * @param tripId
      * @param totalPrice
-     * @param year
-     * @param month
-     * @param day 
+     * @param bookingDate
+
      */
-    public Booking(int customerId, int tripId, double totalPrice, int year, int month, int day) {
+    public Booking(int customerId, int tripId, double totalPrice, String bookingDate) {
         this.customerId = customerId;
         this.tripId = tripId;
         this.totalPrice = totalPrice;
-        this.bookingDate = LocalDate.of(year, month, day);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //turn the value from the database into a LocalDate object
+        this.bookingDate = LocalDate.parse(bookingDate);
         
     }
 

@@ -26,7 +26,7 @@ public class SearchPromoView extends javax.swing.JFrame {
     public void setMonthTxt(JTextField monthTxt) {
         this.monthTxt = monthTxt;
     }
-    
+
     public JButton getClearAllBtn() {
         return clearAllBtn;
     }
@@ -34,7 +34,7 @@ public class SearchPromoView extends javax.swing.JFrame {
     public JButton getSearchAllBtn() {
         return searchAllBtn;
     }
-    
+
     public JButton getSearchMonthBtn() {
         return searchMonthBtn;
     }
@@ -230,11 +230,11 @@ public class SearchPromoView extends javax.swing.JFrame {
             }
         });
     }
-
     
     public void searchNameActionListener (ActionListener myActionListener) {
         searchNameBtn.addActionListener(myActionListener);
     }
+
 
     public void setClearAllBtn(JButton clearAllBtn) {
         this.clearAllBtn = clearAllBtn;

@@ -95,56 +95,61 @@ public class EmployeeController {
      * using employeeDao.
      */
     private class AddEmployee implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {      
-            String empFName = addEmployeeView.getFnameTxt().getText();
-            String empLName = addEmployeeView.getLnameTxt().getText();
-            String empDob = addEmployeeView.getDobTxt().getText();
-            String empEmail = addEmployeeView.getEmailTxt().getText();
-            int empSin = Integer.parseInt(addEmployeeView.getSinTxt().getText());
-            String empStatus = addEmployeeView.getStatusTxt().getText();
-            String empPhone = addEmployeeView.getPhoneTxt().getText();
-            String empCell = addEmployeeView.getCellTxt().getText();
-            String empUnit = addEmployeeView.getUnitTxt().getText();
-            String empStreetAdress = addEmployeeView.getStreetTxt().getText();
-            String empCity = addEmployeeView.getCityTxt().getText();
-            String empPostalCode = addEmployeeView.getPostalTxt().getText();
-            String empCountry = addEmployeeView.getCountryTxt().getText();
-            String empPosition = addEmployeeView.getPositionTxt().getText();
-            float empSalary = Float.parseFloat(addEmployeeView.getSalaryTxt().getText());
-            String empRole = addEmployeeView.getRoleTxt().getText();
-            String empUserName = addEmployeeView.getUserNameTxt().getText();
-            String empPassword = addEmployeeView.getPasswordTxt().getText();
-            int empCreatedBy = Integer.parseInt(addEmployeeView.getCreatedByTxt().getText());
-            
-            // Create new instance of Employee to send data to database. 
-            Employee newEmployee = new Employee(empFName, empLName, empEmail, empSin, empPhone, 
-                    empUnit, empStreetAdress, empCity, empCountry, empPostalCode, empDob, empStatus, 
-                    empCell, empPosition, empSalary, empRole, empUserName, empPassword, empCreatedBy);   
-            
-            // Set the user attribute of the userDao to the new employee.
-            userDao.setUser(newEmployee);
+            try {
+                String empFName = addEmployeeView.getFnameTxt().getText();
+                String empLName = addEmployeeView.getLnameTxt().getText();
+                String empDob = addEmployeeView.getDobTxt().getText();
+                String empEmail = addEmployeeView.getEmailTxt().getText();
+                int empSin = Integer.parseInt(addEmployeeView.getSinTxt().getText());
+                String empStatus = addEmployeeView.getStatusTxt().getText();
+                String empPhone = addEmployeeView.getPhoneTxt().getText();
+                String empCell = addEmployeeView.getCellTxt().getText();
+                String empUnit = addEmployeeView.getUnitTxt().getText();
+                String empStreetAdress = addEmployeeView.getStreetTxt().getText();
+                String empCity = addEmployeeView.getCityTxt().getText();
+                String empPostalCode = addEmployeeView.getPostalTxt().getText();
+                String empCountry = addEmployeeView.getCountryTxt().getText();
+                String empPosition = addEmployeeView.getPositionTxt().getText();
+                float empSalary = Float.parseFloat(addEmployeeView.getSalaryTxt().getText());
+                String empRole = addEmployeeView.getRoleTxt().getText();
+                String empUserName = addEmployeeView.getUserNameTxt().getText();
+                String empPassword = addEmployeeView.getPasswordTxt().getText();
+                int empCreatedBy = Integer.parseInt(addEmployeeView.getCreatedByTxt().getText());
 
-            // Inserting new user in database
-            // newEmployee is automatically casted with User when passed into userDao
-            boolean result = userDao.addUserRecord(newEmployee);
-            
-            // If failed to add data to database
-            if(!result) {
-                JOptionPane.showMessageDialog(null, "Was not able to add a new user.");
-                // Leave if statement to continue
-                return;
-            } 
-            
-            JOptionPane.showMessageDialog(null, "Successfully added a new user.");
-            // setting the newEmployee's userId to the newly created userId when new user was inserted.
-            newEmployee.setUserId(userDao.getUser().getUserId());
-            // Insert new employee in database
-            result = employeeDao.addEmployee(newEmployee);
-            if(result) {
-                JOptionPane.showMessageDialog(null, "Successfully added a new employee");
-            } else {
-                JOptionPane.showMessageDialog(null, "Was not able to add a new employee.");
+                // Create new instance of Employee to send data to database. 
+                Employee newEmployee = new Employee(empFName, empLName, empEmail, empSin, empPhone, 
+                        empUnit, empStreetAdress, empCity, empCountry, empPostalCode, empDob, empStatus, 
+                        empCell, empPosition, empSalary, empRole, empUserName, empPassword, empCreatedBy);   
+
+                // Set the user attribute of the userDao to the new employee.
+                userDao.setUser(newEmployee);
+
+                // Inserting new user in database
+                // newEmployee is automatically casted with User when passed into userDao
+                boolean result = userDao.addUserRecord(newEmployee);
+
+                // If failed to add data to database
+                if(!result) {
+                    JOptionPane.showMessageDialog(null, "Was not able to add a new user.");
+                    // Leave if statement to continue
+                    return;
+                } 
+
+                JOptionPane.showMessageDialog(null, "Successfully added a new user.");
+                // setting the newEmployee's userId to the newly created userId when new user was inserted.
+                newEmployee.setUserId(userDao.getUser().getUserId());
+                // Insert new employee in database
+                result = employeeDao.addEmployee(newEmployee);
+                if(result) {
+                    JOptionPane.showMessageDialog(null, "Successfully added a new employee");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Was not able to add a new employee.");
+                }
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input. Please double check your input.");
             }
         }
     }
@@ -181,11 +186,11 @@ public class EmployeeController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int employeeId = Integer.parseInt(deleteEmployeeView.getEmpIdTxt().getText());
             DefaultTableModel model = (DefaultTableModel)deleteEmployeeView.getTblEmployee().getModel();
             model.setRowCount(0);
             
             try{
+                int employeeId = Integer.parseInt(deleteEmployeeView.getEmpIdTxt().getText());
                 if(employeeId != 0) {                    
                     Employee employee = employeeDao.fetchEmployeeForDelTable(employeeId);
                     Object[] row = {
@@ -206,18 +211,22 @@ public class EmployeeController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int employeeId = Integer.parseInt(deleteEmployeeView.getEmpIdTxt().getText());
-            DefaultTableModel model = (DefaultTableModel)deleteEmployeeView.getTblEmployee().getModel();
+            try{
+                int employeeId = Integer.parseInt(deleteEmployeeView.getEmpIdTxt().getText());
+                DefaultTableModel model = (DefaultTableModel)deleteEmployeeView.getTblEmployee().getModel();
 
-            if(employeeId != 0) {
-                boolean result = employeeDao.deleteEmployee(employeeId);
-                
-                if(result) {
-                    JOptionPane.showMessageDialog(null, "Successfully deleted the employee");
-                    model.setRowCount(0);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Was not able to delete employee.");
+                if(employeeId != 0) {
+                    boolean result = employeeDao.deleteEmployee(employeeId);
+
+                    if(result) {
+                        JOptionPane.showMessageDialog(null, "Successfully deleted the employee");
+                        model.setRowCount(0);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Was not able to delete employee.");
+                    }
                 }
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input. Please double check your input.");
             }
         }
     }
@@ -237,11 +246,12 @@ public class EmployeeController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int employeeId = Integer.parseInt(searchEmployeeView.getEmpIdTxt().getText());
-            DefaultTableModel model = (DefaultTableModel)searchEmployeeView.getTblSearchEmployees().getModel();
-            model.setRowCount(0);
-            
             try{
+                int employeeId = Integer.parseInt(searchEmployeeView.getEmpIdTxt().getText());
+                DefaultTableModel model = (DefaultTableModel)searchEmployeeView.getTblSearchEmployees().getModel();
+                model.setRowCount(0);
+            
+            
                 if(employeeId != 0) {                    
                     Employee employee = employeeDao.fetchEmployeeById(employeeId);
                     Object[] row = {
@@ -291,23 +301,23 @@ public class EmployeeController {
                 ArrayList<Employee> employees = employeeDao.fetchEmployeeByPosition(employeePosition);
                 if(employees.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "No employees with that position.");
-                }
 
-                for (Employee employee: employees) {
-                    Object[] row = {
-                        employee.getEmployeeId(),
-                        employee.getFirstName() + " " + employee.getLastName(),
-                        employee.getRole(),
-                        employee.getPosition(),
-                        employee.getEmail(),
-                        employee.getCell(),
-                        employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
-                        employee.getPostalCode(),
-                        employee.getCreatedBy()                        
-                    };                 
-                    model.addRow(row);
-                }       
-            }            
+                    for (Employee employee: employees) {
+                        Object[] row = {
+                            employee.getEmployeeId(),
+                            employee.getFirstName() + " " + employee.getLastName(),
+                            employee.getRole(),
+                            employee.getPosition(),
+                            employee.getEmail(),
+                            employee.getCell(),
+                            employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                            employee.getPostalCode(),
+                            employee.getCreatedBy()                        
+                        };                 
+                        model.addRow(row);
+                    }   
+                }
+            }  
         }
     }
     
@@ -345,9 +355,10 @@ public class EmployeeController {
     private class SearchById implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-            int employeeId = Integer.parseInt(editEmployeeView.getEmpIdTxt().getText());       
+        public void actionPerformed(ActionEvent e) {     
             try{
+                int employeeId = Integer.parseInt(editEmployeeView.getEmpIdTxt().getText());
+
                 if(employeeId != 0) {                    
                     Employee employee = employeeDao.fetchEmployeeById(employeeId);
                     // Temporarly hold this employee to be used in employee edit.
@@ -368,9 +379,6 @@ public class EmployeeController {
                     editEmployeeView.getPositionTxt().setText(employee.getPosition());
                     editEmployeeView.getSalaryTxt().setText(Double.toString(employee.getSalary()));
                     editEmployeeView.getRoleTxt().setText(employee.getRole());
-                } else {
-                    throw new Exception();
-
                 }
             } catch(Exception ex) {
                 JOptionPane.showMessageDialog(null, "Employee Id does not exist.");
@@ -410,33 +418,35 @@ public class EmployeeController {
 
         @Override
         public void actionPerformed(ActionEvent e) {  
-            System.out.println(tempEmployee.getFirstName());
+            try{
+                if(tempEmployee != null) {                                
+                    tempEmployee.setFirstName(editEmployeeView.getFnameTxt().getText());
+                    tempEmployee.setLastName(editEmployeeView.getLnameTxt().getText());
+                    tempEmployee.setDob(LocalDate.parse(editEmployeeView.getDobTxt().getText()));
+                    tempEmployee.setEmail(editEmployeeView.getEmailTxt().getText());
+                    tempEmployee.setSIN(Integer.parseInt(editEmployeeView.getSinTxt().getText()));
+                    tempEmployee.setStatus(editEmployeeView.getStatusTxt().getText());
+                    tempEmployee.setPhone(editEmployeeView.getPhoneTxt().getText());
+                    tempEmployee.setCell(editEmployeeView.getCellTxt().getText());
+                    tempEmployee.setUnitNumber(editEmployeeView.getUnitTxt().getText());
+                    tempEmployee.setStreetAddress(editEmployeeView.getStreetTxt().getText());
+                    tempEmployee.setCity(editEmployeeView.getCityTxt().getText());
+                    tempEmployee.setPostalCode(editEmployeeView.getPostalTxt().getText());
+                    tempEmployee.setCountry(editEmployeeView.getCountryTxt().getText());
+                    tempEmployee.setPosition(editEmployeeView.getPositionTxt().getText());
+                    tempEmployee.setSalary(Double.parseDouble(editEmployeeView.getSalaryTxt().getText()));
+                    tempEmployee.setRole(editEmployeeView.getRoleTxt().getText());
 
-            if(tempEmployee != null) {                                
-                tempEmployee.setFirstName(editEmployeeView.getFnameTxt().getText());
-                tempEmployee.setLastName(editEmployeeView.getLnameTxt().getText());
-                tempEmployee.setDob(LocalDate.parse(editEmployeeView.getDobTxt().getText()));
-                tempEmployee.setEmail(editEmployeeView.getEmailTxt().getText());
-                tempEmployee.setSIN(Integer.parseInt(editEmployeeView.getSinTxt().getText()));
-                tempEmployee.setStatus(editEmployeeView.getStatusTxt().getText());
-                tempEmployee.setPhone(editEmployeeView.getPhoneTxt().getText());
-                tempEmployee.setCell(editEmployeeView.getCellTxt().getText());
-                tempEmployee.setUnitNumber(editEmployeeView.getUnitTxt().getText());
-                tempEmployee.setStreetAddress(editEmployeeView.getStreetTxt().getText());
-                tempEmployee.setCity(editEmployeeView.getCityTxt().getText());
-                tempEmployee.setPostalCode(editEmployeeView.getPostalTxt().getText());
-                tempEmployee.setCountry(editEmployeeView.getCountryTxt().getText());
-                tempEmployee.setPosition(editEmployeeView.getPositionTxt().getText());
-                tempEmployee.setSalary(Double.parseDouble(editEmployeeView.getSalaryTxt().getText()));
-                tempEmployee.setRole(editEmployeeView.getRoleTxt().getText());
-                
-                boolean result = employeeDao.editEmployee(tempEmployee);
-                if(result) {
-                    JOptionPane.showMessageDialog(null, "Successfully edited employee Id:  " + tempEmployee.getEmployeeId() + ".");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Was not able to edit employee.");
-                }
-            }            
+                    boolean result = employeeDao.editEmployee(tempEmployee);
+                    if(result) {
+                        JOptionPane.showMessageDialog(null, "Successfully edited employee Id:  " + tempEmployee.getEmployeeId() + ".");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Was not able to edit employee.");
+                    }
+                }     
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input. Please double check your input.");
+            }
         }
     }
 }

@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -31,7 +36,8 @@ public class SearchBookingView extends javax.swing.JFrame {
         searchCustomerBtn = new javax.swing.JButton();
         searchAllBtn = new javax.swing.JButton();
         clearAllBtn = new javax.swing.JButton();
-        infoPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bookingTbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Bookings");
@@ -41,81 +47,182 @@ public class SearchBookingView extends javax.swing.JFrame {
         customerIdLbl.setText("Customer ID:");
 
         searchIdBtn.setText("Search");
+        searchIdBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchIdBtnActionPerformed(evt);
+            }
+        });
 
         searchCustomerBtn.setText("Search");
+        searchCustomerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustomerBtnActionPerformed(evt);
+            }
+        });
 
         searchAllBtn.setText("Search All");
+        searchAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchAllBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
-        infoPanel.setBackground(new java.awt.Color(255, 255, 255));
+        bookingTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+            },
+            new String [] {
+                "Booking ID", "Employee ID", "Customer ID", "Trip ID", "Origin", "Destination", "Booking Date", "Promotion ID", "Total Price"
+            }
+        ));
+        jScrollPane1.setViewportView(bookingTbl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(customerIdLbl)
-                            .addComponent(bookingIdLbl))
+                            .addComponent(bookingIdLbl)
+                            .addComponent(searchAllBtn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchAllBtn)
+                                .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clearAllBtn))
+                                .addComponent(searchIdBtn))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(bookingIdTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                    .addComponent(customerIdTxt))
+                                .addComponent(customerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(searchIdBtn)
-                                    .addComponent(searchCustomerBtn)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                                .addComponent(searchCustomerBtn))
+                            .addComponent(clearAllBtn))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookingIdLbl)
                     .addComponent(bookingIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchIdBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerIdLbl)
                     .addComponent(customerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchCustomerBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchAllBtn)
                     .addComponent(clearAllBtn))
-                .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchIdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchIdBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchIdBtnActionPerformed
+
+    private void searchCustomerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCustomerBtnActionPerformed
+
+    private void searchAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchAllBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    public JTextField getBookingIdTxt() {
+        return bookingIdTxt;
+    }
+
+    public void setBookingIdTxt(JTextField bookingIdTxt) {
+        this.bookingIdTxt = bookingIdTxt;
+    }
+
+    public JTable getBookingTbl() {
+        return bookingTbl;
+    }
+
+    public void setBookingTbl(JTable bookingTbl) {
+        this.bookingTbl = bookingTbl;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getCustomerIdTxt() {
+        return customerIdTxt;
+    }
+
+    public void setCustomerIdTxt(JTextField customerIdTxt) {
+        this.customerIdTxt = customerIdTxt;
+    }
+
+    public JButton getSearchAllBtn() {
+        return searchAllBtn;
+    }
+
+    public void setSearchAllBtn(JButton searchAllBtn) {
+        this.searchAllBtn = searchAllBtn;
+    }
+
+    public JButton getSearchCustomerBtn() {
+        return searchCustomerBtn;
+    }
+
+    public void setSearchCustomerBtn(JButton searchCustomerBtn) {
+        this.searchCustomerBtn = searchCustomerBtn;
+    }
+
+    public JButton getSearchIdBtn() {
+        return searchIdBtn;
+    }
+
+    public void setSearchIdBtn(JButton searchIdBtn) {
+        this.searchIdBtn = searchIdBtn;
+    }
+    
+    public void searchIdBtnActionListener(ActionListener myActionListener) {
+        searchIdBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchAllBtnActionListener(ActionListener myActionListener) {
+        searchAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void searchCustomerBtnActionListener(ActionListener myActionListener) {
+        searchCustomerBtn.addActionListener(myActionListener);
+    }
     /**
      * @param args the command line arguments
      */
@@ -154,10 +261,11 @@ public class SearchBookingView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bookingIdLbl;
     private javax.swing.JTextField bookingIdTxt;
+    private javax.swing.JTable bookingTbl;
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel customerIdLbl;
     private javax.swing.JTextField customerIdTxt;
-    private javax.swing.JPanel infoPanel;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton searchAllBtn;
     private javax.swing.JButton searchCustomerBtn;
     private javax.swing.JButton searchIdBtn;

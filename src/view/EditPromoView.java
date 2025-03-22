@@ -294,18 +294,6 @@ public class EditPromoView extends javax.swing.JFrame {
         });
     }
 
-    public void setClearAllBtn(JButton clearAllBtn) {
-        this.clearAllBtn = clearAllBtn;
-    }
-
-    public void setEditBtn(JButton editBtn) {
-        this.editBtn = editBtn;
-    }
-
-    public void setSearchBtn(JButton searchBtn) {
-        this.searchBtn = searchBtn;
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearAllBtn;
     private javax.swing.JLabel descLbl;
