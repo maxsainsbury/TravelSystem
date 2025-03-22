@@ -419,8 +419,6 @@ public class EmployeeController {
         @Override
         public void actionPerformed(ActionEvent e) {  
             try{
-                System.out.println(tempEmployee.getFirstName());
-
                 if(tempEmployee != null) {                                
                     tempEmployee.setFirstName(editEmployeeView.getFnameTxt().getText());
                     tempEmployee.setLastName(editEmployeeView.getLnameTxt().getText());
