@@ -262,7 +262,10 @@ public class EmployeeController {
                         employee.getEmail(),
                         employee.getCell(),
                         employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                        employee.getCountry(),
                         employee.getPostalCode(),
+                        employee.getStatus(),
+                        employee.getSIN(),
                         employee.getCreatedBy()
                         
                     };
@@ -304,15 +307,18 @@ public class EmployeeController {
 
                     for (Employee employee: employees) {
                         Object[] row = {
-                            employee.getEmployeeId(),
-                            employee.getFirstName() + " " + employee.getLastName(),
-                            employee.getRole(),
-                            employee.getPosition(),
-                            employee.getEmail(),
-                            employee.getCell(),
-                            employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
-                            employee.getPostalCode(),
-                            employee.getCreatedBy()                        
+                        employee.getEmployeeId(),
+                        employee.getFirstName() + " " + employee.getLastName(),
+                        employee.getRole(),
+                        employee.getPosition(),
+                        employee.getEmail(),
+                        employee.getCell(),
+                        employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                        employee.getCountry(),
+                        employee.getPostalCode(),
+                        employee.getStatus(),
+                        employee.getSIN(),
+                        employee.getCreatedBy()                      
                         };                 
                         model.addRow(row);
                     }   
@@ -336,22 +342,25 @@ public class EmployeeController {
 
             for (Employee employee: employees) {
                 Object[] row = {
-                    employee.getEmployeeId(),
-                    employee.getFirstName() + " " + employee.getLastName(),
-                    employee.getRole(),
-                    employee.getPosition(),
-                    employee.getEmail(),
-                    employee.getCell(),
-                    employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
-                    employee.getPostalCode(),
-                    employee.getCreatedBy()                        
+                        employee.getEmployeeId(),
+                        employee.getFirstName() + " " + employee.getLastName(),
+                        employee.getRole(),
+                        employee.getPosition(),
+                        employee.getEmail(),
+                        employee.getCell(),
+                        employee.getUnitNumber() + employee.getStreetAddress() + employee.getCity() + employee.getCountry(),
+                        employee.getCountry(),
+                        employee.getPostalCode(),
+                        employee.getStatus(),
+                        employee.getSIN(),
+                        employee.getCreatedBy()                        
                 };                 
                 model.addRow(row);
             }                             
         }
     }
     
-    // Class to search employee from employee table in database for employee search view
+    // Class to search employee from employee table in database for employee edit view
     private class SearchById implements ActionListener {
 
         @Override
