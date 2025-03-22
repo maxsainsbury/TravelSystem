@@ -263,9 +263,19 @@ public class AdminMainFrame extends javax.swing.JFrame {
         bookingMnu.add(deleteBookingMnu);
 
         addPaymentMnu.setText("Add Payment");
+        addPaymentMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPaymentMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(addPaymentMnu);
 
         searchPaymentMnu.setText("Search Payments");
+        searchPaymentMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPaymentMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(searchPaymentMnu);
 
         menuBar.add(bookingMnu);
@@ -420,36 +430,26 @@ public class AdminMainFrame extends javax.swing.JFrame {
         deleteCustomerView.setVisible(true);
     }//GEN-LAST:event_deleteCustomerMnuActionPerformed
 
-    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
-        SearchPromoView promoView = new SearchPromoView();
-        PromotionDAO promoDao = new PromotionDAO();
-        PromotionController promotionController = new PromotionController(promoDao, promoView);
-        
-    }//GEN-LAST:event_searchPromoMnuActionPerformed
+    private void deleteFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFlightMnuActionPerformed
+        DeleteFlightView deleteFlightView = new DeleteFlightView();
+        FlightDAO flightDAO = new FlightDAO();
+        FlightController flightController = new FlightController(deleteFlightView, flightDAO);
+        deleteFlightView.setVisible(true);
+    }//GEN-LAST:event_deleteFlightMnuActionPerformed
 
-    private void searchCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerMnuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchCustomerMnuActionPerformed
+    private void addPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPaymentMnuActionPerformed
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDAO);
+        addPaymentView.setVisible(true);
+    }//GEN-LAST:event_addPaymentMnuActionPerformed
 
-    private void addCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerMnuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addCustomerMnuActionPerformed
-
-    private void deleteCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerMnuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteCustomerMnuActionPerformed
-
-    private void editCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerMnuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editCustomerMnuActionPerformed
-
-    private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPromoMnuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editPromoMnuActionPerformed
-
-    private void deletePromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePromoMnuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deletePromoMnuActionPerformed
+    private void searchPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPaymentMnuActionPerformed
+        SearchPaymentView searchPaymentView = new SearchPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(searchPaymentView, paymentDAO);
+        searchPaymentView.setVisible(true);
+    }//GEN-LAST:event_searchPaymentMnuActionPerformed
 
     /**
      * @param args the command line arguments

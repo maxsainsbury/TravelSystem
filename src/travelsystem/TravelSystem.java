@@ -41,6 +41,11 @@ public class TravelSystem {
 //        DeleteBookingView deleteBookingView = new DeleteBookingView();
 //        BookingController deleteookingController = new BookingController(bookingDao, deleteBookingView);
 //        deleteBookingView.setVisible(true);
+        /*
+        AddBookingView addBookingView = new AddBookingView();
+        BookingDAO bookingDao = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDao, addBookingView);
+        addBookingView.setVisible(true);
 
           //Test Employee
           SearchEmployeeView searchEmpView = new SearchEmployeeView();
@@ -48,6 +53,26 @@ public class TravelSystem {
           EmployeeController searchEmpController = new EmployeeController(empDao, searchEmpView);
           searchEmpView.setVisible(true);
           
+        DeleteBookingView deleteBookingView = new DeleteBookingView();
+        BookingController deleteookingController = new BookingController(bookingDao, deleteBookingView);
+        deleteBookingView.setVisible(true);
+        */
+        //Payment testing
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDao = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDao);
+        addPaymentView.setVisible(true);
+        
+        SearchPaymentView searchPaymentView = new SearchPaymentView();
+        PaymentController paymentSearchController = new PaymentController(searchPaymentView, paymentDao);
+        searchPaymentView.setVisible(true);
+        
+        //register testing
+        RegisterCustomerView registerCustomerView = new RegisterCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        UserDAO userDAO = new UserDAO();
+        CustomerController customerController = new CustomerController(customerDAO, registerCustomerView, userDAO);
+        registerCustomerView.setVisible(true);
 //        AddEmployeeView addEmpView = new AddEmployeeView();
 //        EmployeeDAO empDao = new EmployeeDAO();
 //        UserDAO userDao = new UserDAO();

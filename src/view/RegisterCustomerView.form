@@ -34,7 +34,7 @@
                   <Component id="postalLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="streetLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="unitLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="dobLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="phoneLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="lnameLbl" min="-2" max="-2" attributes="0"/>
@@ -51,7 +51,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="phoneTxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="addressTxt" alignment="0" max="32767" attributes="0"/>
+                  <Component id="dobTxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="unitTxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="streetTxt" alignment="0" max="32767" attributes="0"/>
                   <Component id="fnameTxt" alignment="0" pref="195" max="32767" attributes="0"/>
@@ -100,8 +100,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addressLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dobLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dobTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -167,12 +167,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="phoneTxt">
     </Component>
-    <Component class="javax.swing.JLabel" name="addressLbl">
+    <Component class="javax.swing.JLabel" name="dobLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="DOB (YYYY-MM-DD):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="addressTxt">
+    <Component class="javax.swing.JTextField" name="dobTxt">
     </Component>
     <Component class="javax.swing.JLabel" name="unitLbl">
       <Properties>
