@@ -57,11 +57,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Trips"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editTripMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Trip"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addTripMnu">
               <Properties>
@@ -75,6 +81,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Trip"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteTripMnuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
