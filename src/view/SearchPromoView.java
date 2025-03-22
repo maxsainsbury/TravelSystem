@@ -38,6 +38,22 @@ public class SearchPromoView extends javax.swing.JFrame {
     public JButton getSearchMonthBtn() {
         return searchMonthBtn;
     }
+
+    public JTextField getPromoNameTxt() {
+        return promoNameTxt;
+    }
+
+    public JButton getSearchNameBtn() {
+        return searchNameBtn;
+    }
+
+    public JTable getSearchPromoTbl() {
+        return searchPromoTbl;
+    }
+    
+    public void searchNameActionListener(ActionListener myActionListener) {
+        searchNameBtn.addActionListener(myActionListener);
+    }
     
     public void searchAllBtnActionListener(ActionListener myActionListener) {
         searchAllBtn.addActionListener(myActionListener);
@@ -230,18 +246,9 @@ public class SearchPromoView extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void searchNameActionListener (ActionListener myActionListener) {
-        searchNameBtn.addActionListener(myActionListener);
-    }
-
 
     public void setClearAllBtn(JButton clearAllBtn) {
         this.clearAllBtn = clearAllBtn;
-    }
-
-    public JTextField getPromoNameTxt() {
-        return promoNameTxt;
     }
 
     public void setPromoNameTxt(JTextField promoNameTxt) {
@@ -256,16 +263,8 @@ public class SearchPromoView extends javax.swing.JFrame {
         this.searchMonthBtn = searchMonthBtn;
     }
 
-    public JButton getSearchNameBtn() {
-        return searchNameBtn;
-    }
-
     public void setSearchNameBtn(JButton searchNameBtn) {
         this.searchNameBtn = searchNameBtn;
-    }
-
-    public JTable getSearchPromoTbl() {
-        return searchPromoTbl;
     }
 
     public void setSearchPromoTbl(JTable searchPromoTbl) {

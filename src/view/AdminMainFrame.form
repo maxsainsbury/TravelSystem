@@ -18,33 +18,34 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Customers"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchCustomerMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="searchCustomerMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        searchCustomerMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="AdminMainFrame_searchCustomerMnu"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editCustomerMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Customer"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editCustomerMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="editCustomerMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        editCustomerMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addCustomerMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Customer"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCustomerMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="addCustomerMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        addCustomerMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteCustomerMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Customer"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteCustomerMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="deleteCustomerMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        deleteCustomerMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -135,17 +136,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Promotions"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchPromoMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="searchPromoMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        searchPromoMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="editPromoMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Promotion"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editPromoMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="editPromoMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        editPromoMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addPromoMnu">
               <Properties>
@@ -159,9 +160,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Promotion"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletePromoMnuActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="deletePromoMnu.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        deletePromoMnuActionPerformed(evt);&#xa;    }&#xa;});"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -213,16 +214,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Search Bookings"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBookingMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addBookingMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Booking"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBookingMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteBookingMnu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete Booking"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBookingMnuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="addPaymentMnu">
               <Properties>

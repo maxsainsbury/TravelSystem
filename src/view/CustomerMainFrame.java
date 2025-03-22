@@ -1,5 +1,8 @@
 package view;
 
+import controller.*;
+import dao.*;
+
 /**
  *
  * @author Ebba de Groot
@@ -40,6 +43,11 @@ public class CustomerMainFrame extends javax.swing.JFrame {
         tripMnu.setText("Trip");
 
         searchTripMnu.setText("Search Trips");
+        searchTripMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTripMnuActionPerformed(evt);
+            }
+        });
         tripMnu.add(searchTripMnu);
 
         menuBar.add(tripMnu);
@@ -47,6 +55,11 @@ public class CustomerMainFrame extends javax.swing.JFrame {
         promotionsMnu.setText("Promotion");
 
         searchPromoMnu.setText("Search Promotions");
+        searchPromoMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPromoMnuActionPerformed(evt);
+            }
+        });
         promotionsMnu.add(searchPromoMnu);
 
         menuBar.add(promotionsMnu);
@@ -54,9 +67,19 @@ public class CustomerMainFrame extends javax.swing.JFrame {
         bookingMnu.setText("Booking");
 
         searchBookingMnu.setText("Search Bookings");
+        searchBookingMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBookingMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(searchBookingMnu);
 
         addBookingMnu.setText("Add Booking");
+        addBookingMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookingMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(addBookingMnu);
 
         menuBar.add(bookingMnu);
@@ -76,6 +99,34 @@ public class CustomerMainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchTripMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTripMnuActionPerformed
+        SearchTripView searchTripView = new SearchTripView();
+        TripDAO tripDAO = new TripDAO();
+        TripController tripController = new TripController(searchTripView, tripDAO);
+        searchTripView.setVisible(true);
+    }//GEN-LAST:event_searchTripMnuActionPerformed
+
+    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
+        SearchPromoView searchPromoView = new SearchPromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, searchPromoView);
+        searchPromoView.setVisible(true);
+    }//GEN-LAST:event_searchPromoMnuActionPerformed
+
+    private void searchBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBookingMnuActionPerformed
+        SearchBookingView searchBookingView = new SearchBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, searchBookingView);
+        searchBookingView.setVisible(true);
+    }//GEN-LAST:event_searchBookingMnuActionPerformed
+
+    private void addBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookingMnuActionPerformed
+        AddBookingView addBookingView = new AddBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, addBookingView);
+        addBookingView.setVisible(true);
+    }//GEN-LAST:event_addBookingMnuActionPerformed
 
     /**
      * @param args the command line arguments
