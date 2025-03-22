@@ -24,6 +24,7 @@ public class TravelSystem {
 //        employeeMainFrame.setVisible(true);
         
         //Test Booking
+        /*
         AddBookingView addBookingView = new AddBookingView();
         BookingDAO bookingDao = new BookingDAO();
         BookingController bookingController = new BookingController(bookingDao, addBookingView);
@@ -40,6 +41,23 @@ public class TravelSystem {
         DeleteBookingView deleteBookingView = new DeleteBookingView();
         BookingController deleteookingController = new BookingController(bookingDao, deleteBookingView);
         deleteBookingView.setVisible(true);
+        */
+        //Payment testing
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDao = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDao);
+        addPaymentView.setVisible(true);
+        
+        SearchPaymentView searchPaymentView = new SearchPaymentView();
+        PaymentController paymentSearchController = new PaymentController(searchPaymentView, paymentDao);
+        searchPaymentView.setVisible(true);
+        
+        //register testing
+        RegisterCustomerView registerCustomerView = new RegisterCustomerView();
+        CustomerDAO customerDAO = new CustomerDAO();
+        UserDAO userDAO = new UserDAO();
+        CustomerController customerController = new CustomerController(customerDAO, registerCustomerView, userDAO);
+        registerCustomerView.setVisible(true);
     }
     
 }

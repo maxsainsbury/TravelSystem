@@ -58,6 +58,24 @@ public class Payment {
         this.status = status;
         this.paymentDate = LocalDate.of(paymentYear, paymentMonth, paymentDay);
     }
+    
+    /**
+     * Constructor for a Payment object for when making one in the GUI
+     * @param bookingId
+     * @param employeeId
+     * @param amount
+     * @param paymentMethod 
+     * @param paymentDate
+     */
+   public Payment(int bookingId, int employeeId, double amount, String paymentMethod, String paymentDate) {
+        this.bookingId = bookingId;
+        this.employeeId = employeeId;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+        this.status = "Paid";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.paymentDate = LocalDate.parse(paymentDate, formatter);
+    }
 
     public int getPaymentId() {
         return paymentId;

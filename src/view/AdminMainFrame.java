@@ -177,22 +177,6 @@ public class AdminMainFrame extends javax.swing.JFrame {
         });
         flightMnu.add(editFlightMnu);
 
-        addFlightMnu.setText("Add Flight");
-        addFlightMnu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFlightMnuActionPerformed(evt);
-            }
-        });
-        flightMnu.add(addFlightMnu);
-
-        deleteFlightMnu.setText("Delete Flight");
-        deleteFlightMnu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteFlightMnuActionPerformed(evt);
-            }
-        });
-        flightMnu.add(deleteFlightMnu);
-
         menuBar.add(flightMnu);
 
         promotionsMnu.setText("Promotion");
@@ -279,9 +263,19 @@ public class AdminMainFrame extends javax.swing.JFrame {
         bookingMnu.add(deleteBookingMnu);
 
         addPaymentMnu.setText("Add Payment");
+        addPaymentMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPaymentMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(addPaymentMnu);
 
         searchPaymentMnu.setText("Search Payments");
+        searchPaymentMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPaymentMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(searchPaymentMnu);
 
         menuBar.add(bookingMnu);
@@ -435,6 +429,27 @@ public class AdminMainFrame extends javax.swing.JFrame {
         CustomerController customerController = new CustomerController(customerDAO, deleteCustomerView);
         deleteCustomerView.setVisible(true);
     }//GEN-LAST:event_deleteCustomerMnuActionPerformed
+
+    private void deleteFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFlightMnuActionPerformed
+        DeleteFlightView deleteFlightView = new DeleteFlightView();
+        FlightDAO flightDAO = new FlightDAO();
+        FlightController flightController = new FlightController(deleteFlightView, flightDAO);
+        deleteFlightView.setVisible(true);
+    }//GEN-LAST:event_deleteFlightMnuActionPerformed
+
+    private void addPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPaymentMnuActionPerformed
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDAO);
+        addPaymentView.setVisible(true);
+    }//GEN-LAST:event_addPaymentMnuActionPerformed
+
+    private void searchPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPaymentMnuActionPerformed
+        SearchPaymentView searchPaymentView = new SearchPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(searchPaymentView, paymentDAO);
+        searchPaymentView.setVisible(true);
+    }//GEN-LAST:event_searchPaymentMnuActionPerformed
 
     /**
      * @param args the command line arguments
