@@ -15,9 +15,13 @@ public class TravelSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Test Employee Create, Read, Update, Delete functionality. 
+        //Test Employee create, read, update, delete functionality. 
         AdminMainFrame adminMainFrame = new AdminMainFrame();
         adminMainFrame.setVisible(true);
+        
+        //Test Promotion create, read, update, delete functionality.
+        EmployeeMainFrame employeeMainFrame = new EmployeeMainFrame();
+        employeeMainFrame.setVisible(true);
     }
     
 }

@@ -15,6 +15,7 @@ public class BookTripView extends javax.swing.JFrame {
      */
     public BookTripView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     /**

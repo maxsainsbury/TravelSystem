@@ -16,6 +16,7 @@ public class EditFlightView extends javax.swing.JFrame {
      */
     public EditFlightView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getAirlineTxt() {

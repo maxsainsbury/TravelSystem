@@ -16,6 +16,7 @@ public class SearchPaymentView extends javax.swing.JFrame {
      */
     public SearchPaymentView() {
         initComponents();
+        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getBookingIdTxt() {
