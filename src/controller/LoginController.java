@@ -5,6 +5,7 @@ import dao.LoginDAO;
 import dao.UserDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.*;
 import javax.swing.JOptionPane;
 import model.User;
 import view.AdminMainFrame;
@@ -24,6 +25,8 @@ public class LoginController {
     private CustomerMainFrame customerMainFrame;
     private EmployeeMainFrame employeeMainFrame;
     private AdminMainFrame adminMainFrame;
+    private Pattern usernameRegex = Pattern.compile("^[0-9A-z\\-_]+$");
+    private Pattern passwordRegex = Pattern.compile("^[0-9A-z\\-_@!#\\$%\\^&\\*\\.,]+$");
     
     public LoginController(LoginView loginView, LoginDAO loginDAO, CustomerMainFrame customerMainFrame, EmployeeMainFrame employeeMainFrame, AdminMainFrame adminMainFrame) {
         this.loginView = loginView;
@@ -53,8 +56,17 @@ public class LoginController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String username = loginView.getUserIdTxt().getText();
+            Matcher usernameMatch = usernameRegex.matcher(username);
+            if(!usernameMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Username can only contain letters numbers - and _");
+                return;
+            }
             String password = loginView.getPasswordTxt().getText();
-            
+            Matcher passwordMatch = passwordRegex.matcher(password);
+            if(!passwordMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Password can on contain letters numbers and special characters");
+                return;
+            }
             User user = loginDAO.checkUserType(username, password);
             if(user.getUserId() > 0) {
                 if(user.getUserType().toUpperCase().equals("customer".toUpperCase())) {
