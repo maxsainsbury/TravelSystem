@@ -66,12 +66,12 @@ public class BookingDAO {
                 );
                 
                 Trip tripObject = new Trip(
-                resultSet.getInt("customer_id"),
                 resultSet.getString("origin"),
                 resultSet.getString("destination"),
                 resultSet.getString("departure_date"),
                 resultSet.getString("return_date"),
                 resultSet.getInt("promotion_id"),
+                resultSet.getString("trip_status"),
                 resultSet.getInt("trip_id")
                 );
                 
@@ -113,12 +113,12 @@ public class BookingDAO {
                 );
                 
                 Trip tripObject = new Trip(
-                resultSet.getInt("customer_id"),
                 resultSet.getString("origin"),
                 resultSet.getString("destination"),
                 resultSet.getString("departure_date"),
                 resultSet.getString("return_date"),
                 resultSet.getInt("promotion_id"),
+                resultSet.getString("trip_status"),
                 resultSet.getInt("trip_id")
                 );
                 
@@ -158,12 +158,12 @@ public class BookingDAO {
                 );
                 
                 Trip tripObject = new Trip(
-                resultSet.getInt("customer_id"),
                 resultSet.getString("origin"),
                 resultSet.getString("destination"),
                 resultSet.getString("departure_date"),
                 resultSet.getString("return_date"),
                 resultSet.getInt("promotion_id"),
+                resultSet.getString("trip_status"),
                 resultSet.getInt("trip_id")
                 );
                 
