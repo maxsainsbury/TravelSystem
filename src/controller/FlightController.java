@@ -25,9 +25,6 @@ public class FlightController {
     private EditFlightView editFlightView;
     private SearchFlightView searchFlightView;
     private FlightDAO flightDAO;
-    private Pattern lettersOnly = Pattern.compile("[A-z]+");
-    private Pattern numbersOnly = Pattern.compile("[0-9]+");
-    private Pattern date = Pattern.compile("[0-9]{4}-[0-1][0-9]-");
     
     /**
      * Constructor for controlling the addFlightView

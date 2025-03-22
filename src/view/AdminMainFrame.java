@@ -278,9 +278,19 @@ public class AdminMainFrame extends javax.swing.JFrame {
         bookingMnu.add(deleteBookingMnu);
 
         addPaymentMnu.setText("Add Payment");
+        addPaymentMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPaymentMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(addPaymentMnu);
 
         searchPaymentMnu.setText("Search Payments");
+        searchPaymentMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPaymentMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(searchPaymentMnu);
 
         menuBar.add(bookingMnu);
@@ -428,6 +438,20 @@ public class AdminMainFrame extends javax.swing.JFrame {
         FlightController flightController = new FlightController(deleteFlightView, flightDAO);
         deleteFlightView.setVisible(true);
     }//GEN-LAST:event_deleteFlightMnuActionPerformed
+
+    private void addPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPaymentMnuActionPerformed
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDAO);
+        addPaymentView.setVisible(true);
+    }//GEN-LAST:event_addPaymentMnuActionPerformed
+
+    private void searchPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPaymentMnuActionPerformed
+        SearchPaymentView searchPaymentView = new SearchPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(searchPaymentView, paymentDAO);
+        searchPaymentView.setVisible(true);
+    }//GEN-LAST:event_searchPaymentMnuActionPerformed
 
     private void searchBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBookingMnuActionPerformed
         SearchBookingView searchBookingView = new SearchBookingView();

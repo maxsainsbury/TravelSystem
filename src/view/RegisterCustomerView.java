@@ -21,8 +21,8 @@ public class RegisterCustomerView extends javax.swing.JFrame {
         return dobTxt;
     }
 
-    public void setDobTxt(JTextField addressTxt) {
-        this.dobTxt = addressTxt;
+    public void setDobTxt(JTextField dobTxt) {
+        this.dobTxt = dobTxt;
     }
 
     public JTextField getCountryTxt() {

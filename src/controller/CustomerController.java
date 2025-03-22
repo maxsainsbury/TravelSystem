@@ -53,7 +53,7 @@ public class CustomerController {
         this.userDao = userDao;
         
         this.registerCustomerView.registerBtnActionListener(new RegisterCustomer());
-        this.registerCustomerView.clearAllBtnActionListener(new ClearAllRegister());
+        this.registerCustomerView.clearAllBtnActionListener(new ClearAllTextRegCustView());
     }
     
     /**
@@ -249,6 +249,28 @@ public class CustomerController {
             addCustomerView.getCountryTxt().setText("");
             addCustomerView.getUsernameTxt().setText("");
             addCustomerView.getPasswordTxt().setText("");
+        }   
+    }
+    
+    /**
+     * Class that sets all text fields in addCustomerView to an empty string. 
+     */
+    private class ClearAllTextRegCustView implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("button is working.");
+            registerCustomerView.getFnameTxt().setText("");
+            registerCustomerView.getLnameTxt().setText("");
+            registerCustomerView.getDobTxt().setText("");
+            registerCustomerView.getEmailTxt().setText("");
+            registerCustomerView.getPhoneTxt().setText("");
+            registerCustomerView.getUnitTxt().setText("");
+            registerCustomerView.getStreetTxt().setText("");
+            registerCustomerView.getCityTxt().setText("");
+            registerCustomerView.getPostalTxt().setText("");
+            registerCustomerView.getCountryTxt().setText("");
+            registerCustomerView.getUsernameTxt().setText("");
+            registerCustomerView.getPasswordTxt().setText("");
         }   
     }
     
