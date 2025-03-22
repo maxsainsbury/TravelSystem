@@ -181,20 +181,20 @@ public class AdminMainFrame extends javax.swing.JFrame {
 
         promotionsMnu.setText("Promotion");
 
-        searchPromoMnu.setText("Search Promotions");
         searchPromoMnu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchPromoMnuActionPerformed(evt);
             }
         });
+        searchPromoMnu.setText("Search Promotions");
         promotionsMnu.add(searchPromoMnu);
 
-        editPromoMnu.setText("Edit Promotion");
         editPromoMnu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editPromoMnuActionPerformed(evt);
             }
         });
+        editPromoMnu.setText("Edit Promotion");
         promotionsMnu.add(editPromoMnu);
 
         addPromoMnu.setText("Add Promotion");
@@ -254,12 +254,27 @@ public class AdminMainFrame extends javax.swing.JFrame {
         bookingMnu.setText("Booking");
 
         searchBookingMnu.setText("Search Bookings");
+        searchBookingMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBookingMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(searchBookingMnu);
 
         addBookingMnu.setText("Add Booking");
+        addBookingMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookingMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(addBookingMnu);
 
         deleteBookingMnu.setText("Delete Booking");
+        deleteBookingMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBookingMnuActionPerformed(evt);
+            }
+        });
         bookingMnu.add(deleteBookingMnu);
 
         addPaymentMnu.setText("Add Payment");
@@ -381,54 +396,41 @@ public class AdminMainFrame extends javax.swing.JFrame {
         addFlightView.setVisible(true);
     }//GEN-LAST:event_addFlightMnuActionPerformed
 
-    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPromoMnuActionPerformed
+    private void searchPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
         SearchPromoView promotionView = new SearchPromoView();
         PromotionDAO promotionDao = new PromotionDAO();
         PromotionController promotionController = new PromotionController(promotionDao,promotionView);
         promotionView.setVisible(true);
-    }//GEN-LAST:event_searchPromoMnuActionPerformed
+    }                                              
 
-    private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPromoMnuActionPerformed
-        EditPromoView promotionView = new EditPromoView();
-        PromotionDAO promotionDao = new PromotionDAO();
-        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
-        promotionView.setVisible(true);
-    }//GEN-LAST:event_editPromoMnuActionPerformed
-
-    private void deletePromoMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePromoMnuActionPerformed
-        DeletePromoView promotionView = new DeletePromoView();
-        PromotionDAO promotionDao = new PromotionDAO();
-        PromotionController promotionController = new PromotionController(promotionDao,promotionView);
-        promotionView.setVisible(true);
-    }//GEN-LAST:event_deletePromoMnuActionPerformed
-    private void searchCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerMnuActionPerformed
+    private void searchCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         SearchCustomerView searchCustomerView = new SearchCustomerView();
         CustomerDAO customerDAO = new CustomerDAO();
         CustomerController customerController = new CustomerController(customerDAO, searchCustomerView);
         searchCustomerView.setVisible(true);
-    }//GEN-LAST:event_searchCustomerMnuActionPerformed
+    }                                                 
 
-    private void editCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerMnuActionPerformed
+    private void editCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {                                                
         EditCustomerView editCustomerView = new EditCustomerView();
         CustomerDAO customerDAO = new CustomerDAO();
         CustomerController customerController = new CustomerController(customerDAO, editCustomerView);
         editCustomerView.setVisible(true);
-    }//GEN-LAST:event_editCustomerMnuActionPerformed
+    }                                               
 
-    private void addCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerMnuActionPerformed
+    private void addCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
         AddCustomerView addCustomerView = new AddCustomerView();
         CustomerDAO customerDAO = new CustomerDAO();
         UserDAO userDao = new UserDAO();
         CustomerController customerController = new CustomerController(customerDAO, addCustomerView, userDao);
         addCustomerView.setVisible(true);
-    }//GEN-LAST:event_addCustomerMnuActionPerformed
+    }                                              
 
-    private void deleteCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerMnuActionPerformed
+    private void deleteCustomerMnuActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         DeleteCustomerView deleteCustomerView = new DeleteCustomerView();
         CustomerDAO customerDAO = new CustomerDAO();
         CustomerController customerController = new CustomerController(customerDAO, deleteCustomerView);
         deleteCustomerView.setVisible(true);
-    }//GEN-LAST:event_deleteCustomerMnuActionPerformed
+    }                                                 
 
     private void deleteFlightMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFlightMnuActionPerformed
         DeleteFlightView deleteFlightView = new DeleteFlightView();
@@ -451,6 +453,41 @@ public class AdminMainFrame extends javax.swing.JFrame {
         searchPaymentView.setVisible(true);
     }//GEN-LAST:event_searchPaymentMnuActionPerformed
 
+    private void searchBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBookingMnuActionPerformed
+        SearchBookingView searchBookingView = new SearchBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, searchBookingView);
+        searchBookingView.setVisible(true);
+    }//GEN-LAST:event_searchBookingMnuActionPerformed
+
+    private void addBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookingMnuActionPerformed
+        AddBookingView addBookingView = new AddBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, addBookingView);
+        addBookingView.setVisible(true);
+    }//GEN-LAST:event_addBookingMnuActionPerformed
+
+    private void deleteBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBookingMnuActionPerformed
+        DeleteBookingView deleteBookingView = new DeleteBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, deleteBookingView);
+        deleteBookingView.setVisible(true);
+    }//GEN-LAST:event_deleteBookingMnuActionPerformed
+    
+    private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        EditPromoView editPromoView = new EditPromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, editPromoView);
+        editPromoView.setVisible(true);
+    }      
+    
+    private void deletePromoMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        DeletePromoView deletePromoView = new DeletePromoView();
+        PromotionDAO promoDAO = new PromotionDAO();
+        PromotionController promoController = new PromotionController(promoDAO, deletePromoView);
+        deletePromoView.setVisible(true);
+    }      
+    
     /**
      * @param args the command line arguments
      */

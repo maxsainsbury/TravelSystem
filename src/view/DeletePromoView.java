@@ -39,6 +39,12 @@ public class DeletePromoView extends javax.swing.JFrame {
         return searchBtn;
     }
 
+    public JTable getDeletePromoTbl() {
+        return deletePromoTbl;
+    }
+    
+    
+
     public void deleteBtnActionListener(ActionListener myActionListener) {
         deleteBtn.addActionListener(myActionListener);
     }
@@ -205,10 +211,6 @@ public class DeletePromoView extends javax.swing.JFrame {
 
     public void setDeleteBtn(JButton deleteBtn) {
         this.deleteBtn = deleteBtn;
-    }
-
-    public JTable getDeletePromoTbl() {
-        return deletePromoTbl;
     }
 
     public void setDeletePromoTbl(JTable deletePromoTbl) {
