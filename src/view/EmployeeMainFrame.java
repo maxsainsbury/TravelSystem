@@ -390,7 +390,10 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBookingMnuActionPerformed
 
     private void addPaymentMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPaymentMnuActionPerformed
-        // TODO add your handling code here:
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDAO);
+        addPaymentView.setVisible(true);
     }//GEN-LAST:event_addPaymentMnuActionPerformed
 
     /**

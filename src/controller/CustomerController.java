@@ -214,8 +214,6 @@ public class CustomerController {
                 // Leave if statement to continue
                 return;
             } 
-            
-            JOptionPane.showMessageDialog(null, "Successfully added a new user.");
             // setting the newCustomer's userId to the newly created userId when new user was inserted.
             newCustomer.setUserId(userDao.getUser().getUserId());
             // Insert new customer in database
