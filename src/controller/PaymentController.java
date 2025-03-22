@@ -76,7 +76,7 @@ public class PaymentController {
             int bookId = Integer.parseInt(addPaymentView.getBookingIdTxt().getText());
             int empId = Integer.parseInt(addPaymentView.getEmpIdTxt().getText());
             double payAmount = Double.parseDouble(addPaymentView.getAmountTxt.getText());
-            String payMethod = addPaymentView.getMethodCmbo.getText();
+            String payMethod = (String) addPaymentView.getMethodCmbo.getSelectedItem();
             String payDate = addPaymentView.getDateTxt().getText();
             
             boolean result;
