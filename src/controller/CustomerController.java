@@ -99,6 +99,28 @@ public class CustomerController {
         this.editCustomerView.clearAllBtnActionListener(new ClearAllEditView());
         this.editCustomerView.editBtnActionListener(new EditCustomer());
     }
+
+    private class ClearAllRegister implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            registerCustomerView.getUsernameTxt().setText("");
+            registerCustomerView.getPasswordTxt().setText("");
+            registerCustomerView.getFnameTxt().setText("");
+            registerCustomerView.getLnameTxt().setText("");
+            registerCustomerView.getEmailTxt().setText("");
+            registerCustomerView.getPhoneTxt().setText("");
+            registerCustomerView.getPhoneTxt().setText("");
+            registerCustomerView.getDobTxt().setText("");
+            registerCustomerView.getUnitTxt().setText("");
+            registerCustomerView.getStreetTxt().setText("");
+            registerCustomerView.getCityTxt().setText("");
+            registerCustomerView.getPostalTxt().setText("");
+            registerCustomerView.getCountryTxt().setText("");
+        }
+
+    
+    }
     
     /**
      * Class to create an instance of Customer from the user input in
@@ -192,17 +214,17 @@ public class CustomerController {
                 // Leave if statement to continue
                 return;
             } 
-            
-            JOptionPane.showMessageDialog(null, "Successfully added a new user.");
             // setting the newCustomer's userId to the newly created userId when new user was inserted.
             newCustomer.setUserId(userDao.getUser().getUserId());
             // Insert new customer in database
             result = customerDao.addCustomer(newCustomer);
             if(result) {
                 JOptionPane.showMessageDialog(null, "Successfully added a new customer");
+                registerCustomerView.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Was not able to add a new customer.");
             }
+            return ;
         }
     }
     

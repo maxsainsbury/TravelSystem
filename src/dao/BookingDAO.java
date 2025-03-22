@@ -71,7 +71,7 @@ public class BookingDAO {
                 resultSet.getString("departure_date"),
                 resultSet.getString("return_date"),
                 resultSet.getInt("promotion_id"),
-                resultSet.getString("status"),
+                resultSet.getString("trip_status"),
                 resultSet.getInt("trip_id")
                 );
                 
@@ -118,7 +118,7 @@ public class BookingDAO {
                 resultSet.getString("departure_date"),
                 resultSet.getString("return_date"),
                 resultSet.getInt("promotion_id"),
-                resultSet.getString("status"),
+                resultSet.getString("trip_status"),
                 resultSet.getInt("trip_id")
                 );
                 
@@ -163,7 +163,7 @@ public class BookingDAO {
                 resultSet.getString("departure_date"),
                 resultSet.getString("return_date"),
                 resultSet.getInt("promotion_id"),
-                resultSet.getString("status"),
+                resultSet.getString("trip_status"),
                 resultSet.getInt("trip_id")
                 );
                 

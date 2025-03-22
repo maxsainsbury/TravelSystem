@@ -165,7 +165,7 @@ public class RegisterCustomerView extends javax.swing.JFrame {
         cityLbl = new javax.swing.JLabel();
         cityTxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Register");
 
         fnameLbl.setText("First Name:");
