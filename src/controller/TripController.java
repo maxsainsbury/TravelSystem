@@ -8,6 +8,7 @@ import dao.TripDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Trip;
@@ -26,6 +27,15 @@ public class TripController {
     private EditTripView editTripView;
     private SearchTripView searchTripView;
     private TripDAO tripDAO;
+    private Pattern lettersOnly = Pattern.compile("^[A-z]+$");
+    private Pattern numbersOnly = Pattern.compile("^[0-9]+$");
+    private Pattern month = Pattern.compile("^0[0-9]$|^1[0-2]$");
+    private Pattern date = Pattern.compile(
+                        "^((2000|2400|2800|(19|2[0-9])(0[48]|[2468][048]|[13579][26]))-02-29)$" 
+                        + "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$"
+                        + "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$" 
+                        + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$");
+    private Pattern promo = Pattern.compile("^[0-9]+&|^$");
     
     public TripController(AddTripView addTripView, TripDAO tripDAO) {
         this.addTripView = addTripView;
@@ -108,6 +118,11 @@ public class TripController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String tripIdString = searchTripView.getTripIdTxt().getText();
+            Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+            if(!tripIdMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Trip id can only contain numbers!");
+                return;
+            }
             DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
             model.setRowCount(0);
             if(!tripIdString.equals("")) {
@@ -213,6 +228,11 @@ public class TripController {
                         if (departureMonth.length() == 1) {
                             departureMonth = "0" + departureMonth;
                         }
+                        Matcher monthMatch = month.matcher(departureMonth);
+                        if(!monthMatch.find()) {
+                            JOptionPane.showMessageDialog(null, "Month not in proper format");
+                            return;
+                        }
                 }
 
 
@@ -248,7 +268,8 @@ public class TripController {
             DefaultTableModel model = (DefaultTableModel)searchTripView.getSearchTable().getModel();
             model.setRowCount(0);
             String origin = searchTripView.getOriginTxt().getText();
-            if(!origin.equals("")) {
+            Matcher originMatch = lettersOnly.matcher(origin);
+            if(originMatch.find()) {
                 Trip[] output = tripDAO.searchByOrigin(origin);
                 if(output[0].getTripId() > 0) {
                     for(int i = 0; i < output.length; i++) {
@@ -268,7 +289,7 @@ public class TripController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No origin location inputed in text field!");
+                JOptionPane.showMessageDialog(null, "Origin must only contain letters!");
             }
         }
     }
@@ -284,7 +305,8 @@ public class TripController {
             editTripView.getStatusTxt().setText("");
             editTripView.getPromoIdTxt().setText("");
             String tripIdString = editTripView.getTripIdTxt().getText();
-            if(!tripIdString.equals("")) {
+            Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+            if(tripIdMatch.find()) {
                 int tripId = Integer.parseInt(tripIdString);
                 Trip output = tripDAO.searchTripFromId(tripId);
                 if(output.getTripId() > 0) {
@@ -302,7 +324,7 @@ public class TripController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No id inputed in text field!");
+                JOptionPane.showMessageDialog(null, "Trip id can only contain letters");
             }
         }
     }
@@ -326,15 +348,46 @@ public class TripController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String tripIdString = editTripView.getTripIdTxt().getText();
-            if(!tripIdString.equals("")) {
+            Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+            if(tripIdMatch.find()) {
                 System.out.println(tripIdString);
                 int tripId = Integer.parseInt(tripIdString);
                 String origin = editTripView.getOriginTxt().getText();
+                Matcher originMatch = lettersOnly.matcher(origin);
+                if(!originMatch.find()){
+                    JOptionPane.showMessageDialog(null, "Origin can only contain letters!");
+                    return;
+                }
                 String destination = editTripView.getDestinationTxt().getText();
+                Matcher destinationMatch = lettersOnly.matcher(destination);
+                if(!destinationMatch.find()){
+                    JOptionPane.showMessageDialog(null, "Destination can only contain letters!");
+                    return;
+                }
                 String departureDate = editTripView.getDepartureTxt().getText();
+                Matcher departureMatch = date.matcher(departureDate);
+                if(!departureMatch.find()){
+                    JOptionPane.showMessageDialog(null, "Departure date is not formated correctly!");
+                    return;
+                }
                 String returnDate = editTripView.getReturnTxt().getText();
+                Matcher returnMatch = date.matcher(returnDate);
+                if(!returnMatch.find()){
+                    JOptionPane.showMessageDialog(null, "Return date is not formated correctly!");
+                    return;
+                }
                 String status = editTripView.getStatusTxt().getText();
+                Matcher statusMatch = lettersOnly.matcher(status);
+                if(!statusMatch.find()){
+                    JOptionPane.showMessageDialog(null, "Status can only contain letters!");
+                    return;
+                }
                 String promotionIdString = editTripView.getPromoIdTxt().getText();
+                Matcher promoIdMatch = promo.matcher(promotionIdString);
+                if(!promoIdMatch.find() ){
+                    JOptionPane.showMessageDialog(null, "Promotion id can only contain numbers or be empty!");
+                    return;
+                }
                 int promotionId;
                 if(!promotionIdString.equals("")) {
                     promotionId = Integer.parseInt(editTripView.getPromoIdTxt().getText());
@@ -358,7 +411,7 @@ public class TripController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No id inputed in the text field!");
+                JOptionPane.showMessageDialog(null, "Trip id can only contrain numbers!");
             }
         }
     }
@@ -371,7 +424,8 @@ public class TripController {
             DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
             model.setRowCount(0);
             String tripIdString = deleteTripView.getIdTxt().getText();
-            if(!tripIdString.equals("")) {
+            Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+            if(tripIdMatch.find()) {
                 int tripId = Integer.parseInt(tripIdString);
                 Trip output = tripDAO.searchTripFromId(tripId);
                 if(output.getTripId() > 0) {
@@ -391,7 +445,7 @@ public class TripController {
                 }
             }
             else {
-                JOptionPane.showMessageDialog(null, "No id inputed in text field!");
+                JOptionPane.showMessageDialog(null, "Trip id can only contain letters!");
             }
         }
     }
@@ -410,9 +464,15 @@ public class TripController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int flightId = Integer.parseInt(deleteTripView.getIdTxt().getText());
+            String tripIdString = deleteTripView.getIdTxt().getText();
+            Matcher tripIdMatch = numbersOnly.matcher(tripIdString);
+            if(!tripIdMatch.find()) {
+                JOptionPane.showMessageDialog(null, "Trip id can only contain numbers!");
+                return;
+            }
+            int tripId = Integer.parseInt(tripIdString);
             DefaultTableModel model = (DefaultTableModel)deleteTripView.getDeleteTable().getModel();
-            boolean result = tripDAO.deleteTripRecord(flightId);
+            boolean result = tripDAO.deleteTripRecord(tripId);
             if(result) {
                 model.setRowCount(0);
                 JOptionPane.showMessageDialog(null, "Trip record deleted successfully!");
@@ -429,11 +489,41 @@ public class TripController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String origin = addTripView.getOriginTxt().getText();
+            Matcher originMatch = lettersOnly.matcher(origin);
+            if(!originMatch.find()){
+                JOptionPane.showMessageDialog(null, "Origin can only contain letters!");
+                return;
+            }
             String destination = addTripView.getDestinationTxt().getText();
+            Matcher destinationMatch = lettersOnly.matcher(destination);
+            if(!destinationMatch.find()){
+                JOptionPane.showMessageDialog(null, "Destination can only contain letters!");
+                return;
+            }
             String departureDate = addTripView.getDepartureTxt().getText();
+            Matcher departureMatch = date.matcher(departureDate);
+            if(!departureMatch.find()){
+                JOptionPane.showMessageDialog(null, "Departure date is not formated correctly!");
+                return;
+            }
             String returnDate = addTripView.getReturnTxt().getText();
+            Matcher returnMatch = date.matcher(returnDate);
+            if(!returnMatch.find()){
+                JOptionPane.showMessageDialog(null, "Return date is not formated correctly!");
+                return;
+            }
             String status = addTripView.getStatusTxt().getText();
+            Matcher statusMatch = lettersOnly.matcher(status);
+            if(!statusMatch.find()){
+                JOptionPane.showMessageDialog(null, "Status can only contain letters!");
+                return;
+            }
             String promotionIdString = addTripView.getPromoIdTxt().getText();
+            Matcher promoIdMatch = promo.matcher(promotionIdString);
+            if(!promoIdMatch.find()){
+                JOptionPane.showMessageDialog(null, "Promotion id can only contain numbers or be empty!");
+                return;
+            }
             int promotionId;
             boolean result;
             try {
