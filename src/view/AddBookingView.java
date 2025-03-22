@@ -1,5 +1,10 @@
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Ebba de Groot
@@ -45,8 +50,18 @@ public class AddBookingView extends javax.swing.JFrame {
         tripIdLbl.setText("Trip ID:");
 
         addBookingBtn.setText("Add Booking");
+        addBookingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookingBtnActionPerformed(evt);
+            }
+        });
 
         clearAllBtn.setText("Clear All");
+        clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllBtnActionPerformed(evt);
+            }
+        });
 
         priceLbl.setText("Total Price:");
 
@@ -78,7 +93,7 @@ public class AddBookingView extends javax.swing.JFrame {
                     .addComponent(customerIdTxt)
                     .addComponent(tripIdTxt)
                     .addComponent(priceTxt)
-                    .addComponent(dateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(dateTxt)
                     .addComponent(empIdTxt))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -117,6 +132,106 @@ public class AddBookingView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookingBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addBookingBtnActionPerformed
+
+    private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    public JButton getAddBookingBtn() {
+        return addBookingBtn;
+    }
+
+    public void setAddBookingBtn(JButton addBookingBtn) {
+        this.addBookingBtn = addBookingBtn;
+    }
+
+    public JButton getClearAllBtn() {
+        return clearAllBtn;
+    }
+
+    public void setClearAllBtn(JButton clearAllBtn) {
+        this.clearAllBtn = clearAllBtn;
+    }
+
+    public JTextField getCustomerIdTxt() {
+        return customerIdTxt;
+    }
+
+    public void setCustomerIdTxt(JTextField customerIdTxt) {
+        this.customerIdTxt = customerIdTxt;
+    }
+
+    public JLabel getDateLbl() {
+        return dateLbl;
+    }
+
+    public void setDateLbl(JLabel dateLbl) {
+        this.dateLbl = dateLbl;
+    }
+
+    public JTextField getDateTxt() {
+        return dateTxt;
+    }
+
+    public void setDateTxt(JTextField dateTxt) {
+        this.dateTxt = dateTxt;
+    }
+
+    public JLabel getEmpIdLbl() {
+        return empIdLbl;
+    }
+
+    public void setEmpIdLbl(JLabel empIdLbl) {
+        this.empIdLbl = empIdLbl;
+    }
+
+    public JTextField getEmpIdTxt() {
+        return empIdTxt;
+    }
+
+    public void setEmpIdTxt(JTextField empIdTxt) {
+        this.empIdTxt = empIdTxt;
+    }
+
+    public JButton getPayBtn() {
+        return payBtn;
+    }
+
+    public void setPayBtn(JButton payBtn) {
+        this.payBtn = payBtn;
+    }
+
+    public JTextField getPriceTxt() {
+        return priceTxt;
+    }
+
+    public void setPriceTxt(JTextField priceTxt) {
+        this.priceTxt = priceTxt;
+    }
+
+    public JTextField getTripIdTxt() {
+        return tripIdTxt;
+    }
+
+    public void setTripIdTxt(JTextField tripIdTxt) {
+        this.tripIdTxt = tripIdTxt;
+    }
+
+    public void addBookingBtnActionListener(ActionListener myActionListener) {
+        addBookingBtn.addActionListener(myActionListener);
+    }
+    
+    public void clearAllBtnActionListener(ActionListener myActionListener) {
+        clearAllBtn.addActionListener(myActionListener);
+    }
+    
+    public void payBtnActionListener(ActionListener myActionListener) {
+        payBtn.addActionListener(myActionListener);
+    }
+    
     /**
      * @param args the command line arguments
      */
