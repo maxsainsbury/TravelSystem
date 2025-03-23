@@ -40,7 +40,7 @@
                   <Component id="UserIdTxt" min="-2" pref="195" max="-2" attributes="0"/>
                   <Component id="passwordTxt" min="-2" pref="195" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,7 +70,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="useIdLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="User ID:"/>
+        <Property name="text" type="java.lang.String" value="Username:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="passwordLbl">
