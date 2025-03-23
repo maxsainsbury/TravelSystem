@@ -117,7 +117,7 @@ public class PromotionDAO {
         String query = """
                        SELECT * 
                        FROM travelsystemdb.promotion
-                       WHERE UPPER(name) LIKE UPPER(CONCAT('%', ? ,'%'));
+                       WHERE UPPER(name) LIKE UPPER(CONCAT('%', ? ,'%'))
                        """;
         
         try(Connection connection = DBConnection.getConnection();
@@ -211,9 +211,8 @@ public class PromotionDAO {
      * Fetches promotion row with matching promotion id. 
      * @param promoId
      * @return Promotion instance with attributes retrieved from database.
-     * @throws Exception 
      */
-    public Promotion fetchPromotionById(int promoId) throws Exception{
+    public Promotion fetchPromotionById(int promoId){
         String query = """
                        SELECT * 
                        FROM travelsystemdb.promotion
@@ -236,9 +235,7 @@ public class PromotionDAO {
                 resultSet.getString("end_date"), 
                 resultSet.getInt("promotion_id")
                 );
-            } else {
-                throw new Exception();
-            }
+            } 
         } catch (SQLException e) {
             e.printStackTrace();
         }

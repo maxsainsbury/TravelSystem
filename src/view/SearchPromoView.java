@@ -90,7 +90,7 @@ public class SearchPromoView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Promotions");
 
-        monthLbl.setText("Month (MMM):");
+        monthLbl.setText("Start Month (MMM):");
 
         searchNameBtn.setText("Search");
         searchNameBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -124,16 +124,7 @@ public class SearchPromoView extends javax.swing.JFrame {
 
         searchPromoTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Promotion Id", "Prmotion Name", "Discount percent", "Promotion Start Date", "Promotion End Date", "Status"

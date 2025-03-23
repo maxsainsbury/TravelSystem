@@ -26,6 +26,10 @@ public class BookingController {
     private Booking bookingToEdit;
     private DeleteBookingView deleteBookingView;
     private int bookingIdToDelete;
+    private String numberOnlyRegEx = "^[0-9]+$";
+    // Date must be yyyy-mm-dd format
+    private String dateRegEx = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])";
+    private String floatRegEx = "[-+]?\\d*[.,]\\d+|\\d+";
     
     /**
      * Constructor for add booking view.
@@ -83,19 +87,40 @@ public class BookingController {
         deleteBookingView.deleteBtnActionListener(new DeleteBooking());
         deleteBookingView.clearAllBtnActionListener(new ClearAllDelBookingView());
     }
+    /**
+     * Class gets values from user and adds new booking to booking table in database.
+     */
     private class AddBooking implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             // Get the input valeus and store it in variables
-            int employeeId = Integer.parseInt(addBookingView.getEmpIdTxt().getText());
-            int customerId = Integer.parseInt(addBookingView.getCustomerIdTxt().getText());
-            int tripId = Integer.parseInt(addBookingView.getTripIdTxt().getText());
-            double totalPrice = Double.parseDouble(addBookingView.getPriceTxt().getText());
-            String date = addBookingView.getDateTxt().getText();
+            String empIdString = addBookingView.getEmpIdTxt().getText().strip();
+            String cusIdString = addBookingView.getCustomerIdTxt().getText().strip();
+            String tripIdString = addBookingView.getTripIdTxt().getText().strip();
+            if(!(empIdString.matches(numberOnlyRegEx)) || !(cusIdString.matches(numberOnlyRegEx)) 
+                    || !(tripIdString.matches(numberOnlyRegEx))) {
+                JOptionPane.showMessageDialog(null, "Id can consist of numbers only.");
+                return;
+            }           
+            int employeeId = Integer.parseInt(empIdString);
+            int customerId = Integer.parseInt(cusIdString);
+            int tripId = Integer.parseInt(tripIdString);
             
+            String priceString = addBookingView.getPriceTxt().getText().strip();
+            if(!priceString.matches(floatRegEx)){
+                JOptionPane.showMessageDialog(null, "Successfully added a new booking.");
+                return;
+            }
+            double totalPrice = Double.parseDouble(priceString);
+            
+            String date = addBookingView.getDateTxt().getText();
+            if(!date.matches(dateRegEx)) {
+                JOptionPane.showMessageDialog(null, "Date must be in yyyy-mm-dd format.");
+                return;
+            }          
             //Create new instance of booking using the varibles
-            Booking booking = new Booking(customerId, tripId, totalPrice, date, employeeId );
+            Booking booking = new Booking(customerId, tripId, totalPrice, date, employeeId);
             boolean result = bookingDao.addBooking(booking);
             
             if(result) {
@@ -130,7 +155,13 @@ public class BookingController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
-                int bookingId = Integer.parseInt(searchBookingView.getBookingIdTxt().getText());
+                // Validate id with regex
+                String id = searchBookingView.getBookingIdTxt().getText().strip();
+                if(!id.matches(numberOnlyRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Booking Id can consist of numbers only.");   
+                    return;
+                }
+                int bookingId = Integer.parseInt(id);
 
                DefaultTableModel model = (DefaultTableModel)searchBookingView.getBookingTbl().getModel();
                model.setRowCount(0);
@@ -148,7 +179,6 @@ public class BookingController {
                        tripAndBookingObj.getTripObject().getPromotionId(),
                        tripAndBookingObj.getBookingObject().getTotalPrice()
                    };
-
                    model.addRow(row);
                 }
             } catch (Exception ex) {
@@ -165,7 +195,15 @@ public class BookingController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-        int customerId = Integer.parseInt(searchBookingView.getCustomerIdTxt().getText());
+            
+        // Validate input with regex
+        String id = searchBookingView.getCustomerIdTxt().getText().strip();
+        if(!id.matches(numberOnlyRegEx)) {
+            JOptionPane.showMessageDialog(null, "Customer Id can consist of numbers only.");   
+            return;
+        }
+        int customerId = Integer.parseInt(id);
+        
         DefaultTableModel model = (DefaultTableModel)searchBookingView.getBookingTbl().getModel();
         model.setRowCount(0);
         
@@ -220,7 +258,7 @@ public class BookingController {
              tripAndBookingObj.getBookingObject().getTotalPrice()
            };
            model.addRow(row);
-            }                
+           }                
         }  
     }
     
@@ -248,7 +286,13 @@ public class BookingController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
-                int bookingId = Integer.parseInt(editBookingView.getBookingIdTxt().getText());
+                // Validate booking id input with regex
+                String bookingIdString = editBookingView.getBookingIdTxt().getText().strip();
+                if(!bookingIdString.matches(numberOnlyRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Booking Id can consist onf numbers only.");
+                    return;
+                }
+                int bookingId = Integer.parseInt(bookingIdString);
 
                 if(bookingId != 0) {
                     TripAndBooking tripAndBooking = bookingDao.fetchBookingByBookId(bookingId);
@@ -277,15 +321,37 @@ public class BookingController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            bookingToEdit.setBookingId(Integer.parseInt(editBookingView.getBookingIdTxt().getText()));
-            bookingToEdit.setCustomerId(Integer.parseInt(editBookingView.getCustomerIdTxt().getText()));
-            bookingToEdit.setEmployeeId(Integer.parseInt(editBookingView.getEmployeeIdTxt().getText()));
-            bookingToEdit.setTotalPrice(Double.parseDouble(editBookingView.getTotalPriceTxt().getText()));
-            bookingToEdit.setBookingDate(LocalDate.parse(editBookingView.getBookingDateTxt().getText()));
-            bookingToEdit.setTripId(Integer.parseInt(editBookingView.getTripIdTxt().getText()));
-    
-            boolean result = bookingDao.updateBooking(bookingToEdit);
+            // Validate all input with regex
+            String bookingIdString = editBookingView.getBookingIdTxt().getText().strip();
+            String cusIdString = editBookingView.getCustomerIdTxt().getText().strip();
+            String empIdString = editBookingView.getEmployeeIdTxt().getText().strip();
+            String tripIdString = editBookingView.getTripIdTxt().getText().strip();
+            if(!(bookingIdString.matches(numberOnlyRegEx)) || !(empIdString.matches(numberOnlyRegEx)) 
+                    || !(cusIdString.matches(numberOnlyRegEx)) || !(tripIdString.matches(numberOnlyRegEx))) {
+                JOptionPane.showMessageDialog(null, "Booking Id, employee Id, customer Id, and trip  can "
+                    + "consist of numbers only.");
+                return;
+            }   
+            bookingToEdit.setBookingId(Integer.parseInt(bookingIdString));
+            bookingToEdit.setCustomerId(Integer.parseInt(cusIdString));
+            bookingToEdit.setEmployeeId(Integer.parseInt(empIdString));
+            bookingToEdit.setTripId(Integer.parseInt(tripIdString));
             
+            String price = editBookingView.getTotalPriceTxt().getText().strip();
+            if(!price.matches(floatRegEx)) {
+                JOptionPane.showMessageDialog(null, "Price can consist of numbers and decimal point only.");
+                return;
+            }
+            bookingToEdit.setTotalPrice(Double.parseDouble(price));
+            
+            String dateString = editBookingView.getBookingDateTxt().getText().strip();
+            if(!dateString.matches(dateRegEx)) {
+                JOptionPane.showMessageDialog(null, "Date muse be in yyyy-mm-dd format.");
+                return;
+            }
+            bookingToEdit.setBookingDate(LocalDate.parse(dateString));
+
+            boolean result = bookingDao.updateBooking(bookingToEdit);          
             if (result){
                 JOptionPane.showMessageDialog(null, "Successfully updated booking.");
             } else {
@@ -315,7 +381,12 @@ public class BookingController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
-                bookingIdToDelete = Integer.parseInt(deleteBookingView.getBookingIdTxt().getText());
+                String id = deleteBookingView.getBookingIdTxt().getText().strip();
+                if(!id.matches(numberOnlyRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Id must consist of numbers only.");
+                    return;
+                }
+                bookingIdToDelete = Integer.parseInt(id);
 
                DefaultTableModel model = (DefaultTableModel)deleteBookingView.getBookingTbl().getModel();
                model.setRowCount(0);
@@ -354,7 +425,9 @@ public class BookingController {
                 JOptionPane.showMessageDialog(null, "Successfully deleted booking.");
             } else {
                 JOptionPane.showMessageDialog(null, "Was not able to update booking. ");
-            }             
+            }  
+            // Clear variable after deleting.
+            bookingIdToDelete = 0;          
         }    
     }
     
@@ -369,7 +442,6 @@ public class BookingController {
             DefaultTableModel model = (DefaultTableModel)deleteBookingView.getBookingTbl().getModel();
             model.setRowCount(0);
             bookingIdToDelete = 0;
-        }
-    
+        }    
     }
 }

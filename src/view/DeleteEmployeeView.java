@@ -118,7 +118,7 @@ public class DeleteEmployeeView extends javax.swing.JFrame {
 
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+
             },
             new String [] {
                 "Employee ID", "Employee Name", "Role"
