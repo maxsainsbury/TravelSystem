@@ -266,7 +266,7 @@ public class CustomerController {
             }
 
             String custStreetAdress = registerCustomerView.getStreetTxt().getText().strip();
-            String custCity = addCustomerView.getCityTxt().getText();
+            String custCity = registerCustomerView.getCityTxt().getText();
             if(!custStreetAdress.matches(lettersRegEx)|| (!custCity.matches(lettersRegEx))){
                 JOptionPane.showMessageDialog(null, "Street address and city can only have letters. ");
                 return;
