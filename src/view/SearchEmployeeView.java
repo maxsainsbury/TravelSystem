@@ -77,14 +77,10 @@ public class SearchEmployeeView extends javax.swing.JFrame {
 
         tblSearchEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Employee Id", "Name", "Role", "Position", "Email", "Cell", "Address", "Postal Code", "Created by"
+                "Employee Id", "Name", "Role", "Position", "Email", "Cell", "Address", "Country", "Postal Code", "Status", "SIN", "Created by"
             }
         ));
         tblSearchEmployees.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);

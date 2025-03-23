@@ -4,6 +4,7 @@ package travelsystem;
 import view.*;
 import controller.*;
 import dao.*;
+import model.*;
 
 /**
  *
@@ -24,6 +25,7 @@ public class TravelSystem {
         LoginController loginController = new LoginController(loginView, loginDAO, customerMainFrame, employeeMainFrame, adminMainFrame);
         loginView.setVisible(true);
         
+
     }
     
 }

@@ -1,6 +1,6 @@
 package dao;
 
-import model.Employee;
+import model.*;
 import utility.DBConnection;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -128,8 +128,8 @@ public class EmployeeDAO {
         ArrayList<Employee> employees = new ArrayList<>();
         String query = """
                        SELECT *
-                       FROM employee
-                       WHERE position = ?
+                       FROM travelsystemdb.employee
+                       WHERE UPPER(position) LIKE UPPER(?)
                        """;
         
         try(Connection connection = DBConnection.getConnection();
@@ -139,7 +139,7 @@ public class EmployeeDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             
             while(resultSet.next()) {
-                employee = new Employee(
+                Employee employee = new Employee(
                 resultSet.getString("first_name"),
                 resultSet.getString("last_name"),
                 resultSet.getString("email"),

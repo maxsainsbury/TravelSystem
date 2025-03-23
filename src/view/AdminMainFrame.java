@@ -62,6 +62,7 @@ public class AdminMainFrame extends javax.swing.JFrame {
         bookingMnu = new javax.swing.JMenu();
         searchBookingMnu = new javax.swing.JMenuItem();
         addBookingMnu = new javax.swing.JMenuItem();
+        editBookingMnu = new javax.swing.JMenuItem();
         deleteBookingMnu = new javax.swing.JMenuItem();
         addPaymentMnu = new javax.swing.JMenuItem();
         searchPaymentMnu = new javax.swing.JMenuItem();
@@ -269,6 +270,14 @@ public class AdminMainFrame extends javax.swing.JFrame {
         });
         bookingMnu.add(addBookingMnu);
 
+        editBookingMnu.setText("Edit Booking");
+        editBookingMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBookingMnuActionPerformed(evt);
+            }
+        });
+        bookingMnu.add(editBookingMnu);
+
         deleteBookingMnu.setText("Delete Booking");
         deleteBookingMnu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -473,7 +482,14 @@ public class AdminMainFrame extends javax.swing.JFrame {
         BookingController bookingController = new BookingController(bookingDAO, deleteBookingView);
         deleteBookingView.setVisible(true);
     }//GEN-LAST:event_deleteBookingMnuActionPerformed
-    
+
+    private void editBookingMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookingMnuActionPerformed
+        EditBookingView editBookingView = new EditBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, editBookingView);
+        editBookingView.setVisible(true);
+    }//GEN-LAST:event_editBookingMnuActionPerformed
+
     private void editPromoMnuActionPerformed(java.awt.event.ActionEvent evt) {                                               
         EditPromoView editPromoView = new EditPromoView();
         PromotionDAO promoDAO = new PromotionDAO();
@@ -542,6 +558,7 @@ public class AdminMainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem deleteFlightMnu;
     private javax.swing.JMenuItem deletePromoMnu;
     private javax.swing.JMenuItem deleteTripMnu;
+    private javax.swing.JMenuItem editBookingMnu;
     private javax.swing.JMenuItem editCustomerMnu;
     private javax.swing.JMenuItem editEmpMnu;
     private javax.swing.JMenuItem editFlightMnu;

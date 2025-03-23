@@ -52,6 +52,7 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
         bookingMnu = new javax.swing.JMenu();
         searchBookingMnu = new javax.swing.JMenuItem();
         addBookingMnu = new javax.swing.JMenuItem();
+        editBookinMnu = new javax.swing.JMenuItem();
         deleteBookingMnu = new javax.swing.JMenuItem();
         addPaymentMnu = new javax.swing.JMenuItem();
 
@@ -221,6 +222,14 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
             }
         });
         bookingMnu.add(addBookingMnu);
+
+        editBookinMnu.setText("Edit Booking");
+        editBookinMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBookinMnuActionPerformed(evt);
+            }
+        });
+        bookingMnu.add(editBookinMnu);
 
         deleteBookingMnu.setText("Delete Booking");
         deleteBookingMnu.addActionListener(new java.awt.event.ActionListener() {
@@ -396,6 +405,13 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
         addPaymentView.setVisible(true);
     }//GEN-LAST:event_addPaymentMnuActionPerformed
 
+    private void editBookinMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookinMnuActionPerformed
+        EditBookingView editBookingView = new EditBookingView();
+        BookingDAO bookingDAO = new BookingDAO();
+        BookingController bookingController = new BookingController(bookingDAO, editBookingView);
+        editBookingView.setVisible(true);
+    }//GEN-LAST:event_editBookinMnuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -448,6 +464,7 @@ public class EmployeeMainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem deleteFlightMnu;
     private javax.swing.JMenuItem deletePromoMnu;
     private javax.swing.JMenuItem deleteTripMnu;
+    private javax.swing.JMenuItem editBookinMnu;
     private javax.swing.JMenuItem editCustomerMnu;
     private javax.swing.JMenuItem editFlightMnu;
     private javax.swing.JMenuItem editPromoMnu;

@@ -102,16 +102,7 @@ public class DeletePromoView extends javax.swing.JFrame {
 
         deletePromoTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Promotion Id", "Prmotion Name", "Discount percent", "Promotion Start Date", "Promotion End Date", "Status"
