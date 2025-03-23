@@ -23,8 +23,16 @@ public class CustomerController {
     private DeleteCustomerView deleteCustomerView;
     private SearchCustomerView searchCustomerView;
     private EditCustomerView editCustomerView;
-    // This variable will hold an instance of customer to be used in employee editing.
+    // This variable will hold an instance of customer to be used in customer editing.
     private Customer tempCustomer;
+    // Regex variables
+    private String lettersRegEx = "^[a-zA-Z]+[ ]*[a-zA-Z]*$";
+    private String sinNumRegEx =  "^\\d{9}$";
+    private String postalCodeRegEx = "^[ABCEGHJ-NPRSTVXY][0-9][ABCEGHJ-NPRSTV-Z][ ]?[0-9][ABCEGHJ-NPRSTV-Z][0-9]$";
+    private String phoneNumRegEx = "^(\\(\\+[0-9]{2}\\))?([0-9]{3}-?)?([0-9]{3})\\-?([0-9]{4})(\\/[0-9]{4})?$";
+    private String emailRegEx = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+    private String numberOnlyRegEx = "^[0-9]+$";
+    private String dateRegEx = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])";
     
     /**
      * Controller for addCustomerView
@@ -53,7 +61,7 @@ public class CustomerController {
         this.userDao = userDao;
         
         this.registerCustomerView.registerBtnActionListener(new RegisterCustomer());
-        this.registerCustomerView.clearAllBtnActionListener(new ClearAllTextRegCustView());
+        this.registerCustomerView.clearAllBtnActionListener(new ClearAllRegister());
     }
     
     /**
@@ -129,19 +137,61 @@ public class CustomerController {
      */
     private class AddCustomer implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {      
-            String custFName = addCustomerView.getFnameTxt().getText();
-            String custLName = addCustomerView.getLnameTxt().getText();
-            String custDob = addCustomerView.getDobTxt().getText();
-            String custEmail = addCustomerView.getEmailTxt().getText();
-            String custPhone = addCustomerView.getPhoneTxt().getText();
-            String custUnit = addCustomerView.getUnitTxt().getText();
-            String custStreetAdress = addCustomerView.getStreetTxt().getText();
+        public void actionPerformed(ActionEvent e) { 
+            
+            // Validate all values with regex
+            String custFName = addCustomerView.getFnameTxt().getText().strip();
+            String custLName = addCustomerView.getLnameTxt().getText().strip();
+            if(!custFName.matches(lettersRegEx) || (!custLName.matches(lettersRegEx))) {
+                JOptionPane.showMessageDialog(null, "Name can only have letters.");
+                return;
+            }
+
+            String custDob = addCustomerView.getDobTxt().getText().strip();
+            if(!custDob.matches(dateRegEx)){
+                JOptionPane.showMessageDialog(null, "Date must be in yyyy-mm-dd format.");
+                return;
+            }
+
+            String custEmail = addCustomerView.getEmailTxt().getText().strip();
+            if(!custEmail.matches(emailRegEx)){
+                JOptionPane.showMessageDialog(null, "Inavalid email format.");
+                return;
+            }
+
+            String custPhone = addCustomerView.getPhoneTxt().getText().strip();
+            if(!custPhone.matches(phoneNumRegEx)) {
+                JOptionPane.showMessageDialog(null, "Phone number can only have numbers. ");
+                return;
+            }
+
+            String custUnit = addCustomerView.getUnitTxt().getText().strip();
+            if(!custUnit.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Invalid unit number. ");
+                return;
+            }
+
+            String custStreetAdress = addCustomerView.getStreetTxt().getText().strip();
             String custCity = addCustomerView.getCityTxt().getText();
-            String custPostalCode = addCustomerView.getPostalTxt().getText();
-            String custCountry = addCustomerView.getCountryTxt().getText();
-            String custUsername = addCustomerView.getUsernameTxt().getText();
-            String custPassword = addCustomerView.getPasswordTxt().getText();
+            if(!custStreetAdress.matches(lettersRegEx)|| (!custCity.matches(lettersRegEx))){
+                JOptionPane.showMessageDialog(null, "Street address and city can only have letters. ");
+                return;
+            }
+
+            String custPostalCode = addCustomerView.getPostalTxt().getText().strip();
+            if(!custPostalCode.matches(postalCodeRegEx)) {
+                JOptionPane.showMessageDialog(null, "Invalid Canadian postal code. ");
+                return;                   
+            }
+            
+            String custCountry = addCustomerView.getCountryTxt().getText().strip();                
+            if(!custCountry.matches(lettersRegEx)) {
+                JOptionPane.showMessageDialog(null, "Country can only have letters. ");
+                return;
+            }
+            
+            String custUsername = addCustomerView.getUsernameTxt().getText().strip();
+            String custPassword = addCustomerView.getPasswordTxt().getText().strip();
             
             // Create new instance of Customer to send data to database. 
             Customer newCustomer = new Customer(custFName, custLName, custEmail, custPhone, 
@@ -183,18 +233,59 @@ public class CustomerController {
     private class RegisterCustomer implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {      
-            String custFName = registerCustomerView.getFnameTxt().getText();
-            String custLName = registerCustomerView.getLnameTxt().getText();
-            String custDob = registerCustomerView.getDobTxt().getText();
-            String custEmail = registerCustomerView.getEmailTxt().getText();
-            String custPhone = registerCustomerView.getPhoneTxt().getText();
-            String custUnit = registerCustomerView.getUnitTxt().getText();
-            String custStreetAdress = registerCustomerView.getStreetTxt().getText();
-            String custCity = registerCustomerView.getCityTxt().getText();
-            String custPostalCode = registerCustomerView.getPostalTxt().getText();
-            String custCountry = registerCustomerView.getCountryTxt().getText();
-            String custUsername = registerCustomerView.getUsernameTxt().getText();
-            String custPassword = registerCustomerView.getPasswordTxt().getText();
+            // Validate all values with regex
+            String custFName = registerCustomerView.getFnameTxt().getText().strip();
+            String custLName = registerCustomerView.getLnameTxt().getText().strip();
+            if(!custFName.matches(lettersRegEx) || (!custLName.matches(lettersRegEx))) {
+                JOptionPane.showMessageDialog(null, "Name can only have letters.");
+                return;
+            }
+
+            String custDob = registerCustomerView.getDobTxt().getText().strip();
+            if(!custDob.matches(dateRegEx)){
+                JOptionPane.showMessageDialog(null, "Date must be in yyyy-mm-dd format.");
+                return;
+            }
+
+            String custEmail = registerCustomerView.getEmailTxt().getText().strip();
+            if(!custEmail.matches(emailRegEx)){
+                JOptionPane.showMessageDialog(null, "Inavalid email format.");
+                return;
+            }
+
+            String custPhone = registerCustomerView.getPhoneTxt().getText().strip();
+            if(!custPhone.matches(phoneNumRegEx)) {
+                JOptionPane.showMessageDialog(null, "Phone number can only have numbers. ");
+                return;
+            }
+
+            String custUnit = registerCustomerView.getUnitTxt().getText().strip();
+            if(!custUnit.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Invalid unit number. ");
+                return;
+            }
+
+            String custStreetAdress = registerCustomerView.getStreetTxt().getText().strip();
+            String custCity = addCustomerView.getCityTxt().getText();
+            if(!custStreetAdress.matches(lettersRegEx)|| (!custCity.matches(lettersRegEx))){
+                JOptionPane.showMessageDialog(null, "Street address and city can only have letters. ");
+                return;
+            }
+
+            String custPostalCode = registerCustomerView.getPostalTxt().getText().strip();
+            if(!custPostalCode.matches(postalCodeRegEx)) {
+                JOptionPane.showMessageDialog(null, "Invalid Canadian postal code. ");
+                return;                   
+            }
+            
+            String custCountry = registerCustomerView.getCountryTxt().getText().strip();                
+            if(!custCountry.matches(lettersRegEx)) {
+                JOptionPane.showMessageDialog(null, "Country can only have letters. ");
+                return;
+            }
+            
+            String custUsername = registerCustomerView.getUsernameTxt().getText().strip();
+            String custPassword = registerCustomerView.getPasswordTxt().getText().strip();
             
             // Create new instance of Customer to send data to database. 
             Customer newCustomer = new Customer(custFName, custLName, custEmail, custPhone, 
@@ -224,7 +315,6 @@ public class CustomerController {
             } else {
                 JOptionPane.showMessageDialog(null, "Was not able to add a new customer.");
             }
-            return ;
         }
     }
     
@@ -250,36 +340,20 @@ public class CustomerController {
         }   
     }
     
-    /**
-     * Class that sets all text fields in addCustomerView to an empty string. 
-     */
-    private class ClearAllTextRegCustView implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("button is working.");
-            registerCustomerView.getFnameTxt().setText("");
-            registerCustomerView.getLnameTxt().setText("");
-            registerCustomerView.getDobTxt().setText("");
-            registerCustomerView.getEmailTxt().setText("");
-            registerCustomerView.getPhoneTxt().setText("");
-            registerCustomerView.getUnitTxt().setText("");
-            registerCustomerView.getStreetTxt().setText("");
-            registerCustomerView.getCityTxt().setText("");
-            registerCustomerView.getPostalTxt().setText("");
-            registerCustomerView.getCountryTxt().setText("");
-            registerCustomerView.getUsernameTxt().setText("");
-            registerCustomerView.getPasswordTxt().setText("");
-        }   
-    }
-    
     // Class to search customer from customer table in database for customer delete view.
     private class SearchCustomerById implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int customerId = Integer.parseInt(deleteCustomerView.getIdTxt().getText());
             DefaultTableModel model = (DefaultTableModel)deleteCustomerView.getDelCustomerTbl().getModel();
             model.setRowCount(0);
+             // Validate customer id with regex
+            String customerIdString = deleteCustomerView.getIdTxt().getText().strip();
+            if(!customerIdString.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Customer can only have numnbers.");
+                return;
+            }
+            int customerId = Integer.parseInt(customerIdString);
             
             try{
                 if(customerId != 0) {                    
@@ -303,9 +377,15 @@ public class CustomerController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int customerId = Integer.parseInt(deleteCustomerView.getIdTxt().getText());
             DefaultTableModel model = (DefaultTableModel)deleteCustomerView.getDelCustomerTbl().getModel();
-
+            // Validate customer id with regex
+            String customerIdString = deleteCustomerView.getIdTxt().getText().strip();
+            if(!customerIdString.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Customer can only have numnbers.");
+                return;
+            }
+            int customerId = Integer.parseInt(customerIdString);
+            
             if(customerId != 0) {
                 boolean result = customerDao.deleteCustomer(customerId);
                 
@@ -334,9 +414,15 @@ public class CustomerController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int customerId = Integer.parseInt(searchCustomerView.getCustomerIdTxt().getText());
             DefaultTableModel model = (DefaultTableModel)searchCustomerView.getSearchCustomerTbl().getModel();
             model.setRowCount(0);
+            // Validate customer id with regex
+            String customerIdString = searchCustomerView.getCustomerIdTxt().getText().strip();
+            if(!customerIdString.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Customer can only have numnbers.");
+                return;
+            }
+            int customerId = Integer.parseInt(customerIdString);
             
             try{
                 if(customerId != 0) {                    
@@ -378,9 +464,14 @@ public class CustomerController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String customerEmail = searchCustomerView.getEmailTxt().getText();
             DefaultTableModel model = (DefaultTableModel)searchCustomerView.getSearchCustomerTbl().getModel();
-            model.setRowCount(0);          
+            model.setRowCount(0);
+            String customerEmail = searchCustomerView.getEmailTxt().getText().strip();
+            // Validate email with regex
+            if(!customerEmail.matches(emailRegEx)){
+                JOptionPane.showMessageDialog(null, "Inavalid email format.");
+                return;
+            }
 
             if(!customerEmail.equals("")) {       
                 ArrayList<Customer> customers = customerDao.fetchCustomerByEmail(customerEmail);
@@ -409,9 +500,14 @@ public class CustomerController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String customerPhone = searchCustomerView.getPhoneTxt().getText();
             DefaultTableModel model = (DefaultTableModel)searchCustomerView.getSearchCustomerTbl().getModel();
-            model.setRowCount(0);          
+            model.setRowCount(0);
+            String customerPhone = searchCustomerView.getPhoneTxt().getText().strip();
+            // Validate phone with regex
+            if(!customerPhone.matches(phoneNumRegEx)) {
+                JOptionPane.showMessageDialog(null, "Phone number can only have numbers.");
+                return;
+            }
 
             if(!customerPhone.equals("")) {       
                 ArrayList<Customer> customers = customerDao.fetchCustomerByPhone(customerPhone);
@@ -451,12 +547,12 @@ public class CustomerController {
             for (Customer customer: customers) {
                 Object[] row = {
                     customer.getCustomerId(),
-                        customer.getFirstName() + " " + customer.getLastName(),
-                        customer.getDob(),
-                        customer.getEmail(),
-                        customer.getPhone(),
-                        customer.getUnitNumber() + " " + customer.getStreetAddress() + " " + customer.getCity() + " " + customer.getCountry(),
-                        customer.getPostalCode()                        
+                    customer.getFirstName() + " " + customer.getLastName(),
+                    customer.getDob(),
+                    customer.getEmail(),
+                    customer.getPhone(),
+                    customer.getUnitNumber() + " " + customer.getStreetAddress() + " " + customer.getCity() + " " + customer.getCountry(),
+                    customer.getPostalCode()                        
                 };                 
                 model.addRow(row);
             }                             
@@ -468,24 +564,30 @@ public class CustomerController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int customerId = Integer.parseInt(editCustomerView.getCustomerIdTxt().getText());       
             try{
+                // Validate customer id with regex
+                String customerIdString = editCustomerView.getCustomerIdTxt().getText().strip();
+                if(!customerIdString.matches(numberOnlyRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Customer Id can only have numbers.");
+                    return;
+                }               
+                int customerId = Integer.parseInt(customerIdString);
+                
                 if(customerId != 0) {                    
                     Customer customer = customerDao.fetchCustomerById(customerId);
                     // Temporarly hold this customer to be used in customer edit.
                     tempCustomer = customer;
-                    System.out.println(tempCustomer.getFirstName());
 
-                        editCustomerView.getFnameTxt().setText(customer.getFirstName());
-                        editCustomerView.getLnameTxt().setText(customer.getLastName());
-                        editCustomerView.getDobTxt().setText(customer.getDob().toString());
-                        editCustomerView.getEmailTxt().setText(customer.getEmail());
-                        editCustomerView.getPhoneTxt().setText(customer.getPhone());
-                        editCustomerView.getUnitTxt().setText(customer.getUnitNumber());
-                        editCustomerView.getStreetTxt().setText(customer.getStreetAddress());
-                        editCustomerView.getCityTxt().setText(customer.getCity());
-                        editCustomerView.getPostalTxt().setText(customer.getPostalCode());
-                        editCustomerView.getCountryTxt().setText(customer.getCountry());
+                    editCustomerView.getFnameTxt().setText(customer.getFirstName());
+                    editCustomerView.getLnameTxt().setText(customer.getLastName());
+                    editCustomerView.getDobTxt().setText(customer.getDob().toString());
+                    editCustomerView.getEmailTxt().setText(customer.getEmail());
+                    editCustomerView.getPhoneTxt().setText(customer.getPhone());
+                    editCustomerView.getUnitTxt().setText(customer.getUnitNumber());
+                    editCustomerView.getStreetTxt().setText(customer.getStreetAddress());
+                    editCustomerView.getCityTxt().setText(customer.getCity());
+                    editCustomerView.getPostalTxt().setText(customer.getPostalCode());
+                    editCustomerView.getCountryTxt().setText(customer.getCountry());
                 } else {
                     throw new Exception();
 
@@ -525,17 +627,67 @@ public class CustomerController {
         public void actionPerformed(ActionEvent e) {  
             System.out.println(tempCustomer.getFirstName());
 
-            if(tempCustomer != null) {                                
-                tempCustomer.setFirstName(editCustomerView.getFnameTxt().getText());
-                tempCustomer.setLastName(editCustomerView.getLnameTxt().getText());
-                tempCustomer.setDob(LocalDate.parse(editCustomerView.getDobTxt().getText()));
-                tempCustomer.setEmail(editCustomerView.getEmailTxt().getText());
-                tempCustomer.setPhone(editCustomerView.getPhoneTxt().getText());
-                tempCustomer.setUnitNumber(editCustomerView.getUnitTxt().getText());
-                tempCustomer.setStreetAddress(editCustomerView.getStreetTxt().getText());
-                tempCustomer.setCity(editCustomerView.getCityTxt().getText());
-                tempCustomer.setPostalCode(editCustomerView.getPostalTxt().getText());
-                tempCustomer.setCountry(editCustomerView.getCountryTxt().getText());
+            if(tempCustomer != null) { 
+                // Validate all inputs with regex before setting the customer's attribues
+                String fName = editCustomerView.getFnameTxt().getText().strip();
+                String lName = editCustomerView.getLnameTxt().getText().strip();
+                if(!fName.matches(lettersRegEx) || !(lName.matches(lettersRegEx))) {
+                    JOptionPane.showMessageDialog(null, "Name can only have letters and spaces.");
+                    return;
+                }                        
+                tempCustomer.setFirstName(fName);
+                tempCustomer.setLastName(lName);
+                
+                String dobString = editCustomerView.getDobTxt().getText().strip();
+                if (!dobString.matches(dateRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Date must be in yyyy-mm-dd format.");
+                    return;
+                }            
+                tempCustomer.setDob(LocalDate.parse(dobString));
+                
+                String email = editCustomerView.getEmailTxt().getText().strip();
+                if(!email.matches(emailRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Invalid email format.");
+                    return;
+                }
+                tempCustomer.setEmail(email);
+                
+                String phone = editCustomerView.getPhoneTxt().getText().strip();
+                if(!phone.matches(phoneNumRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Phone number can only have numbers. ");
+                    return;
+                }
+                tempCustomer.setPhone(phone);
+                
+                String unit = editCustomerView.getUnitTxt().getText().strip();
+                if(!unit.matches(numberOnlyRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Unit number can only have numbers. ");
+                    return;
+                }
+                tempCustomer.setUnitNumber(unit);
+                
+                String street = editCustomerView.getStreetTxt().getText().strip();
+                String city = editCustomerView.getCityTxt().getText().strip();
+                if(!street.matches(lettersRegEx) || !(city.matches(lettersRegEx))) {
+                    JOptionPane.showMessageDialog(null, "Street and city can only have letters and spaces. ");
+                    return;
+                }
+                tempCustomer.setStreetAddress(street);    
+                tempCustomer.setCity(city);
+                
+                String postal = editCustomerView.getPostalTxt().getText().strip();
+                if(!postal.matches(postalCodeRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Invalid Canadian postal code.");
+                    return;
+                }
+                tempCustomer.setPostalCode(postal);
+                
+                String country = editCustomerView.getCountryTxt().getText().strip();
+                if(!country.matches(lettersRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Country can only have letters and spaces.");
+                    return;
+                }         
+                tempCustomer.setCountry(country);
                 
                 boolean result = customerDao.editCustomer(tempCustomer);
                 if(result) {
