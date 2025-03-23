@@ -26,7 +26,7 @@ public class FlightController {
     private SearchFlightView searchFlightView;
     private FlightDAO flightDAO;
     private Pattern lettersOnly = Pattern.compile("^[A-z]+$");
-    private Pattern lettersAndSpaces = Pattern.compile("^[A-z ]$");
+    private Pattern lettersAndSpaces = Pattern.compile("^[A-z ]+$");
     private Pattern numbersOnly = Pattern.compile("^[0-9]+$");
     private Pattern pricePattern = Pattern.compile("^[0-9]+\\.?[0-9]{0,2}$");
     private Pattern lettersAndNumbers = Pattern.compile("^[0-9A-z]+$");
@@ -105,7 +105,7 @@ public class FlightController {
             model.setRowCount(0);
             //get the inputed airline vlaue
             String airline = searchFlightView.getAirlineTxt().getText();
-            Matcher airlineMatch = lettersOnly.matcher(airline);
+            Matcher airlineMatch = lettersAndSpaces.matcher(airline);
             //get all returned flight from that airline from the database
             if(airlineMatch.find()) {
                 Flight[] output = flightDAO.searchFromAirline(airline);
@@ -355,7 +355,7 @@ public class FlightController {
             }
             int flightId = Integer.parseInt(editFlightView.getFlighIdTxt().getText());
             String airline = editFlightView.getAirlineTxt().getText();
-            Matcher airlineMatch = lettersOnly.matcher(airline);
+            Matcher airlineMatch = lettersAndSpaces.matcher(airline);
             if(!airlineMatch.find()) {
                 JOptionPane.showMessageDialog(null, "Airline can only contain letters!");
                 return;
@@ -447,7 +447,7 @@ public class FlightController {
         public void actionPerformed(ActionEvent e) {
             try{
                 String airline = addFlightView.getAirlineTxt().getText();
-                Matcher airlineMatch = lettersOnly.matcher(airline);
+                Matcher airlineMatch = lettersAndSpaces.matcher(airline);
                 if(!airlineMatch.find()) {
                     JOptionPane.showMessageDialog(null, "Airline can only contain letters!");
                     return;

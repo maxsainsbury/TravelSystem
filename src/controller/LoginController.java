@@ -55,13 +55,13 @@ public class LoginController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String username = loginView.getUserIdTxt().getText();
+            String username = loginView.getUserIdTxt().getText().strip();
             Matcher usernameMatch = usernameRegex.matcher(username);
             if(!usernameMatch.find()) {
                 JOptionPane.showMessageDialog(null, "Username can only contain letters numbers - and _");
                 return;
             }
-            String password = loginView.getPasswordTxt().getText();
+            String password = loginView.getPasswordTxt().getText().strip();
             Matcher passwordMatch = passwordRegex.matcher(password);
             if(!passwordMatch.find()) {
                 JOptionPane.showMessageDialog(null, "Password can on contain letters numbers and special characters");
