@@ -40,6 +40,7 @@ public class EmployeeController {
     // Date must be yyyy-mm-dd format
     private String dateRegEx = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])";
     private String floatRegEx = "[-+]?\\d*[.,]\\d+|\\d+";
+    private String roleRegEx = "^[eE]mployee$|^[aA]dmin$";
     
     /**
      * Controller for addEmployeeView
@@ -187,8 +188,8 @@ public class EmployeeController {
                 float empSalary = Float.parseFloat(empSalaryString);
                                
                 String empRole = addEmployeeView.getRoleTxt().getText().strip();
-                if(!empRole.matches(lettersRegEx)) {
-                    JOptionPane.showMessageDialog(null, "Role can only have letters. ");
+                if(!empRole.matches(roleRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Role can only be admin or employee. ");
                     return;
                 }
                 
@@ -629,8 +630,8 @@ public class EmployeeController {
                 tempEmployee.setSalary(Double.parseDouble(salary));
 
                 String role = editEmployeeView.getRoleTxt().getText().strip();
-                if(!role.matches(lettersRegEx)) {
-                    JOptionPane.showMessageDialog(null, "Role can only have letters and spaces.");
+                if(!role.matches(roleRegEx)) {
+                    JOptionPane.showMessageDialog(null, "Role can only be admin and employee.");
                     return;
                 }
                 tempEmployee.setRole(role);

@@ -53,11 +53,11 @@
                   <Component id="searchOriginBtn" min="-2" max="-2" attributes="0"/>
                   <Component id="searchMonthBtn" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="516" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="619" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="823" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -89,7 +89,7 @@
                   <Component id="searchAllBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="101" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="137" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>

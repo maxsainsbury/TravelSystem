@@ -44,8 +44,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" alignment="0" min="-2" pref="808" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="airlineLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="flightIdLbl" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -69,9 +68,11 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="562" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

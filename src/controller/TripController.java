@@ -28,6 +28,7 @@ public class TripController {
     private SearchTripView searchTripView;
     private TripDAO tripDAO;
     private Pattern lettersOnly = Pattern.compile("^[A-z]+$");
+    private Pattern lettersAndSpaces = Pattern.compile("^[A-z ]+$");
     private Pattern numbersOnly = Pattern.compile("^[0-9]+$");
     private Pattern month = Pattern.compile("^0[0-9]$|^1[0-2]$");
     private Pattern date = Pattern.compile(
@@ -377,7 +378,7 @@ public class TripController {
                     return;
                 }
                 String status = editTripView.getStatusTxt().getText();
-                Matcher statusMatch = lettersOnly.matcher(status);
+                Matcher statusMatch = lettersAndSpaces.matcher(status);
                 if(!statusMatch.find()){
                     JOptionPane.showMessageDialog(null, "Status can only contain letters!");
                     return;
@@ -513,7 +514,7 @@ public class TripController {
                 return;
             }
             String status = addTripView.getStatusTxt().getText();
-            Matcher statusMatch = lettersOnly.matcher(status);
+            Matcher statusMatch = lettersAndSpaces.matcher(status);
             if(!statusMatch.find()){
                 JOptionPane.showMessageDialog(null, "Status can only contain letters!");
                 return;

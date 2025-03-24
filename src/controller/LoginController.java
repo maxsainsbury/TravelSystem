@@ -72,17 +72,23 @@ public class LoginController {
                 if(user.getUserType().toUpperCase().equals("customer".toUpperCase())) {
                     customerMainFrame.setVisible(true);
                     loginView.dispose();
+                    employeeMainFrame.dispose();
+                    adminMainFrame.dispose();
                 }
                 else if(user.getUserType().toUpperCase().equals("employee".toUpperCase())) {
                     String role = loginDAO.checkEmployeeType(user);
                     if(role.toUpperCase().equals("employee".toUpperCase())) {
                         employeeMainFrame.setVisible(true);
                         loginView.dispose();
+                        customerMainFrame.dispose();
+                        adminMainFrame.dispose();
                     }
                     else if(role.toUpperCase().equals("admin".toUpperCase())) {
                         System.out.println(role);
                         adminMainFrame.setVisible(true);
                         loginView.dispose();
+                        customerMainFrame.dispose();
+                        employeeMainFrame.dispose();
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "Employee found in user table but not in employee table");
