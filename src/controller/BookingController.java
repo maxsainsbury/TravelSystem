@@ -16,7 +16,7 @@ import model.Booking;
 
 /**
  *
- * @author c0543503
+ * @author Goen Choi
  */
 public class BookingController {
     private BookingDAO bookingDao;
@@ -34,7 +34,7 @@ public class BookingController {
     /**
      * Constructor for add booking view.
      * @param bookingDao
-     * @param addBookingwiew 
+     * @param addBookingView 
      */
     public BookingController(BookingDAO bookingDao, AddBookingView addBookingView) {
         this.bookingDao = bookingDao;
@@ -109,7 +109,7 @@ public class BookingController {
             
             String priceString = addBookingView.getPriceTxt().getText().strip();
             if(!priceString.matches(floatRegEx)){
-                JOptionPane.showMessageDialog(null, "Successfully added a new booking.");
+                JOptionPane.showMessageDialog(null, "Amount must be a valid dollar.cent format.");
                 return;
             }
             double totalPrice = Double.parseDouble(priceString);
@@ -424,7 +424,7 @@ public class BookingController {
             if (result){
                 JOptionPane.showMessageDialog(null, "Successfully deleted booking.");
             } else {
-                JOptionPane.showMessageDialog(null, "Was not able to update booking. ");
+                JOptionPane.showMessageDialog(null, "Was not able to dellete booking. ");
             }  
             // Clear variable after deleting.
             bookingIdToDelete = 0;          

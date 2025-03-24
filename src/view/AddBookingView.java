@@ -1,5 +1,7 @@
 package view;
 
+import controller.PaymentController;
+import dao.PaymentDAO;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -68,6 +70,11 @@ public class AddBookingView extends javax.swing.JFrame {
         dateLbl.setText("Date Booked (YYYY-MM-DD):");
 
         payBtn.setText("Add Payment");
+        payBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payBtnActionPerformed(evt);
+            }
+        });
 
         empIdLbl.setText("Employee ID:");
 
@@ -139,6 +146,13 @@ public class AddBookingView extends javax.swing.JFrame {
     private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
+        AddPaymentView addPaymentView = new AddPaymentView();
+        PaymentDAO paymentDAO = new PaymentDAO();
+        PaymentController paymentController = new PaymentController(addPaymentView, paymentDAO);
+        addPaymentView.setVisible(true);
+    }//GEN-LAST:event_payBtnActionPerformed
 
     public JButton getAddBookingBtn() {
         return addBookingBtn;

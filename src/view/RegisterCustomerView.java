@@ -15,6 +15,7 @@ public class RegisterCustomerView extends javax.swing.JFrame {
      */
     public RegisterCustomerView() {
         initComponents();
+        setDefaultCloseOperation(RegisterCustomerView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getDobTxt() {

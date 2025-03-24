@@ -15,7 +15,7 @@ public class EditCustomerView extends javax.swing.JFrame {
      */
     public EditCustomerView() {
         initComponents();
-        setDefaultCloseOperation(EditEmployeeView.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EditCustomerView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getCityTxt() {
