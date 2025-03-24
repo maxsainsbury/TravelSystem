@@ -615,7 +615,7 @@ public class EmployeeController {
                 String country = editEmployeeView.getCountryTxt().getText().strip();
                 String position = editEmployeeView.getPositionTxt().getText().strip();
                 if(!country.matches(lettersRegEx) || !(position.matches(lettersRegEx))) {
-                    JOptionPane.showMessageDialog(null, "Invalid Canadian postal code.");
+                    JOptionPane.showMessageDialog(null, "Country and position can only have letters and spaces.");
                     return;
                 }         
                 tempEmployee.setCountry(country);

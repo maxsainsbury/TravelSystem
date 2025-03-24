@@ -18,6 +18,10 @@ public class PaymentController {
     private AddPaymentView addPaymentView;
     private SearchPaymentView searchPaymentView;
     private PaymentDAO paymentDAO;
+    // Regex variables
+    private String numberOnlyRegEx = "^[0-9]+$";
+    private String dateRegEx = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])";
+    private String floatRegEx = "[-+]?\\d*[.,]\\d+|\\d+";
     
     /**
      * Constructor for controlling the addPaymentView
@@ -73,11 +77,30 @@ public class PaymentController {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-            int bookId = Integer.parseInt(addPaymentView.getBookingIdTxt().getText());
-            int empId = Integer.parseInt(addPaymentView.getEmpIdTxt().getText());
-            double payAmount = Double.parseDouble(addPaymentView.getAmountTxt().getText());
+            String bookIdString = addPaymentView.getBookingIdTxt().getText().strip();
+            String empIdString = addPaymentView.getEmpIdTxt().getText().strip();
+            if(!(empIdString.matches(numberOnlyRegEx)) || !(bookIdString.matches(numberOnlyRegEx))) {
+                JOptionPane.showMessageDialog(null, "Id can consist of numbers only.");
+                return;
+            }  
+            int bookId = Integer.parseInt(bookIdString);
+            int empId = Integer.parseInt(empIdString);
+            
+            String payDate = addPaymentView.getDateTxt().getText().strip();
+            if(!payDate.matches(dateRegEx)){
+                JOptionPane.showMessageDialog(null, "Date must be in yyyy-mm-dd format.");
+                return;
+            }
+            
+            String payAmountString = addPaymentView.getAmountTxt().getText().strip();
+            if(!payAmountString.matches(floatRegEx)){
+                JOptionPane.showMessageDialog(null, "Amount must be a valid dollar.cent format.");
+                return;
+            }
+            double payAmount = Double.parseDouble(payAmountString);
+            
             String payMethod = (String) addPaymentView.getMethodCmbo().getSelectedItem();
-            String payDate = addPaymentView.getDateTxt().getText();
+
             
             boolean result;
             
@@ -132,7 +155,13 @@ public class PaymentController {
             DefaultTableModel model = (DefaultTableModel)searchPaymentView.getSearchPaymentTbl().getModel();
             model.setRowCount(0);
             
-            int paymentId = Integer.parseInt(searchPaymentView.getPaymentIdTxt().getText());
+            // Validate id with regex
+            String id = searchPaymentView.getPaymentIdTxt().getText().strip();
+            if(!id.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Payment Id can consist of numbers only.");   
+                return;
+            }
+            int paymentId = Integer.parseInt(id);
             
             try{
                 if(paymentId != 0) {                    
@@ -161,7 +190,13 @@ public class PaymentController {
             DefaultTableModel model = (DefaultTableModel)searchPaymentView.getSearchPaymentTbl().getModel();
             model.setRowCount(0);
             
-            int bookingId = Integer.parseInt(searchPaymentView.getBookingIdTxt().getText());
+            // Validate id with regex
+            String id = searchPaymentView.getBookingIdTxt().getText().strip();
+            if(!id.matches(numberOnlyRegEx)) {
+                JOptionPane.showMessageDialog(null, "Booking Id can consist of numbers only.");   
+                return;
+            }
+            int bookingId = Integer.parseInt(id);
             
             try{
                 if(bookingId != 0) {                    

@@ -17,7 +17,7 @@ public class SearchCustomerView extends javax.swing.JFrame {
      */
     public SearchCustomerView() {
         initComponents();
-        setDefaultCloseOperation(SearchEmployeeView.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(SearchCustomerView.DISPOSE_ON_CLOSE);
     }
 
     public JTextField getCustomerIdTxt() {
