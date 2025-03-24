@@ -33,7 +33,7 @@ public class EmployeeController {
     private String lettersRegEx = "^[a-zA-Z]+[ ]*[a-zA-Z]*$";
     private String sinNumRegEx =  "^\\d{9}$";
     private String postalCodeRegEx = "^[ABCEGHJ-NPRSTVXY][0-9][ABCEGHJ-NPRSTV-Z][ ]?[0-9][ABCEGHJ-NPRSTV-Z][0-9]$";
-    private String phoneNumRegEx = "^(1|)[2-9]\\d{2}[2-9]\\d{6}$";
+    private String phoneNumRegEx = "^(\\(\\+[0-9]{2}\\))?([0-9]{3}-?)?([0-9]{3})\\-?([0-9]{4})(\\/[0-9]{4})?$";
     private String ageRegEx = "^([1-9][0-9]?|100)$";
     private String emailRegEx = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     private String numberOnlyRegEx = "^[0-9]+$";
